@@ -34221,6 +34221,7 @@
 	  newsCount: 0,
 	  coinId: 1,
 	  sourceId: 0,
+	  favorite: null,
 	  prices: null,
 	  coins: null,
 	  me: null,
@@ -34271,6 +34272,10 @@
 	    case _AuthAction.SUCCEED_TO_GET_ME:
 	      return Object.assign({}, state, {
 	        me: action.payload
+	      });
+	    case _PriceAction.SUCCEED_TO_GET_FAVS:
+	      return Object.assign({}, state, {
+	        favorite: action.payload
 	      });
 	    case _PriceAction.SUCCEED_TO_GET_PRICE:
 	      return Object.assign({}, state, {
@@ -35084,7 +35089,9 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(432)();
-	exports.push([module.id, "/*\n* Author: @nayunhwan (github.com/nayunhwan)\n* Email: nayunhwan.dev@mgail.com\n*/\n/*\n* Author: @nayunhwan (github.com/nayunhwan)\n* Email: nayunhwan.dev@mgail.com\n*/\n/*\n* Author: @nayunhwan (github.com/nayunhwan)\n* Email: nayunhwan.dev@mgail.com\n*/\n/*\n* Author: @nayunhwan (github.com/nayunhwan)\n* Email: nayunhwan.dev@mgail.com\n*/\n.homePage {\n  background: #536976;\n  /* fallback for old browsers */\n  background: -webkit-linear-gradient(to right, #292e49, #536976);\n  /* Chrome 10-25, Safari 5.1-6 */\n  background: linear-gradient(to right, #292e49, #536976);\n  height: 100%;\n  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ }\n  .homePage__content {\n    margin-left: 100px;\n    height: 100vh;\n    overflow-y: hidden; }\n    .homePage__content__news {\n      box-sizing: border-box;\n      float: left;\n      height: 100vh;\n      width: calc(50vw - 100px);\n      border-right: 1px white solid; }\n      .homePage__content__news__search {\n        display: flex;\n        flex-direction: column;\n        position: fixed;\n        width: calc(50vw - 100px);\n        padding-top: 1.5rem;\n        height: 145px;\n        border-bottom: 1px white solid; }\n        .homePage__content__news__search__first {\n          display: flex;\n          flex-direction: row; }\n          .homePage__content__news__search__first__iconArea {\n            padding-left: 1rem;\n            display: flex;\n            justify-content: center;\n            margin-right: 1rem;\n            align-items: center; }\n            .homePage__content__news__search__first__iconArea__icon {\n              color: white;\n              font-size: 1.5rem; }\n          .homePage__content__news__search__first__inputArea {\n            display: flex;\n            align-items: center; }\n            .homePage__content__news__search__first__inputArea__input {\n              background-color: transparent;\n              outline-width: 0 !important;\n              color: white;\n              border: 0;\n              width: 35vw; }\n        .homePage__content__news__search__second__content {\n          padding-left: 1rem;\n          padding-right: 1rem;\n          display: flex;\n          flex-direction: row;\n          justify-content: space-between; }\n      .homePage__content__news__lists {\n        height: calc(100vh - 145px);\n        margin-top: 145px;\n        overflow-y: scroll; }\n        .homePage__content__news__lists-loading {\n          display: flex;\n          justify-content: center;\n          align-items: center;\n          height: 55vh;\n          height: calc(100vh - 145px);\n          margin-top: 145px; }\n        .homePage__content__news__lists__footer {\n          height: 10vh;\n          display: flex;\n          align-items: center;\n          justify-content: center; }\n    .homePage__content__chart {\n      color: white;\n      height: 100vh;\n      width: calc(50vw-100px);\n      margin-right: 100px;\n      overflow-y: scroll; }\n      .homePage__content__chart__wrapper {\n        background: transparent;\n        overflow-y: scroll; }\n        .homePage__content__chart__wrapper > div {\n          background-color: transparent !important; }\n      .homePage__content__chart__loading {\n        display: flex;\n        align-items: center;\n        justify-content: center;\n        height: 100vh; }\n      .homePage__content__chart__intro {\n        padding: 2rem 2rem 2rem 2rem;\n        display: flex;\n        flex-direction: column; }\n        .homePage__content__chart__intro__logo {\n          display: flex;\n          flex-direction: row;\n          align-items: center; }\n          .homePage__content__chart__intro__logo__text {\n            margin-left: 1rem;\n            font-size: 2rem; }\n        .homePage__content__chart__intro__welcome {\n          margin-top: 6%; }\n        .homePage__content__chart__intro__desc {\n          margin-top: 6%; }\n\n/*\n* Author: @nayunhwan (github.com/nayunhwan)\n* Email: nayunhwan.dev@mgail.com\n*/\n.authPage {\n  background: #536976;\n  /* fallback for old browsers */\n  background: -webkit-linear-gradient(to right, #292e49, #536976);\n  /* Chrome 10-25, Safari 5.1-6 */\n  background: linear-gradient(to right, #292e49, #536976);\n  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ }\n  .authPage__content {\n    margin-left: 100px;\n    height: 100vh;\n    overflow-y: hidden; }\n    .authPage__content__news {\n      box-sizing: border-box;\n      float: left;\n      height: 100vh;\n      width: calc(50vw - 100px);\n      border-right: 1px white solid; }\n      .authPage__content__news__search {\n        display: flex;\n        flex-direction: column;\n        position: fixed;\n        width: calc(50vw - 100px);\n        padding-top: 1.5rem;\n        height: 145px;\n        border-bottom: 1px white solid; }\n        .authPage__content__news__search__first {\n          display: flex;\n          flex-direction: row; }\n          .authPage__content__news__search__first__iconArea {\n            padding-left: 1rem;\n            display: flex;\n            justify-content: center;\n            margin-right: 1rem;\n            align-items: center; }\n            .authPage__content__news__search__first__iconArea__icon {\n              color: white;\n              font-size: 1.5rem; }\n          .authPage__content__news__search__first__inputArea {\n            display: flex;\n            align-items: center; }\n            .authPage__content__news__search__first__inputArea__input {\n              background-color: transparent;\n              outline-width: 0 !important;\n              color: white;\n              border: 0;\n              width: 35vw; }\n        .authPage__content__news__search__second__content {\n          padding-left: 1rem; }\n      .authPage__content__news__lists {\n        height: calc(100vh - 145px);\n        margin-top: 145px;\n        overflow-y: scroll; }\n    .authPage__content__chart {\n      color: white;\n      height: 100vh;\n      width: calc(50vw-100px);\n      margin-right: 100px;\n      overflow-y: scroll; }\n      .authPage__content__chart__loading {\n        display: flex;\n        align-items: center;\n        justify-content: center;\n        height: 100vh; }\n      .authPage__content__chart__intro {\n        padding: 2rem 2rem 2rem 2rem;\n        display: flex;\n        flex-direction: column; }\n        .authPage__content__chart__intro__logo {\n          display: flex;\n          flex-direction: row;\n          align-items: center; }\n          .authPage__content__chart__intro__logo__text {\n            margin-left: 1rem;\n            font-size: 2rem; }\n        .authPage__content__chart__intro__welcome {\n          margin-top: 6%; }\n        .authPage__content__chart__intro__login {\n          margin-top: 15%;\n          width: 100%;\n          display: flex;\n          flex-direction: column;\n          align-items: center; }\n        .authPage__content__chart__intro__signUp {\n          margin-top: 5%;\n          width: 100%;\n          display: flex;\n          flex-direction: column;\n          align-items: center; }\n          .authPage__content__chart__intro__signUp__link {\n            cursor: pointer; }\n\n/*\n* Author: @nayunhwan (github.com/nayunhwan)\n* Email: nayunhwan.dev@mgail.com\n*/\n.signUpPage {\n  background: #536976;\n  /* fallback for old browsers */\n  background: -webkit-linear-gradient(to right, #292e49, #536976);\n  /* Chrome 10-25, Safari 5.1-6 */\n  background: linear-gradient(to right, #292e49, #536976);\n  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ }\n  .signUpPage__content {\n    margin-left: 100px;\n    height: 100vh;\n    overflow-y: hidden; }\n    .signUpPage__content__news {\n      box-sizing: border-box;\n      float: left;\n      height: 100vh;\n      width: calc(50vw - 100px);\n      border-right: 1px white solid; }\n      .signUpPage__content__news__search {\n        display: flex;\n        flex-direction: column;\n        position: fixed;\n        width: calc(50vw - 100px);\n        padding-top: 1.5rem;\n        height: 145px;\n        border-bottom: 1px white solid; }\n        .signUpPage__content__news__search__first {\n          display: flex;\n          flex-direction: row; }\n          .signUpPage__content__news__search__first__iconArea {\n            padding-left: 1rem;\n            display: flex;\n            justify-content: center;\n            margin-right: 1rem;\n            align-items: center; }\n            .signUpPage__content__news__search__first__iconArea__icon {\n              color: white;\n              font-size: 1.5rem; }\n          .signUpPage__content__news__search__first__inputArea {\n            display: flex;\n            align-items: center; }\n            .signUpPage__content__news__search__first__inputArea__input {\n              background-color: transparent;\n              outline-width: 0 !important;\n              color: white;\n              border: 0;\n              width: 35vw; }\n        .signUpPage__content__news__search__second__content {\n          padding-left: 1rem; }\n      .signUpPage__content__news__lists {\n        height: calc(100vh - 145px);\n        margin-top: 145px;\n        overflow-y: scroll; }\n    .signUpPage__content__chart {\n      color: white;\n      height: 100vh;\n      width: calc(50vw-100px);\n      margin-right: 100px;\n      overflow-y: scroll; }\n      .signUpPage__content__chart__loading {\n        display: flex;\n        align-items: center;\n        justify-content: center;\n        height: 100vh; }\n      .signUpPage__content__chart__intro {\n        padding: 2rem 2rem 2rem 2rem;\n        display: flex;\n        flex-direction: column; }\n        .signUpPage__content__chart__intro__logo {\n          display: flex;\n          flex-direction: row;\n          align-items: center; }\n          .signUpPage__content__chart__intro__logo__text {\n            margin-left: 1rem;\n            font-size: 2rem; }\n        .signUpPage__content__chart__intro__welcome {\n          margin-top: 6%; }\n        .signUpPage__content__chart__intro__login {\n          margin-top: 15%;\n          width: 100%;\n          display: flex;\n          flex-direction: column;\n          align-items: center; }\n        .signUpPage__content__chart__intro__signUp {\n          margin-top: 5%;\n          width: 100%;\n          display: flex;\n          flex-direction: column;\n          align-items: center; }\n          .signUpPage__content__chart__intro__signUp__link {\n            cursor: pointer; }\n\n/*\n* Author: @nayunhwan (github.com/nayunhwan)\n* Email: nayunhwan.dev@mgail.com\n*/\n.myPage {\n  background: #536976;\n  /* fallback for old browsers */\n  background: -webkit-linear-gradient(to right, #292e49, #536976);\n  /* Chrome 10-25, Safari 5.1-6 */\n  background: linear-gradient(to right, #292e49, #536976);\n  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ }\n  .myPage__content {\n    margin-left: 100px;\n    height: 100vh;\n    overflow-y: hidden; }\n    .myPage__content__news {\n      box-sizing: border-box;\n      float: left;\n      height: 100vh;\n      width: calc(50vw - 100px);\n      border-right: 1px white solid; }\n      .myPage__content__news__search {\n        display: flex;\n        flex-direction: column;\n        position: fixed;\n        width: calc(50vw - 100px);\n        padding-top: 1.5rem;\n        height: 145px;\n        border-bottom: 1px white solid; }\n        .myPage__content__news__search__first {\n          display: flex;\n          flex-direction: row; }\n          .myPage__content__news__search__first__iconArea {\n            padding-left: 1rem;\n            display: flex;\n            justify-content: center;\n            margin-right: 1rem;\n            align-items: center; }\n            .myPage__content__news__search__first__iconArea__icon {\n              color: white;\n              font-size: 1.5rem; }\n          .myPage__content__news__search__first__inputArea {\n            display: flex;\n            align-items: center; }\n            .myPage__content__news__search__first__inputArea__input {\n              background-color: transparent;\n              outline-width: 0 !important;\n              color: white;\n              border: 0;\n              width: 35vw; }\n        .myPage__content__news__search__second__content {\n          padding-left: 1rem; }\n      .myPage__content__news__lists {\n        height: calc(100vh - 145px);\n        margin-top: 145px;\n        overflow-y: scroll; }\n    .myPage__content__chart {\n      color: white;\n      height: 100vh;\n      width: calc(50vw-100px);\n      margin-right: 100px;\n      overflow-y: scroll; }\n      .myPage__content__chart__loading {\n        display: flex;\n        align-items: center;\n        justify-content: center;\n        height: 100vh; }\n      .myPage__content__chart__intro {\n        padding: 2rem 2rem 2rem 2rem;\n        display: flex;\n        flex-direction: column; }\n        .myPage__content__chart__intro__logo {\n          display: flex;\n          flex-direction: row;\n          align-items: center; }\n          .myPage__content__chart__intro__logo__text {\n            margin-left: 1rem;\n            font-size: 2rem; }\n        .myPage__content__chart__intro__welcome {\n          margin-top: 6%;\n          display: flex;\n          align-items: center; }\n          .myPage__content__chart__intro__welcome__text {\n            margin-left: 2%; }\n        .myPage__content__chart__intro__login {\n          margin-top: 15%;\n          width: 100%;\n          display: flex;\n          flex-direction: column;\n          align-items: center; }\n        .myPage__content__chart__intro__signUp {\n          margin-top: 5%;\n          width: 100%;\n          display: flex;\n          flex-direction: column;\n          align-items: center; }\n          .myPage__content__chart__intro__signUp__link {\n            cursor: pointer; }\n\n/*\n* Author: @nayunhwan (github.com/nayunhwan)\n* Email: nayunhwan.dev@mgail.com\n*/\n.forumPage {\n  background: #536976;\n  /* fallback for old browsers */\n  background: -webkit-linear-gradient(to right, #292e49, #536976);\n  /* Chrome 10-25, Safari 5.1-6 */\n  background: linear-gradient(to right, #292e49, #536976);\n  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ }\n  .forumPage__modal {\n    height: 60vh;\n    padding-left: 50px;\n    padding-right: 50px;\n    display: flex;\n    flex-direction: column; }\n    .forumPage__modal__mainInput {\n      margin-right: 20px;\n      margin-left: 20px;\n      color: white;\n      font-size: 1rem;\n      width: 290px;\n      background: transparent;\n      padding-bottom: 10px;\n      padding-top: 10px;\n      word-break: break-all;\n      border: none; }\n      .forumPage__modal__mainInput:focus {\n        outline: none; }\n  .forumPage__content {\n    margin-left: 100px;\n    height: 100vh;\n    overflow-y: hidden; }\n    .forumPage__content__news {\n      box-sizing: border-box;\n      float: left;\n      height: 100vh;\n      width: calc(50vw - 100px);\n      border-right: 1px white solid; }\n      .forumPage__content__news__search {\n        display: flex;\n        flex-direction: column;\n        position: fixed;\n        width: calc(50vw - 100px);\n        padding-top: 1.5rem;\n        height: 145px;\n        border-bottom: 1px white solid; }\n        .forumPage__content__news__search__first {\n          display: flex;\n          flex-direction: row; }\n          .forumPage__content__news__search__first__iconArea {\n            padding-left: 1rem;\n            display: flex;\n            justify-content: center;\n            margin-right: 1rem;\n            align-items: center; }\n            .forumPage__content__news__search__first__iconArea__icon {\n              color: white;\n              font-size: 1.5rem; }\n          .forumPage__content__news__search__first__inputArea {\n            display: flex;\n            align-items: center; }\n            .forumPage__content__news__search__first__inputArea__input {\n              background-color: transparent;\n              outline-width: 0 !important;\n              color: white;\n              border: 0;\n              width: 35vw; }\n        .forumPage__content__news__search__second__content {\n          display: flex;\n          flex-direction: row;\n          justify-content: space-between;\n          padding-left: 1rem;\n          padding-right: 1rem; }\n      .forumPage__content__news__lists {\n        height: calc(100vh - 145px);\n        margin-top: 145px;\n        overflow-y: scroll; }\n    .forumPage__content__chart {\n      color: white;\n      height: 100vh;\n      width: calc(50vw-100px);\n      margin-right: 100px;\n      overflow-y: scroll; }\n      .forumPage__content__chart__loading {\n        display: flex;\n        align-items: center;\n        justify-content: center;\n        height: 100vh; }\n      .forumPage__content__chart__intro {\n        padding: 2rem 2rem 2rem 2rem;\n        display: flex;\n        flex-direction: column; }\n        .forumPage__content__chart__intro__logo {\n          display: flex;\n          flex-direction: row;\n          align-items: center; }\n          .forumPage__content__chart__intro__logo__text {\n            margin-left: 1rem;\n            font-size: 2rem; }\n        .forumPage__content__chart__intro__welcome {\n          margin-top: 6%;\n          display: flex;\n          align-items: center; }\n          .forumPage__content__chart__intro__welcome__text {\n            margin-left: 2%; }\n        .forumPage__content__chart__intro__login {\n          margin-top: 15%;\n          width: 100%;\n          display: flex;\n          flex-direction: column;\n          align-items: center; }\n        .forumPage__content__chart__intro__signUp {\n          margin-top: 5%;\n          width: 100%;\n          display: flex;\n          flex-direction: column;\n          align-items: center; }\n          .forumPage__content__chart__intro__signUp__link {\n            cursor: pointer; }\n\n/*\n* Author: @nayunhwan (github.com/nayunhwan)\n* Email: nayunhwan.dev@mgail.com\n*/\n.homePage {\n  background: #536976;\n  /* fallback for old browsers */\n  background: -webkit-linear-gradient(to right, #292e49, #536976);\n  /* Chrome 10-25, Safari 5.1-6 */\n  background: linear-gradient(to right, #292e49, #536976);\n  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ }\n  .homePage__content {\n    margin-left: 100px;\n    height: 100vh;\n    overflow-y: hidden; }\n    .homePage__content__news {\n      box-sizing: border-box;\n      float: left;\n      height: 100vh;\n      width: calc(50vw - 100px);\n      border-right: 1px white solid; }\n      .homePage__content__news__search {\n        display: flex;\n        flex-direction: column;\n        position: fixed;\n        width: calc(50vw - 100px);\n        padding-top: 1.5rem;\n        height: 145px;\n        border-bottom: 1px white solid; }\n        .homePage__content__news__search__first {\n          display: flex;\n          flex-direction: row; }\n          .homePage__content__news__search__first__iconArea {\n            padding-left: 1rem;\n            display: flex;\n            justify-content: center;\n            margin-right: 1rem;\n            align-items: center; }\n            .homePage__content__news__search__first__iconArea__icon {\n              color: white;\n              font-size: 1.5rem; }\n          .homePage__content__news__search__first__inputArea {\n            display: flex;\n            align-items: center; }\n            .homePage__content__news__search__first__inputArea__input {\n              background-color: transparent;\n              outline-width: 0 !important;\n              color: white;\n              border: 0;\n              width: 35vw; }\n        .homePage__content__news__search__second__content {\n          padding-left: 1rem; }\n      .homePage__content__news__lists {\n        height: calc(100vh - 145px);\n        margin-top: 145px;\n        overflow-y: scroll; }\n        .homePage__content__news__lists-loading {\n          display: flex;\n          justify-content: center;\n          align-items: center;\n          height: 55vh;\n          height: calc(100vh - 145px);\n          margin-top: 145px; }\n        .homePage__content__news__lists__footer {\n          height: 10vh;\n          display: flex;\n          align-items: center;\n          justify-content: center; }\n    .homePage__content__chart {\n      color: white;\n      height: 100vh;\n      width: calc(50vw-100px);\n      margin-right: 100px;\n      overflow-y: scroll; }\n      .homePage__content__chart__wrapper {\n        background: transparent;\n        overflow-y: scroll; }\n        .homePage__content__chart__wrapper > div {\n          background-color: transparent !important; }\n      .homePage__content__chart__loading {\n        display: flex;\n        align-items: center;\n        justify-content: center;\n        height: 100vh; }\n      .homePage__content__chart__intro {\n        padding: 2rem 2rem 2rem 2rem;\n        display: flex;\n        flex-direction: column; }\n        .homePage__content__chart__intro__logo {\n          display: flex;\n          flex-direction: row;\n          align-items: center; }\n          .homePage__content__chart__intro__logo__text {\n            margin-left: 1rem;\n            font-size: 2rem; }\n        .homePage__content__chart__intro__welcome {\n          margin-top: 6%; }\n        .homePage__content__chart__intro__desc {\n          margin-top: 6%; }\n\n/*\n* Author: @nayunhwan (github.com/nayunhwan)\n* Email: nayunhwan.dev@mgail.com\n*/\n/*\n* Author: @nayunhwan (github.com/nayunhwan)\n* Email: nayunhwan.dev@mgail.com\n*/\n/*\n* Author: @nayunhwan (github.com/nayunhwan)\n* Email: nayunhwan.dev@mgail.com\n*/\n.navBar {\n  background: transparent;\n  width: 100px;\n  height: 100vh;\n  position: fixed;\n  left: 0;\n  color: white;\n  border-right: 1px rgba(255, 255, 255, 0.1) solid; }\n  .navBar__signOut {\n    height: 40vh;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    flex-direction: column; }\n    .navBar__signOut__text {\n      margin-bottom: 10%; }\n  .navBar__content {\n    display: flex;\n    flex-direction: column;\n    align-items: center; }\n    .navBar__content__brand {\n      width: 100%;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      cursor: pointer;\n      flex-direction: column;\n      height: 145px;\n      padding-right: 10px;\n      padding-left: 10px; }\n      .navBar__content__brand__logo {\n        width: 50px;\n        height: auto; }\n        .navBar__content__brand__logo__text {\n          font-size: 1rem; }\n    .navBar__content__userArea {\n      height: 17vh;\n      width: 100%;\n      display: inline-flex;\n      align-items: center;\n      justify-content: center; }\n    .navBar__content__items {\n      width: 100%; }\n      .navBar__content__items__item {\n        display: flex;\n        height: 10vh;\n        flex-direction: column;\n        justify-content: center;\n        align-items: center;\n        margin-top: 1.5rem;\n        margin-bottom: 1.5rem;\n        cursor: pointer; }\n        .navBar__content__items__item:first-child {\n          margin-top: 0; }\n        .navBar__content__items__item-active {\n          border-right: 3px #5cb85c solid; }\n        .navBar__content__items__item-icon {\n          font-size: 2.2rem;\n          display: inline-flex;\n          margin-bottom: 5px; }\n\n/*\n* Author: @nayunhwan (github.com/nayunhwan)\n* Email: nayunhwan.dev@mgail.com\n*/\n.list {\n  color: white;\n  cursor: pointer; }\n  .list:hover {\n    background-color: rgba(83, 105, 118, 0.7); }\n  .list__content {\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    padding-top: 5%;\n    padding-bottom: 5%;\n    border-bottom: 1px solid rgba(83, 105, 118, 0.7); }\n    .list__content__date {\n      flex: 1.5;\n      display: flex;\n      font-size: 13px;\n      align-items: center;\n      justify-content: center; }\n    .list__content__textArea {\n      flex: 9;\n      word-wrap: break-word;\n      overflow: auto;\n      display: flex;\n      flex-direction: column;\n      padding-right: 10px;\n      padding-left: 10px; }\n    .list__content__type {\n      flex: 1;\n      font-size: 13px;\n      padding-right: 10px;\n      display: flex;\n      justify-content: center; }\n\n/*\n* Author: @nayunhwan (github.com/nayunhwan)\n* Email: nayunhwan.dev@mgail.com\n*/\n.sideBar {\n  background: transparent;\n  width: 100px;\n  height: 100vh;\n  position: fixed;\n  right: 0;\n  color: white;\n  border-left: 1px rgba(255, 255, 255, 0.1) solid; }\n  .sideBar__modal {\n    height: 60vh;\n    overflow-y: scroll; }\n    .sideBar__modal__close {\n      cursor: pointer; }\n    .sideBar__modal__header {\n      font-weight: 300 !important; }\n    .sideBar__modal__content {\n      display: flex;\n      justify-content: center;\n      color: white; }\n      .sideBar__modal__content__items {\n        width: 50vw;\n        display: flex;\n        flex-direction: row;\n        justify-content: center;\n        flex-wrap: wrap; }\n        .sideBar__modal__content__items__wrapper {\n          display: flex;\n          width: 25%;\n          margin-top: 1.5rem;\n          flex-direction: column;\n          align-items: center;\n          margin-right: 1rem; }\n          .sideBar__modal__content__items__wrapper:nth-child(3n) {\n            margin-right: 0; }\n          .sideBar__modal__content__items__wrapper__item {\n            display: flex;\n            padding: 5px 1.5rem 5px 1.5rem;\n            flex-direction: column;\n            width: 100%;\n            border: 1px rgba(255, 255, 255, 0.1) solid;\n            justify-content: center;\n            align-items: center; }\n            .sideBar__modal__content__items__wrapper__item:hover {\n              border: 1px white solid;\n              cursor: pointer; }\n            .sideBar__modal__content__items__wrapper__item-active {\n              border: 1px #5cb85c solid; }\n              .sideBar__modal__content__items__wrapper__item-active:hover {\n                border: 1px #5cb85c solid;\n                cursor: pointer; }\n            .sideBar__modal__content__items__wrapper__item__full {\n              width: 100%;\n              overflow: auto;\n              word-wrap: break-word;\n              text-align: center; }\n            .sideBar__modal__content__items__wrapper__item__abbr {\n              text-align: center;\n              width: 100%;\n              overflow: auto;\n              word-wrap: break-word; }\n            .sideBar__modal__content__items__wrapper__item__kor {\n              width: 100%;\n              text-align: center;\n              overflow: auto;\n              word-wrap: break-word; }\n  .sideBar__content {\n    display: flex;\n    flex-direction: column;\n    width: 100%; }\n    .sideBar__content__items__item {\n      display: flex;\n      height: 10vh;\n      border-bottom: 1px rgba(255, 255, 255, 0.1) solid;\n      flex-direction: column;\n      justify-content: center;\n      align-items: center;\n      cursor: pointer; }\n      .sideBar__content__items__item-active {\n        border-left: 3px #5cb85c solid; }\n      .sideBar__content__items__item-disable {\n        cursor: not-allowed;\n        pointer-events: none; }\n      .sideBar__content__items__item-plus {\n        font-size: 2rem; }\n      .sideBar__content__items__item:hover {\n        background-color: #536976; }\n      .sideBar__content__items__item__price {\n        font-size: 10px; }\n        .sideBar__content__items__item__price__icon {\n          display: inline-flex; }\n      .sideBar__content__items__item__percent {\n        font-size: 10px;\n        color: #5cb85c; }\n        .sideBar__content__items__item__percent__icon {\n          display: inline-flex; }\n      .sideBar__content__items__item__percent-down {\n        font-size: 10px;\n        color: red; }\n        .sideBar__content__items__item__percent-down__icon {\n          display: inline-flex; }\n\n/*\n* Author: @nayunhwan (github.com/nayunhwan)\n* Email: nayunhwan.dev@mgail.com\n*/\n.roundInput__content {\n  padding-left: 1rem;\n  width: 300px !important;\n  height: 60px !important;\n  border: 1px rgba(255, 255, 255, 0.1) solid !important;\n  border-radius: 75px !important;\n  font-size: 1rem;\n  outline-width: 0 !important;\n  color: white; }\n\n/*\n* Author: @nayunhwan (github.com/nayunhwan)\n* Email: nayunhwan.dev@mgail.com\n*/\n.button__content {\n  display: flex;\n  justify-content: center;\n  border: 1px white solid;\n  height: 100%;\n  padding-top: 10px;\n  padding-bottom: 10px; }\n  .button__content:hover {\n    border: 1px #5cb85c solid;\n    color: #5cb85c;\n    cursor: pointer; }\n\n/*\n* Author: @nayunhwan (github.com/nayunhwan)\n* Email: nayunhwan.dev@mgail.com\n*/\n.thumb {\n  display: inline-block;\n  position: relative; }\n  .thumb__image {\n    box-sizing: border-box;\n    border-radius: 50%;\n    border: 1px solid white; }\n\n.thumb__default {\n  font-size: 2rem;\n  display: inline-flex;\n  justify-content: center;\n  align-items: center;\n  box-sizing: border-box;\n  border-radius: 50%;\n  border: 1px white solid;\n  color: white; }\n\n/*\n* Author: @nayunhwan (github.com/nayunhwan)\n* Email: nayunhwan.dev@mgail.com\n*/\n.socialInput {\n  padding-top: 30px;\n  background-color: transparent;\n  padding-left: 20px;\n  padding-right: 20px;\n  padding-bottom: 5px; }\n  .socialInput hr {\n    background-color: rgba(255, 255, 255, 0.1); }\n  .socialInput__hr-active {\n    border-bottom: 0.55px white solid; }\n  .socialInput__body {\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n    padding-bottom: 10px; }\n    .socialInput__body__thumbArea__thumb {\n      font-size: 2rem;\n      display: inline-flex;\n      width: 50px;\n      height: 50px;\n      justify-content: center;\n      align-items: center;\n      box-sizing: border-box;\n      border-radius: 50%;\n      border: 1px rgba(0, 0, 0, 0.2) solid;\n      color: white; }\n    .socialInput__body__inputArea {\n      width: 95%; }\n    .socialInput__body__input {\n      margin-right: 20px;\n      margin-left: 20px;\n      color: white;\n      font-size: 1rem;\n      background: transparent;\n      width: 95%;\n      padding-bottom: 10px;\n      padding-top: 10px;\n      word-break: break-all;\n      border: none; }\n      .socialInput__body__input:focus {\n        outline: none; }\n      .socialInput__body__input-title {\n        margin-right: 20px;\n        margin-left: 20px;\n        margin-bottom: 10px;\n        color: white;\n        font-size: 1rem;\n        background: transparent;\n        width: 60%;\n        padding-bottom: 10px;\n        padding-top: 10px;\n        word-break: break-all;\n        border-top: none;\n        border-left: none;\n        border-right: none;\n        border-bottom: 1px rgba(255, 255, 255, 0.1) solid !important; }\n        .socialInput__body__input-title:focus {\n          transition: 0.3s;\n          -webkit-transition: 0.3s;\n          -moz-transition: 0.3s;\n          -o-transition: 0.3s;\n          outline: none;\n          border-bottom: 1px white solid !important; }\n  .socialInput__footer {\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    align-items: center; }\n    .socialInput__footer__camera__icon {\n      font-size: 1.6rem;\n      color: white; }\n      .socialInput__footer__camera__icon:hover {\n        transition: 0.3s;\n        -webkit-transition: 0.3s;\n        -moz-transition: 0.3s;\n        -o-transition: 0.3s;\n        color: white;\n        cursor: pointer; }\n    .socialInput__footer__postArea {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center; }\n      .socialInput__footer__postArea__postButton {\n        background-color: transparent;\n        color: white;\n        font-weight: 300;\n        padding-left: 10px;\n        padding-top: 3px;\n        border: 1px solid rgba(255, 255, 255, 0.1);\n        padding-bottom: 3px;\n        display: inline-flex;\n        padding-right: 10px;\n        cursor: pointer; }\n        .socialInput__footer__postArea__postButton:hover {\n          transition: 0.3s;\n          -webkit-transition: 0.3s;\n          -moz-transition: 0.3s;\n          -o-transition: 0.3s;\n          color: white;\n          border: 1px solid white; }\n    .socialInput__footer__imagePreview {\n      display: flex;\n      flex-direction: row;\n      flex-wrap: wrap; }\n      .socialInput__footer__imagePreview__image {\n        transition: 0.3s;\n        -webkit-transition: 0.3s;\n        -moz-transition: 0.3s;\n        -o-transition: 0.3s;\n        height: 60px; }\n\nbody {\n  margin: 0 auto;\n  font-weight: 300; }\n  body a:hover {\n    text-decoration: none; }\n  body p {\n    margin: 0; }\n  body hr {\n    background-color: white; }\n  body .cTypeTabActive {\n    background: #536976 !important;\n    font-weight: 300; }\n  body .chartTypeTabLinks {\n    background: transparent;\n    font-weight: 300 !important; }\n  body text {\n    fill: white; }\n  body .ccc-widget > div {\n    background-color: transparent !important;\n    color: white !important;\n    border: 1px solid white !important;\n    border-top: 0 !important;\n    font-weight: 300 !important;\n    padding: 10px !important; }\n  body .cccCustomRadioContainer > label {\n    color: white !important; }\n  body .tabperiods {\n    background: transparent !important;\n    font-weight: 300 !important; }\n  body .active {\n    border-color: #5cb85c !important; }\n  body .tabperiods_active {\n    font-weight: 900 !important;\n    color: #5cb85c !important; }\n  body .chartTypeTabLinks:hover {\n    background: #536976; }\n  body .modal-content {\n    font-weight: 300 !important;\n    border-radius: 0px !important;\n    background: #536976;\n    margin: 0 !important;\n    color: white;\n    padding: 0 !important;\n    /* fallback for old browsers */\n    background: -webkit-linear-gradient(to bottom, #292e49, #536976);\n    /* Chrome 10-25, Safari 5.1-6 */\n    background: linear-gradient(to bottom, #292e49, #536976);\n    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ }\n  body .modal-backdrop.show {\n    opacity: 0.1 !important; }\n  body .dropdown-menu {\n    position: absolute;\n    top: 100%;\n    left: 0;\n    z-index: 1000;\n    display: none;\n    float: left;\n    min-width: 10rem;\n    padding: 0.5rem 0;\n    margin: 0.125rem 0 0;\n    font-size: 1rem;\n    color: white !important;\n    text-align: left;\n    list-style: none;\n    background-color: #292e49 !important;\n    background-clip: padding-box;\n    border: 1px solid rgba(0, 0, 0, 0.15);\n    border-radius: 0px !important; }\n  body .dropdown-item {\n    display: block;\n    width: 100%;\n    cursor: pointer;\n    padding: 0.25rem 1.5rem;\n    clear: both;\n    font-weight: 400;\n    color: white !important;\n    text-align: inherit;\n    white-space: nowrap;\n    background-color: transparent;\n    border: 0; }\n    body .dropdown-item:hover {\n      background-color: transparent !important; }\n", ""]);
+	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Black+Han+Sans);", ""]);
+	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Biryani:700|Nanum+Gothic);", ""]);
+	exports.push([module.id, "/*\n* Author: @nayunhwan (github.com/nayunhwan)\n* Email: nayunhwan.dev@mgail.com\n*/\n/*\n* Author: @nayunhwan (github.com/nayunhwan)\n* Email: nayunhwan.dev@mgail.com\n*/\n/*\n* Author: @nayunhwan (github.com/nayunhwan)\n* Email: nayunhwan.dev@mgail.com\n*/\n/*\n* Author: @nayunhwan (github.com/nayunhwan)\n* Email: nayunhwan.dev@mgail.com\n*/\n\n\n.homePage {\n  background: #536976;\n  /* fallback for old browsers */\n  background: -webkit-linear-gradient(to right, #292e49, #536976);\n  /* Chrome 10-25, Safari 5.1-6 */\n  background: linear-gradient(to right, #292e49, #536976);\n  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ }\n  .homePage__content {\n    margin-left: 100px;\n    height: 100vh;\n    overflow-y: hidden; }\n    .homePage__content__news {\n      box-sizing: border-box;\n      float: left;\n      height: 100vh;\n      width: calc(50vw - 100px);\n      border-right: 1px white solid; }\n      .homePage__content__news__search {\n        display: flex;\n        flex-direction: column;\n        position: fixed;\n        width: calc(50vw - 100px);\n        border-bottom: 1px white solid; }\n        .homePage__content__news__search__first {\n          padding: 10px;\n          border-bottom: 1px white solid; }\n          .homePage__content__news__search__first__item {\n            font-size: 13px !important;\n            font-weight: 300 !important;\n            color: white;\n            margin-right: 1px;\n            font-weight: 600;\n            cursor: pointer;\n            float: left;\n            padding: 5px 25px;\n            background: transparent; }\n            .homePage__content__news__search__first__item:hover {\n              transition: 0.3s;\n              -webkit-transition: 0.3s;\n              -moz-transition: 0.3s;\n              -o-transition: 0.3s;\n              background-color: #536976; }\n            .homePage__content__news__search__first__item-active {\n              background-color: #536976; }\n        .homePage__content__news__search__second {\n          padding: 10px; }\n          .homePage__content__news__search__second__content {\n            display: flex;\n            flex-direction: row;\n            justify-content: space-between; }\n      .homePage__content__news__lists {\n        height: calc(100vh - 100px);\n        margin-top: 100px;\n        overflow-y: scroll; }\n        .homePage__content__news__lists-loading {\n          display: flex;\n          justify-content: center;\n          align-items: center;\n          height: 55vh;\n          color: white;\n          font-size: 1rem;\n          height: calc(100vh - 100px);\n          margin-top: 100px; }\n        .homePage__content__news__lists-none {\n          display: flex;\n          justify-content: center;\n          align-items: center;\n          height: 55vh;\n          color: white;\n          font-size: 1rem; }\n        .homePage__content__news__lists__footer {\n          height: 10vh;\n          display: flex;\n          align-items: center;\n          justify-content: center; }\n    .homePage__content__chart {\n      color: white;\n      height: 100vh;\n      width: calc(50vw-100px);\n      margin-right: 100px; }\n      .homePage__content__chart__coin {\n        display: flex;\n        justify-content: center;\n        padding: 15px;\n        font-size: 13px;\n        top: 0;\n        color: #f4e7d7;\n        border-bottom: 1px solid white;\n        position: fixed;\n        right: 100px;\n        z-index: 500;\n        width: calc(50vw - 100px); }\n      .homePage__content__chart__wrapper {\n        height: calc(100vh - 50px);\n        background: transparent;\n        overflow-y: scroll;\n        padding-left: 1rem;\n        padding-right: 1rem;\n        margin-top: 50px; }\n        .homePage__content__chart__wrapper > div {\n          background-color: transparent !important; }\n      .homePage__content__chart__loading {\n        display: flex;\n        align-items: center;\n        flex-direction: column;\n        justify-content: center;\n        height: 100vh; }\n      .homePage__content__chart__intro {\n        padding: 2rem 2rem 2rem 2rem;\n        display: flex;\n        flex-direction: column; }\n        .homePage__content__chart__intro__logo {\n          display: flex;\n          flex-direction: row;\n          align-items: center; }\n          .homePage__content__chart__intro__logo__text {\n            margin-left: 1rem;\n            font-size: 2rem; }\n        .homePage__content__chart__intro__welcome {\n          margin-top: 6%; }\n        .homePage__content__chart__intro__desc {\n          margin-top: 6%; }\n\n/*\n* Author: @nayunhwan (github.com/nayunhwan)\n* Email: nayunhwan.dev@mgail.com\n*/\n.authPage {\n  background: #536976;\n  /* fallback for old browsers */\n  background: -webkit-linear-gradient(to right, #292e49, #536976);\n  /* Chrome 10-25, Safari 5.1-6 */\n  background: linear-gradient(to right, #292e49, #536976);\n  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ }\n  .authPage__content {\n    margin-left: 100px;\n    height: 100vh;\n    overflow-y: hidden; }\n    .authPage__content__news {\n      box-sizing: border-box;\n      float: left;\n      height: 100vh;\n      width: calc(50vw - 100px);\n      border-right: 1px white solid; }\n      .authPage__content__news__search {\n        display: flex;\n        flex-direction: column;\n        position: fixed;\n        width: calc(50vw - 100px);\n        padding-top: 1.5rem;\n        height: 145px;\n        border-bottom: 1px white solid; }\n        .authPage__content__news__search__first {\n          display: flex;\n          flex-direction: row; }\n          .authPage__content__news__search__first__iconArea {\n            padding-left: 1rem;\n            display: flex;\n            justify-content: center;\n            margin-right: 1rem;\n            align-items: center; }\n            .authPage__content__news__search__first__iconArea__icon {\n              color: white;\n              font-size: 1.5rem; }\n          .authPage__content__news__search__first__inputArea {\n            display: flex;\n            align-items: center; }\n            .authPage__content__news__search__first__inputArea__input {\n              background-color: transparent;\n              outline-width: 0 !important;\n              color: white;\n              border: 0;\n              width: 35vw; }\n        .authPage__content__news__search__second__content {\n          padding-left: 1rem; }\n      .authPage__content__news__lists {\n        height: calc(100vh - 145px);\n        margin-top: 145px;\n        overflow-y: scroll; }\n    .authPage__content__chart {\n      color: white;\n      height: 100vh;\n      width: calc(50vw-100px);\n      margin-right: 100px;\n      overflow-y: scroll; }\n      .authPage__content__chart__loading {\n        display: flex;\n        align-items: center;\n        justify-content: center;\n        height: 100vh; }\n      .authPage__content__chart__intro {\n        padding: 2rem 2rem 2rem 2rem;\n        display: flex;\n        flex-direction: column; }\n        .authPage__content__chart__intro__logo {\n          display: flex;\n          flex-direction: row;\n          align-items: center; }\n          .authPage__content__chart__intro__logo__text {\n            margin-left: 1rem;\n            font-size: 2rem; }\n        .authPage__content__chart__intro__welcome {\n          margin-top: 6%; }\n        .authPage__content__chart__intro__login {\n          margin-top: 15%;\n          width: 100%;\n          display: flex;\n          flex-direction: column;\n          align-items: center; }\n        .authPage__content__chart__intro__signUp {\n          margin-top: 5%;\n          width: 100%;\n          display: flex;\n          flex-direction: column;\n          align-items: center; }\n          .authPage__content__chart__intro__signUp__link {\n            cursor: pointer; }\n\n/*\n* Author: @nayunhwan (github.com/nayunhwan)\n* Email: nayunhwan.dev@mgail.com\n*/\n.signUpPage {\n  background: #536976;\n  /* fallback for old browsers */\n  background: -webkit-linear-gradient(to right, #292e49, #536976);\n  /* Chrome 10-25, Safari 5.1-6 */\n  background: linear-gradient(to right, #292e49, #536976);\n  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ }\n  .signUpPage__content {\n    margin-left: 100px;\n    height: 100vh;\n    overflow-y: hidden; }\n    .signUpPage__content__news {\n      box-sizing: border-box;\n      float: left;\n      height: 100vh;\n      width: calc(50vw - 100px);\n      border-right: 1px white solid; }\n      .signUpPage__content__news__search {\n        display: flex;\n        flex-direction: column;\n        position: fixed;\n        width: calc(50vw - 100px);\n        padding-top: 1.5rem;\n        height: 145px;\n        border-bottom: 1px white solid; }\n        .signUpPage__content__news__search__first {\n          display: flex;\n          flex-direction: row; }\n          .signUpPage__content__news__search__first__iconArea {\n            padding-left: 1rem;\n            display: flex;\n            justify-content: center;\n            margin-right: 1rem;\n            align-items: center; }\n            .signUpPage__content__news__search__first__iconArea__icon {\n              color: white;\n              font-size: 1.5rem; }\n          .signUpPage__content__news__search__first__inputArea {\n            display: flex;\n            align-items: center; }\n            .signUpPage__content__news__search__first__inputArea__input {\n              background-color: transparent;\n              outline-width: 0 !important;\n              color: white;\n              border: 0;\n              width: 35vw; }\n        .signUpPage__content__news__search__second__content {\n          padding-left: 1rem; }\n      .signUpPage__content__news__lists {\n        height: calc(100vh - 145px);\n        margin-top: 145px;\n        overflow-y: scroll; }\n    .signUpPage__content__chart {\n      color: white;\n      height: 100vh;\n      width: calc(50vw-100px);\n      margin-right: 100px;\n      overflow-y: scroll; }\n      .signUpPage__content__chart__loading {\n        display: flex;\n        align-items: center;\n        justify-content: center;\n        height: 100vh; }\n      .signUpPage__content__chart__intro {\n        padding: 2rem 2rem 2rem 2rem;\n        display: flex;\n        flex-direction: column; }\n        .signUpPage__content__chart__intro__logo {\n          display: flex;\n          flex-direction: row;\n          align-items: center; }\n          .signUpPage__content__chart__intro__logo__text {\n            margin-left: 1rem;\n            font-size: 2rem; }\n        .signUpPage__content__chart__intro__welcome {\n          margin-top: 6%; }\n        .signUpPage__content__chart__intro__login {\n          margin-top: 15%;\n          width: 100%;\n          display: flex;\n          flex-direction: column;\n          align-items: center; }\n        .signUpPage__content__chart__intro__signUp {\n          margin-top: 5%;\n          width: 100%;\n          display: flex;\n          flex-direction: column;\n          align-items: center; }\n          .signUpPage__content__chart__intro__signUp__link {\n            cursor: pointer; }\n\n/*\n* Author: @nayunhwan (github.com/nayunhwan)\n* Email: nayunhwan.dev@mgail.com\n*/\n.myPage {\n  background: #536976;\n  /* fallback for old browsers */\n  background: -webkit-linear-gradient(to right, #292e49, #536976);\n  /* Chrome 10-25, Safari 5.1-6 */\n  background: linear-gradient(to right, #292e49, #536976);\n  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ }\n  .myPage__content {\n    margin-left: 100px;\n    height: 100vh;\n    overflow-y: hidden; }\n    .myPage__content__news {\n      box-sizing: border-box;\n      float: left;\n      height: 100vh;\n      width: calc(50vw - 100px);\n      border-right: 1px white solid; }\n      .myPage__content__news__search {\n        display: flex;\n        flex-direction: column;\n        position: fixed;\n        width: calc(50vw - 100px);\n        padding-top: 1.5rem;\n        height: 145px;\n        border-bottom: 1px white solid; }\n        .myPage__content__news__search__first {\n          display: flex;\n          flex-direction: row; }\n          .myPage__content__news__search__first__iconArea {\n            padding-left: 1rem;\n            display: flex;\n            justify-content: center;\n            margin-right: 1rem;\n            align-items: center; }\n            .myPage__content__news__search__first__iconArea__icon {\n              color: white;\n              font-size: 1.5rem; }\n          .myPage__content__news__search__first__inputArea {\n            display: flex;\n            align-items: center; }\n            .myPage__content__news__search__first__inputArea__input {\n              background-color: transparent;\n              outline-width: 0 !important;\n              color: white;\n              border: 0;\n              width: 35vw; }\n        .myPage__content__news__search__second__content {\n          padding-left: 1rem; }\n      .myPage__content__news__lists {\n        height: calc(100vh - 145px);\n        margin-top: 145px;\n        overflow-y: scroll; }\n    .myPage__content__chart {\n      color: white;\n      height: 100vh;\n      width: calc(50vw-100px);\n      margin-right: 100px;\n      overflow-y: scroll; }\n      .myPage__content__chart__loading {\n        display: flex;\n        align-items: center;\n        justify-content: center;\n        height: 100vh; }\n      .myPage__content__chart__intro {\n        padding: 2rem 2rem 2rem 2rem;\n        display: flex;\n        flex-direction: column; }\n        .myPage__content__chart__intro__logo {\n          display: flex;\n          flex-direction: row;\n          align-items: center; }\n          .myPage__content__chart__intro__logo__text {\n            margin-left: 1rem;\n            font-size: 2rem; }\n        .myPage__content__chart__intro__welcome {\n          margin-top: 6%;\n          display: flex;\n          align-items: center; }\n          .myPage__content__chart__intro__welcome__text {\n            margin-left: 2%; }\n        .myPage__content__chart__intro__login {\n          margin-top: 15%;\n          width: 100%;\n          display: flex;\n          flex-direction: column;\n          align-items: center; }\n        .myPage__content__chart__intro__signUp {\n          margin-top: 5%;\n          width: 100%;\n          display: flex;\n          flex-direction: column;\n          align-items: center; }\n          .myPage__content__chart__intro__signUp__link {\n            cursor: pointer; }\n\n/*\n* Author: @nayunhwan (github.com/nayunhwan)\n* Email: nayunhwan.dev@mgail.com\n*/\n.forumPage {\n  background: #536976;\n  /* fallback for old browsers */\n  background: -webkit-linear-gradient(to right, #292e49, #536976);\n  /* Chrome 10-25, Safari 5.1-6 */\n  background: linear-gradient(to right, #292e49, #536976);\n  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ }\n  .forumPage__modal {\n    height: 90vh;\n    padding-left: 50px;\n    padding-right: 50px;\n    display: flex;\n    flex-direction: column; }\n    .forumPage__modal__favorite {\n      width: 100%;\n      padding-left: 1rem;\n      padding-right: 1rem;\n      display: flex;\n      flex-direction: row;\n      flex-wrap: wrap;\n      justify-content: center; }\n      .forumPage__modal__favorite__text {\n        margin-top: 2rem;\n        margin-bottom: 1rem;\n        text-align: center;\n        display: flex;\n        flex-direction: row;\n        justify-content: center;\n        align-items: center; }\n      .forumPage__modal__favorite__icon {\n        color: white;\n        font-size: 1.5rem;\n        margin-right: 5px;\n        vertical-align: center; }\n      .forumPage__modal__favorite__item {\n        border: 1px rgba(255, 255, 255, 0.2) solid;\n        padding-left: 10px;\n        padding-right: 10px;\n        padding-top: 5px;\n        padding-bottom: 5px;\n        margin-right: 5px;\n        margin-bottom: 5px;\n        cursor: pointer; }\n        .forumPage__modal__favorite__item:hover {\n          transition: 0.3s;\n          -webkit-transition: 0.3s;\n          -moz-transition: 0.3s;\n          -o-transition: 0.3s;\n          border: 1px white solid; }\n        .forumPage__modal__favorite__item-active {\n          border: 1px #5cb85c solid; }\n          .forumPage__modal__favorite__item-active:hover {\n            transition: 0.3s;\n            -webkit-transition: 0.3s;\n            -moz-transition: 0.3s;\n            -o-transition: 0.3s;\n            border: 1px #5cb85c solid; }\n  .forumPage__content {\n    margin-left: 100px;\n    height: 100vh;\n    overflow-y: hidden; }\n    .forumPage__content__news {\n      box-sizing: border-box;\n      float: left;\n      height: 100vh;\n      width: calc(50vw - 100px);\n      border-right: 1px white solid; }\n      .forumPage__content__news__search {\n        display: flex;\n        flex-direction: column;\n        position: fixed;\n        width: calc(50vw - 100px);\n        border-bottom: 1px white solid; }\n        .forumPage__content__news__search__first {\n          display: flex;\n          flex-direction: row;\n          padding: 10px;\n          border-bottom: 1px white solid; }\n          .forumPage__content__news__search__first__iconArea {\n            padding-left: 5px;\n            display: flex;\n            justify-content: center;\n            margin-right: 1rem;\n            align-items: center; }\n            .forumPage__content__news__search__first__iconArea__icon {\n              color: white;\n              font-size: 1.5rem; }\n          .forumPage__content__news__search__first__inputArea {\n            display: flex;\n            align-items: center; }\n            .forumPage__content__news__search__first__inputArea__input {\n              background-color: transparent;\n              outline-width: 0 !important;\n              color: white;\n              border: 0;\n              width: 35vw; }\n        .forumPage__content__news__search__second {\n          padding: 10px; }\n          .forumPage__content__news__search__second__content {\n            display: flex;\n            flex-direction: row;\n            justify-content: space-between; }\n      .forumPage__content__news__lists {\n        height: calc(100vh - 110px);\n        margin-top: 110px;\n        overflow-y: scroll; }\n        .forumPage__content__news__lists-loading {\n          display: flex;\n          justify-content: center;\n          align-items: center;\n          height: 55vh;\n          color: white;\n          font-size: 1rem;\n          height: calc(100vh - 100px);\n          margin-top: 100px; }\n    .forumPage__content__chart {\n      color: white;\n      height: 100vh;\n      width: calc(50vw-100px);\n      margin-right: 100px;\n      overflow-y: scroll; }\n      .forumPage__content__chart__loading {\n        display: flex;\n        align-items: center;\n        justify-content: center;\n        height: 100vh; }\n      .forumPage__content__chart__intro {\n        padding: 2rem 2rem 2rem 2rem;\n        display: flex;\n        flex-direction: column; }\n        .forumPage__content__chart__intro__logo {\n          display: flex;\n          flex-direction: row;\n          align-items: center; }\n          .forumPage__content__chart__intro__logo__text {\n            margin-left: 1rem;\n            font-size: 2rem; }\n        .forumPage__content__chart__intro__welcome {\n          margin-top: 6%; }\n        .forumPage__content__chart__intro__desc {\n          margin-top: 6%; }\n        .forumPage__content__chart__intro__post {\n          height: 90vh; }\n          .forumPage__content__chart__intro__post__header {\n            border-bottom: 1px rgba(255, 255, 255, 0.2) solid;\n            display: flex;\n            height: 10vh;\n            flex-direction: row;\n            align-items: center;\n            justify-content: space-between;\n            padding-bottom: 1rem; }\n            .forumPage__content__chart__intro__post__header__userInfo {\n              display: flex;\n              width: 15vw;\n              flex-direction: row;\n              align-items: center; }\n              .forumPage__content__chart__intro__post__header__userInfo__thumb {\n                flex: 1; }\n              .forumPage__content__chart__intro__post__header__userInfo__name {\n                flex: 3;\n                margin-left: 10px;\n                display: flex;\n                flex-direction: column;\n                align-items: flex-start;\n                justify-content: center; }\n              .forumPage__content__chart__intro__post__header__userInfo__point {\n                font-size: 13px; }\n            .forumPage__content__chart__intro__post__header__detail {\n              display: flex;\n              flex-direction: column;\n              justify-content: flex-end;\n              align-items: flex-end; }\n          .forumPage__content__chart__intro__post__title {\n            margin-top: 1rem;\n            padding-bottom: 1rem;\n            border-bottom: rgba(255, 255, 255, 0.2) 1px solid;\n            font-weight: 400; }\n          .forumPage__content__chart__intro__post__body {\n            margin-top: 1rem;\n            padding-bottom: 1rem;\n            border-bottom: rgba(255, 255, 255, 0.2) 1px solid;\n            font-weight: 300; }\n          .forumPage__content__chart__intro__post__footer {\n            display: flex;\n            flex-direction: row;\n            justify-content: center;\n            padding-top: 1rem;\n            padding-bottom: 1rem; }\n            .forumPage__content__chart__intro__post__footer__icon {\n              display: inline-flex;\n              font-size: 1.5rem;\n              margin-right: 1rem; }\n        .forumPage__content__chart__intro__signUp {\n          margin-top: 5%;\n          width: 100%;\n          display: flex;\n          flex-direction: column;\n          align-items: center; }\n          .forumPage__content__chart__intro__signUp__link {\n            cursor: pointer; }\n\n/*\n* Author: @nayunhwan (github.com/nayunhwan)\n* Email: nayunhwan.dev@mgail.com\n*/\n.postPage {\n  background: #536976;\n  /* fallback for old browsers */\n  background: -webkit-linear-gradient(to right, #292e49, #536976);\n  /* Chrome 10-25, Safari 5.1-6 */\n  background: linear-gradient(to right, #292e49, #536976);\n  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ }\n  .postPage__content {\n    margin-left: 100px;\n    height: 100vh;\n    overflow-y: hidden; }\n    .postPage__content__chart {\n      color: white;\n      height: 100vh;\n      width: calc(50vw-100px);\n      margin-right: 100px;\n      overflow-y: scroll; }\n      .postPage__content__chart__loading {\n        display: flex;\n        align-items: center;\n        justify-content: center;\n        height: 100vh; }\n      .postPage__content__chart__intro {\n        padding: 2rem 2rem 2rem 2rem;\n        display: flex;\n        flex-direction: column; }\n        .postPage__content__chart__intro__post__header {\n          border-bottom: 1px rgba(255, 255, 255, 0.2) solid;\n          display: flex;\n          height: 10vh;\n          flex-direction: row;\n          align-items: center;\n          justify-content: space-between;\n          padding-bottom: 1rem; }\n          .postPage__content__chart__intro__post__header__userInfo {\n            display: flex;\n            width: 15vw;\n            flex-direction: row;\n            align-items: center; }\n            .postPage__content__chart__intro__post__header__userInfo__thumb {\n              flex: 1; }\n            .postPage__content__chart__intro__post__header__userInfo__name {\n              flex: 3;\n              margin-left: 10px;\n              display: flex;\n              flex-direction: column;\n              align-items: flex-start;\n              justify-content: center; }\n            .postPage__content__chart__intro__post__header__userInfo__point {\n              font-size: 13px; }\n            .postPage__content__chart__intro__post__header__userInfo__date {\n              font-size: 13px;\n              color: rgba(255, 255, 255, 0.5); }\n          .postPage__content__chart__intro__post__header__detail {\n            display: flex;\n            flex-direction: column;\n            justify-content: flex-end;\n            align-items: flex-end; }\n        .postPage__content__chart__intro__post__title {\n          margin-top: 1rem;\n          padding-left: 10px;\n          padding-right: 10px;\n          font-size: 18px;\n          padding-bottom: 1rem;\n          border-bottom: rgba(255, 255, 255, 0.2) 1px solid;\n          font-weight: 400; }\n        .postPage__content__chart__intro__post__body {\n          margin-top: 1rem;\n          padding-left: 10px;\n          padding-right: 10px;\n          padding-bottom: 1rem;\n          font-weight: 300; }\n        .postPage__content__chart__intro__post__coin {\n          margin-top: 1rem;\n          display: flex;\n          flex-direction: row;\n          justify-content: flex-end;\n          font-size: 13px;\n          color: #f4e7d7; }\n          .postPage__content__chart__intro__post__coin__item {\n            border: 1px #f4e7d7 solid;\n            padding-left: 5px;\n            padding-right: 5px;\n            margin-right: 5px; }\n        .postPage__content__chart__intro__post__footer {\n          display: flex;\n          flex-direction: row;\n          justify-content: center;\n          padding-top: 1rem;\n          padding-bottom: 1rem; }\n          .postPage__content__chart__intro__post__footer__icon {\n            display: inline-flex;\n            font-size: 1.5rem;\n            margin-right: 1rem; }\n        .postPage__content__chart__intro__comments {\n          margin-top: 10%; }\n\n/*\n* Author: @nayunhwan (github.com/nayunhwan)\n* Email: nayunhwan.dev@mgail.com\n*/\n/*\n* Author: @nayunhwan (github.com/nayunhwan)\n* Email: nayunhwan.dev@mgail.com\n*/\n/*\n* Author: @nayunhwan (github.com/nayunhwan)\n* Email: nayunhwan.dev@mgail.com\n*/\n.navBar {\n  background: transparent;\n  width: 100px;\n  height: 100vh;\n  position: fixed;\n  left: 0;\n  color: white;\n  border-right: 1px rgba(255, 255, 255, 0.1) solid; }\n  .navBar__signOut {\n    height: 40vh;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    flex-direction: column; }\n    .navBar__signOut__text {\n      margin-bottom: 10%; }\n  .navBar__content {\n    display: flex;\n    flex-direction: column;\n    align-items: center; }\n    .navBar__content__brand {\n      width: 100%;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      cursor: pointer;\n      font-family: \"Biryani\", sans-serif;\n      flex-direction: column;\n      height: 145px;\n      padding-right: 10px;\n      padding-left: 10px; }\n      .navBar__content__brand__logo {\n        width: 50px;\n        height: auto; }\n        .navBar__content__brand__logo__text {\n          margin-top: 5px;\n          font-size: 12px; }\n    .navBar__content__userArea {\n      height: 17vh;\n      width: 100%;\n      display: inline-flex;\n      align-items: center;\n      justify-content: center; }\n    .navBar__content__items {\n      width: 100%; }\n      .navBar__content__items__item {\n        display: flex;\n        height: 10vh;\n        flex-direction: column;\n        justify-content: center;\n        align-items: center;\n        margin-top: 1.5rem;\n        margin-bottom: 1.5rem;\n        cursor: pointer; }\n        .navBar__content__items__item:first-child {\n          margin-top: 0; }\n        .navBar__content__items__item-active {\n          color: #5cb85c;\n          font-weight: 500; }\n        .navBar__content__items__item-icon {\n          font-size: 2.2rem;\n          display: inline-flex;\n          margin-bottom: 5px; }\n\n/*\n* Author: @nayunhwan (github.com/nayunhwan)\n* Email: nayunhwan.dev@mgail.com\n*/\n.list {\n  color: white;\n  cursor: pointer; }\n  .list:hover {\n    transition: 0.3s;\n    -webkit-transition: 0.3s;\n    -moz-transition: 0.3s;\n    -o-transition: 0.3s;\n    background-color: rgba(83, 105, 118, 0.3); }\n  .list-active {\n    background-color: rgba(83, 105, 118, 0.7); }\n    .list-active:hover {\n      background-color: rgba(83, 105, 118, 0.7); }\n  .list__content {\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    padding-top: 3%;\n    padding-bottom: 3%;\n    border-bottom: 1px solid rgba(83, 105, 118, 0.7); }\n    .list__content__date {\n      flex: 1.5;\n      color: rgba(255, 255, 255, 0.7);\n      display: flex;\n      font-size: 13px;\n      align-items: center;\n      justify-content: center; }\n    .list__content__textArea {\n      flex: 6;\n      word-wrap: break-word;\n      overflow: auto;\n      display: flex;\n      flex-direction: column;\n      padding-right: 10px;\n      padding-left: 10px; }\n      .list__content__textArea__social {\n        display: flex;\n        flex-direction: row;\n        align-items: center;\n        margin-top: 2px; }\n        .list__content__textArea__social__item {\n          font-size: 13px;\n          display: flex;\n          flex-direction: row;\n          align-items: center;\n          margin-right: 5px;\n          color: #a0c1b8; }\n          .list__content__textArea__social__item__count {\n            margin-right: 5px; }\n          .list__content__textArea__social__item__icon {\n            display: inline-flex; }\n    .list__content__type {\n      flex: 1;\n      font-size: 13px;\n      display: flex;\n      color: #f4e7d7;\n      justify-content: center; }\n      .list__content__type-array {\n        color: #f4e7d7;\n        flex: 2;\n        flex-wrap: wrap;\n        font-size: 13px;\n        padding-right: 10px;\n        display: flex;\n        justify-content: flex-end; }\n        .list__content__type-array__item {\n          margin-right: 5px; }\n\n/*\n* Author: @nayunhwan (github.com/nayunhwan)\n* Email: nayunhwan.dev@mgail.com\n*/\n.sideBar {\n  background: transparent;\n  width: 100px;\n  height: 100vh;\n  overflow-y: scroll;\n  position: fixed;\n  right: 0;\n  color: white;\n  border-left: 1px rgba(255, 255, 255, 0.1) solid; }\n  .sideBar__modal {\n    height: 60vh;\n    overflow-y: scroll; }\n    .sideBar__modal__close {\n      cursor: pointer; }\n    .sideBar__modal__header {\n      font-weight: 300 !important; }\n    .sideBar__modal__content {\n      display: flex;\n      justify-content: center;\n      color: white; }\n      .sideBar__modal__content__items {\n        width: 50vw;\n        display: flex;\n        flex-direction: row;\n        justify-content: center;\n        flex-wrap: wrap; }\n        .sideBar__modal__content__items__wrapper {\n          display: flex;\n          width: 25%;\n          margin-top: 1.5rem;\n          flex-direction: column;\n          align-items: center;\n          margin-right: 1rem; }\n          .sideBar__modal__content__items__wrapper:nth-child(3n) {\n            margin-right: 0; }\n          .sideBar__modal__content__items__wrapper__item {\n            display: flex;\n            padding: 5px 1.5rem 5px 1.5rem;\n            flex-direction: column;\n            width: 100%;\n            border: 1px rgba(255, 255, 255, 0.2) solid;\n            justify-content: center;\n            align-items: center; }\n            .sideBar__modal__content__items__wrapper__item:hover {\n              border: 1px white solid;\n              cursor: pointer; }\n            .sideBar__modal__content__items__wrapper__item-active {\n              border: 1px #5cb85c solid; }\n              .sideBar__modal__content__items__wrapper__item-active:hover {\n                border: 1px #5cb85c solid;\n                cursor: pointer; }\n            .sideBar__modal__content__items__wrapper__item__full {\n              width: 100%;\n              overflow: auto;\n              word-wrap: break-word;\n              text-align: center; }\n            .sideBar__modal__content__items__wrapper__item__abbr {\n              text-align: center;\n              color: #f4e7d7;\n              width: 100%;\n              overflow: auto;\n              word-wrap: break-word; }\n            .sideBar__modal__content__items__wrapper__item__kor {\n              width: 100%;\n              text-align: center;\n              overflow: auto;\n              word-wrap: break-word; }\n  .sideBar__content {\n    display: flex;\n    flex-direction: column;\n    width: 100%; }\n    .sideBar__content__items__item {\n      display: flex;\n      border-bottom: 1px rgba(255, 255, 255, 0.1) solid;\n      flex-direction: column;\n      justify-content: center;\n      padding-top: 10px;\n      padding-bottom: 10px;\n      align-items: center;\n      cursor: pointer; }\n      .sideBar__content__items__item-active {\n        border-left: 3px #5cb85c solid; }\n      .sideBar__content__items__item-disable {\n        cursor: not-allowed;\n        pointer-events: none; }\n      .sideBar__content__items__item-plus {\n        font-size: 2rem; }\n      .sideBar__content__items__item:hover {\n        background-color: #536976; }\n      .sideBar__content__items__item__title {\n        color: #f4e7d7; }\n      .sideBar__content__items__item__price {\n        font-size: 10px; }\n        .sideBar__content__items__item__price__icon {\n          display: inline-flex; }\n      .sideBar__content__items__item__percent {\n        font-size: 10px;\n        color: #5cb85c; }\n        .sideBar__content__items__item__percent__icon {\n          display: inline-flex; }\n      .sideBar__content__items__item__percent-down {\n        font-size: 10px;\n        color: #f26968; }\n        .sideBar__content__items__item__percent-down__icon {\n          display: inline-flex; }\n\n/*\n* Author: @nayunhwan (github.com/nayunhwan)\n* Email: nayunhwan.dev@mgail.com\n*/\n.roundInput__content {\n  padding-left: 1rem;\n  width: 300px !important;\n  height: 60px !important;\n  border: 1px rgba(255, 255, 255, 0.2) solid !important;\n  border-radius: 75px !important;\n  font-size: 1rem;\n  outline-width: 0 !important;\n  color: white; }\n\n/*\n* Author: @nayunhwan (github.com/nayunhwan)\n* Email: nayunhwan.dev@mgail.com\n*/\n.button__content {\n  display: flex;\n  justify-content: center;\n  border: 1px white solid;\n  height: 100%;\n  padding-top: 10px;\n  padding-bottom: 10px; }\n  .button__content:hover {\n    border: 1px #5cb85c solid;\n    color: #5cb85c;\n    cursor: pointer; }\n\n/*\n* Author: @nayunhwan (github.com/nayunhwan)\n* Email: nayunhwan.dev@mgail.com\n*/\n.thumb {\n  display: inline-block;\n  position: relative; }\n  .thumb__image {\n    box-sizing: border-box;\n    border-radius: 50%;\n    border: 1px solid white; }\n\n.thumb__default {\n  font-size: 2rem;\n  display: inline-flex;\n  justify-content: center;\n  align-items: center;\n  box-sizing: border-box;\n  border-radius: 50%;\n  border: 1px white solid;\n  color: white; }\n\n/*\n* Author: @nayunhwan (github.com/nayunhwan)\n* Email: nayunhwan.dev@mgail.com\n*/\n.socialInput {\n  padding-top: 30px;\n  background-color: transparent;\n  padding-left: 20px;\n  padding-right: 20px;\n  padding-bottom: 5px; }\n  .socialInput hr {\n    background-color: rgba(255, 255, 255, 0.2); }\n  .socialInput__hr-active {\n    margin-top: 1rem;\n    margin-bottom: 1rem;\n    border: 0;\n    border-top: 1px white solid; }\n  .socialInput__body {\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n    padding-bottom: 10px; }\n    .socialInput__body__thumbArea__thumb {\n      font-size: 2rem;\n      display: inline-flex;\n      width: 50px;\n      height: 50px;\n      justify-content: center;\n      align-items: center;\n      box-sizing: border-box;\n      border-radius: 50%;\n      border: 1px rgba(0, 0, 0, 0.2) solid;\n      color: white; }\n    .socialInput__body__inputArea {\n      width: 95%; }\n    .socialInput__body__input {\n      margin-right: 20px;\n      margin-left: 20px;\n      color: white;\n      font-size: 1rem;\n      background: transparent;\n      width: 95%;\n      padding-bottom: 10px;\n      padding-top: 10px;\n      word-break: break-all;\n      border: none; }\n      .socialInput__body__input:focus {\n        transition: 0.3s;\n        -webkit-transition: 0.3s;\n        -moz-transition: 0.3s;\n        -o-transition: 0.3s;\n        outline: none; }\n      .socialInput__body__input-title {\n        margin-right: 20px;\n        margin-left: 20px;\n        margin-bottom: 10px;\n        color: white;\n        font-size: 1rem;\n        background: transparent;\n        width: 60%;\n        padding-bottom: 10px;\n        padding-top: 10px;\n        word-break: break-all;\n        border-top: none;\n        border-left: none;\n        border-right: none;\n        border-bottom: 1px rgba(255, 255, 255, 0.2) solid !important; }\n        .socialInput__body__input-title:focus {\n          transition: 0.3s;\n          -webkit-transition: 0.3s;\n          -moz-transition: 0.3s;\n          -o-transition: 0.3s;\n          outline: none;\n          border-bottom: 1px white solid !important; }\n  .socialInput__footer {\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    align-items: center; }\n    .socialInput__footer__camera__icon {\n      font-size: 1.6rem;\n      color: white; }\n      .socialInput__footer__camera__icon:hover {\n        transition: 0.3s;\n        -webkit-transition: 0.3s;\n        -moz-transition: 0.3s;\n        -o-transition: 0.3s;\n        color: white;\n        cursor: pointer; }\n    .socialInput__footer__postArea {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center; }\n      .socialInput__footer__postArea__postButton {\n        background-color: transparent;\n        color: white;\n        font-weight: 300;\n        padding-left: 10px;\n        padding-top: 3px;\n        border: 1px solid rgba(255, 255, 255, 0.2);\n        padding-bottom: 3px;\n        display: inline-flex;\n        padding-right: 10px;\n        cursor: pointer; }\n        .socialInput__footer__postArea__postButton:hover {\n          transition: 0.3s;\n          -webkit-transition: 0.3s;\n          -moz-transition: 0.3s;\n          -o-transition: 0.3s;\n          color: white;\n          border: 1px solid white; }\n    .socialInput__footer__imagePreview {\n      display: flex;\n      flex-direction: row;\n      flex-wrap: wrap; }\n      .socialInput__footer__imagePreview__image {\n        transition: 0.3s;\n        -webkit-transition: 0.3s;\n        -moz-transition: 0.3s;\n        -o-transition: 0.3s;\n        height: 60px; }\n\n/*\n* Author: @nayunhwan (github.com/nayunhwan)\n* Email: nayunhwan.dev@mgail.com\n*/\n.comment__content {\n  transition: 0.3s;\n  -webkit-transition: 0.3s;\n  -moz-transition: 0.3s;\n  -o-transition: 0.3s;\n  display: flex;\n  padding-left: 20px;\n  padding-right: 20px;\n  box-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);\n  flex-direction: row;\n  align-items: center;\n  justify-content: space-between;\n  padding-top: 1rem;\n  padding-bottom: 1rem;\n  margin-bottom: 1rem; }\n  .comment__content__userArea {\n    flex: 2;\n    display: flex;\n    flex-direction: row;\n    align-items: center; }\n    .comment__content__userArea__userInfo {\n      display: flex;\n      flex-direction: column;\n      margin-left: 10px; }\n      .comment__content__userArea__userInfo__name {\n        font-size: 13px; }\n      .comment__content__userArea__userInfo__point {\n        font-size: 13px; }\n  .comment__content__content {\n    flex: 4;\n    word-wrap: break-word;\n    overflow: auto;\n    display: flex;\n    flex-direction: column;\n    padding-right: 10px; }\n  .comment__content__date {\n    flex: 1;\n    display: flex;\n    justify-content: flex-end;\n    align-items: center;\n    font-size: 13px;\n    color: rgba(255, 255, 255, 0.3); }\n\nbody {\n  margin: 0 auto;\n  font-weight: 300; }\n  body ::placeholder {\n    /* Chrome, Firefox, Opera, Safari 10.1+ */\n    color: white;\n    opacity: 0.7;\n    font-size: 14px;\n    font-weight: 300 !important;\n    font-family: \"Nanum Gothic\", sans-serif;\n    /* Firefox */ }\n  body .btn {\n    font-weight: 300 !important; }\n  body .btn-group-sm > .btn,\n  body .btn-sm {\n    padding: 5px 25px !important;\n    font-size: 13px !important;\n    font-weight: 300 !important;\n    color: white;\n    margin-right: 1px;\n    cursor: pointer;\n    float: left;\n    padding: 5px 13px !important;\n    border-radius: 0 !important; }\n  body a:hover {\n    text-decoration: none; }\n  body p {\n    margin: 0; }\n  body hr {\n    background-color: white; }\n  body .cTypeTabActive {\n    background: #536976 !important;\n    font-weight: 300; }\n  body .chartTypeTabLinks {\n    background: transparent;\n    font-weight: 300 !important; }\n  body text {\n    fill: white; }\n  body .ccc-widget > div {\n    background-color: transparent !important;\n    color: white !important;\n    border: 0 !important;\n    border-top: 0 !important;\n    font-weight: 300 !important;\n    padding: 10px !important; }\n  body .cccCustomRadioContainer > label {\n    color: white !important; }\n  body .tabperiods {\n    background: transparent !important;\n    font-weight: 300 !important; }\n  body .active {\n    border-color: #5cb85c !important; }\n  body .tabperiods_active {\n    font-weight: 900 !important;\n    color: #5cb85c !important; }\n  body .chartTypeTabLinks:hover {\n    background: #536976; }\n  body .modal-content {\n    font-weight: 300 !important;\n    border-radius: 0px !important;\n    background: #536976;\n    margin: 0 !important;\n    color: white;\n    padding: 0 !important;\n    /* fallback for old browsers */\n    background: -webkit-linear-gradient(to bottom, #292e49, #536976);\n    /* Chrome 10-25, Safari 5.1-6 */\n    background: linear-gradient(to bottom, #292e49, #536976);\n    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ }\n  body .modal-backdrop.show {\n    opacity: 0.1 !important; }\n  body .dropdown-menu {\n    position: absolute;\n    top: 100%;\n    left: 0;\n    z-index: 1000;\n    display: none;\n    float: left;\n    min-width: 10rem;\n    padding: 0.5rem 0;\n    margin: 0.125rem 0 0;\n    font-size: 1rem;\n    color: white !important;\n    text-align: left;\n    list-style: none;\n    background-color: #292e49 !important;\n    background-clip: padding-box;\n    border: 1px solid rgba(0, 0, 0, 0.15);\n    border-radius: 0px !important; }\n  body .dropdown-item {\n    display: block;\n    width: 100%;\n    cursor: pointer;\n    padding: 0.25rem 1.5rem;\n    clear: both;\n    font-weight: 400;\n    color: white !important;\n    text-align: inherit;\n    white-space: nowrap;\n    background-color: transparent;\n    border: 0; }\n    body .dropdown-item:hover {\n      background-color: transparent !important; }\n  body .chartTypeTabLinks {\n    font-size: 13px !important;\n    color: white;\n    margin-right: 1px;\n    font-weight: 600;\n    cursor: pointer;\n    float: left;\n    padding: 5px 25px;\n    background: transparent; }\n", ""]);
 
 /***/ }),
 /* 442 */
@@ -35124,11 +35131,11 @@
 	
 	var NewsAction = _interopRequireWildcard(_NewsAction);
 	
+	var _PriceAction = __webpack_require__(438);
+	
+	var PriceAction = _interopRequireWildcard(_PriceAction);
+	
 	var _Pages = __webpack_require__(585);
-	
-	var _HomePage = __webpack_require__(619);
-	
-	var _HomePage2 = _interopRequireDefault(_HomePage);
 	
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 	
@@ -35191,11 +35198,7 @@
 	      };
 	      this.props.dispatch(NewsAction.getNews(newsParams)).then(function (value) {
 	        if (_this2.props.isLogin === true) {
-	          _this2.props.dispatch(AuthAction.getMe(_this2.props.token)).then(function (value2) {
-	            _this2.props.history.push({ pathname: "/news" });
-	          });
-	        } else {
-	          _this2.props.history.push({ pathname: "/auth" });
+	          _this2.props.dispatch(AuthAction.getMe(_this2.props.token)).then(function (value2) {});
 	        }
 	      });
 	    }
@@ -35208,8 +35211,12 @@
 	        _react2.default.createElement(
 	          "div",
 	          null,
-	          _react2.default.createElement(_reactRouterDom.Route, { path: "/news", component: _Pages.HomePage }),
-	          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/forum", component: _Pages.ForumPage }),
+	          _react2.default.createElement(
+	            _reactRouterDom.Switch,
+	            null,
+	            _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/", component: _Pages.HomePage }),
+	            _react2.default.createElement(_reactRouterDom.Route, { path: "/forum", component: _Pages.ForumPage })
+	          ),
 	          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/auth", component: _Pages.AuthPage }),
 	          _react2.default.createElement(_reactRouterDom.Route, { path: "/auth/signup", component: _Pages.SignUpPage })
 	        )
@@ -42361,7 +42368,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.NewsPage = exports.ForumPage = exports.MyPage = exports.SignUpPage = exports.AuthPage = exports.HomePage = exports.DefaultReduxPage = exports.DefaultPage = undefined;
+	exports.PostPage = exports.ForumPage = exports.MyPage = exports.SignUpPage = exports.AuthPage = exports.HomePage = exports.DefaultReduxPage = exports.DefaultPage = undefined;
 	
 	var _DefaultPage2 = __webpack_require__(586);
 	
@@ -42375,25 +42382,25 @@
 	
 	var _HomePage3 = _interopRequireDefault(_HomePage2);
 	
-	var _AuthPage2 = __webpack_require__(838);
+	var _AuthPage2 = __webpack_require__(846);
 	
 	var _AuthPage3 = _interopRequireDefault(_AuthPage2);
 	
-	var _SignUpPage2 = __webpack_require__(839);
+	var _SignUpPage2 = __webpack_require__(847);
 	
 	var _SignUpPage3 = _interopRequireDefault(_SignUpPage2);
 	
-	var _MyPage2 = __webpack_require__(840);
+	var _MyPage2 = __webpack_require__(849);
 	
 	var _MyPage3 = _interopRequireDefault(_MyPage2);
 	
-	var _ForumPage2 = __webpack_require__(841);
+	var _ForumPage2 = __webpack_require__(850);
 	
 	var _ForumPage3 = _interopRequireDefault(_ForumPage2);
 	
-	var _NewsPage2 = __webpack_require__(842);
+	var _PostPage2 = __webpack_require__(852);
 	
-	var _NewsPage3 = _interopRequireDefault(_NewsPage2);
+	var _PostPage3 = _interopRequireDefault(_PostPage2);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -42410,7 +42417,7 @@
 	exports.SignUpPage = _SignUpPage3.default;
 	exports.MyPage = _MyPage3.default;
 	exports.ForumPage = _ForumPage3.default;
-	exports.NewsPage = _NewsPage3.default;
+	exports.PostPage = _PostPage3.default;
 
 /***/ }),
 /* 586 */
@@ -44826,13 +44833,17 @@
 	
 	var PriceAction = _interopRequireWildcard(_PriceAction);
 	
-	var _coin = __webpack_require__(836);
+	var _coin = __webpack_require__(845);
 	
 	var _coin2 = _interopRequireDefault(_coin);
 	
 	var _ = __webpack_require__(585);
 	
 	__webpack_require__(757);
+	
+	var _classnames = __webpack_require__(624);
+	
+	var _classnames2 = _interopRequireDefault(_classnames);
 	
 	var _reactstrap = __webpack_require__(623);
 	
@@ -44863,7 +44874,7 @@
 	  };
 	};
 	
-	var sourceFilter = [{ id: 0, name: "네이버" }, { id: 1, name: "다음" }];
+	var sourceFilter = [{ id: 0, name: "정확도" }, { id: 1, name: "최신순" }];
 	
 	var HomePage = function (_Component) {
 	  _inherits(HomePage, _Component);
@@ -44874,23 +44885,6 @@
 	    _classCallCheck(this, HomePage);
 	
 	    var _this = _possibleConstructorReturn(this, (HomePage.__proto__ || Object.getPrototypeOf(HomePage)).call(this, props));
-	
-	    _this.renderChart = function (type) {
-	      var baseUrl = "https://widgets.cryptocompare.com/";
-	      var appName = encodeURIComponent(window.location.hostname);
-	      if (appName == "") {
-	        appName = "local";
-	      }
-	      var s = document.createElement("script");
-	      s.type = "text/javascript";
-	      s.async = true;
-	      var theUrl = baseUrl + ("serve/v3/coin/chart?fsym=" + type + "&tsyms=KRW");
-	      s.src = theUrl + (theUrl.indexOf("?") >= 0 ? "&" : "?") + "app=" + appName;
-	      _this.instance.appendChild(s);
-	      s.onload = function () {
-	        _this.setState({ loadGraph: false });
-	      };
-	    };
 	
 	    _this.handleScroll = function (e) {
 	      var bottom = e.target.scrollHeight - e.target.scrollTop === e.target.clientHeight;
@@ -44908,7 +44902,6 @@
 	        if (_this.state.endScroll === false) {
 	          _this.setState({ footerLoading: true });
 	          _this.props.dispatch(NewsAction.getNews(newsParams)).then(function (news) {
-	            console.log(news.result.length);
 	            if (news.result.length < 10) {
 	              _this.setState({ endScroll: true, footerLoading: false });
 	            } else {
@@ -44927,6 +44920,14 @@
 	      }
 	    };
 	
+	    _this.toggleBlog = function () {
+	      _this.setState(function (prevState) {
+	        return {
+	          isBlog: !prevState.isBlog
+	        };
+	      });
+	    };
+	
 	    _this.handleSource = function (id, name) {
 	      var _this$state2 = _this.state,
 	          sourceId = _this$state2.sourceId,
@@ -44943,74 +44944,76 @@
 	      });
 	    };
 	
-	    _this.handleChart = function () {
-	      var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(coin, id) {
-	        var sourceId, newsParams;
+	    _this.renderChart = function (type) {
+	      var baseUrl = "https://widgets.cryptocompare.com/";
+	      var appName = encodeURIComponent(window.location.hostname);
+	      if (appName == "") {
+	        appName = "local";
+	      }
+	      var s = document.createElement("script");
+	      s.type = "text/javascript";
+	      s.async = true;
+	      var theUrl = baseUrl + ("serve/v3/coin/chart?fsym=" + type + "&tsyms=KRW");
+	      s.src = theUrl + (theUrl.indexOf("?") >= 0 ? "&" : "?") + "app=" + appName;
+	      _this.instance.appendChild(s);
+	      s.onload = function () {
+	        _this.setState({ loadGraph: false });
+	      };
+	    };
+	
+	    _this.handleChart = function (index, id, coin) {
+	      _this.lists.scrollTop;
+	      var sourceId = _this.state.sourceId;
+	
+	      var newsParams = {
+	        coinId: id,
+	        sourceId: sourceId,
+	        newsCount: 0
+	      };
+	      _this.setState({
+	        loadGraph: true,
+	        endScroll: false,
+	        isFavEmpty: false,
+	        newsLoading: true,
+	        coinType: coin
+	      });
+	
+	      if (_this.instance === undefined) {
+	        _this.renderChart(coin);
+	        _this.props.dispatch(NewsAction.getNews(newsParams)).then(function (value) {
+	          _this.setState({
+	            news: value.result,
+	            newsLoading: false,
+	            newsCount: 0,
+	            coinId: id,
+	            coinType: coin
+	          });
+	        });
+	      } else {
+	        while (_this.instance.firstChild) {
+	          _this.instance.removeChild(_this.instance.firstChild);
+	        }
+	        console.log(_this.instance.parentNode);
+	        _this.renderChart(coin);
+	        _this.props.dispatch(NewsAction.getNews(newsParams)).then(function (value) {
+	          _this.setState({
+	            news: value.result,
+	            newsCount: 0,
+	            newsLoading: false,
+	            coinId: id,
+	            coinType: coin
+	          });
+	        });
+	      }
+	    };
+	
+	    _this.handleFavorite = function () {
+	      var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(index, id, data) {
+	        var coin, _this$props, me, token, params, leftOver, i, result, abbrArray, _i;
+	
 	        return regeneratorRuntime.wrap(function _callee$(_context) {
 	          while (1) {
 	            switch (_context.prev = _context.next) {
-	              case 0:
-	                _this.lists.scrollTop;
-	                sourceId = _this.state.sourceId;
-	                newsParams = {
-	                  coinId: id,
-	                  sourceId: sourceId,
-	                  newsCount: 0
-	                };
-	
-	                _this.setState({
-	                  loadGraph: true,
-	                  endScroll: false,
-	                  isFavEmpty: false,
-	                  newsLoading: true,
-	                  coinType: coin
-	                });
-	
-	                if (_this.instance === undefined) {
-	                  _this.renderChart(coin);
-	                  _this.props.dispatch(NewsAction.getNews(newsParams)).then(function (value) {
-	                    _this.setState({
-	                      news: value.result,
-	                      newsLoading: false,
-	                      newsCount: 0,
-	                      coinId: id
-	                    });
-	                  });
-	                } else {
-	                  while (_this.instance.firstChild) {
-	                    _this.instance.removeChild(_this.instance.firstChild);
-	                  }
-	                  _this.renderChart(coin);
-	                  _this.props.dispatch(NewsAction.getNews(newsParams)).then(function (value) {
-	                    _this.setState({
-	                      news: value.result,
-	                      newsCount: 0,
-	                      newsLoading: false,
-	                      coinId: id
-	                    });
-	                  });
-	                }
-	
-	              case 5:
-	              case "end":
-	                return _context.stop();
-	            }
-	          }
-	        }, _callee, _this2);
-	      }));
-	
-	      return function (_x, _x2) {
-	        return _ref.apply(this, arguments);
-	      };
-	    }();
-	
-	    _this.handleFavorite = function () {
-	      var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(index, id, data) {
-	        var coin, _this$props, me, token, params, leftOver, i, result, abbrArray, _i;
-	
-	        return regeneratorRuntime.wrap(function _callee2$(_context2) {
-	          while (1) {
-	            switch (_context2.prev = _context2.next) {
 	              case 0:
 	                coin = _this.state.favorite.slice();
 	                _this$props = _this.props, me = _this$props.me, token = _this$props.token;
@@ -45030,15 +45033,16 @@
 	                      leftOver.push(coin[i].abbr);
 	                    }
 	                  }
+	                  //한개 남았을 때
 	                  if (leftOver.length === 0) {
-	                    _this.setState({ favorite: coin, isFavEmpty: true });
+	                    _this.setState({ favorite: coin, isFavEmpty: true, news: [] });
 	                    while (_this.instance.firstChild) {
 	                      _this.instance.removeChild(_this.instance.firstChild);
 	                    }
 	                    _this.props.dispatch(PriceAction.removeFav(params));
 	                  } else {
 	                    _this.setState({ favorite: coin, coinType: leftOver[0] });
-	                    _this.handleChart(leftOver[0], id);
+	                    _this.handleChart(0, id, leftOver[0]);
 	                    _this.props.dispatch(PriceAction.removeFav(params));
 	                  }
 	                }
@@ -45046,7 +45050,7 @@
 	                else {
 	                    coin[index].clicked = true;
 	                    coin[index].loading = true;
-	                    _this.handleChart(data, id);
+	                    _this.handleChart(0, id, data);
 	                    _this.setState({ favorite: coin });
 	
 	                    //즐겨찾기 한 코인들에게, 가격, 증감표시 key 추가
@@ -45080,163 +45084,184 @@
 	
 	              case 4:
 	              case "end":
-	                return _context2.stop();
+	                return _context.stop();
 	            }
 	          }
-	        }, _callee2, _this2);
+	        }, _callee, _this2);
 	      }));
 	
-	      return function (_x3, _x4, _x5) {
-	        return _ref2.apply(this, arguments);
+	      return function (_x, _x2, _x3) {
+	        return _ref.apply(this, arguments);
 	      };
 	    }();
 	
-	    _this.handleMe = function () {
-	      var _this$props2 = _this.props,
-	          isLogin = _this$props2.isLogin,
-	          me = _this$props2.me;
-	
-	      if (isLogin) {
-	        _this.props.history.push({
-	          pathname: "/news/@" + me[0].username
-	        });
-	      } else {
-	        _this.props.history.push({
-	          pathname: "/auth"
-	        });
-	      }
-	    };
-	
 	    _this.state = {
-	      navStatus: "news",
 	      loadGraph: true,
 	      dropdownOpen: false,
-	      coinType: "BTC",
+	      coinType: "",
 	      coinId: 1,
 	      news: [],
 	      endScroll: false,
 	      favorite: [],
 	      isFavEmpty: true,
+	      isBlog: false,
 	      newsCount: 0,
 	      sourceId: 0,
-	      sourceName: "네이버",
+	      sourceName: "정확도",
 	      footerLoading: false,
-	      newsLoading: false
+	      newsLoading: true
 	    };
 	    _this.toggle = _this.toggle.bind(_this);
 	    return _this;
 	  }
 	
 	  _createClass(HomePage, [{
+	    key: "componentWillMount",
+	    value: function componentWillMount() {
+	      this.setState({ newsLoading: true });
+	    }
+	  }, {
 	    key: "componentDidMount",
 	    value: function componentDidMount() {
 	      var _this3 = this;
 	
-	      // 모든 코인
-	      this.props.dispatch(PriceAction.getCoins()).then(function (coins) {
-	        //즐겨찾기
-	        _this3.props.dispatch(PriceAction.getFavs(_this3.props.token)).then(function (favs) {
-	          //즐겨찾기 없을 경우
-	          if (favs.length === 0 || favs === [] || favs === null || favs === undefined) {
-	            // 일반 뉴스
-	            var _state = _this3.state,
-	                newsCount = _state.newsCount,
-	                coinId = _state.coinId,
-	                sourceId = _state.sourceId;
+	      console.log(this.instance);
+	      var isLogin = this.props.isLogin;
 	
-	            var newsParams = {
-	              coinId: coinId,
-	              sourceId: sourceId,
-	              newsCount: newsCount
-	            };
-	            _this3.setState({ newsLoading: true, loadGraph: true });
-	            _this3.props.dispatch(NewsAction.getNews(newsParams)).then(function (news) {
-	              _this3.setState({
-	                newsCount: newsCount,
-	                news: news.result,
-	                newsLoading: false
+	      if (isLogin) {
+	        // 모든 코인
+	        this.props.dispatch(PriceAction.getCoins()).then(function (coins) {
+	          //즐겨찾기
+	          _this3.props.dispatch(PriceAction.getFavs(_this3.props.token)).then(function (favs) {
+	            //즐겨찾기 없을 경우
+	            if (favs.length === 0 || favs === [] || favs === null || favs === undefined) {
+	              // 일반 뉴스
+	              var _state = _this3.state,
+	                  newsCount = _state.newsCount,
+	                  coinId = _state.coinId,
+	                  sourceId = _state.sourceId;
+	
+	              var newsParams = {
+	                coinId: coinId,
+	                sourceId: sourceId,
+	                newsCount: newsCount
+	              };
+	              _this3.props.dispatch(NewsAction.getNews(newsParams)).then(function (news) {
+	                _this3.setState({
+	                  newsCount: newsCount,
+	                  news: [],
+	                  newsLoading: false
+	                });
+	                var result = coins.map(function (el) {
+	                  var o = Object.assign({}, el);
+	                  o.clicked = false;
+	                  o.loading = false;
+	                  return o;
+	                });
+	                _this3.setState({
+	                  favorite: result,
+	                  loadGraph: false,
+	                  isFavEmpty: true
+	                });
 	              });
+	            } else {
+	              //즐겨찾기 있을 경우
 	              var result = coins.map(function (el) {
 	                var o = Object.assign({}, el);
 	                o.clicked = false;
 	                o.loading = false;
 	                return o;
 	              });
-	              _this3.setState({
-	                favorite: result,
-	                loadGraph: false,
-	                isFavEmpty: true
-	              });
-	            });
-	          } else {
-	            //즐겨찾기 있을 경우
-	            var result = coins.map(function (el) {
-	              var o = Object.assign({}, el);
-	              o.clicked = false;
-	              o.loading = false;
-	              return o;
-	            });
-	            for (var i = 0; i < result.length; i++) {
-	              for (var j = 0; j < favs.length; j++) {
-	                if (result[i].abbr === favs[j].abbr) {
-	                  result[i].clicked = true;
-	                }
-	              }
-	            }
-	            _this3.setState({
-	              favorite: result,
-	              loadGraph: true,
-	              isFavEmpty: false
-	            });
-	            var abbrArray = [];
-	            for (var _i3 = 0; _i3 < result.length; _i3++) {
-	              if (result[_i3].clicked === true) {
-	                abbrArray.push({ id: result[_i3].id, abbr: result[_i3].abbr });
-	              }
-	            }
-	            var final = result.map(function (el) {
-	              var o = Object.assign({}, el);
-	              o.price = 0;
-	              o.percent = "";
-	              return o;
-	            });
-	
-	            _this3.props.dispatch(PriceAction.getPrice(abbrArray.map(function (a, index) {
-	              return a.abbr;
-	            }))).then(function (value) {
-	              for (var _i4 = 0; _i4 < final.length; _i4++) {
-	                for (var _j = 0; _j < abbrArray.length; _j++) {
-	                  if (final[_i4].abbr === abbrArray[_j].abbr) {
-	                    final[_i4].price = value[abbrArray[_j].abbr].KRW.PRICE;
-	                    final[_i4].percent = value[abbrArray[_j].abbr].KRW.CHANGEPCT24HOUR;
+	              for (var i = 0; i < result.length; i++) {
+	                for (var j = 0; j < favs.length; j++) {
+	                  if (result[i].abbr === favs[j].abbr) {
+	                    result[i].clicked = true;
+	                    result[i].loading = true;
 	                  }
 	                }
 	              }
-	
-	              var _state2 = _this3.state,
-	                  newsCount = _state2.newsCount,
-	                  sourceId = _state2.sourceId;
-	
-	              var newsParams = {
-	                coinId: abbrArray[0].id,
-	                sourceId: sourceId,
-	                newsCount: newsCount
-	              };
-	
-	              _this3.setState({ newsLoading: true, loadGraph: true });
-	              _this3.props.dispatch(NewsAction.getNews(newsParams)).then(function (news) {
-	                _this3.setState({
-	                  news: news.result,
-	                  newsLoading: false,
-	                  favorite: final,
-	                  coinType: abbrArray[0].abbr
-	                });
+	              _this3.setState({
+	                favorite: result,
+	                loadGraph: true,
+	                isFavEmpty: false
 	              });
-	              _this3.renderChart(abbrArray[0].abbr);
-	            });
-	          }
+	              var abbrArray = [];
+	              for (var _i3 = 0; _i3 < result.length; _i3++) {
+	                if (result[_i3].clicked === true) {
+	                  abbrArray.push({ id: result[_i3].id, abbr: result[_i3].abbr });
+	                }
+	              }
+	              var final = result.map(function (el) {
+	                var o = Object.assign({}, el);
+	                o.price = 0;
+	                o.percent = "";
+	                return o;
+	              });
+	
+	              _this3.props.dispatch(PriceAction.getPrice(abbrArray.map(function (a, index) {
+	                return a.abbr;
+	              }))).then(function (value) {
+	                for (var _i4 = 0; _i4 < final.length; _i4++) {
+	                  for (var _j = 0; _j < abbrArray.length; _j++) {
+	                    if (final[_i4].abbr === abbrArray[_j].abbr) {
+	                      final[_i4].loading = false;
+	                      final[_i4].price = value[abbrArray[_j].abbr].KRW.PRICE;
+	                      final[_i4].percent = value[abbrArray[_j].abbr].KRW.CHANGEPCT24HOUR;
+	                    }
+	                  }
+	                }
+	
+	                var _state2 = _this3.state,
+	                    newsCount = _state2.newsCount,
+	                    sourceId = _state2.sourceId;
+	
+	                var newsParams = {
+	                  coinId: abbrArray[0].id,
+	                  sourceId: sourceId,
+	                  newsCount: newsCount
+	                };
+	
+	                _this3.setState({ newsLoading: true, loadGraph: true });
+	                _this3.props.dispatch(NewsAction.getNews(newsParams)).then(function (news) {
+	                  _this3.setState({
+	                    news: news.result,
+	                    newsLoading: false,
+	                    favorite: final,
+	                    coinType: abbrArray[0].abbr
+	                  });
+	                });
+	                _this3.renderChart(abbrArray[0].abbr);
+	              });
+	            }
+	          });
 	        });
-	      });
+	      } else {
+	        var newsParams = {
+	          coinId: 1,
+	          sourceId: 0,
+	          newsCount: 0
+	        };
+	        var defaultFav = [{ id: 1, abbr: "BTC", price: 0, percent: "", clicked: true }];
+	        this.props.dispatch(PriceAction.getPrice("BTC")).then(function (price) {
+	          defaultFav[0].price = price["BTC"].KRW.PRICE;
+	          defaultFav[0].percent = price["BTC"].KRW.CHANGEPCT24HOUR;
+	          _this3.props.dispatch(NewsAction.getNews(newsParams)).then(function (news) {
+	            _this3.setState({
+	              news: news.result,
+	              newsLoading: false,
+	              coinType: "BTC",
+	              favorite: defaultFav
+	            });
+	          });
+	        });
+	      }
+	    }
+	  }, {
+	    key: "componentWillUnmount",
+	    value: function componentWillUnmount() {
+	      // while (this.instance.firstChild) {
+	      //   this.instance.removeChild(this.instance.firstChild);
+	      // }
 	    }
 	  }, {
 	    key: "toggle",
@@ -45257,11 +45282,11 @@
 	          coinType = _state3.coinType,
 	          favorite = _state3.favorite,
 	          isFavEmpty = _state3.isFavEmpty,
+	          isBlog = _state3.isBlog,
 	          news = _state3.news,
 	          footerLoading = _state3.footerLoading,
 	          newsLoading = _state3.newsLoading,
-	          sourceName = _state3.sourceName,
-	          navStatus = _state3.navStatus;
+	          sourceName = _state3.sourceName;
 	      var _props = this.props,
 	          me = _props.me,
 	          isLogin = _props.isLogin;
@@ -45269,7 +45294,7 @@
 	      return _react2.default.createElement(
 	        "div",
 	        { className: "homePage" },
-	        _react2.default.createElement(_Components.NavBar, { type: navStatus }),
+	        _react2.default.createElement(_Components.NavBar, { type: "news" }),
 	        _react2.default.createElement(_Components.SideBar, {
 	          onClick: this.handleChart,
 	          type: coinType,
@@ -45291,26 +45316,28 @@
 	                { className: "homePage__content__news__search__first" },
 	                _react2.default.createElement(
 	                  "div",
-	                  { className: "homePage__content__news__search__first__iconArea" },
-	                  _react2.default.createElement(
-	                    "span",
-	                    { className: "homePage__content__news__search__first__iconArea__icon" },
-	                    _react2.default.createElement("i", { className: "xi-search" })
-	                  )
+	                  {
+	                    onClick: this.toggleBlog,
+	                    className: (0, _classnames2.default)("homePage__content__news__search__first__item", {
+	                      "homePage__content__news__search__first__item-active": !isBlog
+	                    })
+	                  },
+	                  "\uB274\uC2A4"
 	                ),
 	                _react2.default.createElement(
 	                  "div",
-	                  { className: "homePage__content__news__search__first__inputArea" },
-	                  _react2.default.createElement("input", {
-	                    className: "homePage__content__news__search__first__inputArea__input",
-	                    placeholder: "\uBB34\uC5C7\uC744 \uCC3E\uACE0\uC2F6\uC73C\uC2E0\uAC00\uC694?"
-	                  })
+	                  {
+	                    onClick: this.toggleBlog,
+	                    className: (0, _classnames2.default)("homePage__content__news__search__first__item", {
+	                      "homePage__content__news__search__first__item-active": isBlog
+	                    })
+	                  },
+	                  "\uBE14\uB85C\uADF8"
 	                )
 	              ),
 	              _react2.default.createElement(
 	                "div",
 	                { className: "homePage__content__news__search__second" },
-	                _react2.default.createElement("hr", null),
 	                _react2.default.createElement(
 	                  "div",
 	                  { className: "homePage__content__news__search__second__content" },
@@ -45346,16 +45373,6 @@
 	                        );
 	                      })
 	                    )
-	                  ),
-	                  _react2.default.createElement(
-	                    "div",
-	                    { className: "homePage__content__news__search__second__content__function" },
-	                    _react2.default.createElement(_Components.Thumb, {
-	                      onClick: this.handleMe,
-	                      size: 30,
-	                      fontSize: 20,
-	                      cursor: "pointer"
-	                    })
 	                  )
 	                )
 	              )
@@ -45373,7 +45390,15 @@
 	                },
 	                className: "homePage__content__news__lists"
 	              },
-	              news && news.map(function (data, index) {
+	              news.length === 0 ? _react2.default.createElement(
+	                "div",
+	                { className: "homePage__content__news__lists-none" },
+	                _react2.default.createElement(
+	                  "p",
+	                  null,
+	                  "\uC624\uB978\uCABD +\uBC84\uD2BC\uC744 \uB20C\uB7EC \uC6D0\uD558\uC2DC\uB294 \uCF54\uC778\uC744 \uD314\uB85C\uC6B0 \uD558\uC138\uC694"
+	                )
+	              ) : news && news.map(function (data, index) {
 	                return _react2.default.createElement(_Components.List, {
 	                  key: index,
 	                  title: data.title,
@@ -45389,95 +45414,95 @@
 	              ) : null
 	            )
 	          ),
-	          _react2.default.createElement(_reactRouterDom.Route, { path: "/news/@:user_id", component: _.MyPage }),
-	          _react2.default.createElement(_reactRouterDom.Route, {
-	            exact: true,
-	            path: "/news",
-	            children: function children() {
-	              return _react2.default.createElement(
+	          _react2.default.createElement(
+	            "div",
+	            { className: "homePage__content__chart" },
+	            isLogin && !isFavEmpty && coinType !== "" ? _react2.default.createElement(
+	              "div",
+	              { className: "homePage__content__chart__coin" },
+	              coinType
+	            ) : _react2.default.createElement(
+	              "div",
+	              { className: "homePage__content__chart__coin" },
+	              "\uB85C\uB529\uC911"
+	            ),
+	            isFavEmpty === true ? _react2.default.createElement(
+	              "div",
+	              { className: "homePage__content__chart__intro" },
+	              _react2.default.createElement(
 	                "div",
-	                { className: "homePage__content__chart" },
-	                isFavEmpty === true ? _react2.default.createElement(
-	                  "div",
-	                  { className: "homePage__content__chart__intro" },
+	                { className: "homePage__content__chart__intro__logo" },
+	                _react2.default.createElement("img", {
+	                  width: 45,
+	                  height: 45,
+	                  src: "https://github.com/Hanyang-QuadJ/enhance/blob/master/public/icons/enhance_logo.png?raw=true"
+	                }),
+	                _react2.default.createElement(
+	                  "p",
+	                  { className: "homePage__content__chart__intro__logo__text" },
+	                  "ENHANCE"
+	                )
+	              ),
+	              _react2.default.createElement(
+	                "div",
+	                { className: "homePage__content__chart__intro__welcome" },
+	                _react2.default.createElement(
+	                  "p",
+	                  null,
 	                  _react2.default.createElement(
-	                    "div",
-	                    { className: "homePage__content__chart__intro__logo" },
-	                    _react2.default.createElement("img", {
-	                      width: 45,
-	                      height: 45,
-	                      src: __webpack_require__(837)
-	                    }),
-	                    _react2.default.createElement(
-	                      "p",
-	                      { className: "homePage__content__chart__intro__logo__text" },
-	                      "ENHANCE"
-	                    )
+	                    "strong",
+	                    null,
+	                    "\uD658\uC601\uD569\uB2C8\uB2E4. "
 	                  ),
-	                  _react2.default.createElement(
-	                    "div",
-	                    { className: "homePage__content__chart__intro__welcome" },
-	                    _react2.default.createElement(
-	                      "p",
-	                      null,
-	                      _react2.default.createElement(
-	                        "strong",
-	                        null,
-	                        "\uD658\uC601\uD569\uB2C8\uB2E4. "
-	                      ),
-	                      me && me[0].username + " 님"
-	                    ),
-	                    _react2.default.createElement(
-	                      "p",
-	                      null,
-	                      "\uC778\uD578\uC2A4\uB294 \uAC00\uC0C1\uD654\uD3D0\uC640 \uBE14\uB85D\uCCB4\uC778 \uAE30\uC220\uC5D0 \uB300\uD55C \uC815\uBCF4\uB97C \uC2E4\uC2DC\uAC04\uC73C\uB85C \uBAA8\uC544\uC11C \uD55C\uB208\uC5D0 \uBCF4\uAE30 \uC27D\uAC8C \uC81C\uACF5\uD574 \uB4DC\uB9AC\uACE0 \uC788\uC2B5\uB2C8\uB2E4. \uC778\uD578\uC2A4\uC640 \uD568\uAED8 \uAC00\uC0C1\uD654\uD3D0\uC758 \uC5ED\uC0AC\uB97C \uD568\uAED8 \uD558\uC138\uC694."
-	                    )
-	                  ),
-	                  _react2.default.createElement(
-	                    "div",
-	                    { className: "homePage__content__chart__intro__desc" },
-	                    _react2.default.createElement(
-	                      "strong",
-	                      null,
-	                      "\uC778\uD578\uC2A4 \uB274\uC2A4"
-	                    ),
-	                    _react2.default.createElement(
-	                      "p",
-	                      null,
-	                      "\uB85C\uADF8\uC778 \uD6C4 + \uBC84\uD2BC\uC744 \uB204\uB974\uAC70\uB098 \uC88C\uCE21 \uC0C1\uB2E8 \uB3CB\uBCF4\uAE30 \uC544\uC774\uCF58\uC744 \uB20C\uB7EC \uC6D0\uD558\uB294 \uAC00\uC0C1\uD654\uD3D0 \uC885\uBAA9\uC744 \uAC80\uC0C9\uD558\uC2E4 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
-	                    ),
-	                    _react2.default.createElement("br", null),
-	                    _react2.default.createElement(
-	                      "p",
-	                      null,
-	                      "\uC6D0\uD558\uB294 \uAC00\uC0C1\uD654\uD3D0\uB97C \uD074\uB9AD\uD558\uC5EC \uD314\uB85C\uC6B0 \uD558\uC2DC\uBA74 \uC6B0\uCE21 \uC990\uACA8\uCC3E\uAE30 \uBAA9\uB85D\uC5D0 \uC800\uC7A5\uB418\uC5B4 \uD574\uB2F9 \uAC00\uC0C1 \uD654\uD3D0\uC758 \uC815\uBCF4\uB97C \uACC4\uC18D \uBCF4\uC2E4 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
-	                    ),
-	                    _react2.default.createElement("br", null),
-	                    _react2.default.createElement(
-	                      "p",
-	                      null,
-	                      "\uC6B0\uCE21 \uC990\uACA8\uCC3E\uAE30 \uBAA9\uB85D\uC5D0 \uC704\uCE58\uD55C \uAC00\uC0C1\uD654\uD3D0 \uC885\uBAA9 \uBC15\uC2A4\uB97C \uD074\uB9AC\uD558\uBA74 \uC88C\uCE21 \uD30C\uD2F0\uC158\uC5D0 \uD574\uB2F9 \uAC00\uC0C1\uD654\uD3D0\uC5D0 \uAD00\uB828\uB41C \uAE30\uC0AC\uC640 \uC815\uBCF4\uB4E4\uC774 \uC2E4\uC2DC\uAC04\uC73C\uB85C \uB178\uCD9C\uB429\uB2C8\uB2E4."
-	                    )
-	                  )
-	                ) : null,
-	                loadGraph === true && isLogin === true ? _react2.default.createElement(
-	                  "div",
-	                  {
-	                    className: "homePage__content__chart__loading",
-	                    ref: function ref(el) {
-	                      return _this4.instance = el;
-	                    }
-	                  },
-	                  _react2.default.createElement(_reactActivity.Dots, { color: "#ffffff", size: 30 })
-	                ) : _react2.default.createElement("div", {
-	                  className: "homePage__content__chart__wrapper",
-	                  ref: function ref(el) {
-	                    return _this4.instance = el;
-	                  }
-	                })
-	              );
-	            }
-	          })
+	                  me && me[0].username + " 님"
+	                ),
+	                _react2.default.createElement(
+	                  "p",
+	                  null,
+	                  "\uC778\uD578\uC2A4\uB294 \uAC00\uC0C1\uD654\uD3D0\uC640 \uBE14\uB85D\uCCB4\uC778 \uAE30\uC220\uC5D0 \uB300\uD55C \uC815\uBCF4\uB97C \uC2E4\uC2DC\uAC04\uC73C\uB85C \uBAA8\uC544\uC11C \uD55C\uB208\uC5D0 \uBCF4\uAE30 \uC27D\uAC8C \uC81C\uACF5\uD574 \uB4DC\uB9AC\uACE0 \uC788\uC2B5\uB2C8\uB2E4. \uC778\uD578\uC2A4\uC640 \uD568\uAED8 \uAC00\uC0C1\uD654\uD3D0\uC758 \uC5ED\uC0AC\uB97C \uD568\uAED8 \uD558\uC138\uC694."
+	                )
+	              ),
+	              _react2.default.createElement(
+	                "div",
+	                { className: "homePage__content__chart__intro__desc" },
+	                _react2.default.createElement(
+	                  "strong",
+	                  null,
+	                  "\uC778\uD578\uC2A4 \uB274\uC2A4"
+	                ),
+	                _react2.default.createElement(
+	                  "p",
+	                  null,
+	                  "\uB85C\uADF8\uC778 \uD6C4 + \uBC84\uD2BC\uC744 \uB204\uB974\uAC70\uB098 \uC88C\uCE21 \uC0C1\uB2E8 \uB3CB\uBCF4\uAE30 \uC544\uC774\uCF58\uC744 \uB20C\uB7EC \uC6D0\uD558\uB294 \uAC00\uC0C1\uD654\uD3D0 \uC885\uBAA9\uC744 \uAC80\uC0C9\uD558\uC2E4 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+	                ),
+	                _react2.default.createElement("br", null),
+	                _react2.default.createElement(
+	                  "p",
+	                  null,
+	                  "\uC6D0\uD558\uB294 \uAC00\uC0C1\uD654\uD3D0\uB97C \uD074\uB9AD\uD558\uC5EC \uD314\uB85C\uC6B0 \uD558\uC2DC\uBA74 \uC6B0\uCE21 \uC990\uACA8\uCC3E\uAE30 \uBAA9\uB85D\uC5D0 \uC800\uC7A5\uB418\uC5B4 \uD574\uB2F9 \uAC00\uC0C1 \uD654\uD3D0\uC758 \uC815\uBCF4\uB97C \uACC4\uC18D \uBCF4\uC2E4 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+	                ),
+	                _react2.default.createElement("br", null),
+	                _react2.default.createElement(
+	                  "p",
+	                  null,
+	                  "\uC6B0\uCE21 \uC990\uACA8\uCC3E\uAE30 \uBAA9\uB85D\uC5D0 \uC704\uCE58\uD55C \uAC00\uC0C1\uD654\uD3D0 \uC885\uBAA9 \uBC15\uC2A4\uB97C \uD074\uB9AC\uD558\uBA74 \uC88C\uCE21 \uD30C\uD2F0\uC158\uC5D0 \uD574\uB2F9 \uAC00\uC0C1\uD654\uD3D0\uC5D0 \uAD00\uB828\uB41C \uAE30\uC0AC\uC640 \uC815\uBCF4\uB4E4\uC774 \uC2E4\uC2DC\uAC04\uC73C\uB85C \uB178\uCD9C\uB429\uB2C8\uB2E4."
+	                )
+	              )
+	            ) : null,
+	            loadGraph === true && isLogin === true ? _react2.default.createElement(
+	              "div",
+	              { className: "homePage__content__chart__loading" },
+	              _react2.default.createElement(_reactActivity.Dots, { color: "#ffffff", size: 30 }),
+	              _react2.default.createElement("br", null),
+	              "\uB370\uC774\uD130 \uC0DD\uC131\uC911\uC785\uB2C8\uB2E4. \uC870\uAE08\uB9CC \uAE30\uB2E4\uB824\uC8FC\uC138\uC694"
+	            ) : null,
+	            _react2.default.createElement("div", {
+	              className: "homePage__content__chart__wrapper",
+	              ref: function ref(el) {
+	                return _this4.instance = el;
+	              }
+	            })
+	          )
 	        )
 	      );
 	    }
@@ -45500,7 +45525,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.SocialInput = exports.Thumb = exports.Button = exports.RoundInput = exports.SideBar = exports.List = exports.NavBar = exports.DefaultComponent = undefined;
+	exports.Comment = exports.SocialInput = exports.Thumb = exports.Button = exports.RoundInput = exports.SideBar = exports.List = exports.NavBar = exports.DefaultComponent = undefined;
 	
 	var _DefaultComponent2 = __webpack_require__(621);
 	
@@ -45534,6 +45559,10 @@
 	
 	var _SocialInput3 = _interopRequireDefault(_SocialInput2);
 	
+	var _Comment2 = __webpack_require__(836);
+	
+	var _Comment3 = _interopRequireDefault(_Comment2);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.DefaultComponent = _DefaultComponent3.default; /*
@@ -45548,6 +45577,7 @@
 	exports.Button = _Button3.default;
 	exports.Thumb = _Thumb3.default;
 	exports.SocialInput = _SocialInput3.default;
+	exports.Comment = _Comment3.default;
 
 /***/ }),
 /* 621 */
@@ -45702,7 +45732,7 @@
 	
 	    _this.handleNews = function () {
 	      _this.props.history.push({
-	        pathname: "/news"
+	        pathname: "/"
 	      });
 	    };
 	
@@ -45836,7 +45866,16 @@
 	                "\uD3EC\uB7FC"
 	              )
 	            ),
-	            _react2.default.createElement(
+	            isLogin ? _react2.default.createElement(
+	              "div",
+	              {
+	                className: (0, _classnames2.default)("navBar__content__items__item", {
+	                  "navBar__content__items__item-active": type === "auth"
+	                }),
+	                onClick: this.handleAuth
+	              },
+	              _react2.default.createElement(_.Thumb, { fontSize: 30, size: 40, src: me && me[0].profile_img })
+	            ) : _react2.default.createElement(
 	              "div",
 	              {
 	                className: (0, _classnames2.default)("navBar__content__items__item", {
@@ -45849,11 +45888,7 @@
 	                { className: "navBar__content__items__item-icon" },
 	                _react2.default.createElement("i", { className: "xi-log-in" })
 	              ),
-	              isLogin === true ? _react2.default.createElement(
-	                "p",
-	                null,
-	                "\uB85C\uADF8\uC544\uC6C3"
-	              ) : _react2.default.createElement(
+	              _react2.default.createElement(
 	                "p",
 	                null,
 	                "\uB85C\uADF8\uC778"
@@ -55137,6 +55172,10 @@
 	
 	var _moment2 = _interopRequireDefault(_moment);
 	
+	var _classnames = __webpack_require__(624);
+	
+	var _classnames2 = _interopRequireDefault(_classnames);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -55169,14 +55208,21 @@
 	          createdAt = _props.createdAt,
 	          type = _props.type,
 	          link = _props.link,
-	          social = _props.social;
+	          social = _props.social,
+	          onClick = _props.onClick,
+	          active = _props.active,
+	          index = _props.index,
+	          selectedIndex = _props.selectedIndex;
 	
 	      return _react2.default.createElement(
 	        "a",
 	        { href: link && link, target: "_blank" },
 	        _react2.default.createElement(
 	          "div",
-	          { className: "list" },
+	          {
+	            className: onClick === undefined ? "list" : (0, _classnames2.default)("list", { "list-active ": index === selectedIndex }),
+	            onClick: onClick
+	          },
 	          _react2.default.createElement(
 	            "div",
 	            { className: "list__content" },
@@ -55198,11 +55244,38 @@
 	              }),
 	              social ? _react2.default.createElement(
 	                "div",
-	                { className: "list__content__textArea__text" },
-	                _react2.default.createElement("i", { className: "xi-thumbs-up" })
+	                { className: "list__content__textArea__social" },
+	                _react2.default.createElement(
+	                  "div",
+	                  { className: "list__content__textArea__social__item" },
+	                  _react2.default.createElement(
+	                    "span",
+	                    { className: "list__content__textArea__social__item__count" },
+	                    "10"
+	                  ),
+	                  _react2.default.createElement(
+	                    "span",
+	                    { className: "list__content__textArea__social__item__icon" },
+	                    _react2.default.createElement("i", { className: "far fa-thumbs-up" })
+	                  )
+	                ),
+	                _react2.default.createElement(
+	                  "div",
+	                  { className: "list__content__textArea__social__item" },
+	                  _react2.default.createElement(
+	                    "span",
+	                    { className: "list__content__textArea__social__item__count" },
+	                    "10"
+	                  ),
+	                  _react2.default.createElement(
+	                    "span",
+	                    { className: "list__content__textArea__social__item__icon" },
+	                    _react2.default.createElement("i", { className: "xi-eye" })
+	                  )
+	                )
 	              ) : null
 	            ),
-	            _react2.default.createElement(
+	            typeof type === "string" ? _react2.default.createElement(
 	              "div",
 	              { className: "list__content__type" },
 	              _react2.default.createElement(
@@ -55210,6 +55283,19 @@
 	                null,
 	                type
 	              )
+	            ) : _react2.default.createElement(
+	              "div",
+	              { className: "list__content__type-array" },
+	              type.map(function (data, index) {
+	                return _react2.default.createElement(
+	                  "div",
+	                  {
+	                    key: index,
+	                    className: "list__content__type-array__item"
+	                  },
+	                  data.abbr
+	                );
+	              })
 	            )
 	          )
 	        )
@@ -71951,7 +72037,8 @@
 	          type = _props.type,
 	          handleFavorite = _props.handleFavorite,
 	          favorite = _props.favorite,
-	          loadGraph = _props.loadGraph;
+	          loadGraph = _props.loadGraph,
+	          multiple = _props.multiple;
 	
 	      return _react2.default.createElement(
 	        "div",
@@ -72010,7 +72097,7 @@
 	                          },
 	                          _react2.default.createElement(
 	                            "div",
-	                            { className: "sideBar__modal__content__items_wrapper__item__abbr" },
+	                            { className: "sideBar__modal__content__items__wrapper__item__abbr" },
 	                            data.abbr
 	                          ),
 	                          _react2.default.createElement(
@@ -72051,7 +72138,11 @@
 	          _react2.default.createElement(
 	            "div",
 	            { className: "sideBar__content__items" },
-	            favorite && favorite.filter(function (a) {
+	            favorite && favorite.sort(function (a, b) {
+	              if (a.abbr < b.abbr) return -1;
+	              if (a.abbr > b.abbr) return 1;
+	              return 0;
+	            }).filter(function (a) {
 	              return a.clicked === true;
 	            }).map(function (data, index) {
 	              if (data.loading === true) {
@@ -72067,14 +72158,18 @@
 	                return _react2.default.createElement(
 	                  "div",
 	                  {
-	                    className: (0, _classnames2.default)("sideBar__content__items__item", {
+	                    className: multiple ? (0, _classnames2.default)("sideBar__content__items__item", {
+	                      "sideBar__content__items__item-active": data.selected === true
+	                    }, {
+	                      "sideBar__content__items__item-disable": loadGraph === true
+	                    }) : (0, _classnames2.default)("sideBar__content__items__item", {
 	                      "sideBar__content__items__item-active": type === data.abbr
 	                    }, {
 	                      "sideBar__content__items__item-disable": loadGraph === true
 	                    }),
 	                    key: index,
 	                    onClick: function onClick() {
-	                      return _onClick(data.abbr, data.id);
+	                      return _onClick(index, data.id, data.abbr);
 	                    }
 	                  },
 	                  _react2.default.createElement(
@@ -72087,23 +72182,23 @@
 	                    { className: "sideBar__content__items__item__price" },
 	                    data.price
 	                  ),
-	                  Number(data.percent) >= 0 ? _react2.default.createElement(
-	                    "div",
-	                    { className: "sideBar__content__items__item__percent" },
-	                    _react2.default.createElement(
-	                      "span",
-	                      { className: "sideBar__content__items__item__percent__icon" },
-	                      _react2.default.createElement("i", { className: "xi-arrow-up" })
-	                    ),
-	                    data.percent,
-	                    "%"
-	                  ) : _react2.default.createElement(
+	                  Number(data.percent) < 0 ? _react2.default.createElement(
 	                    "div",
 	                    { className: "sideBar__content__items__item__percent-down" },
 	                    _react2.default.createElement(
 	                      "span",
 	                      { className: "sideBar__content__items__item__percent-down__icon" },
 	                      _react2.default.createElement("i", { className: "xi-arrow-down" })
+	                    ),
+	                    data.percent,
+	                    "%"
+	                  ) : _react2.default.createElement(
+	                    "div",
+	                    { className: "sideBar__content__items__item__percent" },
+	                    _react2.default.createElement(
+	                      "span",
+	                      { className: "sideBar__content__items__item__percent__icon" },
+	                      _react2.default.createElement("i", { className: "xi-arrow-up" })
 	                    ),
 	                    data.percent,
 	                    "%"
@@ -79472,7 +79567,8 @@
 	          placeholder = _props.placeholder,
 	          isMulti = _props.isMulti,
 	          rows = _props.rows,
-	          rowsMax = _props.rowsMax;
+	          rowsMax = _props.rowsMax,
+	          onKeyPress = _props.onKeyPress;
 	
 	      return _react2.default.createElement(
 	        "div",
@@ -79487,6 +79583,7 @@
 	          underlineStyle: styles.underline,
 	          multiLine: isMulti,
 	          rows: rows,
+	          onKeyPress: onKeyPress,
 	          rowsMax: rowsMax
 	        })
 	      );
@@ -81355,19 +81452,19 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _filter = __webpack_require__(830);
-	
-	var _filter2 = _interopRequireDefault(_filter);
-	
-	var _reactTextareaAutosize = __webpack_require__(831);
+	var _reactTextareaAutosize = __webpack_require__(830);
 	
 	var _reactTextareaAutosize2 = _interopRequireDefault(_reactTextareaAutosize);
 	
-	var _Badge = __webpack_require__(832);
+	var _Badge = __webpack_require__(831);
 	
 	var _Badge2 = _interopRequireDefault(_Badge);
 	
 	var _ = __webpack_require__(620);
+	
+	var _category = __webpack_require__(833);
+	
+	var _category2 = _interopRequireDefault(_category);
 	
 	var _reactFileInputPreviewsBase = __webpack_require__(834);
 	
@@ -81399,6 +81496,22 @@
 	
 	    var _this = _possibleConstructorReturn(this, (SocialInput.__proto__ || Object.getPrototypeOf(SocialInput)).call(this, props));
 	
+	    _this.toggle = function () {
+	      _this.setState(function (prevState) {
+	        return {
+	          dropdownOpen: !prevState.dropdownOpen
+	        };
+	      });
+	    };
+	
+	    _this.toggle2 = function () {
+	      _this.setState(function (prevState) {
+	        return {
+	          dropdownOpen2: !prevState.dropdownOpen2
+	        };
+	      });
+	    };
+	
 	    _this.handlePostType = function (type) {
 	      _this.setState({ selectedPostType: type });
 	    };
@@ -81420,25 +81533,15 @@
 	    _this.state = {
 	      imagePreview: [],
 	      dropdownOpen: false,
-	      selectedPostType: "Walkie Takie"
+	      dropdownOpen2: false
 	    };
-	    _this.toggle = _this.toggle.bind(_this);
 	    return _this;
 	  }
 	
 	  _createClass(SocialInput, [{
-	    key: "toggle",
-	    value: function toggle() {
-	      this.setState(function (prevState) {
-	        return {
-	          dropdownOpen: !prevState.dropdownOpen
-	        };
-	      });
-	    }
-	  }, {
 	    key: "render",
 	    value: function render() {
-	      var postType = _filter2.default.post_type;
+	      var category = _category2.default.category;
 	      var _props = this.props,
 	          user = _props.user,
 	          isLogin = _props.isLogin,
@@ -81448,16 +81551,24 @@
 	          placeholder = _props.placeholder,
 	          handleBase = _props.handleBase,
 	          handleType = _props.handleType,
+	          handleType2 = _props.handleType2,
 	          selectedPostType = _props.selectedPostType,
 	          imagePreview = _props.imagePreview,
 	          handleDelete = _props.handleDelete,
 	          onClick = _props.onClick,
 	          value = _props.value,
 	          className = _props.className,
+	          postType = _props.postType,
 	          postText = _props.postText,
 	          onFocus = _props.onFocus,
 	          isFocus = _props.isFocus,
-	          onChangeTitle = _props.onChangeTitle;
+	          minRows = _props.minRows,
+	          maxRows = _props.maxRows,
+	          isTitle = _props.isTitle,
+	          onKeyPress = _props.onKeyPress,
+	          onChangeTitle = _props.onChangeTitle,
+	          showType2 = _props.showType2,
+	          selectedPostType2 = _props.selectedPostType2;
 	
 	      return _react2.default.createElement(
 	        "div",
@@ -81473,20 +81584,21 @@
 	          _react2.default.createElement(
 	            "div",
 	            { className: "socialInput__body__inputArea" },
-	            _react2.default.createElement("input", {
+	            isTitle ? _react2.default.createElement("input", {
 	              className: "socialInput__body__input-title",
 	              placeholder: "\uC81C\uBAA9",
 	              onChange: onChangeTitle
-	            }),
+	            }) : null,
 	            _react2.default.createElement(_reactTextareaAutosize2.default, {
-	              minRows: 4,
-	              maxRows: 6,
+	              minRows: minRows,
+	              maxRows: maxRows,
 	              value: value,
 	              onChange: function onChange(e) {
 	                return _onChange(e);
 	              },
 	              onFocus: onFocus,
 	              onBlur: onFocus,
+	              onKeyPress: onKeyPress,
 	              placeholder: isLogin === true ? placeholder : "가입하세요",
 	              className: "socialInput__body__input"
 	            })
@@ -81537,13 +81649,48 @@
 	              _react2.default.createElement(
 	                _reactstrap.DropdownMenu,
 	                null,
-	                postType.map(function (data, index) {
+	                postType.filter(function (a) {
+	                  return a.abbr !== selectedPostType;
+	                }).map(function (data, index) {
 	                  return _react2.default.createElement(
 	                    _reactstrap.DropdownItem,
 	                    {
 	                      key: index,
 	                      onClick: function onClick() {
-	                        return handleType(index, data);
+	                        return handleType(index, data.abbr);
+	                      }
+	                    },
+	                    data.abbr
+	                  );
+	                })
+	              )
+	            ) : null,
+	            showType2 ? _react2.default.createElement(
+	              _reactstrap.ButtonDropdown,
+	              {
+	                isOpen: this.state.dropdownOpen2,
+	                style: { marginRight: 10 },
+	                toggle: this.toggle2,
+	                size: "sm",
+	                direction: "down"
+	              },
+	              _react2.default.createElement(
+	                _reactstrap.DropdownToggle,
+	                { caret: true },
+	                selectedPostType2
+	              ),
+	              _react2.default.createElement(
+	                _reactstrap.DropdownMenu,
+	                null,
+	                category.filter(function (a) {
+	                  return a !== selectedPostType2;
+	                }).map(function (data, index) {
+	                  return _react2.default.createElement(
+	                    _reactstrap.DropdownItem,
+	                    {
+	                      key: index,
+	                      onClick: function onClick() {
+	                        return handleType2(index, data);
 	                      }
 	                    },
 	                    data
@@ -81597,12 +81744,6 @@
 
 /***/ }),
 /* 830 */
-/***/ (function(module, exports) {
-
-	module.exports = {"concept":[{"label":"All","clicked":true},{"label":"Calm","clicked":false,"value":"calm"},{"label":"Sight Seeing","clicked":false,"value":"sightSeeing"},{"label":"Dandy","clicked":false,"value":"dandy"},{"label":"Hearty Eater","clicked":false,"value":"food"},{"label":"Alive","clicked":false,"value":"activity"},{"label":"Swagger","clicked":false,"value":"luxury"},{"label":"Romantic","clicked":false,"value":"love"},{"label":"Party Animal","clicked":false,"value":"party"}],"day":[{"label":"All","clicked":true},{"label":"1 Day","value":"1 Day","clicked":false},{"label":"2 Days","value":"2 Day","clicked":false},{"label":"3 Days","value":"3 Days","clicked":false}],"area":[{"label":"All","clicked":true},{"label":"Area 1","clicked":false},{"label":"Area 2","clicked":false},{"label":"Area 3","clicked":false},{"label":"Area 4","clicked":false}],"feed_type":["Recent Posts","Hot Posts"],"post_type":["All","Walkie Talkie","Question","Selling/Giveaway","Hangout","Area1","Area2","Area3","Area4","KATUSA","Ville Channel"]}
-
-/***/ }),
-/* 831 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -82035,7 +82176,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(329)))
 
 /***/ }),
-/* 832 */
+/* 831 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -82045,7 +82186,7 @@
 	});
 	exports.default = undefined;
 	
-	var _Badge = __webpack_require__(833);
+	var _Badge = __webpack_require__(832);
 	
 	var _Badge2 = _interopRequireDefault(_Badge);
 	
@@ -82054,7 +82195,7 @@
 	exports.default = _Badge2.default;
 
 /***/ }),
-/* 833 */
+/* 832 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -82232,6 +82373,12 @@
 	} : {};
 	exports.default = Badge;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(329)))
+
+/***/ }),
+/* 833 */
+/***/ (function(module, exports) {
+
+	module.exports = {"category":["자유","정보","유머","질문과 답","홍보"]}
 
 /***/ }),
 /* 834 */
@@ -82513,18 +82660,2685 @@
 
 /***/ }),
 /* 836 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-	module.exports = {"coin":[{"abbr":"BTC","full":"Bitcoin","kor":"비트코인"},{"abbr":"EOS","full":"EOS","kor":"이오스"},{"abbr":"ETH","full":"Ethereum","kor":"이더리움"},{"abbr":"XRP","full":"Ripple","kor":"리플"},{"abbr":"BCH","full":"Bitcoin Cash","kor":"비트코인 캐시"},{"abbr":"ADA","full":"Cardano","kor":"카르다노"}]}
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(328);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _ = __webpack_require__(620);
+	
+	var _moment = __webpack_require__(630);
+	
+	var _moment2 = _interopRequireDefault(_moment);
+	
+	var _reactLinkify = __webpack_require__(837);
+	
+	var _reactLinkify2 = _interopRequireDefault(_reactLinkify);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // This Component is Skeleton of React Structure for Web Development
+	// If you want to make other Component, Copy and Refactor this Component.
+	
+	var defaultProps = {};
+	var propTypes = {};
+	
+	var Comment = function (_Component) {
+	  _inherits(Comment, _Component);
+	
+	  function Comment(props) {
+	    _classCallCheck(this, Comment);
+	
+	    var _this = _possibleConstructorReturn(this, (Comment.__proto__ || Object.getPrototypeOf(Comment)).call(this, props));
+	
+	    _moment2.default.locale("ko");
+	    return _this;
+	  }
+	
+	  _createClass(Comment, [{
+	    key: "render",
+	    value: function render() {
+	      var _props = this.props,
+	          username = _props.username,
+	          userPoint = _props.userPoint,
+	          content = _props.content,
+	          createdAt = _props.createdAt,
+	          profileImg = _props.profileImg;
+	
+	      return _react2.default.createElement(
+	        "div",
+	        { className: "comment" },
+	        _react2.default.createElement(
+	          "div",
+	          { className: "comment__content" },
+	          _react2.default.createElement(
+	            "div",
+	            { className: "comment__content__userArea" },
+	            _react2.default.createElement(_.Thumb, { src: profileImg, size: 35, fontSize: 25 }),
+	            _react2.default.createElement(
+	              "div",
+	              { className: "comment__content__userArea__userInfo" },
+	              _react2.default.createElement(
+	                "div",
+	                { className: "comment__content__userArea__userInfo__name" },
+	                username
+	              ),
+	              _react2.default.createElement(
+	                "div",
+	                { className: "comment__content__userArea__userInfo__point" },
+	                userPoint + " \uD3EC\uC778\uD2B8"
+	              )
+	            )
+	          ),
+	          _react2.default.createElement(
+	            "div",
+	            { className: "comment__content__content" },
+	            _react2.default.createElement(
+	              _reactLinkify2.default,
+	              {
+	                properties: {
+	                  target: "_blank",
+	                  style: { color: "#56b1bf", fontWeight: "400" }
+	                }
+	              },
+	              content
+	            )
+	          ),
+	          _react2.default.createElement(
+	            "div",
+	            { className: "comment__content__date" },
+	            (0, _moment2.default)(createdAt).fromNow()
+	          )
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return Comment;
+	}(_react.Component);
+	
+	Comment.defaultProps = defaultProps;
+	Comment.propTypes = propTypes;
+	
+	exports.default = Comment;
 
 /***/ }),
 /* 837 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "/public/icons/enhance_logo.png";
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.linkify = undefined;
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(328);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _linkifyIt = __webpack_require__(838);
+	
+	var _linkifyIt2 = _interopRequireDefault(_linkifyIt);
+	
+	var _tlds = __webpack_require__(844);
+	
+	var _tlds2 = _interopRequireDefault(_tlds);
+	
+	var _propTypes = __webpack_require__(383);
+	
+	var _propTypes2 = _interopRequireDefault(_propTypes);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var linkify = exports.linkify = new _linkifyIt2.default();
+	linkify.tlds(_tlds2.default);
+	
+	var Linkify = function (_React$Component) {
+	  _inherits(Linkify, _React$Component);
+	
+	  function Linkify() {
+	    var _ref;
+	
+	    var _temp, _this, _ret;
+	
+	    _classCallCheck(this, Linkify);
+	
+	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	      args[_key] = arguments[_key];
+	    }
+	
+	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Linkify.__proto__ || Object.getPrototypeOf(Linkify)).call.apply(_ref, [this].concat(args))), _this), _this.parseCounter = 0, _temp), _possibleConstructorReturn(_this, _ret);
+	  }
+	
+	  _createClass(Linkify, [{
+	    key: 'getMatches',
+	    value: function getMatches(string) {
+	      return linkify.match(string);
+	    }
+	  }, {
+	    key: 'parseString',
+	    value: function parseString(string) {
+	      var _this2 = this;
+	
+	      var elements = [];
+	      if (string === '') {
+	        return elements;
+	      }
+	
+	      var matches = this.getMatches(string);
+	      if (!matches) {
+	        return string;
+	      }
+	
+	      var lastIndex = 0;
+	      matches.forEach(function (match, idx) {
+	        // Push the preceding text if there is any
+	        if (match.index > lastIndex) {
+	          elements.push(string.substring(lastIndex, match.index));
+	        }
+	        // Shallow update values that specified the match
+	        var props = { href: match.url, key: 'parse' + _this2.parseCounter + 'match' + idx };
+	        for (var key in _this2.props.properties) {
+	          var val = _this2.props.properties[key];
+	          if (val === Linkify.MATCH) {
+	            val = match.url;
+	          }
+	
+	          props[key] = val;
+	        }
+	        elements.push(_react2.default.createElement(_this2.props.component, props, match.text));
+	        lastIndex = match.lastIndex;
+	      });
+	
+	      if (lastIndex < string.length) {
+	        elements.push(string.substring(lastIndex));
+	      }
+	
+	      return elements.length === 1 ? elements[0] : elements;
+	    }
+	  }, {
+	    key: 'parse',
+	    value: function parse(children) {
+	      var _this3 = this;
+	
+	      var parsed = children;
+	
+	      if (typeof children === 'string') {
+	        parsed = this.parseString(children);
+	      } else if (_react2.default.isValidElement(children) && children.type !== 'a' && children.type !== 'button') {
+	        parsed = _react2.default.cloneElement(children, { key: 'parse' + ++this.parseCounter }, this.parse(children.props.children));
+	      } else if (children instanceof Array) {
+	        parsed = children.map(function (child) {
+	          return _this3.parse(child);
+	        });
+	      }
+	
+	      return parsed;
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      this.parseCounter = 0;
+	      var parsedChildren = this.parse(this.props.children);
+	
+	      return _react2.default.createElement(
+	        'span',
+	        { className: this.props.className },
+	        parsedChildren
+	      );
+	    }
+	  }]);
+	
+	  return Linkify;
+	}(_react2.default.Component);
+	
+	Linkify.MATCH = 'LINKIFY_MATCH';
+	Linkify.propTypes = {
+	  className: _propTypes2.default.string,
+	  component: _propTypes2.default.any,
+	  properties: _propTypes2.default.object,
+	  urlRegex: _propTypes2.default.object,
+	  emailRegex: _propTypes2.default.object
+	};
+	Linkify.defaultProps = {
+	  className: 'Linkify',
+	  component: 'a',
+	  properties: {}
+	};
+	exports.default = Linkify;
+
 
 /***/ }),
 /* 838 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	
+	////////////////////////////////////////////////////////////////////////////////
+	// Helpers
+	
+	// Merge objects
+	//
+	function assign(obj /*from1, from2, from3, ...*/) {
+	  var sources = Array.prototype.slice.call(arguments, 1);
+	
+	  sources.forEach(function (source) {
+	    if (!source) { return; }
+	
+	    Object.keys(source).forEach(function (key) {
+	      obj[key] = source[key];
+	    });
+	  });
+	
+	  return obj;
+	}
+	
+	function _class(obj) { return Object.prototype.toString.call(obj); }
+	function isString(obj) { return _class(obj) === '[object String]'; }
+	function isObject(obj) { return _class(obj) === '[object Object]'; }
+	function isRegExp(obj) { return _class(obj) === '[object RegExp]'; }
+	function isFunction(obj) { return _class(obj) === '[object Function]'; }
+	
+	
+	function escapeRE(str) { return str.replace(/[.?*+^$[\]\\(){}|-]/g, '\\$&'); }
+	
+	////////////////////////////////////////////////////////////////////////////////
+	
+	
+	var defaultOptions = {
+	  fuzzyLink: true,
+	  fuzzyEmail: true,
+	  fuzzyIP: false
+	};
+	
+	
+	function isOptionsObj(obj) {
+	  return Object.keys(obj || {}).reduce(function (acc, k) {
+	    return acc || defaultOptions.hasOwnProperty(k);
+	  }, false);
+	}
+	
+	
+	var defaultSchemas = {
+	  'http:': {
+	    validate: function (text, pos, self) {
+	      var tail = text.slice(pos);
+	
+	      if (!self.re.http) {
+	        // compile lazily, because "host"-containing variables can change on tlds update.
+	        self.re.http =  new RegExp(
+	          '^\\/\\/' + self.re.src_auth + self.re.src_host_port_strict + self.re.src_path, 'i'
+	        );
+	      }
+	      if (self.re.http.test(tail)) {
+	        return tail.match(self.re.http)[0].length;
+	      }
+	      return 0;
+	    }
+	  },
+	  'https:':  'http:',
+	  'ftp:':    'http:',
+	  '//':      {
+	    validate: function (text, pos, self) {
+	      var tail = text.slice(pos);
+	
+	      if (!self.re.no_http) {
+	      // compile lazily, because "host"-containing variables can change on tlds update.
+	        self.re.no_http =  new RegExp(
+	          '^' +
+	          self.re.src_auth +
+	          // Don't allow single-level domains, because of false positives like '//test'
+	          // with code comments
+	          '(?:localhost|(?:(?:' + self.re.src_domain + ')\\.)+' + self.re.src_domain_root + ')' +
+	          self.re.src_port +
+	          self.re.src_host_terminator +
+	          self.re.src_path,
+	
+	          'i'
+	        );
+	      }
+	
+	      if (self.re.no_http.test(tail)) {
+	        // should not be `://` & `///`, that protects from errors in protocol name
+	        if (pos >= 3 && text[pos - 3] === ':') { return 0; }
+	        if (pos >= 3 && text[pos - 3] === '/') { return 0; }
+	        return tail.match(self.re.no_http)[0].length;
+	      }
+	      return 0;
+	    }
+	  },
+	  'mailto:': {
+	    validate: function (text, pos, self) {
+	      var tail = text.slice(pos);
+	
+	      if (!self.re.mailto) {
+	        self.re.mailto =  new RegExp(
+	          '^' + self.re.src_email_name + '@' + self.re.src_host_strict, 'i'
+	        );
+	      }
+	      if (self.re.mailto.test(tail)) {
+	        return tail.match(self.re.mailto)[0].length;
+	      }
+	      return 0;
+	    }
+	  }
+	};
+	
+	/*eslint-disable max-len*/
+	
+	// RE pattern for 2-character tlds (autogenerated by ./support/tlds_2char_gen.js)
+	var tlds_2ch_src_re = 'a[cdefgilmnoqrstuwxz]|b[abdefghijmnorstvwyz]|c[acdfghiklmnoruvwxyz]|d[ejkmoz]|e[cegrstu]|f[ijkmor]|g[abdefghilmnpqrstuwy]|h[kmnrtu]|i[delmnoqrst]|j[emop]|k[eghimnprwyz]|l[abcikrstuvy]|m[acdeghklmnopqrstuvwxyz]|n[acefgilopruz]|om|p[aefghklmnrstwy]|qa|r[eosuw]|s[abcdeghijklmnortuvxyz]|t[cdfghjklmnortvwz]|u[agksyz]|v[aceginu]|w[fs]|y[et]|z[amw]';
+	
+	// DON'T try to make PRs with changes. Extend TLDs with LinkifyIt.tlds() instead
+	var tlds_default = 'biz|com|edu|gov|net|org|pro|web|xxx|aero|asia|coop|info|museum|name|shop|рф'.split('|');
+	
+	/*eslint-enable max-len*/
+	
+	////////////////////////////////////////////////////////////////////////////////
+	
+	function resetScanCache(self) {
+	  self.__index__ = -1;
+	  self.__text_cache__   = '';
+	}
+	
+	function createValidator(re) {
+	  return function (text, pos) {
+	    var tail = text.slice(pos);
+	
+	    if (re.test(tail)) {
+	      return tail.match(re)[0].length;
+	    }
+	    return 0;
+	  };
+	}
+	
+	function createNormalizer() {
+	  return function (match, self) {
+	    self.normalize(match);
+	  };
+	}
+	
+	// Schemas compiler. Build regexps.
+	//
+	function compile(self) {
+	
+	  // Load & clone RE patterns.
+	  var re = self.re = __webpack_require__(839)(self.__opts__);
+	
+	  // Define dynamic patterns
+	  var tlds = self.__tlds__.slice();
+	
+	  self.onCompile();
+	
+	  if (!self.__tlds_replaced__) {
+	    tlds.push(tlds_2ch_src_re);
+	  }
+	  tlds.push(re.src_xn);
+	
+	  re.src_tlds = tlds.join('|');
+	
+	  function untpl(tpl) { return tpl.replace('%TLDS%', re.src_tlds); }
+	
+	  re.email_fuzzy      = RegExp(untpl(re.tpl_email_fuzzy), 'i');
+	  re.link_fuzzy       = RegExp(untpl(re.tpl_link_fuzzy), 'i');
+	  re.link_no_ip_fuzzy = RegExp(untpl(re.tpl_link_no_ip_fuzzy), 'i');
+	  re.host_fuzzy_test  = RegExp(untpl(re.tpl_host_fuzzy_test), 'i');
+	
+	  //
+	  // Compile each schema
+	  //
+	
+	  var aliases = [];
+	
+	  self.__compiled__ = {}; // Reset compiled data
+	
+	  function schemaError(name, val) {
+	    throw new Error('(LinkifyIt) Invalid schema "' + name + '": ' + val);
+	  }
+	
+	  Object.keys(self.__schemas__).forEach(function (name) {
+	    var val = self.__schemas__[name];
+	
+	    // skip disabled methods
+	    if (val === null) { return; }
+	
+	    var compiled = { validate: null, link: null };
+	
+	    self.__compiled__[name] = compiled;
+	
+	    if (isObject(val)) {
+	      if (isRegExp(val.validate)) {
+	        compiled.validate = createValidator(val.validate);
+	      } else if (isFunction(val.validate)) {
+	        compiled.validate = val.validate;
+	      } else {
+	        schemaError(name, val);
+	      }
+	
+	      if (isFunction(val.normalize)) {
+	        compiled.normalize = val.normalize;
+	      } else if (!val.normalize) {
+	        compiled.normalize = createNormalizer();
+	      } else {
+	        schemaError(name, val);
+	      }
+	
+	      return;
+	    }
+	
+	    if (isString(val)) {
+	      aliases.push(name);
+	      return;
+	    }
+	
+	    schemaError(name, val);
+	  });
+	
+	  //
+	  // Compile postponed aliases
+	  //
+	
+	  aliases.forEach(function (alias) {
+	    if (!self.__compiled__[self.__schemas__[alias]]) {
+	      // Silently fail on missed schemas to avoid errons on disable.
+	      // schemaError(alias, self.__schemas__[alias]);
+	      return;
+	    }
+	
+	    self.__compiled__[alias].validate =
+	      self.__compiled__[self.__schemas__[alias]].validate;
+	    self.__compiled__[alias].normalize =
+	      self.__compiled__[self.__schemas__[alias]].normalize;
+	  });
+	
+	  //
+	  // Fake record for guessed links
+	  //
+	  self.__compiled__[''] = { validate: null, normalize: createNormalizer() };
+	
+	  //
+	  // Build schema condition
+	  //
+	  var slist = Object.keys(self.__compiled__)
+	                      .filter(function (name) {
+	                        // Filter disabled & fake schemas
+	                        return name.length > 0 && self.__compiled__[name];
+	                      })
+	                      .map(escapeRE)
+	                      .join('|');
+	  // (?!_) cause 1.5x slowdown
+	  self.re.schema_test   = RegExp('(^|(?!_)(?:[><\uff5c]|' + re.src_ZPCc + '))(' + slist + ')', 'i');
+	  self.re.schema_search = RegExp('(^|(?!_)(?:[><\uff5c]|' + re.src_ZPCc + '))(' + slist + ')', 'ig');
+	
+	  self.re.pretest       = RegExp(
+	                            '(' + self.re.schema_test.source + ')|' +
+	                            '(' + self.re.host_fuzzy_test.source + ')|' +
+	                            '@',
+	                            'i');
+	
+	  //
+	  // Cleanup
+	  //
+	
+	  resetScanCache(self);
+	}
+	
+	/**
+	 * class Match
+	 *
+	 * Match result. Single element of array, returned by [[LinkifyIt#match]]
+	 **/
+	function Match(self, shift) {
+	  var start = self.__index__,
+	      end   = self.__last_index__,
+	      text  = self.__text_cache__.slice(start, end);
+	
+	  /**
+	   * Match#schema -> String
+	   *
+	   * Prefix (protocol) for matched string.
+	   **/
+	  this.schema    = self.__schema__.toLowerCase();
+	  /**
+	   * Match#index -> Number
+	   *
+	   * First position of matched string.
+	   **/
+	  this.index     = start + shift;
+	  /**
+	   * Match#lastIndex -> Number
+	   *
+	   * Next position after matched string.
+	   **/
+	  this.lastIndex = end + shift;
+	  /**
+	   * Match#raw -> String
+	   *
+	   * Matched string.
+	   **/
+	  this.raw       = text;
+	  /**
+	   * Match#text -> String
+	   *
+	   * Notmalized text of matched string.
+	   **/
+	  this.text      = text;
+	  /**
+	   * Match#url -> String
+	   *
+	   * Normalized url of matched string.
+	   **/
+	  this.url       = text;
+	}
+	
+	function createMatch(self, shift) {
+	  var match = new Match(self, shift);
+	
+	  self.__compiled__[match.schema].normalize(match, self);
+	
+	  return match;
+	}
+	
+	
+	/**
+	 * class LinkifyIt
+	 **/
+	
+	/**
+	 * new LinkifyIt(schemas, options)
+	 * - schemas (Object): Optional. Additional schemas to validate (prefix/validator)
+	 * - options (Object): { fuzzyLink|fuzzyEmail|fuzzyIP: true|false }
+	 *
+	 * Creates new linkifier instance with optional additional schemas.
+	 * Can be called without `new` keyword for convenience.
+	 *
+	 * By default understands:
+	 *
+	 * - `http(s)://...` , `ftp://...`, `mailto:...` & `//...` links
+	 * - "fuzzy" links and emails (example.com, foo@bar.com).
+	 *
+	 * `schemas` is an object, where each key/value describes protocol/rule:
+	 *
+	 * - __key__ - link prefix (usually, protocol name with `:` at the end, `skype:`
+	 *   for example). `linkify-it` makes shure that prefix is not preceeded with
+	 *   alphanumeric char and symbols. Only whitespaces and punctuation allowed.
+	 * - __value__ - rule to check tail after link prefix
+	 *   - _String_ - just alias to existing rule
+	 *   - _Object_
+	 *     - _validate_ - validator function (should return matched length on success),
+	 *       or `RegExp`.
+	 *     - _normalize_ - optional function to normalize text & url of matched result
+	 *       (for example, for @twitter mentions).
+	 *
+	 * `options`:
+	 *
+	 * - __fuzzyLink__ - recognige URL-s without `http(s):` prefix. Default `true`.
+	 * - __fuzzyIP__ - allow IPs in fuzzy links above. Can conflict with some texts
+	 *   like version numbers. Default `false`.
+	 * - __fuzzyEmail__ - recognize emails without `mailto:` prefix.
+	 *
+	 **/
+	function LinkifyIt(schemas, options) {
+	  if (!(this instanceof LinkifyIt)) {
+	    return new LinkifyIt(schemas, options);
+	  }
+	
+	  if (!options) {
+	    if (isOptionsObj(schemas)) {
+	      options = schemas;
+	      schemas = {};
+	    }
+	  }
+	
+	  this.__opts__           = assign({}, defaultOptions, options);
+	
+	  // Cache last tested result. Used to skip repeating steps on next `match` call.
+	  this.__index__          = -1;
+	  this.__last_index__     = -1; // Next scan position
+	  this.__schema__         = '';
+	  this.__text_cache__     = '';
+	
+	  this.__schemas__        = assign({}, defaultSchemas, schemas);
+	  this.__compiled__       = {};
+	
+	  this.__tlds__           = tlds_default;
+	  this.__tlds_replaced__  = false;
+	
+	  this.re = {};
+	
+	  compile(this);
+	}
+	
+	
+	/** chainable
+	 * LinkifyIt#add(schema, definition)
+	 * - schema (String): rule name (fixed pattern prefix)
+	 * - definition (String|RegExp|Object): schema definition
+	 *
+	 * Add new rule definition. See constructor description for details.
+	 **/
+	LinkifyIt.prototype.add = function add(schema, definition) {
+	  this.__schemas__[schema] = definition;
+	  compile(this);
+	  return this;
+	};
+	
+	
+	/** chainable
+	 * LinkifyIt#set(options)
+	 * - options (Object): { fuzzyLink|fuzzyEmail|fuzzyIP: true|false }
+	 *
+	 * Set recognition options for links without schema.
+	 **/
+	LinkifyIt.prototype.set = function set(options) {
+	  this.__opts__ = assign(this.__opts__, options);
+	  return this;
+	};
+	
+	
+	/**
+	 * LinkifyIt#test(text) -> Boolean
+	 *
+	 * Searches linkifiable pattern and returns `true` on success or `false` on fail.
+	 **/
+	LinkifyIt.prototype.test = function test(text) {
+	  // Reset scan cache
+	  this.__text_cache__ = text;
+	  this.__index__      = -1;
+	
+	  if (!text.length) { return false; }
+	
+	  var m, ml, me, len, shift, next, re, tld_pos, at_pos;
+	
+	  // try to scan for link with schema - that's the most simple rule
+	  if (this.re.schema_test.test(text)) {
+	    re = this.re.schema_search;
+	    re.lastIndex = 0;
+	    while ((m = re.exec(text)) !== null) {
+	      len = this.testSchemaAt(text, m[2], re.lastIndex);
+	      if (len) {
+	        this.__schema__     = m[2];
+	        this.__index__      = m.index + m[1].length;
+	        this.__last_index__ = m.index + m[0].length + len;
+	        break;
+	      }
+	    }
+	  }
+	
+	  if (this.__opts__.fuzzyLink && this.__compiled__['http:']) {
+	    // guess schemaless links
+	    tld_pos = text.search(this.re.host_fuzzy_test);
+	    if (tld_pos >= 0) {
+	      // if tld is located after found link - no need to check fuzzy pattern
+	      if (this.__index__ < 0 || tld_pos < this.__index__) {
+	        if ((ml = text.match(this.__opts__.fuzzyIP ? this.re.link_fuzzy : this.re.link_no_ip_fuzzy)) !== null) {
+	
+	          shift = ml.index + ml[1].length;
+	
+	          if (this.__index__ < 0 || shift < this.__index__) {
+	            this.__schema__     = '';
+	            this.__index__      = shift;
+	            this.__last_index__ = ml.index + ml[0].length;
+	          }
+	        }
+	      }
+	    }
+	  }
+	
+	  if (this.__opts__.fuzzyEmail && this.__compiled__['mailto:']) {
+	    // guess schemaless emails
+	    at_pos = text.indexOf('@');
+	    if (at_pos >= 0) {
+	      // We can't skip this check, because this cases are possible:
+	      // 192.168.1.1@gmail.com, my.in@example.com
+	      if ((me = text.match(this.re.email_fuzzy)) !== null) {
+	
+	        shift = me.index + me[1].length;
+	        next  = me.index + me[0].length;
+	
+	        if (this.__index__ < 0 || shift < this.__index__ ||
+	            (shift === this.__index__ && next > this.__last_index__)) {
+	          this.__schema__     = 'mailto:';
+	          this.__index__      = shift;
+	          this.__last_index__ = next;
+	        }
+	      }
+	    }
+	  }
+	
+	  return this.__index__ >= 0;
+	};
+	
+	
+	/**
+	 * LinkifyIt#pretest(text) -> Boolean
+	 *
+	 * Very quick check, that can give false positives. Returns true if link MAY BE
+	 * can exists. Can be used for speed optimization, when you need to check that
+	 * link NOT exists.
+	 **/
+	LinkifyIt.prototype.pretest = function pretest(text) {
+	  return this.re.pretest.test(text);
+	};
+	
+	
+	/**
+	 * LinkifyIt#testSchemaAt(text, name, position) -> Number
+	 * - text (String): text to scan
+	 * - name (String): rule (schema) name
+	 * - position (Number): text offset to check from
+	 *
+	 * Similar to [[LinkifyIt#test]] but checks only specific protocol tail exactly
+	 * at given position. Returns length of found pattern (0 on fail).
+	 **/
+	LinkifyIt.prototype.testSchemaAt = function testSchemaAt(text, schema, pos) {
+	  // If not supported schema check requested - terminate
+	  if (!this.__compiled__[schema.toLowerCase()]) {
+	    return 0;
+	  }
+	  return this.__compiled__[schema.toLowerCase()].validate(text, pos, this);
+	};
+	
+	
+	/**
+	 * LinkifyIt#match(text) -> Array|null
+	 *
+	 * Returns array of found link descriptions or `null` on fail. We strongly
+	 * recommend to use [[LinkifyIt#test]] first, for best speed.
+	 *
+	 * ##### Result match description
+	 *
+	 * - __schema__ - link schema, can be empty for fuzzy links, or `//` for
+	 *   protocol-neutral  links.
+	 * - __index__ - offset of matched text
+	 * - __lastIndex__ - index of next char after mathch end
+	 * - __raw__ - matched text
+	 * - __text__ - normalized text
+	 * - __url__ - link, generated from matched text
+	 **/
+	LinkifyIt.prototype.match = function match(text) {
+	  var shift = 0, result = [];
+	
+	  // Try to take previous element from cache, if .test() called before
+	  if (this.__index__ >= 0 && this.__text_cache__ === text) {
+	    result.push(createMatch(this, shift));
+	    shift = this.__last_index__;
+	  }
+	
+	  // Cut head if cache was used
+	  var tail = shift ? text.slice(shift) : text;
+	
+	  // Scan string until end reached
+	  while (this.test(tail)) {
+	    result.push(createMatch(this, shift));
+	
+	    tail = tail.slice(this.__last_index__);
+	    shift += this.__last_index__;
+	  }
+	
+	  if (result.length) {
+	    return result;
+	  }
+	
+	  return null;
+	};
+	
+	
+	/** chainable
+	 * LinkifyIt#tlds(list [, keepOld]) -> this
+	 * - list (Array): list of tlds
+	 * - keepOld (Boolean): merge with current list if `true` (`false` by default)
+	 *
+	 * Load (or merge) new tlds list. Those are user for fuzzy links (without prefix)
+	 * to avoid false positives. By default this algorythm used:
+	 *
+	 * - hostname with any 2-letter root zones are ok.
+	 * - biz|com|edu|gov|net|org|pro|web|xxx|aero|asia|coop|info|museum|name|shop|рф
+	 *   are ok.
+	 * - encoded (`xn--...`) root zones are ok.
+	 *
+	 * If list is replaced, then exact match for 2-chars root zones will be checked.
+	 **/
+	LinkifyIt.prototype.tlds = function tlds(list, keepOld) {
+	  list = Array.isArray(list) ? list : [ list ];
+	
+	  if (!keepOld) {
+	    this.__tlds__ = list.slice();
+	    this.__tlds_replaced__ = true;
+	    compile(this);
+	    return this;
+	  }
+	
+	  this.__tlds__ = this.__tlds__.concat(list)
+	                                  .sort()
+	                                  .filter(function (el, idx, arr) {
+	                                    return el !== arr[idx - 1];
+	                                  })
+	                                  .reverse();
+	
+	  compile(this);
+	  return this;
+	};
+	
+	/**
+	 * LinkifyIt#normalize(match)
+	 *
+	 * Default normalizer (if schema does not define it's own).
+	 **/
+	LinkifyIt.prototype.normalize = function normalize(match) {
+	
+	  // Do minimal possible changes by default. Need to collect feedback prior
+	  // to move forward https://github.com/markdown-it/linkify-it/issues/1
+	
+	  if (!match.schema) { match.url = 'http://' + match.url; }
+	
+	  if (match.schema === 'mailto:' && !/^mailto:/i.test(match.url)) {
+	    match.url = 'mailto:' + match.url;
+	  }
+	};
+	
+	
+	/**
+	 * LinkifyIt#onCompile()
+	 *
+	 * Override to modify basic RegExp-s.
+	 **/
+	LinkifyIt.prototype.onCompile = function onCompile() {
+	};
+	
+	
+	module.exports = LinkifyIt;
+
+
+/***/ }),
+/* 839 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	
+	module.exports = function (opts) {
+	  var re = {};
+	
+	  // Use direct extract instead of `regenerate` to reduse browserified size
+	  re.src_Any = __webpack_require__(840).source;
+	  re.src_Cc  = __webpack_require__(841).source;
+	  re.src_Z   = __webpack_require__(842).source;
+	  re.src_P   = __webpack_require__(843).source;
+	
+	  // \p{\Z\P\Cc\CF} (white spaces + control + format + punctuation)
+	  re.src_ZPCc = [ re.src_Z, re.src_P, re.src_Cc ].join('|');
+	
+	  // \p{\Z\Cc} (white spaces + control)
+	  re.src_ZCc = [ re.src_Z, re.src_Cc ].join('|');
+	
+	  // Experimental. List of chars, completely prohibited in links
+	  // because can separate it from other part of text
+	  var text_separators = '[><\uff5c]';
+	
+	  // All possible word characters (everything without punctuation, spaces & controls)
+	  // Defined via punctuation & spaces to save space
+	  // Should be something like \p{\L\N\S\M} (\w but without `_`)
+	  re.src_pseudo_letter       = '(?:(?!' + text_separators + '|' + re.src_ZPCc + ')' + re.src_Any + ')';
+	  // The same as abothe but without [0-9]
+	  // var src_pseudo_letter_non_d = '(?:(?![0-9]|' + src_ZPCc + ')' + src_Any + ')';
+	
+	  ////////////////////////////////////////////////////////////////////////////////
+	
+	  re.src_ip4 =
+	
+	    '(?:(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)';
+	
+	  // Prohibit any of "@/[]()" in user/pass to avoid wrong domain fetch.
+	  re.src_auth    = '(?:(?:(?!' + re.src_ZCc + '|[@/\\[\\]()]).)+@)?';
+	
+	  re.src_port =
+	
+	    '(?::(?:6(?:[0-4]\\d{3}|5(?:[0-4]\\d{2}|5(?:[0-2]\\d|3[0-5])))|[1-5]?\\d{1,4}))?';
+	
+	  re.src_host_terminator =
+	
+	    '(?=$|' + text_separators + '|' + re.src_ZPCc + ')(?!-|_|:\\d|\\.-|\\.(?!$|' + re.src_ZPCc + '))';
+	
+	  re.src_path =
+	
+	    '(?:' +
+	      '[/?#]' +
+	        '(?:' +
+	          '(?!' + re.src_ZCc + '|' + text_separators + '|[()[\\]{}.,"\'?!\\-]).|' +
+	          '\\[(?:(?!' + re.src_ZCc + '|\\]).)*\\]|' +
+	          '\\((?:(?!' + re.src_ZCc + '|[)]).)*\\)|' +
+	          '\\{(?:(?!' + re.src_ZCc + '|[}]).)*\\}|' +
+	          '\\"(?:(?!' + re.src_ZCc + '|["]).)+\\"|' +
+	          "\\'(?:(?!" + re.src_ZCc + "|[']).)+\\'|" +
+	          "\\'(?=" + re.src_pseudo_letter + '|[-]).|' +  // allow `I'm_king` if no pair found
+	          '\\.{2,3}[a-zA-Z0-9%/]|' + // github has ... in commit range links. Restrict to
+	                                     // - english
+	                                     // - percent-encoded
+	                                     // - parts of file path
+	                                     // until more examples found.
+	          '\\.(?!' + re.src_ZCc + '|[.]).|' +
+	          (opts && opts['---'] ?
+	            '\\-(?!--(?:[^-]|$))(?:-*)|' // `---` => long dash, terminate
+	          :
+	            '\\-+|'
+	          ) +
+	          '\\,(?!' + re.src_ZCc + ').|' +      // allow `,,,` in paths
+	          '\\!(?!' + re.src_ZCc + '|[!]).|' +
+	          '\\?(?!' + re.src_ZCc + '|[?]).' +
+	        ')+' +
+	      '|\\/' +
+	    ')?';
+	
+	  re.src_email_name =
+	
+	    '[\\-;:&=\\+\\$,\\"\\.a-zA-Z0-9_]+';
+	
+	  re.src_xn =
+	
+	    'xn--[a-z0-9\\-]{1,59}';
+	
+	  // More to read about domain names
+	  // http://serverfault.com/questions/638260/
+	
+	  re.src_domain_root =
+	
+	    // Allow letters & digits (http://test1)
+	    '(?:' +
+	      re.src_xn +
+	      '|' +
+	      re.src_pseudo_letter + '{1,63}' +
+	    ')';
+	
+	  re.src_domain =
+	
+	    '(?:' +
+	      re.src_xn +
+	      '|' +
+	      '(?:' + re.src_pseudo_letter + ')' +
+	      '|' +
+	      // don't allow `--` in domain names, because:
+	      // - that can conflict with markdown &mdash; / &ndash;
+	      // - nobody use those anyway
+	      '(?:' + re.src_pseudo_letter + '(?:-(?!-)|' + re.src_pseudo_letter + '){0,61}' + re.src_pseudo_letter + ')' +
+	    ')';
+	
+	  re.src_host =
+	
+	    '(?:' +
+	    // Don't need IP check, because digits are already allowed in normal domain names
+	    //   src_ip4 +
+	    // '|' +
+	      '(?:(?:(?:' + re.src_domain + ')\\.)*' + re.src_domain/*_root*/ + ')' +
+	    ')';
+	
+	  re.tpl_host_fuzzy =
+	
+	    '(?:' +
+	      re.src_ip4 +
+	    '|' +
+	      '(?:(?:(?:' + re.src_domain + ')\\.)+(?:%TLDS%))' +
+	    ')';
+	
+	  re.tpl_host_no_ip_fuzzy =
+	
+	    '(?:(?:(?:' + re.src_domain + ')\\.)+(?:%TLDS%))';
+	
+	  re.src_host_strict =
+	
+	    re.src_host + re.src_host_terminator;
+	
+	  re.tpl_host_fuzzy_strict =
+	
+	    re.tpl_host_fuzzy + re.src_host_terminator;
+	
+	  re.src_host_port_strict =
+	
+	    re.src_host + re.src_port + re.src_host_terminator;
+	
+	  re.tpl_host_port_fuzzy_strict =
+	
+	    re.tpl_host_fuzzy + re.src_port + re.src_host_terminator;
+	
+	  re.tpl_host_port_no_ip_fuzzy_strict =
+	
+	    re.tpl_host_no_ip_fuzzy + re.src_port + re.src_host_terminator;
+	
+	
+	  ////////////////////////////////////////////////////////////////////////////////
+	  // Main rules
+	
+	  // Rude test fuzzy links by host, for quick deny
+	  re.tpl_host_fuzzy_test =
+	
+	    'localhost|www\\.|\\.\\d{1,3}\\.|(?:\\.(?:%TLDS%)(?:' + re.src_ZPCc + '|>|$))';
+	
+	  re.tpl_email_fuzzy =
+	
+	      '(^|' + text_separators + '|\\(|' + re.src_ZCc + ')(' + re.src_email_name + '@' + re.tpl_host_fuzzy_strict + ')';
+	
+	  re.tpl_link_fuzzy =
+	      // Fuzzy link can't be prepended with .:/\- and non punctuation.
+	      // but can start with > (markdown blockquote)
+	      '(^|(?![.:/\\-_@])(?:[$+<=>^`|\uff5c]|' + re.src_ZPCc + '))' +
+	      '((?![$+<=>^`|\uff5c])' + re.tpl_host_port_fuzzy_strict + re.src_path + ')';
+	
+	  re.tpl_link_no_ip_fuzzy =
+	      // Fuzzy link can't be prepended with .:/\- and non punctuation.
+	      // but can start with > (markdown blockquote)
+	      '(^|(?![.:/\\-_@])(?:[$+<=>^`|\uff5c]|' + re.src_ZPCc + '))' +
+	      '((?![$+<=>^`|\uff5c])' + re.tpl_host_port_no_ip_fuzzy_strict + re.src_path + ')';
+	
+	  return re;
+	};
+
+
+/***/ }),
+/* 840 */
+/***/ (function(module, exports) {
+
+	module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF]/
+
+/***/ }),
+/* 841 */
+/***/ (function(module, exports) {
+
+	module.exports=/[\0-\x1F\x7F-\x9F]/
+
+/***/ }),
+/* 842 */
+/***/ (function(module, exports) {
+
+	module.exports=/[ \xA0\u1680\u2000-\u200A\u202F\u205F\u3000]/
+
+/***/ }),
+/* 843 */
+/***/ (function(module, exports) {
+
+	module.exports=/[!-#%-\*,-/:;\?@\[-\]_\{\}\xA1\xA7\xAB\xB6\xB7\xBB\xBF\u037E\u0387\u055A-\u055F\u0589\u058A\u05BE\u05C0\u05C3\u05C6\u05F3\u05F4\u0609\u060A\u060C\u060D\u061B\u061E\u061F\u066A-\u066D\u06D4\u0700-\u070D\u07F7-\u07F9\u0830-\u083E\u085E\u0964\u0965\u0970\u09FD\u0AF0\u0DF4\u0E4F\u0E5A\u0E5B\u0F04-\u0F12\u0F14\u0F3A-\u0F3D\u0F85\u0FD0-\u0FD4\u0FD9\u0FDA\u104A-\u104F\u10FB\u1360-\u1368\u1400\u166D\u166E\u169B\u169C\u16EB-\u16ED\u1735\u1736\u17D4-\u17D6\u17D8-\u17DA\u1800-\u180A\u1944\u1945\u1A1E\u1A1F\u1AA0-\u1AA6\u1AA8-\u1AAD\u1B5A-\u1B60\u1BFC-\u1BFF\u1C3B-\u1C3F\u1C7E\u1C7F\u1CC0-\u1CC7\u1CD3\u2010-\u2027\u2030-\u2043\u2045-\u2051\u2053-\u205E\u207D\u207E\u208D\u208E\u2308-\u230B\u2329\u232A\u2768-\u2775\u27C5\u27C6\u27E6-\u27EF\u2983-\u2998\u29D8-\u29DB\u29FC\u29FD\u2CF9-\u2CFC\u2CFE\u2CFF\u2D70\u2E00-\u2E2E\u2E30-\u2E49\u3001-\u3003\u3008-\u3011\u3014-\u301F\u3030\u303D\u30A0\u30FB\uA4FE\uA4FF\uA60D-\uA60F\uA673\uA67E\uA6F2-\uA6F7\uA874-\uA877\uA8CE\uA8CF\uA8F8-\uA8FA\uA8FC\uA92E\uA92F\uA95F\uA9C1-\uA9CD\uA9DE\uA9DF\uAA5C-\uAA5F\uAADE\uAADF\uAAF0\uAAF1\uABEB\uFD3E\uFD3F\uFE10-\uFE19\uFE30-\uFE52\uFE54-\uFE61\uFE63\uFE68\uFE6A\uFE6B\uFF01-\uFF03\uFF05-\uFF0A\uFF0C-\uFF0F\uFF1A\uFF1B\uFF1F\uFF20\uFF3B-\uFF3D\uFF3F\uFF5B\uFF5D\uFF5F-\uFF65]|\uD800[\uDD00-\uDD02\uDF9F\uDFD0]|\uD801\uDD6F|\uD802[\uDC57\uDD1F\uDD3F\uDE50-\uDE58\uDE7F\uDEF0-\uDEF6\uDF39-\uDF3F\uDF99-\uDF9C]|\uD804[\uDC47-\uDC4D\uDCBB\uDCBC\uDCBE-\uDCC1\uDD40-\uDD43\uDD74\uDD75\uDDC5-\uDDC9\uDDCD\uDDDB\uDDDD-\uDDDF\uDE38-\uDE3D\uDEA9]|\uD805[\uDC4B-\uDC4F\uDC5B\uDC5D\uDCC6\uDDC1-\uDDD7\uDE41-\uDE43\uDE60-\uDE6C\uDF3C-\uDF3E]|\uD806[\uDE3F-\uDE46\uDE9A-\uDE9C\uDE9E-\uDEA2]|\uD807[\uDC41-\uDC45\uDC70\uDC71]|\uD809[\uDC70-\uDC74]|\uD81A[\uDE6E\uDE6F\uDEF5\uDF37-\uDF3B\uDF44]|\uD82F\uDC9F|\uD836[\uDE87-\uDE8B]|\uD83A[\uDD5E\uDD5F]/
+
+/***/ }),
+/* 844 */
+/***/ (function(module, exports) {
+
+	module.exports = [
+	  "aaa",
+	  "aarp",
+	  "abarth",
+	  "abb",
+	  "abbott",
+	  "abbvie",
+	  "abc",
+	  "able",
+	  "abogado",
+	  "abudhabi",
+	  "ac",
+	  "academy",
+	  "accenture",
+	  "accountant",
+	  "accountants",
+	  "aco",
+	  "active",
+	  "actor",
+	  "ad",
+	  "adac",
+	  "ads",
+	  "adult",
+	  "ae",
+	  "aeg",
+	  "aero",
+	  "aetna",
+	  "af",
+	  "afamilycompany",
+	  "afl",
+	  "africa",
+	  "ag",
+	  "agakhan",
+	  "agency",
+	  "ai",
+	  "aig",
+	  "aigo",
+	  "airbus",
+	  "airforce",
+	  "airtel",
+	  "akdn",
+	  "al",
+	  "alfaromeo",
+	  "alibaba",
+	  "alipay",
+	  "allfinanz",
+	  "allstate",
+	  "ally",
+	  "alsace",
+	  "alstom",
+	  "am",
+	  "americanexpress",
+	  "americanfamily",
+	  "amex",
+	  "amfam",
+	  "amica",
+	  "amsterdam",
+	  "analytics",
+	  "android",
+	  "anquan",
+	  "anz",
+	  "ao",
+	  "aol",
+	  "apartments",
+	  "app",
+	  "apple",
+	  "aq",
+	  "aquarelle",
+	  "ar",
+	  "arab",
+	  "aramco",
+	  "archi",
+	  "army",
+	  "arpa",
+	  "art",
+	  "arte",
+	  "as",
+	  "asda",
+	  "asia",
+	  "associates",
+	  "at",
+	  "athleta",
+	  "attorney",
+	  "au",
+	  "auction",
+	  "audi",
+	  "audible",
+	  "audio",
+	  "auspost",
+	  "author",
+	  "auto",
+	  "autos",
+	  "avianca",
+	  "aw",
+	  "aws",
+	  "ax",
+	  "axa",
+	  "az",
+	  "azure",
+	  "ba",
+	  "baby",
+	  "baidu",
+	  "banamex",
+	  "bananarepublic",
+	  "band",
+	  "bank",
+	  "bar",
+	  "barcelona",
+	  "barclaycard",
+	  "barclays",
+	  "barefoot",
+	  "bargains",
+	  "baseball",
+	  "basketball",
+	  "bauhaus",
+	  "bayern",
+	  "bb",
+	  "bbc",
+	  "bbt",
+	  "bbva",
+	  "bcg",
+	  "bcn",
+	  "bd",
+	  "be",
+	  "beats",
+	  "beauty",
+	  "beer",
+	  "bentley",
+	  "berlin",
+	  "best",
+	  "bestbuy",
+	  "bet",
+	  "bf",
+	  "bg",
+	  "bh",
+	  "bharti",
+	  "bi",
+	  "bible",
+	  "bid",
+	  "bike",
+	  "bing",
+	  "bingo",
+	  "bio",
+	  "biz",
+	  "bj",
+	  "black",
+	  "blackfriday",
+	  "blanco",
+	  "blockbuster",
+	  "blog",
+	  "bloomberg",
+	  "blue",
+	  "bm",
+	  "bms",
+	  "bmw",
+	  "bn",
+	  "bnl",
+	  "bnpparibas",
+	  "bo",
+	  "boats",
+	  "boehringer",
+	  "bofa",
+	  "bom",
+	  "bond",
+	  "boo",
+	  "book",
+	  "booking",
+	  "bosch",
+	  "bostik",
+	  "boston",
+	  "bot",
+	  "boutique",
+	  "box",
+	  "br",
+	  "bradesco",
+	  "bridgestone",
+	  "broadway",
+	  "broker",
+	  "brother",
+	  "brussels",
+	  "bs",
+	  "bt",
+	  "budapest",
+	  "bugatti",
+	  "build",
+	  "builders",
+	  "business",
+	  "buy",
+	  "buzz",
+	  "bv",
+	  "bw",
+	  "by",
+	  "bz",
+	  "bzh",
+	  "ca",
+	  "cab",
+	  "cafe",
+	  "cal",
+	  "call",
+	  "calvinklein",
+	  "cam",
+	  "camera",
+	  "camp",
+	  "cancerresearch",
+	  "canon",
+	  "capetown",
+	  "capital",
+	  "capitalone",
+	  "car",
+	  "caravan",
+	  "cards",
+	  "care",
+	  "career",
+	  "careers",
+	  "cars",
+	  "cartier",
+	  "casa",
+	  "case",
+	  "caseih",
+	  "cash",
+	  "casino",
+	  "cat",
+	  "catering",
+	  "catholic",
+	  "cba",
+	  "cbn",
+	  "cbre",
+	  "cbs",
+	  "cc",
+	  "cd",
+	  "ceb",
+	  "center",
+	  "ceo",
+	  "cern",
+	  "cf",
+	  "cfa",
+	  "cfd",
+	  "cg",
+	  "ch",
+	  "chanel",
+	  "channel",
+	  "chase",
+	  "chat",
+	  "cheap",
+	  "chintai",
+	  "christmas",
+	  "chrome",
+	  "chrysler",
+	  "church",
+	  "ci",
+	  "cipriani",
+	  "circle",
+	  "cisco",
+	  "citadel",
+	  "citi",
+	  "citic",
+	  "city",
+	  "cityeats",
+	  "ck",
+	  "cl",
+	  "claims",
+	  "cleaning",
+	  "click",
+	  "clinic",
+	  "clinique",
+	  "clothing",
+	  "cloud",
+	  "club",
+	  "clubmed",
+	  "cm",
+	  "cn",
+	  "co",
+	  "coach",
+	  "codes",
+	  "coffee",
+	  "college",
+	  "cologne",
+	  "com",
+	  "comcast",
+	  "commbank",
+	  "community",
+	  "company",
+	  "compare",
+	  "computer",
+	  "comsec",
+	  "condos",
+	  "construction",
+	  "consulting",
+	  "contact",
+	  "contractors",
+	  "cooking",
+	  "cookingchannel",
+	  "cool",
+	  "coop",
+	  "corsica",
+	  "country",
+	  "coupon",
+	  "coupons",
+	  "courses",
+	  "cr",
+	  "credit",
+	  "creditcard",
+	  "creditunion",
+	  "cricket",
+	  "crown",
+	  "crs",
+	  "cruise",
+	  "cruises",
+	  "csc",
+	  "cu",
+	  "cuisinella",
+	  "cv",
+	  "cw",
+	  "cx",
+	  "cy",
+	  "cymru",
+	  "cyou",
+	  "cz",
+	  "dabur",
+	  "dad",
+	  "dance",
+	  "data",
+	  "date",
+	  "dating",
+	  "datsun",
+	  "day",
+	  "dclk",
+	  "dds",
+	  "de",
+	  "deal",
+	  "dealer",
+	  "deals",
+	  "degree",
+	  "delivery",
+	  "dell",
+	  "deloitte",
+	  "delta",
+	  "democrat",
+	  "dental",
+	  "dentist",
+	  "desi",
+	  "design",
+	  "dev",
+	  "dhl",
+	  "diamonds",
+	  "diet",
+	  "digital",
+	  "direct",
+	  "directory",
+	  "discount",
+	  "discover",
+	  "dish",
+	  "diy",
+	  "dj",
+	  "dk",
+	  "dm",
+	  "dnp",
+	  "do",
+	  "docs",
+	  "doctor",
+	  "dodge",
+	  "dog",
+	  "doha",
+	  "domains",
+	  "dot",
+	  "download",
+	  "drive",
+	  "dtv",
+	  "dubai",
+	  "duck",
+	  "dunlop",
+	  "duns",
+	  "dupont",
+	  "durban",
+	  "dvag",
+	  "dvr",
+	  "dz",
+	  "earth",
+	  "eat",
+	  "ec",
+	  "eco",
+	  "edeka",
+	  "edu",
+	  "education",
+	  "ee",
+	  "eg",
+	  "email",
+	  "emerck",
+	  "energy",
+	  "engineer",
+	  "engineering",
+	  "enterprises",
+	  "epost",
+	  "epson",
+	  "equipment",
+	  "er",
+	  "ericsson",
+	  "erni",
+	  "es",
+	  "esq",
+	  "estate",
+	  "esurance",
+	  "et",
+	  "etisalat",
+	  "eu",
+	  "eurovision",
+	  "eus",
+	  "events",
+	  "everbank",
+	  "exchange",
+	  "expert",
+	  "exposed",
+	  "express",
+	  "extraspace",
+	  "fage",
+	  "fail",
+	  "fairwinds",
+	  "faith",
+	  "family",
+	  "fan",
+	  "fans",
+	  "farm",
+	  "farmers",
+	  "fashion",
+	  "fast",
+	  "fedex",
+	  "feedback",
+	  "ferrari",
+	  "ferrero",
+	  "fi",
+	  "fiat",
+	  "fidelity",
+	  "fido",
+	  "film",
+	  "final",
+	  "finance",
+	  "financial",
+	  "fire",
+	  "firestone",
+	  "firmdale",
+	  "fish",
+	  "fishing",
+	  "fit",
+	  "fitness",
+	  "fj",
+	  "fk",
+	  "flickr",
+	  "flights",
+	  "flir",
+	  "florist",
+	  "flowers",
+	  "fly",
+	  "fm",
+	  "fo",
+	  "foo",
+	  "food",
+	  "foodnetwork",
+	  "football",
+	  "ford",
+	  "forex",
+	  "forsale",
+	  "forum",
+	  "foundation",
+	  "fox",
+	  "fr",
+	  "free",
+	  "fresenius",
+	  "frl",
+	  "frogans",
+	  "frontdoor",
+	  "frontier",
+	  "ftr",
+	  "fujitsu",
+	  "fujixerox",
+	  "fun",
+	  "fund",
+	  "furniture",
+	  "futbol",
+	  "fyi",
+	  "ga",
+	  "gal",
+	  "gallery",
+	  "gallo",
+	  "gallup",
+	  "game",
+	  "games",
+	  "gap",
+	  "garden",
+	  "gb",
+	  "gbiz",
+	  "gd",
+	  "gdn",
+	  "ge",
+	  "gea",
+	  "gent",
+	  "genting",
+	  "george",
+	  "gf",
+	  "gg",
+	  "ggee",
+	  "gh",
+	  "gi",
+	  "gift",
+	  "gifts",
+	  "gives",
+	  "giving",
+	  "gl",
+	  "glade",
+	  "glass",
+	  "gle",
+	  "global",
+	  "globo",
+	  "gm",
+	  "gmail",
+	  "gmbh",
+	  "gmo",
+	  "gmx",
+	  "gn",
+	  "godaddy",
+	  "gold",
+	  "goldpoint",
+	  "golf",
+	  "goo",
+	  "goodhands",
+	  "goodyear",
+	  "goog",
+	  "google",
+	  "gop",
+	  "got",
+	  "gov",
+	  "gp",
+	  "gq",
+	  "gr",
+	  "grainger",
+	  "graphics",
+	  "gratis",
+	  "green",
+	  "gripe",
+	  "grocery",
+	  "group",
+	  "gs",
+	  "gt",
+	  "gu",
+	  "guardian",
+	  "gucci",
+	  "guge",
+	  "guide",
+	  "guitars",
+	  "guru",
+	  "gw",
+	  "gy",
+	  "hair",
+	  "hamburg",
+	  "hangout",
+	  "haus",
+	  "hbo",
+	  "hdfc",
+	  "hdfcbank",
+	  "health",
+	  "healthcare",
+	  "help",
+	  "helsinki",
+	  "here",
+	  "hermes",
+	  "hgtv",
+	  "hiphop",
+	  "hisamitsu",
+	  "hitachi",
+	  "hiv",
+	  "hk",
+	  "hkt",
+	  "hm",
+	  "hn",
+	  "hockey",
+	  "holdings",
+	  "holiday",
+	  "homedepot",
+	  "homegoods",
+	  "homes",
+	  "homesense",
+	  "honda",
+	  "honeywell",
+	  "horse",
+	  "hospital",
+	  "host",
+	  "hosting",
+	  "hot",
+	  "hoteles",
+	  "hotels",
+	  "hotmail",
+	  "house",
+	  "how",
+	  "hr",
+	  "hsbc",
+	  "ht",
+	  "hu",
+	  "hughes",
+	  "hyatt",
+	  "hyundai",
+	  "ibm",
+	  "icbc",
+	  "ice",
+	  "icu",
+	  "id",
+	  "ie",
+	  "ieee",
+	  "ifm",
+	  "ikano",
+	  "il",
+	  "im",
+	  "imamat",
+	  "imdb",
+	  "immo",
+	  "immobilien",
+	  "in",
+	  "industries",
+	  "infiniti",
+	  "info",
+	  "ing",
+	  "ink",
+	  "institute",
+	  "insurance",
+	  "insure",
+	  "int",
+	  "intel",
+	  "international",
+	  "intuit",
+	  "investments",
+	  "io",
+	  "ipiranga",
+	  "iq",
+	  "ir",
+	  "irish",
+	  "is",
+	  "iselect",
+	  "ismaili",
+	  "ist",
+	  "istanbul",
+	  "it",
+	  "itau",
+	  "itv",
+	  "iveco",
+	  "iwc",
+	  "jaguar",
+	  "java",
+	  "jcb",
+	  "jcp",
+	  "je",
+	  "jeep",
+	  "jetzt",
+	  "jewelry",
+	  "jio",
+	  "jlc",
+	  "jll",
+	  "jm",
+	  "jmp",
+	  "jnj",
+	  "jo",
+	  "jobs",
+	  "joburg",
+	  "jot",
+	  "joy",
+	  "jp",
+	  "jpmorgan",
+	  "jprs",
+	  "juegos",
+	  "juniper",
+	  "kaufen",
+	  "kddi",
+	  "ke",
+	  "kerryhotels",
+	  "kerrylogistics",
+	  "kerryproperties",
+	  "kfh",
+	  "kg",
+	  "kh",
+	  "ki",
+	  "kia",
+	  "kim",
+	  "kinder",
+	  "kindle",
+	  "kitchen",
+	  "kiwi",
+	  "km",
+	  "kn",
+	  "koeln",
+	  "komatsu",
+	  "kosher",
+	  "kp",
+	  "kpmg",
+	  "kpn",
+	  "kr",
+	  "krd",
+	  "kred",
+	  "kuokgroup",
+	  "kw",
+	  "ky",
+	  "kyoto",
+	  "kz",
+	  "la",
+	  "lacaixa",
+	  "ladbrokes",
+	  "lamborghini",
+	  "lamer",
+	  "lancaster",
+	  "lancia",
+	  "lancome",
+	  "land",
+	  "landrover",
+	  "lanxess",
+	  "lasalle",
+	  "lat",
+	  "latino",
+	  "latrobe",
+	  "law",
+	  "lawyer",
+	  "lb",
+	  "lc",
+	  "lds",
+	  "lease",
+	  "leclerc",
+	  "lefrak",
+	  "legal",
+	  "lego",
+	  "lexus",
+	  "lgbt",
+	  "li",
+	  "liaison",
+	  "lidl",
+	  "life",
+	  "lifeinsurance",
+	  "lifestyle",
+	  "lighting",
+	  "like",
+	  "lilly",
+	  "limited",
+	  "limo",
+	  "lincoln",
+	  "linde",
+	  "link",
+	  "lipsy",
+	  "live",
+	  "living",
+	  "lixil",
+	  "lk",
+	  "llc",
+	  "loan",
+	  "loans",
+	  "locker",
+	  "locus",
+	  "loft",
+	  "lol",
+	  "london",
+	  "lotte",
+	  "lotto",
+	  "love",
+	  "lpl",
+	  "lplfinancial",
+	  "lr",
+	  "ls",
+	  "lt",
+	  "ltd",
+	  "ltda",
+	  "lu",
+	  "lundbeck",
+	  "lupin",
+	  "luxe",
+	  "luxury",
+	  "lv",
+	  "ly",
+	  "ma",
+	  "macys",
+	  "madrid",
+	  "maif",
+	  "maison",
+	  "makeup",
+	  "man",
+	  "management",
+	  "mango",
+	  "map",
+	  "market",
+	  "marketing",
+	  "markets",
+	  "marriott",
+	  "marshalls",
+	  "maserati",
+	  "mattel",
+	  "mba",
+	  "mc",
+	  "mckinsey",
+	  "md",
+	  "me",
+	  "med",
+	  "media",
+	  "meet",
+	  "melbourne",
+	  "meme",
+	  "memorial",
+	  "men",
+	  "menu",
+	  "meo",
+	  "merckmsd",
+	  "metlife",
+	  "mg",
+	  "mh",
+	  "miami",
+	  "microsoft",
+	  "mil",
+	  "mini",
+	  "mint",
+	  "mit",
+	  "mitsubishi",
+	  "mk",
+	  "ml",
+	  "mlb",
+	  "mls",
+	  "mm",
+	  "mma",
+	  "mn",
+	  "mo",
+	  "mobi",
+	  "mobile",
+	  "mobily",
+	  "moda",
+	  "moe",
+	  "moi",
+	  "mom",
+	  "monash",
+	  "money",
+	  "monster",
+	  "mopar",
+	  "mormon",
+	  "mortgage",
+	  "moscow",
+	  "moto",
+	  "motorcycles",
+	  "mov",
+	  "movie",
+	  "movistar",
+	  "mp",
+	  "mq",
+	  "mr",
+	  "ms",
+	  "msd",
+	  "mt",
+	  "mtn",
+	  "mtr",
+	  "mu",
+	  "museum",
+	  "mutual",
+	  "mv",
+	  "mw",
+	  "mx",
+	  "my",
+	  "mz",
+	  "na",
+	  "nab",
+	  "nadex",
+	  "nagoya",
+	  "name",
+	  "nationwide",
+	  "natura",
+	  "navy",
+	  "nba",
+	  "nc",
+	  "ne",
+	  "nec",
+	  "net",
+	  "netbank",
+	  "netflix",
+	  "network",
+	  "neustar",
+	  "new",
+	  "newholland",
+	  "news",
+	  "next",
+	  "nextdirect",
+	  "nexus",
+	  "nf",
+	  "nfl",
+	  "ng",
+	  "ngo",
+	  "nhk",
+	  "ni",
+	  "nico",
+	  "nike",
+	  "nikon",
+	  "ninja",
+	  "nissan",
+	  "nissay",
+	  "nl",
+	  "no",
+	  "nokia",
+	  "northwesternmutual",
+	  "norton",
+	  "now",
+	  "nowruz",
+	  "nowtv",
+	  "np",
+	  "nr",
+	  "nra",
+	  "nrw",
+	  "ntt",
+	  "nu",
+	  "nyc",
+	  "nz",
+	  "obi",
+	  "observer",
+	  "off",
+	  "office",
+	  "okinawa",
+	  "olayan",
+	  "olayangroup",
+	  "oldnavy",
+	  "ollo",
+	  "om",
+	  "omega",
+	  "one",
+	  "ong",
+	  "onl",
+	  "online",
+	  "onyourside",
+	  "ooo",
+	  "open",
+	  "oracle",
+	  "orange",
+	  "org",
+	  "organic",
+	  "origins",
+	  "osaka",
+	  "otsuka",
+	  "ott",
+	  "ovh",
+	  "pa",
+	  "page",
+	  "panasonic",
+	  "panerai",
+	  "paris",
+	  "pars",
+	  "partners",
+	  "parts",
+	  "party",
+	  "passagens",
+	  "pay",
+	  "pccw",
+	  "pe",
+	  "pet",
+	  "pf",
+	  "pfizer",
+	  "pg",
+	  "ph",
+	  "pharmacy",
+	  "phd",
+	  "philips",
+	  "phone",
+	  "photo",
+	  "photography",
+	  "photos",
+	  "physio",
+	  "piaget",
+	  "pics",
+	  "pictet",
+	  "pictures",
+	  "pid",
+	  "pin",
+	  "ping",
+	  "pink",
+	  "pioneer",
+	  "pizza",
+	  "pk",
+	  "pl",
+	  "place",
+	  "play",
+	  "playstation",
+	  "plumbing",
+	  "plus",
+	  "pm",
+	  "pn",
+	  "pnc",
+	  "pohl",
+	  "poker",
+	  "politie",
+	  "porn",
+	  "post",
+	  "pr",
+	  "pramerica",
+	  "praxi",
+	  "press",
+	  "prime",
+	  "pro",
+	  "prod",
+	  "productions",
+	  "prof",
+	  "progressive",
+	  "promo",
+	  "properties",
+	  "property",
+	  "protection",
+	  "pru",
+	  "prudential",
+	  "ps",
+	  "pt",
+	  "pub",
+	  "pw",
+	  "pwc",
+	  "py",
+	  "qa",
+	  "qpon",
+	  "quebec",
+	  "quest",
+	  "qvc",
+	  "racing",
+	  "radio",
+	  "raid",
+	  "re",
+	  "read",
+	  "realestate",
+	  "realtor",
+	  "realty",
+	  "recipes",
+	  "red",
+	  "redstone",
+	  "redumbrella",
+	  "rehab",
+	  "reise",
+	  "reisen",
+	  "reit",
+	  "reliance",
+	  "ren",
+	  "rent",
+	  "rentals",
+	  "repair",
+	  "report",
+	  "republican",
+	  "rest",
+	  "restaurant",
+	  "review",
+	  "reviews",
+	  "rexroth",
+	  "rich",
+	  "richardli",
+	  "ricoh",
+	  "rightathome",
+	  "ril",
+	  "rio",
+	  "rip",
+	  "rmit",
+	  "ro",
+	  "rocher",
+	  "rocks",
+	  "rodeo",
+	  "rogers",
+	  "room",
+	  "rs",
+	  "rsvp",
+	  "ru",
+	  "rugby",
+	  "ruhr",
+	  "run",
+	  "rw",
+	  "rwe",
+	  "ryukyu",
+	  "sa",
+	  "saarland",
+	  "safe",
+	  "safety",
+	  "sakura",
+	  "sale",
+	  "salon",
+	  "samsclub",
+	  "samsung",
+	  "sandvik",
+	  "sandvikcoromant",
+	  "sanofi",
+	  "sap",
+	  "sapo",
+	  "sarl",
+	  "sas",
+	  "save",
+	  "saxo",
+	  "sb",
+	  "sbi",
+	  "sbs",
+	  "sc",
+	  "sca",
+	  "scb",
+	  "schaeffler",
+	  "schmidt",
+	  "scholarships",
+	  "school",
+	  "schule",
+	  "schwarz",
+	  "science",
+	  "scjohnson",
+	  "scor",
+	  "scot",
+	  "sd",
+	  "se",
+	  "search",
+	  "seat",
+	  "secure",
+	  "security",
+	  "seek",
+	  "select",
+	  "sener",
+	  "services",
+	  "ses",
+	  "seven",
+	  "sew",
+	  "sex",
+	  "sexy",
+	  "sfr",
+	  "sg",
+	  "sh",
+	  "shangrila",
+	  "sharp",
+	  "shaw",
+	  "shell",
+	  "shia",
+	  "shiksha",
+	  "shoes",
+	  "shop",
+	  "shopping",
+	  "shouji",
+	  "show",
+	  "showtime",
+	  "shriram",
+	  "si",
+	  "silk",
+	  "sina",
+	  "singles",
+	  "site",
+	  "sj",
+	  "sk",
+	  "ski",
+	  "skin",
+	  "sky",
+	  "skype",
+	  "sl",
+	  "sling",
+	  "sm",
+	  "smart",
+	  "smile",
+	  "sn",
+	  "sncf",
+	  "so",
+	  "soccer",
+	  "social",
+	  "softbank",
+	  "software",
+	  "sohu",
+	  "solar",
+	  "solutions",
+	  "song",
+	  "sony",
+	  "soy",
+	  "space",
+	  "spiegel",
+	  "sport",
+	  "spot",
+	  "spreadbetting",
+	  "sr",
+	  "srl",
+	  "srt",
+	  "st",
+	  "stada",
+	  "staples",
+	  "star",
+	  "starhub",
+	  "statebank",
+	  "statefarm",
+	  "statoil",
+	  "stc",
+	  "stcgroup",
+	  "stockholm",
+	  "storage",
+	  "store",
+	  "stream",
+	  "studio",
+	  "study",
+	  "style",
+	  "su",
+	  "sucks",
+	  "supplies",
+	  "supply",
+	  "support",
+	  "surf",
+	  "surgery",
+	  "suzuki",
+	  "sv",
+	  "swatch",
+	  "swiftcover",
+	  "swiss",
+	  "sx",
+	  "sy",
+	  "sydney",
+	  "symantec",
+	  "systems",
+	  "sz",
+	  "tab",
+	  "taipei",
+	  "talk",
+	  "taobao",
+	  "target",
+	  "tatamotors",
+	  "tatar",
+	  "tattoo",
+	  "tax",
+	  "taxi",
+	  "tc",
+	  "tci",
+	  "td",
+	  "tdk",
+	  "team",
+	  "tech",
+	  "technology",
+	  "tel",
+	  "telecity",
+	  "telefonica",
+	  "temasek",
+	  "tennis",
+	  "teva",
+	  "tf",
+	  "tg",
+	  "th",
+	  "thd",
+	  "theater",
+	  "theatre",
+	  "tiaa",
+	  "tickets",
+	  "tienda",
+	  "tiffany",
+	  "tips",
+	  "tires",
+	  "tirol",
+	  "tj",
+	  "tjmaxx",
+	  "tjx",
+	  "tk",
+	  "tkmaxx",
+	  "tl",
+	  "tm",
+	  "tmall",
+	  "tn",
+	  "to",
+	  "today",
+	  "tokyo",
+	  "tools",
+	  "top",
+	  "toray",
+	  "toshiba",
+	  "total",
+	  "tours",
+	  "town",
+	  "toyota",
+	  "toys",
+	  "tr",
+	  "trade",
+	  "trading",
+	  "training",
+	  "travel",
+	  "travelchannel",
+	  "travelers",
+	  "travelersinsurance",
+	  "trust",
+	  "trv",
+	  "tt",
+	  "tube",
+	  "tui",
+	  "tunes",
+	  "tushu",
+	  "tv",
+	  "tvs",
+	  "tw",
+	  "tz",
+	  "ua",
+	  "ubank",
+	  "ubs",
+	  "uconnect",
+	  "ug",
+	  "uk",
+	  "unicom",
+	  "university",
+	  "uno",
+	  "uol",
+	  "ups",
+	  "us",
+	  "uy",
+	  "uz",
+	  "va",
+	  "vacations",
+	  "vana",
+	  "vanguard",
+	  "vc",
+	  "ve",
+	  "vegas",
+	  "ventures",
+	  "verisign",
+	  "versicherung",
+	  "vet",
+	  "vg",
+	  "vi",
+	  "viajes",
+	  "video",
+	  "vig",
+	  "viking",
+	  "villas",
+	  "vin",
+	  "vip",
+	  "virgin",
+	  "visa",
+	  "vision",
+	  "vista",
+	  "vistaprint",
+	  "viva",
+	  "vivo",
+	  "vlaanderen",
+	  "vn",
+	  "vodka",
+	  "volkswagen",
+	  "volvo",
+	  "vote",
+	  "voting",
+	  "voto",
+	  "voyage",
+	  "vu",
+	  "vuelos",
+	  "wales",
+	  "walmart",
+	  "walter",
+	  "wang",
+	  "wanggou",
+	  "warman",
+	  "watch",
+	  "watches",
+	  "weather",
+	  "weatherchannel",
+	  "webcam",
+	  "weber",
+	  "website",
+	  "wed",
+	  "wedding",
+	  "weibo",
+	  "weir",
+	  "wf",
+	  "whoswho",
+	  "wien",
+	  "wiki",
+	  "williamhill",
+	  "win",
+	  "windows",
+	  "wine",
+	  "winners",
+	  "wme",
+	  "wolterskluwer",
+	  "woodside",
+	  "work",
+	  "works",
+	  "world",
+	  "wow",
+	  "ws",
+	  "wtc",
+	  "wtf",
+	  "xbox",
+	  "xerox",
+	  "xfinity",
+	  "xihuan",
+	  "xin",
+	  "कॉम", // xn--11b4c3d
+	  "セール", // xn--1ck2e1b
+	  "佛山", // xn--1qqw23a
+	  "ಭಾರತ", // xn--2scrj9c
+	  "慈善", // xn--30rr7y
+	  "集团", // xn--3bst00m
+	  "在线", // xn--3ds443g
+	  "한국", // xn--3e0b707e
+	  "ଭାରତ", // xn--3hcrj9c
+	  "大众汽车", // xn--3oq18vl8pn36a
+	  "点看", // xn--3pxu8k
+	  "คอม", // xn--42c2d9a
+	  "ভাৰত", // xn--45br5cyl
+	  "ভারত", // xn--45brj9c
+	  "八卦", // xn--45q11c
+	  "موقع", // xn--4gbrim
+	  "বাংলা", // xn--54b7fta0cc
+	  "公益", // xn--55qw42g
+	  "公司", // xn--55qx5d
+	  "香格里拉", // xn--5su34j936bgsg
+	  "网站", // xn--5tzm5g
+	  "移动", // xn--6frz82g
+	  "我爱你", // xn--6qq986b3xl
+	  "москва", // xn--80adxhks
+	  "қаз", // xn--80ao21a
+	  "католик", // xn--80aqecdr1a
+	  "онлайн", // xn--80asehdb
+	  "сайт", // xn--80aswg
+	  "联通", // xn--8y0a063a
+	  "срб", // xn--90a3ac
+	  "бг", // xn--90ae
+	  "бел", // xn--90ais
+	  "קום", // xn--9dbq2a
+	  "时尚", // xn--9et52u
+	  "微博", // xn--9krt00a
+	  "淡马锡", // xn--b4w605ferd
+	  "ファッション", // xn--bck1b9a5dre4c
+	  "орг", // xn--c1avg
+	  "नेट", // xn--c2br7g
+	  "ストア", // xn--cck2b3b
+	  "삼성", // xn--cg4bki
+	  "சிங்கப்பூர்", // xn--clchc0ea0b2g2a9gcd
+	  "商标", // xn--czr694b
+	  "商店", // xn--czrs0t
+	  "商城", // xn--czru2d
+	  "дети", // xn--d1acj3b
+	  "мкд", // xn--d1alf
+	  "ею", // xn--e1a4c
+	  "ポイント", // xn--eckvdtc9d
+	  "新闻", // xn--efvy88h
+	  "工行", // xn--estv75g
+	  "家電", // xn--fct429k
+	  "كوم", // xn--fhbei
+	  "中文网", // xn--fiq228c5hs
+	  "中信", // xn--fiq64b
+	  "中国", // xn--fiqs8s
+	  "中國", // xn--fiqz9s
+	  "娱乐", // xn--fjq720a
+	  "谷歌", // xn--flw351e
+	  "భారత్", // xn--fpcrj9c3d
+	  "ලංකා", // xn--fzc2c9e2c
+	  "電訊盈科", // xn--fzys8d69uvgm
+	  "购物", // xn--g2xx48c
+	  "クラウド", // xn--gckr3f0f
+	  "ભારત", // xn--gecrj9c
+	  "通販", // xn--gk3at1e
+	  "भारतम्", // xn--h2breg3eve
+	  "भारत", // xn--h2brj9c
+	  "भारोत", // xn--h2brj9c8c
+	  "网店", // xn--hxt814e
+	  "संगठन", // xn--i1b6b1a6a2e
+	  "餐厅", // xn--imr513n
+	  "网络", // xn--io0a7i
+	  "ком", // xn--j1aef
+	  "укр", // xn--j1amh
+	  "香港", // xn--j6w193g
+	  "诺基亚", // xn--jlq61u9w7b
+	  "食品", // xn--jvr189m
+	  "飞利浦", // xn--kcrx77d1x4a
+	  "台湾", // xn--kprw13d
+	  "台灣", // xn--kpry57d
+	  "手表", // xn--kpu716f
+	  "手机", // xn--kput3i
+	  "мон", // xn--l1acc
+	  "الجزائر", // xn--lgbbat1ad8j
+	  "عمان", // xn--mgb9awbf
+	  "ارامكو", // xn--mgba3a3ejt
+	  "ایران", // xn--mgba3a4f16a
+	  "العليان", // xn--mgba7c0bbn0a
+	  "اتصالات", // xn--mgbaakc7dvf
+	  "امارات", // xn--mgbaam7a8h
+	  "بازار", // xn--mgbab2bd
+	  "پاکستان", // xn--mgbai9azgqp6j
+	  "الاردن", // xn--mgbayh7gpa
+	  "موبايلي", // xn--mgbb9fbpob
+	  "بارت", // xn--mgbbh1a
+	  "بھارت", // xn--mgbbh1a71e
+	  "المغرب", // xn--mgbc0a9azcg
+	  "ابوظبي", // xn--mgbca7dzdo
+	  "السعودية", // xn--mgberp4a5d4ar
+	  "ڀارت", // xn--mgbgu82a
+	  "كاثوليك", // xn--mgbi4ecexp
+	  "سودان", // xn--mgbpl2fh
+	  "همراه", // xn--mgbt3dhd
+	  "عراق", // xn--mgbtx2b
+	  "مليسيا", // xn--mgbx4cd0ab
+	  "澳門", // xn--mix891f
+	  "닷컴", // xn--mk1bu44c
+	  "政府", // xn--mxtq1m
+	  "شبكة", // xn--ngbc5azd
+	  "بيتك", // xn--ngbe9e0a
+	  "عرب", // xn--ngbrx
+	  "გე", // xn--node
+	  "机构", // xn--nqv7f
+	  "组织机构", // xn--nqv7fs00ema
+	  "健康", // xn--nyqy26a
+	  "ไทย", // xn--o3cw4h
+	  "سورية", // xn--ogbpf8fl
+	  "招聘", // xn--otu796d
+	  "рус", // xn--p1acf
+	  "рф", // xn--p1ai
+	  "珠宝", // xn--pbt977c
+	  "تونس", // xn--pgbs0dh
+	  "大拿", // xn--pssy2u
+	  "みんな", // xn--q9jyb4c
+	  "グーグル", // xn--qcka1pmc
+	  "ελ", // xn--qxam
+	  "世界", // xn--rhqv96g
+	  "書籍", // xn--rovu88b
+	  "ഭാരതം", // xn--rvc1e0am3e
+	  "ਭਾਰਤ", // xn--s9brj9c
+	  "网址", // xn--ses554g
+	  "닷넷", // xn--t60b56a
+	  "コム", // xn--tckwe
+	  "天主教", // xn--tiq49xqyj
+	  "游戏", // xn--unup4y
+	  "vermögensberater", // xn--vermgensberater-ctb
+	  "vermögensberatung", // xn--vermgensberatung-pwb
+	  "企业", // xn--vhquv
+	  "信息", // xn--vuq861b
+	  "嘉里大酒店", // xn--w4r85el8fhu5dnra
+	  "嘉里", // xn--w4rs40l
+	  "مصر", // xn--wgbh1c
+	  "قطر", // xn--wgbl6a
+	  "广东", // xn--xhq521b
+	  "இலங்கை", // xn--xkc2al3hye2a
+	  "இந்தியா", // xn--xkc2dl3a5ee0h
+	  "հայ", // xn--y9a3aq
+	  "新加坡", // xn--yfro4i67o
+	  "فلسطين", // xn--ygbi2ammx
+	  "政务", // xn--zfr164b
+	  "xperia",
+	  "xxx",
+	  "xyz",
+	  "yachts",
+	  "yahoo",
+	  "yamaxun",
+	  "yandex",
+	  "ye",
+	  "yodobashi",
+	  "yoga",
+	  "yokohama",
+	  "you",
+	  "youtube",
+	  "yt",
+	  "yun",
+	  "za",
+	  "zappos",
+	  "zara",
+	  "zero",
+	  "zip",
+	  "zippo",
+	  "zm",
+	  "zone",
+	  "zuerich",
+	  "zw"
+	];
+
+
+/***/ }),
+/* 845 */
+/***/ (function(module, exports) {
+
+	module.exports = {"coin":[{"abbr":"BTC","full":"Bitcoin","kor":"비트코인"},{"abbr":"EOS","full":"EOS","kor":"이오스"},{"abbr":"ETH","full":"Ethereum","kor":"이더리움"},{"abbr":"XRP","full":"Ripple","kor":"리플"},{"abbr":"BCH","full":"Bitcoin Cash","kor":"비트코인 캐시"},{"abbr":"ADA","full":"Cardano","kor":"카르다노"}]}
+
+/***/ }),
+/* 846 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -82557,7 +85371,7 @@
 	
 	var AuthAction = _interopRequireWildcard(_AuthAction);
 	
-	var _coin = __webpack_require__(836);
+	var _coin = __webpack_require__(845);
 	
 	var _coin2 = _interopRequireDefault(_coin);
 	
@@ -82692,10 +85506,30 @@
 	      _this.props.dispatch(AuthAction.postSignIn(params)).then(function (value) {
 	        _this.props.dispatch(AuthAction.getMe(value)).then(function (value2) {
 	          _this.props.history.replace({
-	            pathname: "/news"
+	            pathname: "/"
 	          });
 	        });
 	      });
+	    };
+	
+	    _this.handleKeySignIn = function (event) {
+	      if (event.key === "Enter") {
+	        var _this$state2 = _this.state,
+	            email = _this$state2.email,
+	            password = _this$state2.password;
+	
+	        var params = {
+	          email: email,
+	          password: password
+	        };
+	        _this.props.dispatch(AuthAction.postSignIn(params)).then(function (value) {
+	          _this.props.dispatch(AuthAction.getMe(value)).then(function (value2) {
+	            _this.props.history.replace({
+	              pathname: "/"
+	            });
+	          });
+	        });
+	      }
 	    };
 	
 	    _this.state = {
@@ -82881,7 +85715,8 @@
 	                _react2.default.createElement(_Components.RoundInput, {
 	                  onChange: this.handlePassword,
 	                  placeholder: "\uBE44\uBC00\uBC88\uD638",
-	                  type: "password"
+	                  type: "password",
+	                  onKeyPress: this.handleKeySignIn
 	                }),
 	                _react2.default.createElement("br", null),
 	                _react2.default.createElement("br", null),
@@ -82930,7 +85765,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(AuthPage);
 
 /***/ }),
-/* 839 */
+/* 847 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -82963,7 +85798,7 @@
 	
 	var AuthAction = _interopRequireWildcard(_AuthAction);
 	
-	var _coin = __webpack_require__(836);
+	var _coin = __webpack_require__(845);
 	
 	var _coin2 = _interopRequireDefault(_coin);
 	
@@ -83048,7 +85883,7 @@
 	      _this.props.dispatch(AuthAction.postSignUp(params)).then(function (value) {
 	        _this.props.dispatch(AuthAction.getMe(value)).then(function (value2) {
 	          _this.props.history.replace({
-	            pathname: "/news"
+	            pathname: "/"
 	          });
 	        });
 	      });
@@ -83204,7 +86039,7 @@
 	                _react2.default.createElement("img", {
 	                  width: 45,
 	                  height: 45,
-	                  src: __webpack_require__(837)
+	                  src: __webpack_require__(848)
 	                }),
 	                _react2.default.createElement(
 	                  "p",
@@ -83266,7 +86101,13 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(SignUpPage);
 
 /***/ }),
-/* 840 */
+/* 848 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "/public/icons/enhance_logo.png";
+
+/***/ }),
+/* 849 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -83299,7 +86140,7 @@
 	
 	var AuthAction = _interopRequireWildcard(_AuthAction);
 	
-	var _coin = __webpack_require__(836);
+	var _coin = __webpack_require__(845);
 	
 	var _coin2 = _interopRequireDefault(_coin);
 	
@@ -83408,40 +86249,32 @@
 	
 	      return _react2.default.createElement(
 	        "div",
-	        { className: "myPage" },
+	        { className: "myPage__content__chart" },
 	        _react2.default.createElement(
 	          "div",
-	          { className: "myPage__content" },
+	          { className: "myPage__content__chart__intro" },
 	          _react2.default.createElement(
 	            "div",
-	            { className: "myPage__content__chart" },
+	            { className: "myPage__content__chart__intro__logo" },
+	            _react2.default.createElement("img", {
+	              width: 45,
+	              height: 45,
+	              src: "https://github.com/Hanyang-QuadJ/enhance/blob/master/public/icons/enhance_logo.png?raw=true"
+	            }),
 	            _react2.default.createElement(
-	              "div",
-	              { className: "myPage__content__chart__intro" },
-	              _react2.default.createElement(
-	                "div",
-	                { className: "myPage__content__chart__intro__logo" },
-	                _react2.default.createElement("img", {
-	                  width: 45,
-	                  height: 45,
-	                  src: __webpack_require__(837)
-	                }),
-	                _react2.default.createElement(
-	                  "p",
-	                  { className: "myPage__content__chart__intro__logo__text" },
-	                  "ENHANCE"
-	                )
-	              ),
-	              _react2.default.createElement(
-	                "div",
-	                { className: "myPage__content__chart__intro__welcome" },
-	                _react2.default.createElement(_Components.Thumb, { size: 60, fontSize: 40 }),
-	                _react2.default.createElement(
-	                  "strong",
-	                  { className: "myPage__content__chart__intro__welcome__text" },
-	                  me && me[0].username
-	                )
-	              )
+	              "p",
+	              { className: "myPage__content__chart__intro__logo__text" },
+	              "ENHANCE"
+	            )
+	          ),
+	          _react2.default.createElement(
+	            "div",
+	            { className: "myPage__content__chart__intro__welcome" },
+	            _react2.default.createElement(_Components.Thumb, { size: 60, fontSize: 40 }),
+	            _react2.default.createElement(
+	              "strong",
+	              { className: "myPage__content__chart__intro__welcome__text" },
+	              me && me[0].username
 	            )
 	          )
 	        )
@@ -83458,7 +86291,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(MyPage);
 
 /***/ }),
-/* 841 */
+/* 850 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -83477,7 +86310,11 @@
 	
 	var _Components = __webpack_require__(620);
 	
-	var _reactTextareaAutosize = __webpack_require__(831);
+	var _ = __webpack_require__(585);
+	
+	var _reactRouterDom = __webpack_require__(393);
+	
+	var _reactTextareaAutosize = __webpack_require__(830);
 	
 	var _reactTextareaAutosize2 = _interopRequireDefault(_reactTextareaAutosize);
 	
@@ -83491,11 +86328,15 @@
 	
 	var PriceAction = _interopRequireWildcard(_PriceAction);
 	
+	var _SocialAction = __webpack_require__(851);
+	
+	var SocialAction = _interopRequireWildcard(_SocialAction);
+	
 	var _AuthAction = __webpack_require__(439);
 	
 	var AuthAction = _interopRequireWildcard(_AuthAction);
 	
-	var _coin = __webpack_require__(836);
+	var _coin = __webpack_require__(845);
 	
 	var _coin2 = _interopRequireDefault(_coin);
 	
@@ -83506,6 +86347,14 @@
 	var _reactLoadingOverlay2 = _interopRequireDefault(_reactLoadingOverlay);
 	
 	__webpack_require__(757);
+	
+	var _classnames = __webpack_require__(624);
+	
+	var _classnames2 = _interopRequireDefault(_classnames);
+	
+	var _moment = __webpack_require__(630);
+	
+	var _moment2 = _interopRequireDefault(_moment);
 	
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 	
@@ -83534,8 +86383,10 @@
 	var mapStateToProps = function mapStateToProps(state) {
 	  return {
 	    news: state.reducer.news,
+	    token: state.reducer.token,
 	    me: state.reducer.me,
-	    isLogin: state.reducer.isLogin
+	    isLogin: state.reducer.isLogin,
+	    favorite: state.reducer.favorite
 	  };
 	};
 	
@@ -83555,9 +86406,13 @@
 	          pathname: "/auth"
 	        });
 	      } else {
-	        _this.setState({
-	          showModal: !_this.state.showModal
-	        });
+	        if (_this.state.favorite.length === 0) {
+	          alert("글을 작성하려면 우측에서 종목을 추가하세요");
+	        } else {
+	          _this.setState({
+	            showModal: !_this.state.showModal
+	          });
+	        }
 	      }
 	    };
 	
@@ -83569,46 +86424,91 @@
 	      });
 	    };
 	
+	    _this.handleFilter = function (index, id, coin) {
+	      var newCoin = _this.state.sideFavorite.slice();
+	      var result = newCoin.filter(function (a) {
+	        return a.clicked === true;
+	      });
+	      if (result[index].selected) {
+	        result[index].selected = false;
+	        _this.setState({ sideFavorite: newCoin });
+	      } else {
+	        result[index].selected = true;
+	        _this.setState({ sideFavorite: newCoin });
+	      }
+	    };
+	
 	    _this.handleFavorite = function () {
-	      var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(index, data) {
-	        var coin, result, abbrArray, i;
+	      var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(index, id, data) {
+	        var coin, token, params, leftOver, i, result, abbrArray, _i;
+	
 	        return regeneratorRuntime.wrap(function _callee$(_context) {
 	          while (1) {
 	            switch (_context.prev = _context.next) {
 	              case 0:
-	                coin = _this.state.favorite.slice();
+	                coin = _this.state.sideFavorite.slice();
+	                token = _this.props.token;
+	                params = {
+	                  token: token,
+	                  coin_id: coin[index].id
+	                };
+	                //삭제
 	
-	                coin[index].clicked = true;
-	                coin[index].loading = true;
-	                _this.setState({ favorite: coin });
+	                if (coin[index].clicked === true) {
+	                  coin[index].clicked = false;
 	
-	                //즐겨찾기 한 코인들에게, 가격, 증감표시 key 추가
-	                result = coin.map(function (el) {
-	                  var o = Object.assign({}, el);
-	                  o.price = 0;
-	                  o.percent = "";
-	                  return o;
-	                });
+	                  leftOver = [];
 	
-	                //즐겨찾기한 코인, 이름만 모으기
-	
-	                abbrArray = [];
-	
-	                for (i = 0; i < result.length; i++) {
-	                  abbrArray[i] = result[i].abbr;
-	                }
-	                _this.props.dispatch(PriceAction.getPrice(abbrArray)).then(function (value) {
-	                  for (var _i = 0; _i < abbrArray.length; _i++) {
-	                    result[_i].price = value[abbrArray[_i]].KRW.PRICE;
-	                    result[_i].percent = value[abbrArray[_i]].KRW.CHANGEPCT24HOUR;
+	                  for (i = 0; i < coin.length; i++) {
+	                    if (coin[i].clicked === true) {
+	                      leftOver.push(coin[i].abbr);
+	                    }
 	                  }
-	                  result[index].loading = false;
-	                  _this.setState(function (state) {
-	                    return { favorite: result };
-	                  });
-	                });
+	                  //한개 남았을 때
+	                  if (leftOver.length === 0) {
+	                    _this.setState({ sideFavorite: coin });
+	                    _this.props.dispatch(PriceAction.removeFav(params));
+	                  } else {
+	                    _this.setState({ sideFavorite: coin });
+	                    _this.props.dispatch(PriceAction.removeFav(params));
+	                  }
+	                }
+	                //추가
+	                else {
+	                    coin[index].clicked = true;
+	                    coin[index].loading = true;
+	                    _this.setState({ sideFavorite: coin });
 	
-	              case 8:
+	                    //즐겨찾기 한 코인들에게, 가격, 증감표시 key 추가
+	                    result = coin.map(function (el) {
+	                      var o = Object.assign({}, el);
+	                      o.price = 0;
+	                      o.percent = "";
+	                      return o;
+	                    });
+	
+	                    //즐겨찾기한 코인, 이름만 모으기
+	
+	                    abbrArray = [];
+	
+	                    for (_i = 0; _i < result.length; _i++) {
+	                      abbrArray[_i] = result[_i].abbr;
+	                    }
+	                    _this.props.dispatch(PriceAction.addFav(params)).then(function (x) {
+	                      _this.props.dispatch(PriceAction.getPrice(abbrArray)).then(function (value) {
+	                        for (var _i2 = 0; _i2 < abbrArray.length; _i2++) {
+	                          result[_i2].price = value[abbrArray[_i2]].KRW.PRICE;
+	                          result[_i2].percent = value[abbrArray[_i2]].KRW.CHANGEPCT24HOUR;
+	                        }
+	                        result[index].loading = false;
+	                        _this.setState(function (state) {
+	                          return { sideFavorite: result };
+	                        });
+	                      });
+	                    });
+	                  }
+	
+	              case 4:
 	              case "end":
 	                return _context.stop();
 	            }
@@ -83616,7 +86516,7 @@
 	        }, _callee, _this2);
 	      }));
 	
-	      return function (_x, _x2) {
+	      return function (_x, _x2, _x3) {
 	        return _ref.apply(this, arguments);
 	      };
 	    }();
@@ -83629,55 +86529,269 @@
 	      _this.setState({ main: e.target.value });
 	    };
 	
-	    _this.handlePost = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
-	      var _this$state, main, title, date, post, posts;
+	    _this.handleDetail = function (index, id) {
+	      var isLogin = _this.props.isLogin;
 	
-	      return regeneratorRuntime.wrap(function _callee2$(_context2) {
+	      if (isLogin) {
+	        var params = {
+	          token: _this.props.token,
+	          forum_id: id
+	        };
+	        _this.props.dispatch(SocialAction.getOneForum(params)).then(function (forum) {
+	          _this.setState({ selectedIndex: index });
+	          _this.props.dispatch(SocialAction.getOneForumCoins(params)).then(function (coins) {
+	            _this.props.history.push({
+	              pathname: "/forum/" + id,
+	              state: { forum: forum, comment: [], coins: coins }
+	            });
+	          });
+	        });
+	      } else {
+	        _this.props.history.replace({
+	          pathname: "/auth"
+	        });
+	      }
+	    };
+	
+	    _this.handlePost = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
+	      var _this$state, main, title, selectedCoinType, selectedAbbr, selectedPostType2, date, coinArray, i, params;
+	
+	      return regeneratorRuntime.wrap(function _callee3$(_context3) {
 	        while (1) {
-	          switch (_context2.prev = _context2.next) {
+	          switch (_context3.prev = _context3.next) {
 	            case 0:
-	              _this$state = _this.state, main = _this$state.main, title = _this$state.title;
-	              date = new Date();
-	              post = {
-	                desc: main,
-	                title: title,
-	                createdAt: date,
-	                type: "BTC"
-	              };
-	              posts = _this.state.posts.slice();
+	              _this$state = _this.state, main = _this$state.main, title = _this$state.title, selectedCoinType = _this$state.selectedCoinType, selectedAbbr = _this$state.selectedAbbr, selectedPostType2 = _this$state.selectedPostType2;
 	
-	              posts.push(post);
-	              _context2.next = 7;
-	              return _this.setState({ posts: posts });
+	              if (selectedCoinType.length === 0) {
+	                alert("해당하는 종목을 1개 이상 선택해주세요!");
+	              } else {
+	                date = new Date();
+	                coinArray = [];
 	
-	            case 7:
-	              _context2.next = 9;
-	              return _this.toggleModal();
+	                for (i = 0; i < selectedAbbr.length; i++) {
+	                  coinArray.push({ abbr: selectedAbbr[i] });
+	                }
+	                params = {
+	                  title: title,
+	                  content: main,
+	                  category: selectedPostType2,
+	                  coins: selectedCoinType,
+	                  created_at: date,
+	                  token: _this.props.token
+	                };
 	
-	            case 9:
+	
+	                _this.setState({ postLoading: true });
+	                _this.props.dispatch(SocialAction.postForum(params)).then(function (id) {
+	                  var params = {
+	                    token: _this.props.token,
+	                    forum_id: id
+	                  };
+	
+	                  var frontParams = {
+	                    title: title,
+	                    id: id,
+	                    content: main,
+	                    category: selectedPostType2,
+	                    coins: coinArray,
+	                    created_at: date
+	                  };
+	
+	                  _this.props.dispatch(SocialAction.getOneForum(params)).then(function (forum) {
+	                    _this.props.dispatch(SocialAction.getOneForumCoins(params)).then(function () {
+	                      var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(coins) {
+	                        var newPosts;
+	                        return regeneratorRuntime.wrap(function _callee2$(_context2) {
+	                          while (1) {
+	                            switch (_context2.prev = _context2.next) {
+	                              case 0:
+	                                newPosts = _this.state.posts.slice();
+	
+	                                newPosts.splice(0, 0, frontParams);
+	                                _context2.next = 4;
+	                                return _this.props.history.push({
+	                                  pathname: "/forum/" + id,
+	                                  state: { forum: forum, coins: coins }
+	                                });
+	
+	                              case 4:
+	                                _context2.next = 6;
+	                                return _this.setState({
+	                                  posts: newPosts,
+	                                  postLoading: false,
+	                                  selectedIndex: 0
+	                                });
+	
+	                              case 6:
+	                                _context2.next = 8;
+	                                return _this.toggleModal();
+	
+	                              case 8:
+	                              case "end":
+	                                return _context2.stop();
+	                            }
+	                          }
+	                        }, _callee2, _this2);
+	                      }));
+	
+	                      return function (_x4) {
+	                        return _ref3.apply(this, arguments);
+	                      };
+	                    }());
+	                  });
+	                });
+	              }
+	
+	            case 2:
 	            case "end":
-	              return _context2.stop();
+	              return _context3.stop();
 	          }
 	        }
-	      }, _callee2, _this2);
+	      }, _callee3, _this2);
 	    }));
+	
+	    _this.handleType2 = function (index, data) {
+	      _this.setState({ selectedPostType2: data });
+	    };
+	
+	    _this.handleCoinTag = function (index, id, data) {
+	      var newFav = _this.state.favorite.slice();
+	      var coinType = _this.state.selectedCoinType.slice();
+	      var abbrType = _this.state.selectedAbbr.slice();
+	
+	      if (!newFav[index].clicked) {
+	        newFav[index].clicked = true;
+	        coinType.push(id);
+	        abbrType.push(data);
+	        _this.setState({
+	          favorite: newFav,
+	          selectedCoinType: coinType,
+	          selectedAbbr: abbrType
+	        });
+	      } else {
+	        newFav[index].clicked = false;
+	        var coinIndex = coinType.indexOf(id);
+	        var abbrIndex = abbrType.indexOf(data);
+	        coinType.splice(coinIndex, 1);
+	        abbrType.splice(abbrIndex, 1);
+	        _this.setState({
+	          favorite: newFav,
+	          selectedCoinType: coinType,
+	          selectedAbbr: abbrType
+	        });
+	      }
+	    };
 	
 	    _this.state = {
 	      dropdownOpen: false,
 	      posts: [],
-	      postLoading: false,
 	      favorite: [],
+	      sideFavorite: [],
+	      postLoading: false,
+	      myFavorite: [],
 	      isFocus: false,
+	      isFocusComment: false,
+	      isPostsLoading: false,
 	      title: "",
-	      main: ""
+	      main: "",
+	      comment: "",
+	      selectedCoinType: [],
+	      selectedAbbr: [],
+	      selectedPostType2: "자유",
+	      selectedIndex: null,
+	      forum: [],
+	      comments: []
 	    };
 	    _this.toggle = _this.toggle.bind(_this);
 	    return _this;
 	  }
 	
 	  _createClass(ForumPage, [{
-	    key: "componentDidMount",
-	    value: function componentDidMount() {}
+	    key: "componentWillMount",
+	    value: function componentWillMount() {
+	      var _this3 = this;
+	
+	      var isLogin = this.props.isLogin;
+	
+	      this.setState({ isPostsLoading: true });
+	      this.props.dispatch(SocialAction.getAllForums()).then(function (forums) {
+	        _this3.setState({ posts: forums.reverse(), isPostsLoading: false });
+	        _this3.props.dispatch(PriceAction.getCoins()).then(function (coins) {
+	          if (isLogin) {
+	            _this3.props.dispatch(PriceAction.getFavs(_this3.props.token)).then(function (favs) {
+	              if (favs.length === 0) {
+	                var result = coins.map(function (el) {
+	                  var o = Object.assign({}, el);
+	                  o.clicked = false;
+	                  o.loading = false;
+	                  return o;
+	                });
+	                _this3.setState({
+	                  sideFavorite: result
+	                });
+	              } else {
+	                //글 작성 코인 타입
+	                var _result = favs.map(function (el) {
+	                  var o = Object.assign({}, el);
+	                  o.clicked = false;
+	                  return o;
+	                });
+	
+	                //사이드 바 즐겨찾기
+	                var resultSide = coins.map(function (el) {
+	                  var o = Object.assign({}, el);
+	                  o.clicked = false;
+	                  o.selected = false;
+	                  o.loading = true;
+	                  return o;
+	                });
+	                for (var i = 0; i < resultSide.length; i++) {
+	                  for (var j = 0; j < favs.length; j++) {
+	                    if (resultSide[i].abbr === favs[j].abbr) {
+	                      resultSide[i].clicked = true;
+	                    }
+	                  }
+	                }
+	                _this3.setState({ favorite: _result, sideFavorite: resultSide });
+	
+	                //Crypto Compare API
+	                var abbrArray = [];
+	                for (var _i3 = 0; _i3 < resultSide.length; _i3++) {
+	                  if (resultSide[_i3].clicked === true) {
+	                    abbrArray.push({
+	                      id: resultSide[_i3].id,
+	                      abbr: resultSide[_i3].abbr
+	                    });
+	                  }
+	                }
+	                var final = resultSide.map(function (el) {
+	                  var o = Object.assign({}, el);
+	                  o.price = 0;
+	                  o.percent = "";
+	                  return o;
+	                });
+	                _this3.props.dispatch(PriceAction.getPrice(abbrArray.map(function (a, index) {
+	                  return a.abbr;
+	                }))).then(function (value) {
+	                  for (var _i4 = 0; _i4 < final.length; _i4++) {
+	                    for (var _j = 0; _j < abbrArray.length; _j++) {
+	                      if (final[_i4].abbr === abbrArray[_j].abbr) {
+	                        final[_i4].loading = false;
+	                        final[_i4].price = value[abbrArray[_j].abbr].KRW.PRICE;
+	                        final[_i4].percent = value[abbrArray[_j].abbr].KRW.CHANGEPCT24HOUR;
+	                      }
+	                    }
+	                  }
+	                  _this3.setState({ sideFavorite: final });
+	                });
+	              }
+	            });
+	          } else {
+	            null;
+	          }
+	        });
+	      });
+	    }
 	  }, {
 	    key: "toggle",
 	    value: function toggle() {
@@ -83690,12 +86804,19 @@
 	  }, {
 	    key: "render",
 	    value: function render() {
+	      var _this4 = this;
+	
 	      var _state = this.state,
-	          coinType = _state.coinType,
 	          posts = _state.posts,
-	          favorite = _state.favorite,
 	          postLoading = _state.postLoading,
-	          isFocus = _state.isFocus;
+	          isPostsLoading = _state.isPostsLoading,
+	          isFocus = _state.isFocus,
+	          isFocusComment = _state.isFocusComment,
+	          selectedPostType2 = _state.selectedPostType2,
+	          selectedIndex = _state.selectedIndex,
+	          favorite = _state.favorite,
+	          forum = _state.forum,
+	          sideFavorite = _state.sideFavorite;
 	      var _props = this.props,
 	          news = _props.news,
 	          me = _props.me,
@@ -83705,11 +86826,12 @@
 	        "div",
 	        { className: "forumPage" },
 	        _react2.default.createElement(_Components.NavBar, { type: "forum" }),
-	        _react2.default.createElement(_Components.SideBar, {
-	          type: coinType,
-	          favorite: favorite,
+	        isLogin ? _react2.default.createElement(_Components.SideBar, {
+	          multiple: true,
+	          favorite: sideFavorite && sideFavorite,
+	          onClick: this.handleFilter,
 	          handleFavorite: this.handleFavorite
-	        }),
+	        }) : null,
 	        _react2.default.createElement(
 	          _reactstrap.Modal,
 	          {
@@ -83717,8 +86839,7 @@
 	            toggle: this.toggleModal,
 	            size: "lg",
 	            modalTransition: { timeout: 20 },
-	            backdropTransition: { timeout: 10 },
-	            centered: true
+	            backdropTransition: { timeout: 10 }
 	            // backdrop={false}
 	          },
 	          _react2.default.createElement(
@@ -83731,18 +86852,58 @@
 	                "div",
 	                { className: "forumPage__modal" },
 	                _react2.default.createElement(_Components.SocialInput, {
-	                  user: me,
+	                  user: me && me[0],
+	                  isTitle: true,
+	                  minRows: 4,
+	                  maxRows: 6,
 	                  showCamera: true,
-	                  showType: true,
+	                  showType2: true,
 	                  isLogin: isLogin,
 	                  onChange: this.handleMain,
 	                  onChangeTitle: this.handleTitle,
 	                  placeholder: "\uBCF8\uBB38\uC744 \uC785\uB825\uD558\uC138\uC694",
 	                  onClick: this.handlePost,
 	                  postText: "\uB4F1\uB85D",
+	                  handleType: this.handleType,
+	                  handleType2: this.handleType2,
+	                  postType: favorite,
+	                  selectedPostType2: selectedPostType2,
 	                  onFocus: this.onFocus,
 	                  isFocus: isFocus
-	                })
+	                }),
+	                _react2.default.createElement(
+	                  "p",
+	                  { className: "forumPage__modal__favorite__text" },
+	                  _react2.default.createElement(
+	                    "span",
+	                    { className: "forumPage__modal__favorite__icon" },
+	                    _react2.default.createElement("i", { className: "xi-caret-down-min" })
+	                  ),
+	                  "\uAD00\uB828\uB41C \uC885\uBAA9\uC744 \uC120\uD0DD\uD558\uC138\uC694"
+	                ),
+	                _react2.default.createElement(
+	                  "div",
+	                  { className: "forumPage__modal__favorite" },
+	                  favorite && favorite.sort(function (a, b) {
+	                    if (a.abbr < b.abbr) return -1;
+	                    if (a.abbr > b.abbr) return 1;
+	                    return 0;
+	                  }).map(function (data, index) {
+	                    return _react2.default.createElement(
+	                      "div",
+	                      {
+	                        key: index,
+	                        className: (0, _classnames2.default)("forumPage__modal__favorite__item", {
+	                          "forumPage__modal__favorite__item-active": data.clicked
+	                        }),
+	                        onClick: function onClick() {
+	                          return _this4.handleCoinTag(index, data.coin_id, data.abbr);
+	                        }
+	                      },
+	                      data.abbr
+	                    );
+	                  })
+	                )
 	              )
 	            )
 	          )
@@ -83780,7 +86941,6 @@
 	              _react2.default.createElement(
 	                "div",
 	                { className: "forumPage__content__news__search__second" },
-	                _react2.default.createElement("hr", null),
 	                _react2.default.createElement(
 	                  "div",
 	                  { className: "forumPage__content__news__search__second__content" },
@@ -83816,51 +86976,103 @@
 	                )
 	              )
 	            ),
-	            _react2.default.createElement(
+	            isPostsLoading ? _react2.default.createElement(
+	              "div",
+	              { className: "forumPage__content__news__lists-loading" },
+	              _react2.default.createElement(_reactActivity.Dots, { color: "#ffffff", size: 30 })
+	            ) : _react2.default.createElement(
 	              "div",
 	              { className: "forumPage__content__news__lists" },
 	              posts.map(function (data, index) {
 	                return _react2.default.createElement(_Components.List, {
 	                  social: true,
+	                  index: index,
+	                  selectedIndex: selectedIndex,
 	                  key: index,
 	                  title: data.title,
-	                  createdAt: data.pubDate,
-	                  type: data.type
+	                  createdAt: data.created_at,
+	                  type: data.coins,
+	                  onClick: function onClick() {
+	                    return _this4.handleDetail(index, data.id);
+	                  }
 	                });
 	              })
 	            )
 	          ),
-	          _react2.default.createElement(
-	            "div",
-	            { className: "forumPage__content__chart" },
-	            _react2.default.createElement(
-	              "div",
-	              { className: "forumPage__content__chart__intro" },
-	              _react2.default.createElement(
+	          _react2.default.createElement(_reactRouterDom.Route, { path: "/forum/:forum_id", component: _.PostPage }),
+	          _react2.default.createElement(_reactRouterDom.Route, {
+	            exact: true,
+	            path: "/forum",
+	            render: function render() {
+	              return _react2.default.createElement(
 	                "div",
-	                { className: "forumPage__content__chart__intro__logo" },
-	                _react2.default.createElement("img", {
-	                  width: 45,
-	                  height: 45,
-	                  src: "https://github.com/Hanyang-QuadJ/enhance/blob/master/public/icons/enhance_logo.png?raw=true"
-	                }),
+	                { className: "forumPage__content__chart" },
 	                _react2.default.createElement(
-	                  "p",
-	                  { className: "forumPage__content__chart__intro__logo__text" },
-	                  "ENHANCE"
+	                  "div",
+	                  { className: "forumPage__content__chart__intro" },
+	                  _react2.default.createElement(
+	                    "div",
+	                    { className: "forumPage__content__chart__intro__logo" },
+	                    _react2.default.createElement("img", {
+	                      width: 45,
+	                      height: 45,
+	                      src: "https://github.com/Hanyang-QuadJ/enhance/blob/master/public/icons/enhance_logo.png?raw=true"
+	                    }),
+	                    _react2.default.createElement(
+	                      "p",
+	                      { className: "forumPage__content__chart__intro__logo__text" },
+	                      "ENHANCE"
+	                    )
+	                  ),
+	                  _react2.default.createElement(
+	                    "div",
+	                    { className: "forumPage__content__chart__intro__welcome" },
+	                    _react2.default.createElement(
+	                      "p",
+	                      null,
+	                      _react2.default.createElement(
+	                        "strong",
+	                        null,
+	                        "\uD658\uC601\uD569\uB2C8\uB2E4. "
+	                      ),
+	                      me && me[0].username + " 님"
+	                    ),
+	                    _react2.default.createElement(
+	                      "p",
+	                      null,
+	                      "\uC778\uD578\uC2A4\uB294 \uAC00\uC0C1\uD654\uD3D0\uC640 \uBE14\uB85D\uCCB4\uC778 \uAE30\uC220\uC5D0 \uB300\uD55C \uC815\uBCF4\uB97C \uC2E4\uC2DC\uAC04\uC73C\uB85C \uBAA8\uC544\uC11C \uD55C\uB208\uC5D0 \uBCF4\uAE30 \uC27D\uAC8C \uC81C\uACF5\uD574 \uB4DC\uB9AC\uACE0 \uC788\uC2B5\uB2C8\uB2E4. \uC778\uD578\uC2A4\uC640 \uD568\uAED8 \uAC00\uC0C1\uD654\uD3D0\uC758 \uC5ED\uC0AC\uB97C \uD568\uAED8 \uD558\uC138\uC694."
+	                    )
+	                  ),
+	                  _react2.default.createElement(
+	                    "div",
+	                    { className: "forumPage__content__chart__intro__desc" },
+	                    _react2.default.createElement(
+	                      "strong",
+	                      null,
+	                      "\uC778\uD578\uC2A4 \uD3EC\uB7FC"
+	                    ),
+	                    _react2.default.createElement(
+	                      "p",
+	                      null,
+	                      "\uB85C\uADF8\uC778 \uD6C4 + \uBC84\uD2BC\uC744 \uB204\uB974\uAC70\uB098 \uC88C\uCE21 \uC0C1\uB2E8 \uB3CB\uBCF4\uAE30 \uC544\uC774\uCF58\uC744 \uB20C\uB7EC \uC6D0\uD558\uB294 \uAC00\uC0C1\uD654\uD3D0 \uC885\uBAA9\uC744 \uAC80\uC0C9\uD558\uC2E4 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+	                    ),
+	                    _react2.default.createElement("br", null),
+	                    _react2.default.createElement(
+	                      "p",
+	                      null,
+	                      "\uC6D0\uD558\uB294 \uAC00\uC0C1\uD654\uD3D0\uB97C \uD074\uB9AD\uD558\uC5EC \uD314\uB85C\uC6B0 \uD558\uC2DC\uBA74 \uC6B0\uCE21 \uC990\uACA8\uCC3E\uAE30 \uBAA9\uB85D\uC5D0 \uC800\uC7A5\uB418\uC5B4 \uD574\uB2F9 \uAC00\uC0C1 \uD654\uD3D0\uC758 \uC815\uBCF4\uB97C \uACC4\uC18D \uBCF4\uC2E4 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+	                    ),
+	                    _react2.default.createElement("br", null),
+	                    _react2.default.createElement(
+	                      "p",
+	                      null,
+	                      "\uAC01 \uAC00\uC0C1\uD654\uD3D0\uC758 \uC885\uBAA9\uC758 \uCEE4\uBBA4\uB2C8\uD2F0\uC5D0 \uCC38\uC5EC\uD558\uC138\uC694."
+	                    )
+	                  )
 	                )
-	              ),
-	              _react2.default.createElement(
-	                "div",
-	                { className: "forumPage__content__chart__intro__welcome" },
-	                _react2.default.createElement(
-	                  "h4",
-	                  null,
-	                  "Forum"
-	                )
-	              )
-	            )
-	          )
+	              );
+	            }
+	          })
 	        )
 	      );
 	    }
@@ -83875,7 +87087,335 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(ForumPage);
 
 /***/ }),
-/* 842 */
+/* 851 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.postForumComment = exports.postForum = exports.getOneForumCoins = exports.getOneForum = exports.getAllForums = exports.FAILED_TO_POST_FORUM_COMMENT = exports.SUCCEED_TO_POST_FORUM_COMMENT = exports.FAILED_TO_GET_ONE_FORUM_COINS = exports.SUCCEED_TO_GET_ONE_FORUM_COINS = exports.FAILED_TO_GET_ONE_FORUM = exports.SUCCEED_TO_GET_ONE_FORUM = exports.FAILED_TO_POST_FORUM = exports.SUCCEED_TO_POST_FORUM = exports.FAILED_TO_GET_ALL_FORUM = exports.SUCCEED_TO_GET_ALL_FORUM = undefined;
+	
+	var _Server = __webpack_require__(437);
+	
+	function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+	
+	var SUCCEED_TO_GET_ALL_FORUM = exports.SUCCEED_TO_GET_ALL_FORUM = "SUCCEED_TO_GET_ALL_FORUM";
+	var FAILED_TO_GET_ALL_FORUM = exports.FAILED_TO_GET_ALL_FORUM = "FAILED_TO_GET_ALL_FORUM";
+	
+	var SUCCEED_TO_POST_FORUM = exports.SUCCEED_TO_POST_FORUM = "SUCCEED_TO_POST_FORUM";
+	var FAILED_TO_POST_FORUM = exports.FAILED_TO_POST_FORUM = "FAILED_TO_POST_FORUM";
+	
+	var SUCCEED_TO_GET_ONE_FORUM = exports.SUCCEED_TO_GET_ONE_FORUM = "SUCCEED_TO_GET_ONE_FORUM";
+	var FAILED_TO_GET_ONE_FORUM = exports.FAILED_TO_GET_ONE_FORUM = "FAILED_TO_GET_ONE_FORUM";
+	
+	var SUCCEED_TO_GET_ONE_FORUM_COINS = exports.SUCCEED_TO_GET_ONE_FORUM_COINS = "SUCCEED_TO_GET_ONE_FORUM_COINS";
+	var FAILED_TO_GET_ONE_FORUM_COINS = exports.FAILED_TO_GET_ONE_FORUM_COINS = "FAILED_TO_GET_ONE_FORUM_COINS";
+	
+	var SUCCEED_TO_POST_FORUM_COMMENT = exports.SUCCEED_TO_POST_FORUM_COMMENT = "SUCCEED_TO_POST_FORUM_COMMENT";
+	var FAILED_TO_POST_FORUM_COMMENT = exports.FAILED_TO_POST_FORUM_COMMENT = "FAILED_TO_POST_FORUM_COMMENT";
+	
+	var getAllForums = exports.getAllForums = function getAllForums() {
+	  return function () {
+	    var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(dispatch) {
+	      var response, responseJson;
+	      return regeneratorRuntime.wrap(function _callee$(_context) {
+	        while (1) {
+	          switch (_context.prev = _context.next) {
+	            case 0:
+	              _context.prev = 0;
+	              _context.next = 3;
+	              return fetch(_Server.ServerEndPoint + "api/forum/all", {
+	                method: "GET",
+	                headers: {
+	                  Accept: "application/json",
+	                  "Content-Type": "application/json"
+	                }
+	              });
+	
+	            case 3:
+	              response = _context.sent;
+	              _context.next = 6;
+	              return response.json();
+	
+	            case 6:
+	              responseJson = _context.sent;
+	              _context.next = 9;
+	              return dispatch({
+	                type: SUCCEED_TO_GET_ALL_FORUM,
+	                payload: responseJson.forums
+	              });
+	
+	            case 9:
+	              return _context.abrupt("return", responseJson.forums);
+	
+	            case 12:
+	              _context.prev = 12;
+	              _context.t0 = _context["catch"](0);
+	
+	              dispatch({
+	                type: FAILED_TO_GET_ALL_FORUM,
+	                payload: { data: "NETWORK_ERROR" }
+	              });
+	
+	            case 15:
+	            case "end":
+	              return _context.stop();
+	          }
+	        }
+	      }, _callee, undefined, [[0, 12]]);
+	    }));
+	
+	    return function (_x) {
+	      return _ref.apply(this, arguments);
+	    };
+	  }();
+	};
+	
+	var getOneForum = exports.getOneForum = function getOneForum(params) {
+	  return function () {
+	    var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(dispatch) {
+	      var response, responseJson;
+	      return regeneratorRuntime.wrap(function _callee2$(_context2) {
+	        while (1) {
+	          switch (_context2.prev = _context2.next) {
+	            case 0:
+	              _context2.prev = 0;
+	              _context2.next = 3;
+	              return fetch(_Server.ServerEndPoint + ("api/forum/one?forum_id=" + params.forum_id), {
+	                method: "GET",
+	                headers: {
+	                  Accept: "application/json",
+	                  "Content-Type": "application/json",
+	                  "x-access-token": params.token
+	                }
+	              });
+	
+	            case 3:
+	              response = _context2.sent;
+	              _context2.next = 6;
+	              return response.json();
+	
+	            case 6:
+	              responseJson = _context2.sent;
+	              _context2.next = 9;
+	              return dispatch({
+	                type: SUCCEED_TO_GET_ONE_FORUM,
+	                payload: responseJson.result[0]
+	              });
+	
+	            case 9:
+	              return _context2.abrupt("return", responseJson.result[0]);
+	
+	            case 12:
+	              _context2.prev = 12;
+	              _context2.t0 = _context2["catch"](0);
+	
+	              dispatch({
+	                type: FAILED_TO_GET_ONE_FORUM,
+	                payload: { data: "NETWORK_ERROR" }
+	              });
+	
+	            case 15:
+	            case "end":
+	              return _context2.stop();
+	          }
+	        }
+	      }, _callee2, undefined, [[0, 12]]);
+	    }));
+	
+	    return function (_x2) {
+	      return _ref2.apply(this, arguments);
+	    };
+	  }();
+	};
+	
+	var getOneForumCoins = exports.getOneForumCoins = function getOneForumCoins(params) {
+	  return function () {
+	    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(dispatch) {
+	      var response, responseJson;
+	      return regeneratorRuntime.wrap(function _callee3$(_context3) {
+	        while (1) {
+	          switch (_context3.prev = _context3.next) {
+	            case 0:
+	              _context3.prev = 0;
+	              _context3.next = 3;
+	              return fetch(_Server.ServerEndPoint + ("api/forum/coin/" + params.forum_id), {
+	                method: "GET",
+	                headers: {
+	                  Accept: "application/json",
+	                  "Content-Type": "application/json",
+	                  "x-access-token": params.token
+	                }
+	              });
+	
+	            case 3:
+	              response = _context3.sent;
+	              _context3.next = 6;
+	              return response.json();
+	
+	            case 6:
+	              responseJson = _context3.sent;
+	              _context3.next = 9;
+	              return dispatch({
+	                type: SUCCEED_TO_GET_ONE_FORUM,
+	                payload: responseJson.result
+	              });
+	
+	            case 9:
+	              return _context3.abrupt("return", responseJson.result);
+	
+	            case 12:
+	              _context3.prev = 12;
+	              _context3.t0 = _context3["catch"](0);
+	
+	              dispatch({
+	                type: FAILED_TO_GET_ONE_FORUM,
+	                payload: { data: "NETWORK_ERROR" }
+	              });
+	
+	            case 15:
+	            case "end":
+	              return _context3.stop();
+	          }
+	        }
+	      }, _callee3, undefined, [[0, 12]]);
+	    }));
+	
+	    return function (_x3) {
+	      return _ref3.apply(this, arguments);
+	    };
+	  }();
+	};
+	
+	var postForum = exports.postForum = function postForum(params) {
+	  return function () {
+	    var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(dispatch) {
+	      var response, responseJson;
+	      return regeneratorRuntime.wrap(function _callee4$(_context4) {
+	        while (1) {
+	          switch (_context4.prev = _context4.next) {
+	            case 0:
+	              _context4.prev = 0;
+	              _context4.next = 3;
+	              return fetch(_Server.ServerEndPoint + "api/forum/create", {
+	                method: "POST",
+	                headers: {
+	                  Accept: "application/json",
+	                  "Content-Type": "application/json",
+	                  "x-access-token": params.token
+	                },
+	                body: JSON.stringify({
+	                  coin_list: params.coins,
+	                  category: params.category,
+	                  title: params.title,
+	                  content: params.content
+	                })
+	              });
+	
+	            case 3:
+	              response = _context4.sent;
+	              _context4.next = 6;
+	              return response.json();
+	
+	            case 6:
+	              responseJson = _context4.sent;
+	              _context4.next = 9;
+	              return dispatch({
+	                type: SUCCEED_TO_POST_FORUM,
+	                payload: responseJson.forum_id
+	              });
+	
+	            case 9:
+	              return _context4.abrupt("return", responseJson.forum_id);
+	
+	            case 12:
+	              _context4.prev = 12;
+	              _context4.t0 = _context4["catch"](0);
+	
+	              dispatch({
+	                type: FAILED_TO_POST_FORUM,
+	                payload: { data: "NETWORK_ERROR" }
+	              });
+	
+	            case 15:
+	            case "end":
+	              return _context4.stop();
+	          }
+	        }
+	      }, _callee4, undefined, [[0, 12]]);
+	    }));
+	
+	    return function (_x4) {
+	      return _ref4.apply(this, arguments);
+	    };
+	  }();
+	};
+	
+	var postForumComment = exports.postForumComment = function postForumComment(params) {
+	  return function () {
+	    var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(dispatch) {
+	      var response, responseJson;
+	      return regeneratorRuntime.wrap(function _callee5$(_context5) {
+	        while (1) {
+	          switch (_context5.prev = _context5.next) {
+	            case 0:
+	              _context5.prev = 0;
+	              _context5.next = 3;
+	              return fetch(_Server.ServerEndPoint + ("api/forum/create/comment/" + params.forum_id), {
+	                method: "POST",
+	                headers: {
+	                  Accept: "application/json",
+	                  "Content-Type": "application/json",
+	                  "x-access-token": params.token
+	                },
+	                body: JSON.stringify({
+	                  content: params.content
+	                })
+	              });
+	
+	            case 3:
+	              response = _context5.sent;
+	              _context5.next = 6;
+	              return response.json();
+	
+	            case 6:
+	              responseJson = _context5.sent;
+	              _context5.next = 9;
+	              return dispatch({
+	                type: SUCCEED_TO_POST_FORUM_COMMENT,
+	                payload: responseJson.forum_id
+	              });
+	
+	            case 9:
+	              return _context5.abrupt("return", responseJson.forum_id);
+	
+	            case 12:
+	              _context5.prev = 12;
+	              _context5.t0 = _context5["catch"](0);
+	
+	              dispatch({
+	                type: FAILED_TO_POST_FORUM_COMMENT,
+	                payload: { data: "NETWORK_ERROR" }
+	              });
+	
+	            case 15:
+	            case "end":
+	              return _context5.stop();
+	          }
+	        }
+	      }, _callee5, undefined, [[0, 12]]);
+	    }));
+	
+	    return function (_x5) {
+	      return _ref5.apply(this, arguments);
+	    };
+	  }();
+	};
+
+/***/ }),
+/* 852 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -83892,37 +87432,19 @@
 	
 	var _reactRedux = __webpack_require__(381);
 	
-	var _reactRouterDom = __webpack_require__(393);
-	
 	var _Components = __webpack_require__(620);
 	
-	var _reactActivity = __webpack_require__(756);
+	var _SocialAction = __webpack_require__(851);
 	
-	var _NewsAction = __webpack_require__(436);
+	var SocialAction = _interopRequireWildcard(_SocialAction);
 	
-	var NewsAction = _interopRequireWildcard(_NewsAction);
+	var _moment = __webpack_require__(630);
 	
-	var _PriceAction = __webpack_require__(438);
-	
-	var PriceAction = _interopRequireWildcard(_PriceAction);
-	
-	var _coin = __webpack_require__(836);
-	
-	var _coin2 = _interopRequireDefault(_coin);
-	
-	var _ = __webpack_require__(585);
-	
-	__webpack_require__(757);
-	
-	var _reactstrap = __webpack_require__(623);
+	var _moment2 = _interopRequireDefault(_moment);
 	
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
-	
-	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
@@ -83938,560 +87460,199 @@
 	  return {
 	    news: state.reducer.news,
 	    me: state.reducer.me,
+	    isLogin: state.reducer.isLogin,
 	    token: state.reducer.token
 	  };
 	};
-	var Home = function Home() {
-	  return _react2.default.createElement(
-	    "div",
-	    null,
-	    _react2.default.createElement(
-	      "h2",
-	      null,
-	      "Home"
-	    )
-	  );
-	};
 	
-	var NewsPage = function (_Component) {
-	  _inherits(NewsPage, _Component);
+	var PostPage = function (_Component) {
+	  _inherits(PostPage, _Component);
 	
-	  function NewsPage(props) {
-	    var _this2 = this;
+	  function PostPage(props) {
+	    _classCallCheck(this, PostPage);
 	
-	    _classCallCheck(this, NewsPage);
+	    var _this = _possibleConstructorReturn(this, (PostPage.__proto__ || Object.getPrototypeOf(PostPage)).call(this, props));
 	
-	    var _this = _possibleConstructorReturn(this, (NewsPage.__proto__ || Object.getPrototypeOf(NewsPage)).call(this, props));
-	
-	    _this.paneDidMount = function (node) {
-	      if (node) {
-	        node.addEventListener("scroll", _this.handleScroll.bind(_this));
-	      }
+	    _this.handleComment = function (e) {
+	      _this.setState({ comment: e.target.value });
 	    };
 	
-	    _this.renderChart = function (type) {
-	      var baseUrl = "https://widgets.cryptocompare.com/";
-	      var appName = encodeURIComponent(window.location.hostname);
-	      if (appName == "") {
-	        appName = "local";
-	      }
-	      var s = document.createElement("script");
-	      s.type = "text/javascript";
-	      s.async = true;
-	      var theUrl = baseUrl + ("serve/v3/coin/chart?fsym=" + type + "&tsyms=KRW");
-	      s.src = theUrl + (theUrl.indexOf("?") >= 0 ? "&" : "?") + "app=" + appName;
-	      _this.instance.appendChild(s);
-	      s.onload = function () {
-	        _this.setState({ loadGraph: false });
+	    _this.handlePostComment = function (e) {
+	      var me = _this.props.me;
+	
+	      var date = new Date();
+	      var newComments = _this.state.comments.slice();
+	      var frontParams = {
+	        username: me[0].username,
+	        profile_img: me[0].profile_img,
+	        point: me[0].point,
+	        content: _this.state.comment,
+	        date: date
 	      };
+	      var params = {
+	        token: _this.props.token,
+	        content: _this.state.comment,
+	        forum_id: _this.props.match.params.forum_id
+	      };
+	      newComments.push(frontParams);
+	      _this.props.dispatch(SocialAction.postForumComment(params)).then(function (value) {
+	        _this.setState({ comments: newComments, comment: "" });
+	      });
 	    };
 	
-	    _this.handleScroll = function (event) {
-	      var _this$state = _this.state,
-	          newsCount = _this$state.newsCount,
-	          coinId = _this$state.coinId,
-	          sourceId = _this$state.sourceId;
-	
-	      var newsParams = {
-	        coinId: coinId,
-	        sourceId: sourceId,
-	        newsCount: newsCount
-	      };
-	      var node = event.target;
-	      var bottom = node.scrollHeight - node.scrollTop === node.clientHeight;
-	      if (bottom) {
-	        _this.setState({ footerLoading: true });
-	        _this.props.dispatch(NewsAction.getNews(newsParams)).then(function (news) {
-	          _this.setState(function (prevState) {
-	            return {
-	              news: [].concat(_toConsumableArray(prevState.news), _toConsumableArray(news.result)),
-	              newsCount: news.nextIndex,
-	              footerLoading: false
-	            };
-	          });
-	        });
-	      }
+	    _this.onFocusComment = function () {
+	      _this.setState(function (prevState) {
+	        return {
+	          isFocusComment: !prevState.isFocusComment
+	        };
+	      });
 	    };
-	
-	    _this.handleChart = function () {
-	      var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(coin, id) {
-	        return regeneratorRuntime.wrap(function _callee$(_context) {
-	          while (1) {
-	            switch (_context.prev = _context.next) {
-	              case 0:
-	                _this.setState({ loadGraph: true, isFavEmpty: false });
-	                if (_this.instance === undefined) {
-	                  _this.renderChart(coin);
-	                  _this.setState({ coinType: coin, coinId: id });
-	                } else {
-	                  while (_this.instance.firstChild) {
-	                    _this.instance.removeChild(_this.instance.firstChild);
-	                  }
-	                  _this.renderChart(coin);
-	                  _this.setState({ coinType: coin, coinId: id });
-	                }
-	
-	              case 2:
-	              case "end":
-	                return _context.stop();
-	            }
-	          }
-	        }, _callee, _this2);
-	      }));
-	
-	      return function (_x, _x2) {
-	        return _ref.apply(this, arguments);
-	      };
-	    }();
-	
-	    _this.handleFavorite = function () {
-	      var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(index, data) {
-	        var coin, _this$props, me, token, params, leftOver, i, result, abbrArray, _i;
-	
-	        return regeneratorRuntime.wrap(function _callee2$(_context2) {
-	          while (1) {
-	            switch (_context2.prev = _context2.next) {
-	              case 0:
-	                coin = _this.state.favorite.slice();
-	                _this$props = _this.props, me = _this$props.me, token = _this$props.token;
-	                params = {
-	                  token: token,
-	                  coin_id: coin[index].id
-	                };
-	                //삭제
-	
-	                if (!(coin[index].clicked === true)) {
-	                  _context2.next = 21;
-	                  break;
-	                }
-	
-	                coin[index].clicked = false;
-	
-	                leftOver = [];
-	
-	                for (i = 0; i < coin.length; i++) {
-	                  if (coin[i].clicked === true) {
-	                    leftOver.push(coin[i].abbr);
-	                  }
-	                }
-	
-	                if (!(leftOver.length === 0)) {
-	                  _context2.next = 14;
-	                  break;
-	                }
-	
-	                _this.setState({ favorite: coin, isFavEmpty: true });
-	                while (_this.instance.firstChild) {
-	                  _this.instance.removeChild(_this.instance.firstChild);
-	                }
-	                _context2.next = 12;
-	                return _this.props.dispatch(PriceAction.removeFav(params));
-	
-	              case 12:
-	                _context2.next = 19;
-	                break;
-	
-	              case 14:
-	                _this.setState({ favorite: coin, coinType: leftOver[0] });
-	                _context2.next = 17;
-	                return _this.handleChart(leftOver[0]);
-	
-	              case 17:
-	                _context2.next = 19;
-	                return _this.props.dispatch(PriceAction.removeFav(params));
-	
-	              case 19:
-	                _context2.next = 29;
-	                break;
-	
-	              case 21:
-	                coin[index].clicked = true;
-	                coin[index].loading = true;
-	                _this.handleChart(data);
-	                _this.setState({ favorite: coin });
-	
-	                //즐겨찾기 한 코인들에게, 가격, 증감표시 key 추가
-	                result = coin.map(function (el) {
-	                  var o = Object.assign({}, el);
-	                  o.price = 0;
-	                  o.percent = "";
-	                  return o;
-	                });
-	
-	                //즐겨찾기한 코인, 이름만 모으기
-	
-	                abbrArray = [];
-	
-	                for (_i = 0; _i < result.length; _i++) {
-	                  abbrArray[_i] = result[_i].abbr;
-	                }
-	                _this.props.dispatch(PriceAction.addFav(params)).then(function (value) {
-	                  _this.props.dispatch(PriceAction.getPrice(abbrArray)).then(function (value) {
-	                    for (var _i2 = 0; _i2 < abbrArray.length; _i2++) {
-	                      result[_i2].price = value[abbrArray[_i2]].KRW.PRICE;
-	                      result[_i2].percent = value[abbrArray[_i2]].KRW.CHANGEPCT24HOUR;
-	                    }
-	                    result[index].loading = false;
-	                    _this.setState(function (state) {
-	                      return { favorite: result };
-	                    });
-	                  });
-	                });
-	
-	              case 29:
-	              case "end":
-	                return _context2.stop();
-	            }
-	          }
-	        }, _callee2, _this2);
-	      }));
-	
-	      return function (_x3, _x4) {
-	        return _ref2.apply(this, arguments);
-	      };
-	    }();
 	
 	    _this.state = {
-	      loadGraph: false,
-	      dropdownOpen: false,
-	      coinType: "BTC",
-	      coinId: 1,
-	      news: [],
-	      favorite: [],
-	      isFavEmpty: true,
-	      newsCount: 30,
-	      sourceId: 0,
-	      footerLoading: false,
-	      newsLoading: false
+	      isFocusComment: false,
+	      comment: "",
+	      comments: []
 	    };
-	    _this.toggle = _this.toggle.bind(_this);
+	    _moment2.default.locale("ko");
 	    return _this;
 	  }
 	
-	  _createClass(NewsPage, [{
-	    key: "componentDidMount",
-	    value: function componentDidMount() {
-	      var _this3 = this;
-	
-	      var _state = this.state,
-	          newsCount = _state.newsCount,
-	          coinId = _state.coinId,
-	          sourceId = _state.sourceId;
-	
-	      var newsParams = {
-	        coinId: coinId,
-	        sourceId: sourceId,
-	        newsCount: newsCount
-	      };
-	      // 뉴스
-	      this.setState({ newsLoading: true });
-	      this.props.dispatch(NewsAction.getNews(newsParams)).then(function (news) {
-	        _this3.setState({
-	          newsCount: news.nextIndex,
-	          news: news.result,
-	          newsLoading: false
-	        });
-	        // 모든 코인
-	        _this3.props.dispatch(PriceAction.getCoins()).then(function (coins) {
-	          //즐겨찾기
-	          _this3.props.dispatch(PriceAction.getFavs(_this3.props.token)).then(function (favs) {
-	            //즐겨찾기 없을 경우
-	            if (favs.length === 0 || favs === [] || favs === null || favs === undefined) {
-	              var result = coins.map(function (el) {
-	                var o = Object.assign({}, el);
-	                o.clicked = false;
-	                o.loading = false;
-	                return o;
-	              });
-	              _this3.setState({
-	                favorite: result,
-	                loadGraph: false,
-	                isFavEmpty: true
-	              });
-	            } else {
-	              //즐겨찾기 있을 경우
-	              var _result = coins.map(function (el) {
-	                var o = Object.assign({}, el);
-	                o.clicked = false;
-	                o.loading = false;
-	                return o;
-	              });
-	              for (var i = 0; i < _result.length; i++) {
-	                for (var j = 0; j < favs.length; j++) {
-	                  if (_result[i].abbr === favs[j].abbr) {
-	                    _result[i].clicked = true;
-	                  }
-	                }
-	              }
-	              _this3.setState({
-	                favorite: _result,
-	                loadGraph: true,
-	                isFavEmpty: false
-	              });
-	              var abbrArray = [];
-	              for (var _i3 = 0; _i3 < _result.length; _i3++) {
-	                if (_result[_i3].clicked === true) {
-	                  abbrArray.push(_result[_i3].abbr);
-	                }
-	              }
-	              var final = _result.map(function (el) {
-	                var o = Object.assign({}, el);
-	                o.price = 0;
-	                o.percent = "";
-	                return o;
-	              });
-	
-	              _this3.props.dispatch(PriceAction.getPrice(abbrArray)).then(function (value) {
-	                for (var _i4 = 0; _i4 < final.length; _i4++) {
-	                  for (var _j = 0; _j < abbrArray.length; _j++) {
-	                    if (final[_i4].abbr === abbrArray[_j]) {
-	                      final[_i4].price = value[abbrArray[_j]].KRW.PRICE;
-	                      final[_i4].percent = value[abbrArray[_j]].KRW.CHANGEPCT24HOUR;
-	                    }
-	                  }
-	                }
-	                _this3.setState({ favorite: final, coinType: abbrArray[0] });
-	                _this3.renderChart(abbrArray[0]);
-	              });
-	            }
-	          });
-	        });
-	      });
-	    }
-	  }, {
-	    key: "toggle",
-	    value: function toggle() {
-	      this.setState(function (prevState) {
-	        return {
-	          dropdownOpen: !prevState.dropdownOpen
-	        };
-	      });
-	    }
+	  _createClass(PostPage, [{
+	    key: "componentWillMount",
+	    value: function componentWillMount() {}
 	  }, {
 	    key: "render",
 	    value: function render() {
-	      var _this4 = this;
-	
-	      var _state2 = this.state,
-	          loadGraph = _state2.loadGraph,
-	          coinType = _state2.coinType,
-	          favorite = _state2.favorite,
-	          isFavEmpty = _state2.isFavEmpty,
-	          news = _state2.news,
-	          footerLoading = _state2.footerLoading,
-	          newsLoading = _state2.newsLoading;
-	      var me = this.props.me;
+	      var _state = this.state,
+	          isFocusComment = _state.isFocusComment,
+	          comments = _state.comments;
+	      var _props = this.props,
+	          me = _props.me,
+	          isLogin = _props.isLogin;
+	      var _props$location$state = this.props.location.state,
+	          forum = _props$location$state.forum,
+	          coins = _props$location$state.coins;
 	
 	      return _react2.default.createElement(
 	        "div",
-	        { className: "newsPage" },
-	        _react2.default.createElement(_Components.NavBar, { type: "news" }),
-	        _react2.default.createElement(_Components.SideBar, {
-	          onClick: this.handleChart,
-	          type: coinType,
-	          favorite: favorite,
-	          handleFavorite: this.handleFavorite,
-	          loadGraph: loadGraph
-	        }),
+	        { className: "forumPage__content__chart" },
 	        _react2.default.createElement(
 	          "div",
-	          { className: "newsPage__content" },
+	          { className: "forumPage__content__chart__intro" },
 	          _react2.default.createElement(
 	            "div",
-	            { className: "newsPage__content__news" },
+	            { className: "postPage__content__chart__intro__post" },
 	            _react2.default.createElement(
 	              "div",
-	              { className: "newsPage__content__news__search" },
+	              { className: "postPage__content__chart__intro__post__header" },
 	              _react2.default.createElement(
 	                "div",
-	                { className: "newsPage__content__news__search__first" },
+	                { className: "postPage__content__chart__intro__post__header__userInfo" },
 	                _react2.default.createElement(
 	                  "div",
-	                  { className: "newsPage__content__news__search__first__iconArea" },
-	                  _react2.default.createElement(
-	                    "span",
-	                    { className: "newsPage__content__news__search__first__iconArea__icon" },
-	                    _react2.default.createElement("i", { className: "xi-search" })
-	                  )
+	                  { className: "postPage__content__chart__intro__post__header__userInfo__thumb" },
+	                  _react2.default.createElement(_Components.Thumb, { src: forum.profile_img, fontSize: 35, size: 50 })
 	                ),
 	                _react2.default.createElement(
 	                  "div",
-	                  { className: "newsPage__content__news__search__first__inputArea" },
-	                  _react2.default.createElement("input", {
-	                    className: "newsPage__content__news__search__first__inputArea__input",
-	                    placeholder: "\uBB34\uC5C7\uC744 \uCC3E\uACE0\uC2F6\uC73C\uC2E0\uAC00\uC694?"
-	                  })
-	                )
-	              ),
-	              _react2.default.createElement(
-	                "div",
-	                { className: "newsPage__content__news__search__second" },
-	                _react2.default.createElement("hr", null),
-	                _react2.default.createElement(
-	                  "div",
-	                  { className: "newsPage__content__news__search__second__content" },
-	                  _react2.default.createElement(
-	                    _reactstrap.ButtonDropdown,
-	                    {
-	                      isOpen: this.state.dropdownOpen,
-	                      style: { marginRight: 10, backgroundColor: "transparent" },
-	                      toggle: this.toggle,
-	                      size: "sm",
-	                      direction: "down"
-	                    },
-	                    _react2.default.createElement(
-	                      _reactstrap.DropdownToggle,
-	                      { caret: true },
-	                      "\uCD5C\uC2E0 \uC21C"
-	                    ),
-	                    _react2.default.createElement(
-	                      _reactstrap.DropdownMenu,
-	                      null,
-	                      _react2.default.createElement(
-	                        _reactstrap.DropdownItem,
-	                        null,
-	                        "\uC778\uAE30 \uC21C"
-	                      )
-	                    )
-	                  ),
-	                  _react2.default.createElement(
-	                    _reactRouterDom.Link,
-	                    { to: this.props.match.url + "/test" },
-	                    "Components"
-	                  )
-	                )
-	              )
-	            ),
-	            newsLoading ? _react2.default.createElement(
-	              "div",
-	              {
-	                ref: this.paneDidMount,
-	                className: "newsPage__content__news__lists-loading"
-	              },
-	              _react2.default.createElement(_reactActivity.Dots, { color: "#ffffff", size: 30 })
-	            ) : _react2.default.createElement(
-	              "div",
-	              {
-	                ref: this.paneDidMount,
-	                className: "newsPage__content__news__lists"
-	              },
-	              news && news.map(function (data, index) {
-	                return _react2.default.createElement(_Components.List, {
-	                  key: index,
-	                  title: data.title,
-	                  createdAt: data.pubDate,
-	                  type: coinType,
-	                  link: data.link
-	                });
-	              }),
-	              footerLoading === true ? _react2.default.createElement(
-	                "div",
-	                { className: "newsPage__content__news__lists__footer" },
-	                _react2.default.createElement(_reactActivity.Dots, { color: "#ffffff", size: 20 })
-	              ) : null
-	            )
-	          ),
-	          _react2.default.createElement(
-	            "div",
-	            { className: "newsPage__content__chart" },
-	            _react2.default.createElement(_reactRouterDom.Route, {
-	              path: this.props.match.url + "/:test",
-	              render: function render() {
-	                return _react2.default.createElement(
-	                  "h3",
-	                  null,
-	                  "!!!!"
-	                );
-	              }
-	            }),
-	            _react2.default.createElement(_reactRouterDom.Route, {
-	              exact: true,
-	              path: "" + this.props.match.url,
-	              render: function render() {
-	                return _react2.default.createElement(
-	                  "h3",
-	                  null,
-	                  "????"
-	                );
-	              }
-	            }),
-	            isFavEmpty === true ? _react2.default.createElement(
-	              "div",
-	              { className: "newsPage__content__chart__intro" },
-	              _react2.default.createElement(
-	                "div",
-	                { className: "newsPage__content__chart__intro__logo" },
-	                _react2.default.createElement("img", {
-	                  width: 45,
-	                  height: 45,
-	                  src: __webpack_require__(837)
-	                }),
-	                _react2.default.createElement(
-	                  "p",
-	                  { className: "newsPage__content__chart__intro__logo__text" },
-	                  "ENHANCE"
-	                )
-	              ),
-	              _react2.default.createElement(
-	                "div",
-	                { className: "newsPage__content__chart__intro__welcome" },
-	                _react2.default.createElement(
-	                  "p",
-	                  null,
+	                  { className: "postPage__content__chart__intro__post__header__userInfo__name" },
 	                  _react2.default.createElement(
 	                    "strong",
 	                    null,
-	                    "\uD658\uC601\uD569\uB2C8\uB2E4. "
+	                    forum.username
 	                  ),
-	                  me && me[0].username + " 님"
-	                ),
-	                _react2.default.createElement(
-	                  "p",
-	                  null,
-	                  "\uC778\uD578\uC2A4\uB294 \uAC00\uC0C1\uD654\uD3D0\uC640 \uBE14\uB85D\uCCB4\uC778 \uAE30\uC220\uC5D0 \uB300\uD55C \uC815\uBCF4\uB97C \uC2E4\uC2DC\uAC04\uC73C\uB85C \uBAA8\uC544\uC11C \uD55C\uB208\uC5D0 \uBCF4\uAE30 \uC27D\uAC8C \uC81C\uACF5\uD574 \uB4DC\uB9AC\uACE0 \uC788\uC2B5\uB2C8\uB2E4. \uC778\uD578\uC2A4\uC640 \uD568\uAED8 \uAC00\uC0C1\uD654\uD3D0\uC758 \uC5ED\uC0AC\uB97C \uD568\uAED8 \uD558\uC138\uC694."
+	                  _react2.default.createElement(
+	                    "span",
+	                    { className: "postPage__content__chart__intro__post__header__userInfo__point" },
+	                    forum.point + " \uD3EC\uC778\uD2B8"
+	                  )
 	                )
 	              ),
 	              _react2.default.createElement(
 	                "div",
-	                { className: "newsPage__content__chart__intro__desc" },
-	                _react2.default.createElement(
-	                  "strong",
-	                  null,
-	                  "\uC778\uD578\uC2A4 \uB274\uC2A4"
-	                ),
+	                { className: "postPage__content__chart__intro__post__header__detail" },
 	                _react2.default.createElement(
 	                  "p",
 	                  null,
-	                  "\uB85C\uADF8\uC778 \uD6C4 + \uBC84\uD2BC\uC744 \uB204\uB974\uAC70\uB098 \uC88C\uCE21 \uC0C1\uB2E8 \uB3CB\uBCF4\uAE30 \uC544\uC774\uCF58\uC744 \uB20C\uB7EC \uC6D0\uD558\uB294 \uAC00\uC0C1\uD654\uD3D0 \uC885\uBAA9\uC744 \uAC80\uC0C9\uD558\uC2E4 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+	                  forum.category
 	                ),
-	                _react2.default.createElement("br", null),
 	                _react2.default.createElement(
-	                  "p",
-	                  null,
-	                  "\uC6D0\uD558\uB294 \uAC00\uC0C1\uD654\uD3D0\uB97C \uD074\uB9AD\uD558\uC5EC \uD314\uB85C\uC6B0 \uD558\uC2DC\uBA74 \uC6B0\uCE21 \uC990\uACA8\uCC3E\uAE30 \uBAA9\uB85D\uC5D0 \uC800\uC7A5\uB418\uC5B4 \uD574\uB2F9 \uAC00\uC0C1 \uD654\uD3D0\uC758 \uC815\uBCF4\uB97C \uACC4\uC18D \uBCF4\uC2E4 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
-	                ),
-	                _react2.default.createElement("br", null),
-	                _react2.default.createElement(
-	                  "p",
-	                  null,
-	                  "\uC6B0\uCE21 \uC990\uACA8\uCC3E\uAE30 \uBAA9\uB85D\uC5D0 \uC704\uCE58\uD55C \uAC00\uC0C1\uD654\uD3D0 \uC885\uBAA9 \uBC15\uC2A4\uB97C \uD074\uB9AC\uD558\uBA74 \uC88C\uCE21 \uD30C\uD2F0\uC158\uC5D0 \uD574\uB2F9 \uAC00\uC0C1\uD654\uD3D0\uC5D0 \uAD00\uB828\uB41C \uAE30\uC0AC\uC640 \uC815\uBCF4\uB4E4\uC774 \uC2E4\uC2DC\uAC04\uC73C\uB85C \uB178\uCD9C\uB429\uB2C8\uB2E4."
+	                  "span",
+	                  { className: "postPage__content__chart__intro__post__header__userInfo__date" },
+	                  (0, _moment2.default)(forum.created_at).fromNow()
 	                )
 	              )
-	            ) : null,
-	            loadGraph === true ? _react2.default.createElement(
+	            ),
+	            _react2.default.createElement(
 	              "div",
-	              {
-	                className: "newsPage__content__chart__loading",
-	                ref: function ref(el) {
-	                  return _this4.instance = el;
-	                }
-	              },
-	              _react2.default.createElement(_reactActivity.Dots, { color: "#ffffff", size: 30 })
-	            ) : _react2.default.createElement("div", {
-	              className: "newsPage__content__chart__wrapper",
-	              ref: function ref(el) {
-	                return _this4.instance = el;
-	              }
+	              { className: "postPage__content__chart__intro__post__title" },
+	              _react2.default.createElement(
+	                "p",
+	                null,
+	                forum.title
+	              )
+	            ),
+	            _react2.default.createElement(
+	              "div",
+	              { className: "postPage__content__chart__intro__post__body" },
+	              _react2.default.createElement(
+	                "p",
+	                null,
+	                forum.content
+	              )
+	            ),
+	            _react2.default.createElement(
+	              "div",
+	              { className: "postPage__content__chart__intro__post__coin" },
+	              coins.map(function (data, index) {
+	                return _react2.default.createElement(
+	                  "div",
+	                  {
+	                    key: index,
+	                    className: "postPage__content__chart__intro__post__coin__item"
+	                  },
+	                  data.abbr
+	                );
+	              })
+	            ),
+	            _react2.default.createElement(
+	              "div",
+	              { className: "postPage__content__chart__intro__post__footer" },
+	              _react2.default.createElement(
+	                "span",
+	                { className: "postPage__content__chart__intro__post__footer__icon" },
+	                _react2.default.createElement("i", { className: "far fa-thumbs-up" })
+	              ),
+	              _react2.default.createElement(
+	                "span",
+	                { className: "postPage__content__chart__intro__post__footer__icon" },
+	                _react2.default.createElement("i", { className: "xi-eye" })
+	              )
+	            )
+	          ),
+	          _react2.default.createElement(_Components.SocialInput, {
+	            user: me && me[0],
+	            isLogin: isLogin,
+	            value: this.state.comment,
+	            onChange: this.handleComment,
+	            placeholder: "\uB313\uAE00\uC744 \uC785\uB825\uD558\uC138\uC694",
+	            onClick: this.handlePostComment,
+	            postText: "\uB4F1\uB85D",
+	            onFocus: this.onFocusComment,
+	            isFocus: isFocusComment
+	          }),
+	          _react2.default.createElement(
+	            "div",
+	            { className: "postPage__content__chart__intro__comments" },
+	            comments.map(function (data, index) {
+	              return _react2.default.createElement(_Components.Comment, {
+	                key: index,
+	                username: data.username,
+	                profileImg: data.profile_img,
+	                userPoint: data.point,
+	                createdAt: data.created_at,
+	                content: data.content
+	              });
 	            })
 	          )
 	        )
@@ -84499,13 +87660,13 @@
 	    }
 	  }]);
 	
-	  return NewsPage;
+	  return PostPage;
 	}(_react.Component);
 	
-	NewsPage.defaultProps = defaultProps;
-	NewsPage.propTypes = propTypes;
+	PostPage.defaultProps = defaultProps;
+	PostPage.propTypes = propTypes;
 	
-	exports.default = (0, _reactRedux.connect)(mapStateToProps)(NewsPage);
+	exports.default = (0, _reactRedux.connect)(mapStateToProps)(PostPage);
 
 /***/ })
 /******/ ]);
