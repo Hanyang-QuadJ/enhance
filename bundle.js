@@ -87999,6 +87999,7 @@
 	  }, {
 	    key: "render",
 	    value: function render() {
+	      console.log(this.props);
 	      var _state = this.state,
 	          isFocusComment = _state.isFocusComment,
 	          newComment = _state.newComment;
@@ -88011,7 +88012,6 @@
 	          coins = _props$history$locati.coins,
 	          comment = _props$history$locati.comment;
 	
-	      console.log(this.props);
 	      return _react2.default.createElement(
 	        "div",
 	        { className: "postPage__content__chart" },
