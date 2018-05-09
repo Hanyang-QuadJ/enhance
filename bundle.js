@@ -88171,7 +88171,7 @@
 	PostPage.defaultProps = defaultProps;
 	PostPage.propTypes = propTypes;
 	
-	exports.default = (0, _reactRedux.connect)(mapStateToProps)(PostPage);
+	exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps)(PostPage));
 
 /***/ })
 /******/ ]);
