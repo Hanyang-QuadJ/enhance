@@ -87334,80 +87334,84 @@
 	              ) : null
 	            )
 	          ),
-	          _react2.default.createElement(_reactRouterDom.Route, { path: "/forum/:forum_id", component: _.PostPage }),
-	          _react2.default.createElement(_reactRouterDom.Route, {
-	            exact: true,
-	            path: "/forum",
-	            render: function render() {
-	              return _react2.default.createElement(
-	                "div",
-	                { className: "forumPage__content__chart" },
-	                _react2.default.createElement(
+	          _react2.default.createElement(
+	            _reactRouterDom.Switch,
+	            null,
+	            _react2.default.createElement(_reactRouterDom.Route, { path: "/forum/:forum_id", component: _.PostPage }),
+	            _react2.default.createElement(_reactRouterDom.Route, {
+	              exact: true,
+	              path: "/forum",
+	              render: function render() {
+	                return _react2.default.createElement(
 	                  "div",
-	                  { className: "forumPage__content__chart__intro" },
+	                  { className: "forumPage__content__chart" },
 	                  _react2.default.createElement(
 	                    "div",
-	                    { className: "forumPage__content__chart__intro__logo" },
-	                    _react2.default.createElement("img", {
-	                      width: 45,
-	                      height: 45,
-	                      src: "https://github.com/Hanyang-QuadJ/enhance/blob/master/public/icons/enhance_logo.png?raw=true"
-	                    }),
+	                    { className: "forumPage__content__chart__intro" },
 	                    _react2.default.createElement(
-	                      "p",
-	                      { className: "forumPage__content__chart__intro__logo__text" },
-	                      "ENHANCE"
-	                    )
-	                  ),
-	                  _react2.default.createElement(
-	                    "div",
-	                    { className: "forumPage__content__chart__intro__welcome" },
+	                      "div",
+	                      { className: "forumPage__content__chart__intro__logo" },
+	                      _react2.default.createElement("img", {
+	                        width: 45,
+	                        height: 45,
+	                        src: "https://github.com/Hanyang-QuadJ/enhance/blob/master/public/icons/enhance_logo.png?raw=true"
+	                      }),
+	                      _react2.default.createElement(
+	                        "p",
+	                        { className: "forumPage__content__chart__intro__logo__text" },
+	                        "ENHANCE"
+	                      )
+	                    ),
 	                    _react2.default.createElement(
-	                      "p",
-	                      null,
+	                      "div",
+	                      { className: "forumPage__content__chart__intro__welcome" },
+	                      _react2.default.createElement(
+	                        "p",
+	                        null,
+	                        _react2.default.createElement(
+	                          "strong",
+	                          null,
+	                          "\uD658\uC601\uD569\uB2C8\uB2E4. "
+	                        ),
+	                        me && me[0].username + " 님"
+	                      ),
+	                      _react2.default.createElement(
+	                        "p",
+	                        null,
+	                        "\uC778\uD578\uC2A4\uB294 \uAC00\uC0C1\uD654\uD3D0\uC640 \uBE14\uB85D\uCCB4\uC778 \uAE30\uC220\uC5D0 \uB300\uD55C \uC815\uBCF4\uB97C \uC2E4\uC2DC\uAC04\uC73C\uB85C \uBAA8\uC544\uC11C \uD55C\uB208\uC5D0 \uBCF4\uAE30 \uC27D\uAC8C \uC81C\uACF5\uD574 \uB4DC\uB9AC\uACE0 \uC788\uC2B5\uB2C8\uB2E4. \uC778\uD578\uC2A4\uC640 \uD568\uAED8 \uAC00\uC0C1\uD654\uD3D0\uC758 \uC5ED\uC0AC\uB97C \uD568\uAED8 \uD558\uC138\uC694."
+	                      )
+	                    ),
+	                    _react2.default.createElement(
+	                      "div",
+	                      { className: "forumPage__content__chart__intro__desc" },
 	                      _react2.default.createElement(
 	                        "strong",
 	                        null,
-	                        "\uD658\uC601\uD569\uB2C8\uB2E4. "
+	                        "\uC778\uD578\uC2A4 \uD3EC\uB7FC"
 	                      ),
-	                      me && me[0].username + " 님"
-	                    ),
-	                    _react2.default.createElement(
-	                      "p",
-	                      null,
-	                      "\uC778\uD578\uC2A4\uB294 \uAC00\uC0C1\uD654\uD3D0\uC640 \uBE14\uB85D\uCCB4\uC778 \uAE30\uC220\uC5D0 \uB300\uD55C \uC815\uBCF4\uB97C \uC2E4\uC2DC\uAC04\uC73C\uB85C \uBAA8\uC544\uC11C \uD55C\uB208\uC5D0 \uBCF4\uAE30 \uC27D\uAC8C \uC81C\uACF5\uD574 \uB4DC\uB9AC\uACE0 \uC788\uC2B5\uB2C8\uB2E4. \uC778\uD578\uC2A4\uC640 \uD568\uAED8 \uAC00\uC0C1\uD654\uD3D0\uC758 \uC5ED\uC0AC\uB97C \uD568\uAED8 \uD558\uC138\uC694."
-	                    )
-	                  ),
-	                  _react2.default.createElement(
-	                    "div",
-	                    { className: "forumPage__content__chart__intro__desc" },
-	                    _react2.default.createElement(
-	                      "strong",
-	                      null,
-	                      "\uC778\uD578\uC2A4 \uD3EC\uB7FC"
-	                    ),
-	                    _react2.default.createElement(
-	                      "p",
-	                      null,
-	                      "\uB85C\uADF8\uC778 \uD6C4 + \uBC84\uD2BC\uC744 \uB204\uB974\uAC70\uB098 \uC88C\uCE21 \uC0C1\uB2E8 \uB3CB\uBCF4\uAE30 \uC544\uC774\uCF58\uC744 \uB20C\uB7EC \uC6D0\uD558\uB294 \uAC00\uC0C1\uD654\uD3D0 \uC885\uBAA9\uC744 \uAC80\uC0C9\uD558\uC2E4 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
-	                    ),
-	                    _react2.default.createElement("br", null),
-	                    _react2.default.createElement(
-	                      "p",
-	                      null,
-	                      "\uC6D0\uD558\uB294 \uAC00\uC0C1\uD654\uD3D0\uB97C \uD074\uB9AD\uD558\uC5EC \uD314\uB85C\uC6B0 \uD558\uC2DC\uBA74 \uC6B0\uCE21 \uC990\uACA8\uCC3E\uAE30 \uBAA9\uB85D\uC5D0 \uC800\uC7A5\uB418\uC5B4 \uD574\uB2F9 \uAC00\uC0C1 \uD654\uD3D0\uC758 \uC815\uBCF4\uB97C \uACC4\uC18D \uBCF4\uC2E4 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
-	                    ),
-	                    _react2.default.createElement("br", null),
-	                    _react2.default.createElement(
-	                      "p",
-	                      null,
-	                      "\uAC01 \uAC00\uC0C1\uD654\uD3D0\uC758 \uC885\uBAA9\uC758 \uCEE4\uBBA4\uB2C8\uD2F0\uC5D0 \uCC38\uC5EC\uD558\uC138\uC694."
+	                      _react2.default.createElement(
+	                        "p",
+	                        null,
+	                        "\uB85C\uADF8\uC778 \uD6C4 + \uBC84\uD2BC\uC744 \uB204\uB974\uAC70\uB098 \uC88C\uCE21 \uC0C1\uB2E8 \uB3CB\uBCF4\uAE30 \uC544\uC774\uCF58\uC744 \uB20C\uB7EC \uC6D0\uD558\uB294 \uAC00\uC0C1\uD654\uD3D0 \uC885\uBAA9\uC744 \uAC80\uC0C9\uD558\uC2E4 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+	                      ),
+	                      _react2.default.createElement("br", null),
+	                      _react2.default.createElement(
+	                        "p",
+	                        null,
+	                        "\uC6D0\uD558\uB294 \uAC00\uC0C1\uD654\uD3D0\uB97C \uD074\uB9AD\uD558\uC5EC \uD314\uB85C\uC6B0 \uD558\uC2DC\uBA74 \uC6B0\uCE21 \uC990\uACA8\uCC3E\uAE30 \uBAA9\uB85D\uC5D0 \uC800\uC7A5\uB418\uC5B4 \uD574\uB2F9 \uAC00\uC0C1 \uD654\uD3D0\uC758 \uC815\uBCF4\uB97C \uACC4\uC18D \uBCF4\uC2E4 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+	                      ),
+	                      _react2.default.createElement("br", null),
+	                      _react2.default.createElement(
+	                        "p",
+	                        null,
+	                        "\uAC01 \uAC00\uC0C1\uD654\uD3D0\uC758 \uC885\uBAA9\uC758 \uCEE4\uBBA4\uB2C8\uD2F0\uC5D0 \uCC38\uC5EC\uD558\uC138\uC694."
+	                      )
 	                    )
 	                  )
-	                )
-	              );
-	            }
-	          })
+	                );
+	              }
+	            })
+	          )
 	        )
 	      );
 	    }
