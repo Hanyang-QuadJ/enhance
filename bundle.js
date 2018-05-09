@@ -88003,10 +88003,10 @@
 	          me = _props.me,
 	          isLogin = _props.isLogin,
 	          onClick = _props.onClick;
-	      var _props$history$locati = this.props.history.location.state,
-	          forum = _props$history$locati.forum,
-	          coins = _props$history$locati.coins,
-	          comment = _props$history$locati.comment;
+	      var _props$location$state = this.props.location.state,
+	          forum = _props$location$state.forum,
+	          coins = _props$location$state.coins,
+	          comment = _props$location$state.comment;
 	
 	      console.log(this.props);
 	      return _react2.default.createElement(
