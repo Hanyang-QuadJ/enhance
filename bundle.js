@@ -87125,8 +87125,8 @@
 	          news = _props.news,
 	          me = _props.me,
 	          isLogin = _props.isLogin;
-	      // console.log(this.props.match);
 	
+	      console.log(this.props);
 	      return _react2.default.createElement(
 	        "div",
 	        { className: "forumPage" },
