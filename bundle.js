@@ -87144,6 +87144,7 @@
 	          me = _props.me,
 	          isLogin = _props.isLogin;
 	
+	      console.log(this.props.match);
 	      return _react2.default.createElement(
 	        "div",
 	        { className: "forumPage" },
@@ -87337,7 +87338,7 @@
 	          _react2.default.createElement(
 	            _reactRouterDom.Switch,
 	            null,
-	            _react2.default.createElement(_reactRouterDom.Route, { path: "/forum/:forum_id", component: _.PostPage }),
+	            _react2.default.createElement(_reactRouterDom.Route, { path: "" + this.props.match.url, component: _.PostPage }),
 	            _react2.default.createElement(_reactRouterDom.Route, {
 	              exact: true,
 	              path: "/forum",
@@ -88009,10 +88010,10 @@
 	
 	      return _react2.default.createElement(
 	        "div",
-	        { className: "forumPage__content__chart" },
+	        { className: "postPage__content__chart" },
 	        _react2.default.createElement(
 	          "div",
-	          { className: "forumPage__content__chart__intro" },
+	          { className: "postPage__content__chart__intro" },
 	          _react2.default.createElement(
 	            "div",
 	            { className: "postPage__content__chart__intro__post" },
