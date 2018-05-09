@@ -87341,7 +87341,7 @@
 	            _react2.default.createElement(_reactRouterDom.Route, { path: "" + this.props.match.url, component: _.PostPage }),
 	            _react2.default.createElement(_reactRouterDom.Route, {
 	              exact: true,
-	              path: "/forum",
+	              path: "" + this.props.match.url,
 	              render: function render() {
 	                return _react2.default.createElement(
 	                  "div",
