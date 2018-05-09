@@ -87143,8 +87143,8 @@
 	          news = _props.news,
 	          me = _props.me,
 	          isLogin = _props.isLogin;
+	      // console.log(this.props.match);
 	
-	      console.log(this.props.match);
 	      return _react2.default.createElement(
 	        "div",
 	        { className: "forumPage" },
@@ -88003,11 +88003,12 @@
 	          me = _props.me,
 	          isLogin = _props.isLogin,
 	          onClick = _props.onClick;
-	      var _props$location$state = this.props.location.state,
-	          forum = _props$location$state.forum,
-	          coins = _props$location$state.coins,
-	          comment = _props$location$state.comment;
+	      var _props$history$locati = this.props.history.location.state,
+	          forum = _props$history$locati.forum,
+	          coins = _props$history$locati.coins,
+	          comment = _props$history$locati.comment;
 	
+	      console.log(this.props);
 	      return _react2.default.createElement(
 	        "div",
 	        { className: "postPage__content__chart" },
