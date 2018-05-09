@@ -35209,12 +35209,8 @@
 	        _react2.default.createElement(
 	          "div",
 	          null,
-	          _react2.default.createElement(
-	            _reactRouterDom.Switch,
-	            null,
-	            _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/", component: _Pages.HomePage }),
-	            _react2.default.createElement(_reactRouterDom.Route, { path: "/forum", component: _Pages.ForumPage })
-	          ),
+	          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/", component: _Pages.HomePage }),
+	          _react2.default.createElement(_reactRouterDom.Route, { path: "/forum", component: _Pages.ForumPage }),
 	          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/auth", component: _Pages.AuthPage }),
 	          _react2.default.createElement(_reactRouterDom.Route, { path: "/auth/signup", component: _Pages.SignUpPage })
 	        )
@@ -87427,7 +87423,7 @@
 	ForumPage.defaultProps = defaultProps;
 	ForumPage.propTypes = propTypes;
 	
-	exports.default = (0, _reactRedux.connect)(mapStateToProps)(ForumPage);
+	exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps)(ForumPage));
 
 /***/ }),
 /* 854 */
