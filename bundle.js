@@ -86813,7 +86813,7 @@
 	                newPosts[index].loading = false;
 	                newPosts[index].view_cnt = newPosts[index].view_cnt + 1;
 	                _this.setState({ posts: newPosts });
-	                _this.props.history.push({
+	                _this.props.history.replace({
 	                  pathname: "/forum/" + id,
 	                  state: {
 	                    forum: newForum,
