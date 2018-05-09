@@ -87338,7 +87338,10 @@
 	          _react2.default.createElement(
 	            _reactRouterDom.Switch,
 	            null,
-	            _react2.default.createElement(_reactRouterDom.Route, { path: "" + this.props.match.url, component: _.PostPage }),
+	            _react2.default.createElement(_reactRouterDom.Route, {
+	              path: this.props.match.url + "/:forum_id",
+	              component: _.PostPage
+	            }),
 	            _react2.default.createElement(_reactRouterDom.Route, {
 	              exact: true,
 	              path: "" + this.props.match.url,
@@ -88003,10 +88006,10 @@
 	          me = _props.me,
 	          isLogin = _props.isLogin,
 	          onClick = _props.onClick;
-	      var _props$location$state = this.props.location.state,
-	          forum = _props$location$state.forum,
-	          coins = _props$location$state.coins,
-	          comment = _props$location$state.comment;
+	      var _props$history$locati = this.props.history.location.state,
+	          forum = _props$history$locati.forum,
+	          coins = _props$history$locati.coins,
+	          comment = _props$history$locati.comment;
 	
 	      console.log(this.props);
 	      return _react2.default.createElement(
