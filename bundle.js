@@ -44813,6 +44813,8 @@
 	
 	var _reactRedux = __webpack_require__(381);
 	
+	var _reactRouterDom = __webpack_require__(393);
+	
 	var _Components = __webpack_require__(620);
 	
 	var _reactActivity = __webpack_require__(755);
@@ -45512,7 +45514,7 @@
 	HomePage.defaultProps = defaultProps;
 	HomePage.propTypes = propTypes;
 	
-	exports.default = (0, _reactRedux.connect)(mapStateToProps)(HomePage);
+	exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps)(HomePage));
 
 /***/ }),
 /* 620 */
@@ -86795,7 +86797,7 @@
 	                newPosts[index].loading = false;
 	                newPosts[index].view_cnt = newPosts[index].view_cnt + 1;
 	                _this.setState({ posts: newPosts });
-	                _this.props.history.replace({
+	                _this.props.history.push({
 	                  pathname: "/forum/" + id,
 	                  state: {
 	                    forum: newForum,
@@ -87981,18 +87983,21 @@
 	  }, {
 	    key: "render",
 	    value: function render() {
-	      console.log(this.props);
-	      var _state = this.state,
-	          isFocusComment = _state.isFocusComment,
-	          newComment = _state.newComment;
-	      var _props = this.props,
-	          me = _props.me,
-	          isLogin = _props.isLogin,
-	          onClick = _props.onClick;
-	      var _props$history$locati = this.props.history.location.state,
-	          forum = _props$history$locati.forum,
-	          coins = _props$history$locati.coins,
-	          comment = _props$history$locati.comment;
+	      if (this.props.location.state === undefined) {
+	        this.props.history.replace({ pathname: "/forum" });
+	      } else {
+	        var _state = this.state,
+	            _isFocusComment = _state.isFocusComment,
+	            _newComment = _state.newComment;
+	        var _props = this.props,
+	            _me = _props.me,
+	            _isLogin = _props.isLogin,
+	            _onClick = _props.onClick;
+	        var _props$location$state = this.props.location.state,
+	            _forum = _props$location$state.forum,
+	            _coins = _props$location$state.coins,
+	            _comment = _props$location$state.comment;
+	      }
 	
 	      return _react2.default.createElement(
 	        "div",
