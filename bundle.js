@@ -87984,20 +87984,22 @@
 	    key: "render",
 	    value: function render() {
 	      if (this.props.location.state === undefined) {
-	        this.props.history.replace({ pathname: "/forum" });
-	      } else {
-	        var _state = this.state,
-	            _isFocusComment = _state.isFocusComment,
-	            _newComment = _state.newComment;
-	        var _props = this.props,
-	            _me = _props.me,
-	            _isLogin = _props.isLogin,
-	            _onClick = _props.onClick;
-	        var _props$location$state = this.props.location.state,
-	            _forum = _props$location$state.forum,
-	            _coins = _props$location$state.coins,
-	            _comment = _props$location$state.comment;
+	        this.props.history.replace({
+	          pathname: "/forum"
+	        });
 	      }
+	      var _state = this.state,
+	          isFocusComment = _state.isFocusComment,
+	          newComment = _state.newComment;
+	      var _props = this.props,
+	          me = _props.me,
+	          isLogin = _props.isLogin,
+	          onClick = _props.onClick;
+	      var _props$location$state = this.props.location.state,
+	          forum = _props$location$state.forum,
+	          coins = _props$location$state.coins,
+	          comment = _props$location$state.comment;
+	
 	
 	      return _react2.default.createElement(
 	        "div",
