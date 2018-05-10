@@ -87128,7 +87128,6 @@
 	          me = _props.me,
 	          isLogin = _props.isLogin;
 	
-	      console.log(this.props);
 	      return _react2.default.createElement(
 	        "div",
 	        { className: "forumPage" },
@@ -87962,7 +87961,8 @@
 	    _this.state = {
 	      isFocusComment: false,
 	      comment: "",
-	      newComment: []
+	      newComment: [],
+	      user: []
 	    };
 	    _moment2.default.locale("ko");
 	    return _this;
@@ -87984,11 +87984,12 @@
 	    key: "render",
 	    value: function render() {
 	      if (this.props.location.state === undefined) {
-	        window.location.href = "/forum";
+	        window.location.href = "/enhance/forum";
 	      } else {
 	        var _state = this.state,
 	            isFocusComment = _state.isFocusComment,
-	            newComment = _state.newComment;
+	            newComment = _state.newComment,
+	            user = _state.user;
 	        var _props = this.props,
 	            me = _props.me,
 	            isLogin = _props.isLogin,
@@ -87998,11 +87999,12 @@
 	            coins = _props$location$state.coins,
 	            comment = _props$location$state.comment;
 	
+	        console.log(user);
 	
 	        return _react2.default.createElement(
 	          "div",
 	          { className: "postPage__content__chart" },
-	          _react2.default.createElement(
+	          user.length === 0 ? _react2.default.createElement(
 	            "div",
 	            { className: "postPage__content__chart__intro" },
 	            _react2.default.createElement(
@@ -88147,7 +88149,7 @@
 	                });
 	              })
 	            )
-	          )
+	          ) : null
 	        );
 	      }
 	    }
