@@ -87984,173 +87984,172 @@
 	    key: "render",
 	    value: function render() {
 	      if (this.props.location.state === undefined) {
-	        this.props.history.replace({
-	          pathname: "/forum"
-	        });
-	      }
-	      var _state = this.state,
-	          isFocusComment = _state.isFocusComment,
-	          newComment = _state.newComment;
-	      var _props = this.props,
-	          me = _props.me,
-	          isLogin = _props.isLogin,
-	          onClick = _props.onClick;
-	      var _props$location$state = this.props.location.state,
-	          forum = _props$location$state.forum,
-	          coins = _props$location$state.coins,
-	          comment = _props$location$state.comment;
+	        window.location.href = "/forum";
+	      } else {
+	        var _state = this.state,
+	            isFocusComment = _state.isFocusComment,
+	            newComment = _state.newComment;
+	        var _props = this.props,
+	            me = _props.me,
+	            isLogin = _props.isLogin,
+	            onClick = _props.onClick;
+	        var _props$location$state = this.props.location.state,
+	            forum = _props$location$state.forum,
+	            coins = _props$location$state.coins,
+	            comment = _props$location$state.comment;
 	
 	
-	      return _react2.default.createElement(
-	        "div",
-	        { className: "postPage__content__chart" },
-	        _react2.default.createElement(
+	        return _react2.default.createElement(
 	          "div",
-	          { className: "postPage__content__chart__intro" },
+	          { className: "postPage__content__chart" },
 	          _react2.default.createElement(
 	            "div",
-	            { className: "postPage__content__chart__intro__post" },
+	            { className: "postPage__content__chart__intro" },
 	            _react2.default.createElement(
 	              "div",
-	              { className: "postPage__content__chart__intro__post__header" },
+	              { className: "postPage__content__chart__intro__post" },
 	              _react2.default.createElement(
 	                "div",
-	                { className: "postPage__content__chart__intro__post__header__userInfo" },
+	                { className: "postPage__content__chart__intro__post__header" },
 	                _react2.default.createElement(
 	                  "div",
-	                  { className: "postPage__content__chart__intro__post__header__userInfo__thumb" },
-	                  _react2.default.createElement(_Components.Thumb, {
-	                    src: forum.profile_img,
-	                    fontSize: 35,
-	                    size: 50,
-	                    point: forum.point,
-	                    onClick: onClick
-	                  })
+	                  { className: "postPage__content__chart__intro__post__header__userInfo" },
+	                  _react2.default.createElement(
+	                    "div",
+	                    { className: "postPage__content__chart__intro__post__header__userInfo__thumb" },
+	                    _react2.default.createElement(_Components.Thumb, {
+	                      src: forum.profile_img,
+	                      fontSize: 35,
+	                      size: 50,
+	                      point: forum.point,
+	                      onClick: onClick
+	                    })
+	                  ),
+	                  _react2.default.createElement(
+	                    "div",
+	                    { className: "postPage__content__chart__intro__post__header__userInfo__name" },
+	                    _react2.default.createElement(
+	                      "strong",
+	                      null,
+	                      forum.username
+	                    ),
+	                    _react2.default.createElement(
+	                      "span",
+	                      { className: "postPage__content__chart__intro__post__header__userInfo__point" },
+	                      forum.point + " \uD3EC\uC778\uD2B8"
+	                    )
+	                  )
 	                ),
 	                _react2.default.createElement(
 	                  "div",
-	                  { className: "postPage__content__chart__intro__post__header__userInfo__name" },
+	                  { className: "postPage__content__chart__intro__post__header__detail" },
 	                  _react2.default.createElement(
-	                    "strong",
+	                    "p",
 	                    null,
-	                    forum.username
+	                    forum.category
 	                  ),
 	                  _react2.default.createElement(
 	                    "span",
-	                    { className: "postPage__content__chart__intro__post__header__userInfo__point" },
-	                    forum.point + " \uD3EC\uC778\uD2B8"
+	                    { className: "postPage__content__chart__intro__post__header__userInfo__date" },
+	                    (0, _moment2.default)(forum.created_at).fromNow()
 	                  )
 	                )
 	              ),
 	              _react2.default.createElement(
 	                "div",
-	                { className: "postPage__content__chart__intro__post__header__detail" },
+	                { className: "postPage__content__chart__intro__post__title" },
 	                _react2.default.createElement(
 	                  "p",
 	                  null,
-	                  forum.category
+	                  forum.title
+	                )
+	              ),
+	              _react2.default.createElement(
+	                "div",
+	                { className: "postPage__content__chart__intro__post__body" },
+	                _react2.default.createElement(
+	                  "p",
+	                  null,
+	                  forum.content
+	                )
+	              ),
+	              _react2.default.createElement(
+	                "div",
+	                { className: "postPage__content__chart__intro__post__coin" },
+	                coins.map(function (data, index) {
+	                  return _react2.default.createElement(
+	                    "div",
+	                    {
+	                      key: index,
+	                      className: "postPage__content__chart__intro__post__coin__item"
+	                    },
+	                    data.abbr
+	                  );
+	                })
+	              ),
+	              _react2.default.createElement(
+	                "div",
+	                { className: "postPage__content__chart__intro__post__footer" },
+	                _react2.default.createElement(
+	                  "span",
+	                  { className: "postPage__content__chart__intro__post__footer__count" },
+	                  "10"
 	                ),
 	                _react2.default.createElement(
 	                  "span",
-	                  { className: "postPage__content__chart__intro__post__header__userInfo__date" },
-	                  (0, _moment2.default)(forum.created_at).fromNow()
+	                  { className: "postPage__content__chart__intro__post__footer__icon" },
+	                  _react2.default.createElement("i", { className: "far fa-thumbs-up" })
+	                ),
+	                _react2.default.createElement(
+	                  "span",
+	                  { className: "postPage__content__chart__intro__post__footer__count" },
+	                  forum.view_cnt
+	                ),
+	                _react2.default.createElement(
+	                  "span",
+	                  { className: "postPage__content__chart__intro__post__footer__icon" },
+	                  _react2.default.createElement("i", { className: "xi-eye" })
 	                )
 	              )
 	            ),
-	            _react2.default.createElement(
-	              "div",
-	              { className: "postPage__content__chart__intro__post__title" },
-	              _react2.default.createElement(
-	                "p",
-	                null,
-	                forum.title
-	              )
-	            ),
-	            _react2.default.createElement(
-	              "div",
-	              { className: "postPage__content__chart__intro__post__body" },
-	              _react2.default.createElement(
-	                "p",
-	                null,
-	                forum.content
-	              )
-	            ),
-	            _react2.default.createElement(
-	              "div",
-	              { className: "postPage__content__chart__intro__post__coin" },
-	              coins.map(function (data, index) {
-	                return _react2.default.createElement(
-	                  "div",
-	                  {
-	                    key: index,
-	                    className: "postPage__content__chart__intro__post__coin__item"
-	                  },
-	                  data.abbr
-	                );
-	              })
-	            ),
-	            _react2.default.createElement(
-	              "div",
-	              { className: "postPage__content__chart__intro__post__footer" },
-	              _react2.default.createElement(
-	                "span",
-	                { className: "postPage__content__chart__intro__post__footer__count" },
-	                "10"
-	              ),
-	              _react2.default.createElement(
-	                "span",
-	                { className: "postPage__content__chart__intro__post__footer__icon" },
-	                _react2.default.createElement("i", { className: "far fa-thumbs-up" })
-	              ),
-	              _react2.default.createElement(
-	                "span",
-	                { className: "postPage__content__chart__intro__post__footer__count" },
-	                forum.view_cnt
-	              ),
-	              _react2.default.createElement(
-	                "span",
-	                { className: "postPage__content__chart__intro__post__footer__icon" },
-	                _react2.default.createElement("i", { className: "xi-eye" })
-	              )
-	            )
-	          ),
-	          _react2.default.createElement(_Components.SocialInput, {
-	            user: me && me[0],
-	            isLogin: isLogin,
-	            value: this.state.comment,
-	            onChange: this.handleComment,
-	            placeholder: "\uB313\uAE00\uC744 \uC785\uB825\uD558\uC138\uC694",
-	            onClick: this.handlePostComment,
-	            postText: "\uB4F1\uB85D",
-	            onFocus: this.onFocusComment,
-	            isFocus: isFocusComment
-	          }),
-	          _react2.default.createElement(
-	            "div",
-	            { className: "postPage__content__chart__intro__comments" },
-	            newComment.map(function (data, index) {
-	              return _react2.default.createElement(_Components.Comment, {
-	                key: index,
-	                username: data.username,
-	                profileImg: data.profile_img,
-	                userPoint: data.point,
-	                createdAt: data.created_at,
-	                content: data.content
-	              });
+	            _react2.default.createElement(_Components.SocialInput, {
+	              user: me && me[0],
+	              isLogin: isLogin,
+	              value: this.state.comment,
+	              onChange: this.handleComment,
+	              placeholder: "\uB313\uAE00\uC744 \uC785\uB825\uD558\uC138\uC694",
+	              onClick: this.handlePostComment,
+	              postText: "\uB4F1\uB85D",
+	              onFocus: this.onFocusComment,
+	              isFocus: isFocusComment
 	            }),
-	            comment.map(function (data, index) {
-	              return _react2.default.createElement(_Components.Comment, {
-	                key: index,
-	                username: data.username,
-	                profileImg: data.profile_img,
-	                userPoint: data.point,
-	                createdAt: data.created_at,
-	                content: data.content
-	              });
-	            })
+	            _react2.default.createElement(
+	              "div",
+	              { className: "postPage__content__chart__intro__comments" },
+	              newComment.map(function (data, index) {
+	                return _react2.default.createElement(_Components.Comment, {
+	                  key: index,
+	                  username: data.username,
+	                  profileImg: data.profile_img,
+	                  userPoint: data.point,
+	                  createdAt: data.created_at,
+	                  content: data.content
+	                });
+	              }),
+	              comment.map(function (data, index) {
+	                return _react2.default.createElement(_Components.Comment, {
+	                  key: index,
+	                  username: data.username,
+	                  profileImg: data.profile_img,
+	                  userPoint: data.point,
+	                  createdAt: data.created_at,
+	                  content: data.content
+	                });
+	              })
+	            )
 	          )
-	        )
-	      );
+	        );
+	      }
 	    }
 	  }]);
 	
