@@ -90337,7 +90337,7 @@
 	  }, {
 	    key: "componentDidUpdate",
 	    value: function componentDidUpdate(previousProps, previousState) {
-	      if (previousProps.location.state.forum !== this.props.location.state.forum) {
+	      if (previousProps.location.state !== this.props.location.state) {
 	        this.setState({
 	          newComment: [],
 	          newLike: 0,
