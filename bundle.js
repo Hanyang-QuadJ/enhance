@@ -34482,9 +34482,10 @@
 	* Email: nayunhwan.dev@mgail.com
 	*/
 	
-	// export const ServerEndPoint = "http://localhost:3000/";
+	var ServerEndPoint = exports.ServerEndPoint = "http://localhost:3000/";
 	
-	var ServerEndPoint = exports.ServerEndPoint = "http://ec2-13-125-78-181.ap-northeast-2.compute.amazonaws.com:3000/";
+	// export const ServerEndPoint =
+	//   "http://ec2-13-125-78-181.ap-northeast-2.compute.amazonaws.com:3000/";
 
 /***/ }),
 /* 438 */
@@ -34821,7 +34822,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.signOut = exports.updateUsername = exports.postSignIn = exports.postSignUp = exports.getMe = exports.SUCCEED_TO_SIGNOUT = exports.FAILED_TO_SIGNUP = exports.SUCCEED_TO_SIGNUP = exports.FAILED_TO_SIGNIN = exports.SUCCEED_TO_SIGNIN = exports.FAILED_TO_UPDATE_USERNAME = exports.SUCCEED_TO_UPDATE_USERNAME = exports.FAILED_TO_GET_ME = exports.SUCCEED_TO_GET_ME = undefined;
+	exports.signOut = exports.updateEmail = exports.updateUsername = exports.postSignIn = exports.postSignUp = exports.getMe = exports.SUCCEED_TO_SIGNOUT = exports.FAILED_TO_SIGNUP = exports.SUCCEED_TO_SIGNUP = exports.FAILED_TO_SIGNIN = exports.SUCCEED_TO_SIGNIN = exports.FAILED_TO_UPDATE_USERNAME = exports.SUCCEED_TO_UPDATE_USERNAME = exports.FAILED_TO_UPDATE_EMAIL = exports.SUCCEED_TO_UPDATE_EMAIL = exports.FAILED_TO_GET_ME = exports.SUCCEED_TO_GET_ME = undefined;
 	
 	var _Server = __webpack_require__(437);
 	
@@ -34829,6 +34830,9 @@
 	
 	var SUCCEED_TO_GET_ME = exports.SUCCEED_TO_GET_ME = "SUCCEED_TO_GET_ME";
 	var FAILED_TO_GET_ME = exports.FAILED_TO_GET_ME = "FAILED_TO_GET_ME";
+	
+	var SUCCEED_TO_UPDATE_EMAIL = exports.SUCCEED_TO_UPDATE_EMAIL = "SUCCEED_TO_UPDATE_EMAIL";
+	var FAILED_TO_UPDATE_EMAIL = exports.FAILED_TO_UPDATE_EMAIL = "FAILED_TO_UPDATE_EMAIL";
 	
 	var SUCCEED_TO_UPDATE_USERNAME = exports.SUCCEED_TO_UPDATE_USERNAME = "SUCCEED_TO_UPDATE_USERNAME";
 	var FAILED_TO_UPDATE_USERNAME = exports.FAILED_TO_UPDATE_USERNAME = "FAILED_TO_UPDATE_USERNAME";
@@ -35109,28 +35113,90 @@
 	  }();
 	};
 	
-	var signOut = exports.signOut = function signOut() {
+	var updateEmail = exports.updateEmail = function updateEmail(params) {
 	  return function () {
 	    var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(dispatch) {
+	      var response, responseJson;
 	      return regeneratorRuntime.wrap(function _callee5$(_context5) {
 	        while (1) {
 	          switch (_context5.prev = _context5.next) {
 	            case 0:
-	              dispatch({
-	                type: SUCCEED_TO_SIGNOUT
+	              _context5.prev = 0;
+	              _context5.next = 3;
+	              return fetch(_Server.ServerEndPoint + "api/user/email", {
+	                method: "PATCH",
+	                headers: {
+	                  Accept: "application/json",
+	                  "Content-Type": "application/json",
+	                  "Access-Control-Allow-Origin": "*",
+	                  "x-access-token": params.token
+	                },
+	                body: JSON.stringify({
+	                  email: params.email
+	                })
 	              });
-	              return _context5.abrupt("return", "signOut");
 	
-	            case 2:
+	            case 3:
+	              response = _context5.sent;
+	              _context5.next = 6;
+	              return response.json();
+	
+	            case 6:
+	              responseJson = _context5.sent;
+	              _context5.next = 9;
+	              return dispatch({
+	                type: SUCCEED_TO_UPDATE_EMAIL,
+	                payload: params.EMAIL
+	              });
+	
+	            case 9:
+	              return _context5.abrupt("return", "succeed");
+	
+	            case 12:
+	              _context5.prev = 12;
+	              _context5.t0 = _context5["catch"](0);
+	
+	              dispatch({
+	                type: FAILED_TO_UPDATE_EMAIL,
+	                payload: { data: "NETWORK_ERROR" }
+	              });
+	
+	            case 15:
 	            case "end":
 	              return _context5.stop();
 	          }
 	        }
-	      }, _callee5, undefined);
+	      }, _callee5, undefined, [[0, 12]]);
 	    }));
 	
 	    return function (_x5) {
 	      return _ref5.apply(this, arguments);
+	    };
+	  }();
+	};
+	
+	var signOut = exports.signOut = function signOut() {
+	  return function () {
+	    var _ref6 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee6(dispatch) {
+	      return regeneratorRuntime.wrap(function _callee6$(_context6) {
+	        while (1) {
+	          switch (_context6.prev = _context6.next) {
+	            case 0:
+	              dispatch({
+	                type: SUCCEED_TO_SIGNOUT
+	              });
+	              return _context6.abrupt("return", "signOut");
+	
+	            case 2:
+	            case "end":
+	              return _context6.stop();
+	          }
+	        }
+	      }, _callee6, undefined);
+	    }));
+	
+	    return function (_x6) {
+	      return _ref6.apply(this, arguments);
 	    };
 	  }();
 	};
@@ -87788,6 +87854,8 @@
 	          token: _this.props.token
 	        };
 	
+	        console.log(params);
+	
 	        _this.setState({ postLoading: true });
 	        _this.props.dispatch(SocialAction.editForum(params)).then(function (value) {
 	          var params = {
@@ -91192,6 +91260,9 @@
 	                  profileImg: data.profile_img,
 	                  userPoint: data.point,
 	                  createdAt: data.created_at,
+	                  onClick: function onClick() {
+	                    return _this4.handleUser(data.user_id);
+	                  },
 	                  checkName: _me.username,
 	                  onDelete: function onDelete() {
 	                    return _this4.handleDelete(data.id);
@@ -96296,7 +96367,13 @@
 	      _this.setState({ username: e.target.value });
 	    };
 	
-	    _this.handleEditEmail = function () {};
+	    _this.handleEditEmail = function () {
+	      var token = _this.props.token;
+	      var email = _this.state.email;
+	
+	      var params = { token: token, email: email };
+	      _this.props.dispatch(AuthAction.updateEmail(params)).then(function (result) {});
+	    };
 	
 	    _this.handleEditPassword = function () {};
 	
@@ -96819,29 +96896,17 @@
 	/**
 	 * @param {File} image - Image File Object
 	 * @param {Object} pixelCrop - pixelCrop Object provided by react-image-crop
-	 * @param {String} fileName - Name of the returned file in Promise
 	 */
-	function getCroppedImg(image, pixelCrop, fileName) {
+	function getCroppedImg(image, pixelCrop) {
 	  var canvas = document.createElement("canvas");
 	  canvas.width = pixelCrop.width;
 	  canvas.height = pixelCrop.height;
 	  var ctx = canvas.getContext("2d");
 	  var newImage = new Image();
 	  newImage.onload = function () {
-	    ctx.drawImage(image, pixelCrop.x, pixelCrop.y);
+	    ctx.drawImage(image, pixelCrop.x, pixelCrop.y, pixelCrop.width, pixelCrop.height, 0, 0, pixelCrop.width, pixelCrop.height);
 	  };
-	  console.log(canvas);
-	  return canvas.toDataURL("image/jpeg", 1.0);
-	
-	  // As Base64 string
-	
-	  // As a blob
-	  // return new Promise((resolve, reject) => {
-	  //   canvas.toBlob(file => {
-	  //     file.name = fileName;
-	  //     resolve(file);
-	  //   }, "image/jpeg");
-	  // });
+	  return canvas.toDataURL();
 	}
 
 /***/ }),
