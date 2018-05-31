@@ -8940,7 +8940,7 @@
 	  { store: store },
 	  _react2.default.createElement(
 	    _reactRouterDom.BrowserRouter,
-	    { basename: "/enhance" },
+	    null,
 	    _react2.default.createElement(_App2.default, null)
 	  )
 	), document.getElementById("root"));
@@ -90001,11 +90001,11 @@
 	              _context22.next = 9;
 	              return dispatch({
 	                type: SUCCEED_TO_POST_FORUM_COMMENT,
-	                payload: responseJson.forum_id
+	                payload: responseJson.comment_id
 	              });
 	
 	            case 9:
-	              return _context22.abrupt("return", responseJson.forum_id);
+	              return _context22.abrupt("return", responseJson.comment_id);
 	
 	            case 12:
 	              _context22.prev = 12;
@@ -90130,22 +90130,22 @@
 	
 	      var date = new Date();
 	      var newComment = _this.state.newComment.slice();
-	      var frontParams = {
-	        username: me.username,
-	        profile_img: me.profile_img,
-	        point: me.point,
-	        content: _this.state.comment,
-	        date: date
-	      };
 	      var params = {
 	        token: _this.props.token,
 	        content: _this.state.comment,
 	        forum_id: _this.props.match.params.forum_id
 	      };
-	      newComment.splice(0, 0, frontParams);
-	      _this.setState({ newComment: newComment });
 	      _this.props.dispatch(SocialAction.postForumComment(params)).then(function (value) {
-	        _this.setState({ comment: "" });
+	        var frontParams = {
+	          username: me.username,
+	          profile_img: me.profile_img,
+	          point: me.point,
+	          content: _this.state.comment,
+	          date: date,
+	          id: value
+	        };
+	        newComment.splice(0, 0, frontParams);
+	        _this.setState({ newComment: newComment, comment: "" });
 	      });
 	    };
 	
@@ -90452,12 +90452,16 @@
 	              _this3.props.dispatch(SocialAction.getOneForumComment(params)).then(function (comments) {
 	                if (value.message === "You already liked this forum") {
 	                  _this3.setState({ isLiked: true, newLike: result.like_cnt });
+	                } else {
+	                  _this3.setState({ newLike: result.like_cnt });
 	                }
 	                if (hate.message !== "it's okay to dislike this forum") {
 	                  _this3.setState({
 	                    isHated: true,
 	                    newHate: result.dislike_cnt
 	                  });
+	                } else {
+	                  _this3.setState({ newHate: result.dislike_cnt });
 	                }
 	                var images = result.image.map(function (data, index) {
 	                  return { original: data.img_url };
@@ -90718,7 +90722,7 @@
 	                  !isLiked ? _react2.default.createElement(
 	                    _reactPrettyNumbers2.default,
 	                    { params: option },
-	                    r_forum.like_cnt
+	                    newLike
 	                  ) : _react2.default.createElement(
 	                    "span",
 	                    { className: "postPage__content__chart__intro__post__footer__count-liked" },
@@ -90749,7 +90753,7 @@
 	                  !isHated ? _react2.default.createElement(
 	                    _reactPrettyNumbers2.default,
 	                    { params: option },
-	                    r_forum.dislike_cnt
+	                    newHate
 	                  ) : _react2.default.createElement(
 	                    "span",
 	                    { className: "postPage__content__chart__intro__post__footer__count-hated" },
@@ -96231,6 +96235,10 @@
 	
 	var _reactImageCrop2 = _interopRequireDefault(_reactImageCrop);
 	
+	var _reactFileInputPreviewsBase = __webpack_require__(840);
+	
+	var _reactFileInputPreviewsBase2 = _interopRequireDefault(_reactFileInputPreviewsBase);
+	
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -96394,16 +96402,36 @@
 	    }();
 	
 	    _this.handleCrop = function (crop) {
+	      console.log(crop);
 	      _this.setState({ crop: crop });
 	    };
 	
-	    _this.handleEditImage = function () {
-	      var me = _this.props.me;
-	
-	      (0, _function2.default)(me.profile_img, _this.state.crop, "sample").then(function (result) {
-	        return console.log(result);
-	      });
+	    _this.handleFile = function (e) {
+	      _this.setState({ targetImg: e[0].base64, targetImgFile: e[0].file });
 	    };
+	
+	    _this.handleEditImage = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
+	      var result;
+	      return regeneratorRuntime.wrap(function _callee2$(_context2) {
+	        while (1) {
+	          switch (_context2.prev = _context2.next) {
+	            case 0:
+	              _context2.next = 2;
+	              return (0, _function2.default)(_this.state.targetImgFile, _this.state.crop, "sample");
+	
+	            case 2:
+	              result = _context2.sent;
+	
+	              console.log(result);
+	              _this.setState({ croppedImg: result });
+	
+	            case 5:
+	            case "end":
+	              return _context2.stop();
+	          }
+	        }
+	      }, _callee2, _this2);
+	    }));
 	
 	    _this.handleSignOut = function () {
 	      _this.props.dispatch(AuthAction.signOut()).then(function (value) {
@@ -96425,7 +96453,10 @@
 	      email: "",
 	      username: "",
 	      password: "",
-	      confirmPassword: ""
+	      confirmPassword: "",
+	      croppedImg: "",
+	      targetImg: "",
+	      targetImgFile: null
 	    };
 	    return _this;
 	  }
@@ -96566,10 +96597,19 @@
 	              _reactstrap.ModalBody,
 	              null,
 	              _react2.default.createElement(_reactImageCrop2.default, {
-	                src: me.profile_img,
+	                src: this.state.targetImg,
 	                crop: this.state.crop,
 	                onChange: this.handleCrop
 	              }),
+	              _react2.default.createElement(_reactFileInputPreviewsBase2.default, {
+	                labelText: "Select file",
+	                labelStyle: { fontSize: 14 },
+	                multiple: true,
+	                callbackFunction: this.handleFile,
+	                imagePreview: false,
+	                accept: "image/*"
+	              }),
+	              _react2.default.createElement("img", { src: this.state.croppedImg, width: 100, height: 100 }),
 	              _react2.default.createElement(_Components.Button, {
 	                text: "\uC218\uC815\uD558\uAE30",
 	                width: 90,
@@ -96778,28 +96818,31 @@
 	});
 	exports.default = getCroppedImg;
 	/**
-	 * @param {String} url - Image File Object
+	 * @param {File} image - Image File Object
 	 * @param {Object} pixelCrop - pixelCrop Object provided by react-image-crop
 	 * @param {String} fileName - Name of the returned file in Promise
 	 */
-	function getCroppedImg(url, pixelCrop, fileName) {
+	function getCroppedImg(image, pixelCrop, fileName) {
 	  var canvas = document.createElement("canvas");
 	  canvas.width = pixelCrop.width;
 	  canvas.height = pixelCrop.height;
 	  var ctx = canvas.getContext("2d");
-	
-	  ctx.drawImage(url, pixelCrop.x, pixelCrop.y, pixelCrop.width, pixelCrop.height, 0, 0, pixelCrop.width, pixelCrop.height);
+	  var newImage = new Image();
+	  newImage.onload = function () {
+	    ctx.drawImage(image, pixelCrop.x, pixelCrop.y);
+	  };
+	  console.log(canvas);
+	  return canvas.toDataURL("image/jpeg", 1.0);
 	
 	  // As Base64 string
-	  // const base64Image = canvas.toDataURL('image/jpeg');
 	
 	  // As a blob
-	  return new Promise(function (resolve, reject) {
-	    canvas.toBlob(function (file) {
-	      file.name = fileName;
-	      resolve(file);
-	    }, "image/jpeg");
-	  });
+	  // return new Promise((resolve, reject) => {
+	  //   canvas.toBlob(file => {
+	  //     file.name = fileName;
+	  //     resolve(file);
+	  //   }, "image/jpeg");
+	  // });
 	}
 
 /***/ }),
