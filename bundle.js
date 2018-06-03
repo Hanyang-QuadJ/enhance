@@ -94964,7 +94964,7 @@
 	                  }
 	                  _this.setState({ posts: newPosts });
 	                  _this.props.history.push({
-	                    pathname: "/@" + _this.props.match.params.user_id + "/" + id,
+	                    pathname: "/@" + _this.props.match.params.user_id + "/" + _this.props.match.params.type + "/" + id,
 	                    state: {
 	                      name: name,
 	                      forum: forum,
@@ -95002,7 +95002,7 @@
 	            newPosts[index].loading = false;
 	            _this.setState({ comments: newPosts });
 	            _this.props.history.push({
-	              pathname: "/@" + _this.props.match.params.user_id + "/" + id,
+	              pathname: "/@" + _this.props.match.params.user_id + "/" + _this.props.match.params.type + "/" + id,
 	              state: {
 	                name: name,
 	                forum: forum,
