@@ -34486,10 +34486,9 @@
 	* Email: nayunhwan.dev@mgail.com
 	*/
 	
-	var ServerEndPoint = exports.ServerEndPoint = "http://localhost:3000/";
+	// export const ServerEndPoint = "http://localhost:3000/";
 	
-	// export const ServerEndPoint =
-	//   "http://ec2-13-125-78-181.ap-northeast-2.compute.amazonaws.com:3000/";
+	var ServerEndPoint = exports.ServerEndPoint = "http://ec2-13-125-78-181.ap-northeast-2.compute.amazonaws.com:3000/";
 
 /***/ }),
 /* 438 */
@@ -95024,6 +95023,7 @@
 	
 	    _this.state = {
 	      dropdownOpen: false,
+	      user: [],
 	      posts: [],
 	      comments: [],
 	      favorite: [],
@@ -95042,8 +95042,6 @@
 	      selectedCommentIndex: null,
 	      forum: [],
 	      forumIndex: 0,
-	      main: "",
-	      title: "",
 	      editIndex: 0,
 	      editId: 0
 	    };
@@ -95061,91 +95059,27 @@
 	      var user_id = this.props.match.params.user_id;
 	      var params = { user_id: user_id, token: token };
 	      this.setState({ isPostsLoading: true });
-	      this.props.dispatch(SocialAction.getForumByUser(params)).then(function (forums) {
-	        _this2.props.dispatch(SocialAction.getCommentsByUser(params)).then(function (comments) {
-	          var result = forums.reverse().map(function (el) {
-	            var o = Object.assign({}, el);
-	            o.loading = false;
-	            return o;
-	          });
-	          var commentResult = comments.reverse().map(function (el) {
-	            var o = Object.assign({}, el);
-	            o.loading = false;
-	            return o;
-	          });
-	          _this2.setState({
-	            posts: result,
-	            comments: commentResult,
-	            isPostsLoading: false
-	          });
-	          _this2.props.dispatch(PriceAction.getCoins()).then(function (coins) {
-	            _this2.props.dispatch(PriceAction.getFavs(_this2.props.token)).then(function (favs) {
-	              if (favs.length === 0) {
-	                var _result = coins.map(function (el) {
-	                  var o = Object.assign({}, el);
-	                  o.clicked = false;
-	                  o.loading = false;
-	                  return o;
-	                });
-	                _this2.setState({
-	                  sideFavorite: _result
-	                });
-	              } else {
-	                //글 작성 코인 타입
-	                var _result2 = favs.map(function (el) {
-	                  var o = Object.assign({}, el);
-	                  o.clicked = false;
-	                  return o;
-	                });
-	
-	                //사이드 바 즐겨찾기
-	                var resultSide = coins.map(function (el) {
-	                  var o = Object.assign({}, el);
-	                  o.clicked = false;
-	                  o.selected = false;
-	                  o.loading = true;
-	                  return o;
-	                });
-	                for (var i = 0; i < resultSide.length; i++) {
-	                  for (var j = 0; j < favs.length; j++) {
-	                    if (resultSide[i].abbr === favs[j].abbr) {
-	                      resultSide[i].clicked = true;
-	                    }
-	                  }
-	                }
-	                _this2.setState({ favorite: _result2, sideFavorite: resultSide });
-	
-	                //Crypto Compare API
-	                var abbrArray = [];
-	                for (var _i = 0; _i < resultSide.length; _i++) {
-	                  if (resultSide[_i].clicked === true) {
-	                    abbrArray.push({
-	                      id: resultSide[_i].id,
-	                      abbr: resultSide[_i].abbr
-	                    });
-	                  }
-	                }
-	                var final = resultSide.map(function (el) {
-	                  var o = Object.assign({}, el);
-	                  o.price = 0;
-	                  o.percent = "";
-	                  return o;
-	                });
-	                _this2.props.dispatch(PriceAction.getPrice(abbrArray.map(function (a, index) {
-	                  return a.abbr;
-	                }))).then(function (value) {
-	                  for (var _i2 = 0; _i2 < final.length; _i2++) {
-	                    for (var _j = 0; _j < abbrArray.length; _j++) {
-	                      if (final[_i2].abbr === abbrArray[_j].abbr) {
-	                        final[_i2].loading = false;
-	                        final[_i2].price = value[abbrArray[_j].abbr].KRW.PRICE;
-	                        final[_i2].percent = value[abbrArray[_j].abbr].KRW.CHANGEPCT24HOUR;
-	                      }
-	                    }
-	                  }
-	                  _this2.setState({ sideFavorite: final });
-	                });
-	              }
+	      this.props.dispatch(SocialAction.getUserById(params)).then(function (user) {
+	        _this2.props.dispatch(SocialAction.getForumByUser(params)).then(function (forums) {
+	          _this2.props.dispatch(SocialAction.getFavByUser(params)).then(function (favs) {
+	            _this2.props.dispatch(SocialAction.getCommentsByUser(params)).then(function (comments) {
+	              var result = forums.reverse().map(function (el) {
+	                var o = Object.assign({}, el);
+	                o.loading = false;
+	                return o;
+	              });
+	              var commentResult = comments.reverse().map(function (el) {
+	                var o = Object.assign({}, el);
+	                o.loading = false;
+	                return o;
+	              });
+	              _this2.setState({
+	                user: user,
+	                posts: result,
+	                comments: commentResult,
+	                isPostsLoading: false,
+	                favorite: favs
+	              });
 	            });
 	          });
 	        });
@@ -95175,11 +95109,8 @@
 	          selectedCommentIndex = _state.selectedCommentIndex,
 	          favorite = _state.favorite,
 	          footerLoading = _state.footerLoading,
-	          selectedType = _state.selectedType;
-	      var _props$location$state = this.props.location.state,
-	          userImg = _props$location$state.userImg,
-	          userPoint = _props$location$state.userPoint,
-	          username = _props$location$state.username;
+	          selectedType = _state.selectedType,
+	          user = _state.user;
 	      var me = this.props.me;
 	
 	
@@ -95321,15 +95252,15 @@
 	                        "div",
 	                        { className: "userPage__content__chart__intro__content" },
 	                        _react2.default.createElement(_Components.Thumb, {
-	                          src: userImg,
+	                          src: user && user.profile_img,
 	                          fontSize: 75,
 	                          size: 90,
-	                          point: userPoint
+	                          point: user && user.point
 	                        }),
 	                        _react2.default.createElement(
 	                          "p",
 	                          { className: "userPage__content__chart__intro__content__username" },
-	                          username
+	                          user && user.username
 	                        ),
 	                        _react2.default.createElement(
 	                          "div",
@@ -95337,7 +95268,7 @@
 	                          _react2.default.createElement(
 	                            "p",
 	                            { className: "userPage__content__chart__intro__content__area__number-border" },
-	                            userPoint,
+	                            user && user.point,
 	                            _react2.default.createElement(
 	                              "span",
 	                              { className: "userPage__content__chart__intro__content__area__text" },
