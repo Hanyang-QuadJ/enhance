@@ -34486,10 +34486,9 @@
 	* Email: nayunhwan.dev@mgail.com
 	*/
 	
-	var ServerEndPoint = exports.ServerEndPoint = "http://localhost:3000/";
+	// export const ServerEndPoint = "http://localhost:3000/";
 	
-	// export const ServerEndPoint =
-	//   "http://ec2-13-125-78-181.ap-northeast-2.compute.amazonaws.com:3000/";
+	var ServerEndPoint = exports.ServerEndPoint = "http://ec2-13-125-78-181.ap-northeast-2.compute.amazonaws.com:3000/";
 
 /***/ }),
 /* 438 */
