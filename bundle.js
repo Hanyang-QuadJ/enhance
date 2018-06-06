@@ -46517,7 +46517,7 @@
 	              _react2.default.createElement(
 	                "span",
 	                { className: "navBar__content__items__item-icon" },
-	                _react2.default.createElement("i", { className: "xi-log-in" })
+	                _react2.default.createElement("i", { className: "xi-wrench" })
 	              ),
 	              _react2.default.createElement(
 	                "p",
