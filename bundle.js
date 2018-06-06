@@ -46023,7 +46023,8 @@
 	                  title: data.title,
 	                  createdAt: data.pubDate,
 	                  type: coinType,
-	                  link: data.link
+	                  link: data.link,
+	                  isNews: true
 	                });
 	              }),
 	              footerLoading === true ? _react2.default.createElement(
@@ -55870,6 +55871,7 @@
 	          index = _props.index,
 	          isLoading = _props.isLoading,
 	          point = _props.point,
+	          isNews = _props.isNews,
 	          selectedIndex = _props.selectedIndex,
 	          likeCount = _props.likeCount,
 	          disLikeCount = _props.disLikeCount,
@@ -55896,12 +55898,12 @@
 	                _react2.default.createElement(
 	                  "p",
 	                  null,
-	                  updatedAt !== null ? (0, _moment2.default)(updatedAt).fromNow() : (0, _moment2.default)(createdAt).fromNow()
+	                  updatedAt !== null && !isNews ? (0, _moment2.default)(updatedAt).fromNow() : (0, _moment2.default)(createdAt).fromNow()
 	                ),
 	                _react2.default.createElement(
 	                  "p",
 	                  null,
-	                  updatedAt !== null ? "수정됨" : null
+	                  updatedAt !== null && !isNews ? "수정됨" : null
 	                )
 	              )
 	            ),
@@ -88971,6 +88973,7 @@
 	                  isLoading: data.loading,
 	                  selectedIndex: selectedIndex,
 	                  key: index,
+	                  isNews: false,
 	                  username: data.username,
 	                  title: data.title,
 	                  point: data.point,
@@ -95748,6 +95751,7 @@
 	                  username: data.username,
 	                  title: data.title,
 	                  point: data.point,
+	                  isNews: false,
 	                  createdAt: data.created_at,
 	                  updatedAt: data.updated_at,
 	                  likeCount: data.like_cnt,
@@ -95767,6 +95771,7 @@
 	                  isLoading: data.loading,
 	                  selectedIndex: selectedCommentIndex,
 	                  key: index,
+	                  isNews: false,
 	                  title: data.content,
 	                  createdAt: data.created_at,
 	                  type: "\uB313\uAE00",
@@ -96795,6 +96800,7 @@
 	                  username: data.username,
 	                  title: data.title,
 	                  point: data.point,
+	                  isNews: false,
 	                  createdAt: data.created_at,
 	                  updatedAt: data.updated_at,
 	                  likeCount: data.like_cnt,
@@ -96814,6 +96820,7 @@
 	                  isLoading: data.loading,
 	                  selectedIndex: selectedCommentIndex,
 	                  key: index,
+	                  isNews: false,
 	                  title: data.content,
 	                  createdAt: data.created_at,
 	                  type: "\uB313\uAE00",
