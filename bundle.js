@@ -47074,12 +47074,18 @@
 	        recent: recent
 	      };
 	
-	      if (scrollPercent > 0.95) {
+	      if (scrollPercent > 0.99) {
 	        if (_this.state.endScroll === false) {
 	          _this.setState({ footerLoading: true });
 	          _this.props.dispatch(NewsAction.getNews(newsParams)).then(function (news) {
 	            if (news.result.length < 30) {
-	              _this.setState({ endScroll: true, footerLoading: false });
+	              _this.setState(function (prevState) {
+	                return {
+	                  endScroll: true,
+	                  news: [].concat(_toConsumableArray(prevState.news), _toConsumableArray(news.result)),
+	                  footerLoading: false
+	                };
+	              });
 	            } else {
 	              _this.setState(function (prevState) {
 	                return {
@@ -89933,12 +89939,18 @@
 	        keyword: search
 	      };
 	
-	      if (scrollPercent > 0.95) {
+	      if (scrollPercent > 0.99) {
 	        if (_this.state.endScroll === false) {
 	          _this.setState({ footerLoading: true });
 	          _this.props.dispatch(SocialAction.filterForums(params)).then(function (forums) {
 	            if (forums.result.length < 30) {
-	              _this.setState({ endScroll: true, footerLoading: false });
+	              _this.setState(function (prevState) {
+	                return {
+	                  endScroll: true,
+	                  posts: [].concat(_toConsumableArray(prevState.posts), _toConsumableArray(forums.result)),
+	                  footerLoading: false
+	                };
+	              });
 	            } else {
 	              _this.setState(function (prevState) {
 	                return {
