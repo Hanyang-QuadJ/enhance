@@ -44535,19 +44535,19 @@
 	
 	var _PostPage3 = _interopRequireDefault(_PostPage2);
 	
-	var _ProfilePost2 = __webpack_require__(869);
+	var _ProfilePost2 = __webpack_require__(874);
 	
 	var _ProfilePost3 = _interopRequireDefault(_ProfilePost2);
 	
-	var _UserPage2 = __webpack_require__(870);
+	var _UserPage2 = __webpack_require__(875);
 	
 	var _UserPage3 = _interopRequireDefault(_UserPage2);
 	
-	var _MyPage2 = __webpack_require__(871);
+	var _MyPage2 = __webpack_require__(876);
 	
 	var _MyPage3 = _interopRequireDefault(_MyPage2);
 	
-	var _SettingsPage2 = __webpack_require__(872);
+	var _SettingsPage2 = __webpack_require__(877);
 	
 	var _SettingsPage3 = _interopRequireDefault(_SettingsPage2);
 	
@@ -90969,6 +90969,10 @@
 	
 	var base64 = _interopRequireWildcard(_base);
 	
+	var _reactNotifyToast = __webpack_require__(869);
+	
+	var _reactNotifyToast2 = _interopRequireDefault(_reactNotifyToast);
+	
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -91101,7 +91105,10 @@
 	          forum_id: Number(_this.props.match.params.forum_id)
 	        };
 	        _this.setState({ isLiked: true, newLike: r_forum.like_cnt + 1 });
-	        _this.props.dispatch(SocialAction.postForumLike(params)).then(function (value) {});
+	        _this.props.dispatch(SocialAction.postForumLike(params)).then(function (value) {
+	          var myColor = { background: "#5cb85c", text: "#ffffff" };
+	          _reactNotifyToast.notify.show("상승 예측!", "custom", 3000, myColor);
+	        });
 	      } else {
 	        var _this$props$location$ = _this.props.location.state,
 	            forum = _this$props$location$.forum,
@@ -91113,7 +91120,10 @@
 	        };
 	        if (liked) {
 	          _this.setState({ isLiked: false, newLike: forum.like_cnt });
-	          _this.props.dispatch(SocialAction.postForumLike(_params)).then(function (value) {});
+	          _this.props.dispatch(SocialAction.postForumLike(_params)).then(function (value) {
+	            var myColor = { background: "#5cb85c", text: "#ffffff" };
+	            _reactNotifyToast.notify.show("상승 예측!", "custom", 3000, myColor);
+	          });
 	        } else {
 	          _this.setState(function (prevState) {
 	            return {
@@ -91121,7 +91131,10 @@
 	              newLike: forum.like_cnt + 1
 	            };
 	          });
-	          _this.props.dispatch(SocialAction.postForumLike(_params)).then(function (value) {});
+	          _this.props.dispatch(SocialAction.postForumLike(_params)).then(function (value) {
+	            var myColor = { background: "#5cb85c", text: "#ffffff" };
+	            _reactNotifyToast.notify.show("상승 예측!", "custom", 3000, myColor);
+	          });
 	        }
 	      }
 	    };
@@ -91135,7 +91148,10 @@
 	          forum_id: Number(_this.props.match.params.forum_id)
 	        };
 	        _this.setState({ isHated: true, newHate: r_forum.dislike_cnt + 1 });
-	        _this.props.dispatch(SocialAction.postHate(params)).then(function (value) {});
+	        _this.props.dispatch(SocialAction.postHate(params)).then(function (value) {
+	          var myColor = { background: "#f26968", text: "#ffffff" };
+	          _reactNotifyToast.notify.show("하락 예측!", "custom", 3000, myColor);
+	        });
 	      } else {
 	        var _this$props$location$2 = _this.props.location.state,
 	            forum = _this$props$location$2.forum,
@@ -91152,7 +91168,10 @@
 	              newHate: forum.dislike_cnt
 	            };
 	          });
-	          _this.props.dispatch(SocialAction.postHate(_params2)).then(function (value) {});
+	          _this.props.dispatch(SocialAction.postHate(_params2)).then(function (value) {
+	            var myColor = { background: "#f26968", text: "#ffffff" };
+	            _reactNotifyToast.notify.show("하락 예측!", "custom", 3000, myColor);
+	          });
 	        } else {
 	          _this.setState(function (prevState) {
 	            return {
@@ -91160,7 +91179,10 @@
 	              newHate: forum.dislike_cnt + 1
 	            };
 	          });
-	          _this.props.dispatch(SocialAction.postHate(_params2)).then(function (value) {});
+	          _this.props.dispatch(SocialAction.postHate(_params2)).then(function (value) {
+	            var myColor = { background: "#f26968", text: "#ffffff" };
+	            _reactNotifyToast.notify.show("하락 예측!", "custom", 3000, myColor);
+	          });
 	        }
 	      }
 	    };
@@ -91439,6 +91461,7 @@
 	        return _react2.default.createElement(
 	          "div",
 	          { className: "postPage__content__chart" },
+	          _react2.default.createElement(_reactNotifyToast2.default, null),
 	          _react2.default.createElement(
 	            _reactstrap.Modal,
 	            {
@@ -91784,6 +91807,7 @@
 	        return _react2.default.createElement(
 	          "div",
 	          { className: "postPage__content__chart" },
+	          _react2.default.createElement(_reactNotifyToast2.default, null),
 	          _react2.default.createElement(
 	            _reactstrap.Modal,
 	            {
@@ -94672,6 +94696,520 @@
 /* 869 */
 /***/ (function(module, exports, __webpack_require__) {
 
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.notify = undefined;
+	
+	var _react = __webpack_require__(328);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactDom = __webpack_require__(339);
+	
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+	
+	var _Toast = __webpack_require__(870);
+	
+	var _Toast2 = _interopRequireDefault(_Toast);
+	
+	var _Container = __webpack_require__(873);
+	
+	var _Container2 = _interopRequireDefault(_Container);
+	
+	var _defaults = __webpack_require__(871);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	/* Render React component */
+	function renderToast(text, type, timeout, color) {
+	    var target = document.getElementById(_defaults.defaults.wrapperId);
+	    _reactDom2.default.render(_react2.default.createElement(_Toast2.default, { text: text, timeout: timeout, type: type, color: color }), target);
+	}
+	
+	/* Unmount React component */
+	function hide() {
+	    var target = document.getElementById(_defaults.defaults.wrapperId);
+	    _reactDom2.default.unmountComponentAtNode(target);
+	}
+	
+	/**
+	 * Show Animated Toast Message
+	 * Returns true if the toast was shown, or false if show failed due to an existing notification
+	 *
+	 * @param  {String|Node} text    Text/Node to be displayed inside the toast.
+	 * @param  {Object}      options Display options for notification (See example below)
+	 *
+	 * [Options example]
+	 * {
+	 *   type:    {String} [success/error/info]
+	 *   timeout: {Int}    [timeout in ms]
+	 *   style:   {Object} [JS representation of CSS]
+	 * }
+	 */
+	function show(text, type, timeout, color) {
+	    if (!document.getElementById(_defaults.defaults.wrapperId).hasChildNodes()) {
+	        // Use default timeout if not set.
+	        var renderTimeout = timeout || _defaults.defaults.timeout;
+	
+	        // Render Component with Props.
+	        renderToast(text, type, renderTimeout, color);
+	
+	        if (renderTimeout === -1) {
+	            return false;
+	        }
+	
+	        // Unmount react component after the animation finished.
+	        setTimeout(function () {
+	            hide();
+	        }, renderTimeout + _defaults.defaults.animationDuration);
+	
+	        return true;
+	    }
+	
+	    return false;
+	}
+	
+	/**
+	 * Add to Animated Toast Message Queue
+	 * Display immediately if no queue
+	 * @param  {Number} initialRecallDelay   If the call to show fails because of an existing
+	 *                                       notification, how long to wait until we retry (ms)
+	 * @param  {Number} recallDelayIncrement Each time a successive call fails, the recall delay
+	 *                                       will be incremented by this (ms)
+	 * @return {[type]}                      [description]
+	 */
+	function createShowQueue() {
+	    var _this = this;
+	
+	    var initialRecallDelay = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 500;
+	    var recallDelayIncrement = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 500;
+	
+	    // Array to hold queued messages
+	    this.msgs = [];
+	
+	    // Is the showNotify function in progress - used so we can call showNotify when a
+	    // message is added to an empty queue.
+	    this.isNotifying = false;
+	
+	    this.currentRecallDelay = initialRecallDelay;
+	
+	    // Retrieve the next message from the queue and try to show it
+	    this.showNotify = function () {
+	        // If there are no messages in the queue
+	        if (_this.msgs.length === 0) {
+	            _this.isNotifying = false;
+	            return;
+	        }
+	
+	        _this.isNotifying = true;
+	
+	        var current = _this.msgs.pop();
+	
+	        // show will now return true if it is able to send the message,
+	        // or false if there is an existing message
+	        if (show(current.text, current.type, current.timeout, current.color)) {
+	            _this.currentRecallDelay = initialRecallDelay;
+	            if (current.timeout > 0) {
+	                setTimeout(function () {
+	                    return _this.showNotify();
+	                }, current.timeout + _defaults.defaults.animationDuration);
+	            }
+	        } else {
+	            // If message show failed, re-add the current message to the front of the queue
+	            _this.msgs.unshift(current);
+	            setTimeout(function () {
+	                return _this.showNotify();
+	            }, _this.currentRecallDelay);
+	            _this.currentRecallDelay += recallDelayIncrement;
+	        }
+	    };
+	
+	    return function (text) {
+	        var type = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+	        var timeout = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : _defaults.defaults.timeout;
+	        var color = arguments[3];
+	
+	        _this.msgs.push({ text: text, type: type, timeout: timeout, color: color });
+	        if (!_this.isNotifying) {
+	            _this.showNotify();
+	        }
+	    };
+	}
+	
+	/* Export notification functions */
+	var notify = exports.notify = {
+	    show: show,
+	    hide: hide,
+	    createShowQueue: createShowQueue
+	};
+	
+	exports.default = _Container2.default;
+
+/***/ }),
+/* 870 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(328);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _propTypes = __webpack_require__(383);
+	
+	var _propTypes2 = _interopRequireDefault(_propTypes);
+	
+	var _objectAssign = __webpack_require__(331);
+	
+	var _objectAssign2 = _interopRequireDefault(_objectAssign);
+	
+	var _defaults = __webpack_require__(871);
+	
+	var _stylesheet = __webpack_require__(872);
+	
+	var _stylesheet2 = _interopRequireDefault(_stylesheet);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	/* React Notification Component */
+	var Toast = function (_React$Component) {
+	    _inherits(Toast, _React$Component);
+	
+	    function Toast() {
+	        var _ref;
+	
+	        var _temp, _this, _ret;
+	
+	        _classCallCheck(this, Toast);
+	
+	        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	            args[_key] = arguments[_key];
+	        }
+	
+	        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Toast.__proto__ || Object.getPrototypeOf(Toast)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+	            containerStyle: _stylesheet2.default.styles.container
+	        }, _temp), _possibleConstructorReturn(_this, _ret);
+	    }
+	
+	    _createClass(Toast, [{
+	        key: 'getToastStyle',
+	        value: function getToastStyle() {
+	            var _props = this.props,
+	                type = _props.type,
+	                color = _props.color;
+	            var styles = _stylesheet2.default.styles;
+	
+	            var contentStyle = {};
+	
+	            /* If type is set, merge toast action styles with base */
+	            switch (type) {
+	                case 'success':
+	                case 'error':
+	                case 'warning':
+	                case 'info':
+	                    contentStyle = (0, _objectAssign2.default)({}, styles.content, _defaults.defaults.colors[type]);
+	                    break;
+	                case 'custom':
+	                    var customStyle = {
+	                        backgroundColor: color.background,
+	                        color: color.text
+	                    };
+	                    contentStyle = (0, _objectAssign2.default)({}, styles.content, customStyle);
+	                    break;
+	                default:
+	                    contentStyle = (0, _objectAssign2.default)({}, styles.content);
+	                    break;
+	            }
+	
+	            return contentStyle;
+	        }
+	    }, {
+	        key: 'animateState',
+	        value: function animateState() {
+	            var _this2 = this;
+	
+	            var styles = _stylesheet2.default.styles;
+	
+	            // Show
+	
+	            setTimeout(function () {
+	                _this2.updateStyle(styles.show);
+	            }, 100); // wait 100ms after the component is called to animate toast.
+	
+	            // Timeout -1 displays toast as a persistent notification
+	            if (this.props.timeout === -1) {
+	                return;
+	            }
+	
+	            // Hide after timeout
+	            setTimeout(function () {
+	                _this2.updateStyle(styles.hide);
+	            }, this.props.timeout);
+	        }
+	
+	        // Updates the style of the container with styles for a state (hide/show).
+	        // This triggers animations.
+	
+	    }, {
+	        key: 'updateStyle',
+	        value: function updateStyle(stateStyle) {
+	            var styles = _stylesheet2.default.styles;
+	
+	
+	            this.setState({ containerStyle: (0, _objectAssign2.default)({}, styles.container, stateStyle) });
+	        }
+	    }, {
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            this.animateState();
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var text = this.props.text;
+	            var containerStyle = this.state.containerStyle;
+	
+	
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'toast-notification', style: containerStyle },
+	                _react2.default.createElement(
+	                    'span',
+	                    { style: this.getToastStyle() },
+	                    text
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return Toast;
+	}(_react2.default.Component);
+	
+	Toast.propTypes = {
+	    text: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.element]),
+	    timeout: _propTypes2.default.number,
+	    type: _propTypes2.default.string,
+	    color: _propTypes2.default.oneOfType([_propTypes2.default.object, _propTypes2.default.string]),
+	    style: _propTypes2.default.oneOfType([_propTypes2.default.object, _propTypes2.default.bool])
+	};
+	exports.default = Toast;
+
+/***/ }),
+/* 871 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.mergeOptions = exports.defaults = undefined;
+	
+	var _objectAssign = __webpack_require__(331);
+	
+	var _objectAssign2 = _interopRequireDefault(_objectAssign);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var defaults = {
+	    wrapperId: 'notification-wrapper',
+	    animationDuration: 300,
+	    timeout: 5000,
+	    zIndex: 1000,
+	    top: 0, // Controls the offset from top of viewport.
+	    colors: {
+	        error: {
+	            color: "#FFFFFF",
+	            backgroundColor: '#E85742'
+	        },
+	        success: {
+	            color: "#FFFFFF",
+	            backgroundColor: '#55CA92'
+	        },
+	        warning: {
+	            color: "#333333",
+	            backgroundColor: '#F5E273'
+	        },
+	        info: {
+	            color: "#FFFFFF",
+	            backgroundColor: '#4990E2'
+	        }
+	    }
+	};
+	
+	function mergeOptions(options) {
+	    exports.defaults = defaults = (0, _objectAssign2.default)(defaults, options);
+	}
+	
+	exports.defaults = defaults;
+	exports.mergeOptions = mergeOptions;
+
+/***/ }),
+/* 872 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _defaults = __webpack_require__(871);
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	/**
+	 * This was created as an ES6 class with a getter for the styles to allow for recomputing
+	 * dynamic values on each usage without calling a function.
+	 */
+	var Stylesheet = function () {
+	    function Stylesheet() {
+	        _classCallCheck(this, Stylesheet);
+	    }
+	
+	    _createClass(Stylesheet, [{
+	        key: 'styles',
+	        get: function get() {
+	            return {
+	                container: {
+	                    position: 'fixed',
+	                    width: '50%',
+	                    margin: '0 auto',
+	                    right: '0px',
+	                    top: _defaults.defaults.top,
+	                    left: '0px',
+	                    textAlign: 'center',
+	                    zIndex: _defaults.defaults.zIndex,
+	                    pointerEvents: 'none',
+	                    transition: 'all ' + _defaults.defaults.animationDuration + 'ms ease',
+	                    transform: 'translateY(-100%)',
+	
+	                    // Vendor Prefixes
+	                    msTransition: 'all ' + _defaults.defaults.animationDuration + 'ms ease',
+	                    msTransform: 'translateY(-100%)',
+	                    WebkitTransition: 'all ' + _defaults.defaults.animationDuration + 'ms ease',
+	                    WebkitTransform: 'translateY(-100%)',
+	                    OTransition: 'all ' + _defaults.defaults.animationDuration + 'ms ease',
+	                    OTransform: 'translateY(-100%)',
+	                    MozTransition: 'all ' + _defaults.defaults.animationDuration + 'ms ease',
+	                    MozTransform: 'translateY(-100%)'
+	                },
+	                content: {
+	                    cursor: 'pointer',
+	                    display: 'inline-block',
+	                    width: 'auto',
+	                    borderRadius: '0 0 4px 4px',
+	                    backgroundColor: 'white',
+	                    padding: '10px 30px',
+	                    pointerEvents: 'all'
+	                },
+	                show: {
+	                    transform: 'translateY(0)',
+	                    msTransform: 'translateY(0)',
+	                    WebkitTransform: 'translateY(0)',
+	                    OTransform: 'translateY(0)',
+	                    MozTransform: 'translateY(0)'
+	                },
+	                hide: {
+	                    transform: 'translateY(-100%)',
+	                    msTransform: 'translateY(-100%)',
+	                    WebkitTransform: 'translateY(-100%)',
+	                    OTransform: 'translateY(-100%)',
+	                    MozTransform: 'translateY(-100%)'
+	                }
+	            };
+	        }
+	    }]);
+	
+	    return Stylesheet;
+	}();
+	
+	exports.default = new Stylesheet();
+
+/***/ }),
+/* 873 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(328);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _propTypes = __webpack_require__(383);
+	
+	var _propTypes2 = _interopRequireDefault(_propTypes);
+	
+	var _defaults = __webpack_require__(871);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	/* Export notification container */
+	var _class = function (_React$Component) {
+	    _inherits(_class, _React$Component);
+	
+	    function _class() {
+	        _classCallCheck(this, _class);
+	
+	        return _possibleConstructorReturn(this, (_class.__proto__ || Object.getPrototypeOf(_class)).apply(this, arguments));
+	    }
+	
+	    _createClass(_class, [{
+	        key: 'componentWillMount',
+	        value: function componentWillMount() {
+	            (0, _defaults.mergeOptions)(this.props.options);
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement('div', { id: _defaults.defaults.wrapperId });
+	        }
+	    }]);
+	
+	    return _class;
+	}(_react2.default.Component);
+	
+	_class.propTypes = {
+	    options: _propTypes2.default.object
+	};
+	_class.defaultProps = {
+	    options: {}
+	};
+	exports.default = _class;
+
+/***/ }),
+/* 874 */
+/***/ (function(module, exports, __webpack_require__) {
+
 	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
@@ -95461,7 +95999,7 @@
 	exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps)(ProfilePost));
 
 /***/ }),
-/* 870 */
+/* 875 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -96086,7 +96624,7 @@
 	exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps)(UserPage));
 
 /***/ }),
-/* 871 */
+/* 876 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -97141,7 +97679,7 @@
 	exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps)(MyPage));
 
 /***/ }),
-/* 872 */
+/* 877 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -97188,17 +97726,17 @@
 	
 	var _reactConfirmAlert = __webpack_require__(862);
 	
-	var _reactCropper = __webpack_require__(873);
+	var _reactCropper = __webpack_require__(878);
 	
 	var _reactCropper2 = _interopRequireDefault(_reactCropper);
 	
-	__webpack_require__(875);
+	__webpack_require__(880);
 	
 	var _reactFileInputPreviewsBase = __webpack_require__(843);
 	
 	var _reactFileInputPreviewsBase2 = _interopRequireDefault(_reactFileInputPreviewsBase);
 	
-	var _reactNotifyToast = __webpack_require__(877);
+	var _reactNotifyToast = __webpack_require__(869);
 	
 	var _reactNotifyToast2 = _interopRequireDefault(_reactNotifyToast);
 	
@@ -97873,7 +98411,7 @@
 	exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps)(SettingsPage));
 
 /***/ }),
-/* 873 */
+/* 878 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -97894,7 +98432,7 @@
 	
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 	
-	var _cropperjs = __webpack_require__(874);
+	var _cropperjs = __webpack_require__(879);
 	
 	var _cropperjs2 = _interopRequireDefault(_cropperjs);
 	
@@ -98269,7 +98807,7 @@
 
 
 /***/ }),
-/* 874 */
+/* 879 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/*!
@@ -101858,13 +102396,13 @@
 
 
 /***/ }),
-/* 875 */
+/* 880 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(876);
+	var content = __webpack_require__(881);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(433)(content, {});
@@ -101884,525 +102422,11 @@
 	}
 
 /***/ }),
-/* 876 */
+/* 881 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(432)();
 	exports.push([module.id, "/*!\n * Cropper.js v1.0.0-rc.3\n * https://github.com/fengyuanchen/cropperjs\n *\n * Copyright (c) 2017 Fengyuan Chen\n * Released under the MIT license\n *\n * Date: 2017-07-07T12:56:42.462Z\n */\n\n.cropper-container {\n  font-size: 0;\n  line-height: 0;\n\n  position: relative;\n\n  -webkit-user-select: none;\n\n     -moz-user-select: none;\n\n      -ms-user-select: none;\n\n          user-select: none;\n\n  direction: ltr;\n  -ms-touch-action: none;\n      touch-action: none\n}\n\n.cropper-container img {\n  /* Avoid margin top issue (Occur only when margin-top <= -height) */\n  display: block;\n  min-width: 0 !important;\n  max-width: none !important;\n  min-height: 0 !important;\n  max-height: none !important;\n  width: 100%;\n  height: 100%;\n  image-orientation: 0deg\n}\n\n.cropper-wrap-box,\n.cropper-canvas,\n.cropper-drag-box,\n.cropper-crop-box,\n.cropper-modal {\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n}\n\n.cropper-wrap-box {\n  overflow: hidden;\n}\n\n.cropper-drag-box {\n  opacity: 0;\n  background-color: #fff;\n}\n\n.cropper-modal {\n  opacity: .5;\n  background-color: #000;\n}\n\n.cropper-view-box {\n  display: block;\n  overflow: hidden;\n\n  width: 100%;\n  height: 100%;\n\n  outline: 1px solid #39f;\n  outline-color: rgba(51, 153, 255, 0.75);\n}\n\n.cropper-dashed {\n  position: absolute;\n\n  display: block;\n\n  opacity: .5;\n  border: 0 dashed #eee\n}\n\n.cropper-dashed.dashed-h {\n  top: 33.33333%;\n  left: 0;\n  width: 100%;\n  height: 33.33333%;\n  border-top-width: 1px;\n  border-bottom-width: 1px\n}\n\n.cropper-dashed.dashed-v {\n  top: 0;\n  left: 33.33333%;\n  width: 33.33333%;\n  height: 100%;\n  border-right-width: 1px;\n  border-left-width: 1px\n}\n\n.cropper-center {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n\n  display: block;\n\n  width: 0;\n  height: 0;\n\n  opacity: .75\n}\n\n.cropper-center:before,\n  .cropper-center:after {\n  position: absolute;\n  display: block;\n  content: ' ';\n  background-color: #eee\n}\n\n.cropper-center:before {\n  top: 0;\n  left: -3px;\n  width: 7px;\n  height: 1px\n}\n\n.cropper-center:after {\n  top: -3px;\n  left: 0;\n  width: 1px;\n  height: 7px\n}\n\n.cropper-face,\n.cropper-line,\n.cropper-point {\n  position: absolute;\n\n  display: block;\n\n  width: 100%;\n  height: 100%;\n\n  opacity: .1;\n}\n\n.cropper-face {\n  top: 0;\n  left: 0;\n\n  background-color: #fff;\n}\n\n.cropper-line {\n  background-color: #39f\n}\n\n.cropper-line.line-e {\n  top: 0;\n  right: -3px;\n  width: 5px;\n  cursor: e-resize\n}\n\n.cropper-line.line-n {\n  top: -3px;\n  left: 0;\n  height: 5px;\n  cursor: n-resize\n}\n\n.cropper-line.line-w {\n  top: 0;\n  left: -3px;\n  width: 5px;\n  cursor: w-resize\n}\n\n.cropper-line.line-s {\n  bottom: -3px;\n  left: 0;\n  height: 5px;\n  cursor: s-resize\n}\n\n.cropper-point {\n  width: 5px;\n  height: 5px;\n\n  opacity: .75;\n  background-color: #39f\n}\n\n.cropper-point.point-e {\n  top: 50%;\n  right: -3px;\n  margin-top: -3px;\n  cursor: e-resize\n}\n\n.cropper-point.point-n {\n  top: -3px;\n  left: 50%;\n  margin-left: -3px;\n  cursor: n-resize\n}\n\n.cropper-point.point-w {\n  top: 50%;\n  left: -3px;\n  margin-top: -3px;\n  cursor: w-resize\n}\n\n.cropper-point.point-s {\n  bottom: -3px;\n  left: 50%;\n  margin-left: -3px;\n  cursor: s-resize\n}\n\n.cropper-point.point-ne {\n  top: -3px;\n  right: -3px;\n  cursor: ne-resize\n}\n\n.cropper-point.point-nw {\n  top: -3px;\n  left: -3px;\n  cursor: nw-resize\n}\n\n.cropper-point.point-sw {\n  bottom: -3px;\n  left: -3px;\n  cursor: sw-resize\n}\n\n.cropper-point.point-se {\n  right: -3px;\n  bottom: -3px;\n  width: 20px;\n  height: 20px;\n  cursor: se-resize;\n  opacity: 1\n}\n\n@media (min-width: 768px) {\n\n  .cropper-point.point-se {\n    width: 15px;\n    height: 15px\n  }\n}\n\n@media (min-width: 992px) {\n\n  .cropper-point.point-se {\n    width: 10px;\n    height: 10px\n  }\n}\n\n@media (min-width: 1200px) {\n\n  .cropper-point.point-se {\n    width: 5px;\n    height: 5px;\n    opacity: .75\n  }\n}\n\n.cropper-point.point-se:before {\n  position: absolute;\n  right: -50%;\n  bottom: -50%;\n  display: block;\n  width: 200%;\n  height: 200%;\n  content: ' ';\n  opacity: 0;\n  background-color: #39f\n}\n\n.cropper-invisible {\n  opacity: 0;\n}\n\n.cropper-bg {\n  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAQMAAAAlPW0iAAAAA3NCSVQICAjb4U/gAAAABlBMVEXMzMz////TjRV2AAAACXBIWXMAAArrAAAK6wGCiw1aAAAAHHRFWHRTb2Z0d2FyZQBBZG9iZSBGaXJld29ya3MgQ1M26LyyjAAAABFJREFUCJlj+M/AgBVhF/0PAH6/D/HkDxOGAAAAAElFTkSuQmCC');\n}\n\n.cropper-hide {\n  position: absolute;\n\n  display: block;\n\n  width: 0;\n  height: 0;\n}\n\n.cropper-hidden {\n  display: none !important;\n}\n\n.cropper-move {\n  cursor: move;\n}\n\n.cropper-crop {\n  cursor: crosshair;\n}\n\n.cropper-disabled .cropper-drag-box,\n.cropper-disabled .cropper-face,\n.cropper-disabled .cropper-line,\n.cropper-disabled .cropper-point {\n  cursor: not-allowed;\n}\n\n", ""]);
-
-/***/ }),
-/* 877 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.notify = undefined;
-	
-	var _react = __webpack_require__(328);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _reactDom = __webpack_require__(339);
-	
-	var _reactDom2 = _interopRequireDefault(_reactDom);
-	
-	var _Toast = __webpack_require__(878);
-	
-	var _Toast2 = _interopRequireDefault(_Toast);
-	
-	var _Container = __webpack_require__(881);
-	
-	var _Container2 = _interopRequireDefault(_Container);
-	
-	var _defaults = __webpack_require__(879);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	/* Render React component */
-	function renderToast(text, type, timeout, color) {
-	    var target = document.getElementById(_defaults.defaults.wrapperId);
-	    _reactDom2.default.render(_react2.default.createElement(_Toast2.default, { text: text, timeout: timeout, type: type, color: color }), target);
-	}
-	
-	/* Unmount React component */
-	function hide() {
-	    var target = document.getElementById(_defaults.defaults.wrapperId);
-	    _reactDom2.default.unmountComponentAtNode(target);
-	}
-	
-	/**
-	 * Show Animated Toast Message
-	 * Returns true if the toast was shown, or false if show failed due to an existing notification
-	 *
-	 * @param  {String|Node} text    Text/Node to be displayed inside the toast.
-	 * @param  {Object}      options Display options for notification (See example below)
-	 *
-	 * [Options example]
-	 * {
-	 *   type:    {String} [success/error/info]
-	 *   timeout: {Int}    [timeout in ms]
-	 *   style:   {Object} [JS representation of CSS]
-	 * }
-	 */
-	function show(text, type, timeout, color) {
-	    if (!document.getElementById(_defaults.defaults.wrapperId).hasChildNodes()) {
-	        // Use default timeout if not set.
-	        var renderTimeout = timeout || _defaults.defaults.timeout;
-	
-	        // Render Component with Props.
-	        renderToast(text, type, renderTimeout, color);
-	
-	        if (renderTimeout === -1) {
-	            return false;
-	        }
-	
-	        // Unmount react component after the animation finished.
-	        setTimeout(function () {
-	            hide();
-	        }, renderTimeout + _defaults.defaults.animationDuration);
-	
-	        return true;
-	    }
-	
-	    return false;
-	}
-	
-	/**
-	 * Add to Animated Toast Message Queue
-	 * Display immediately if no queue
-	 * @param  {Number} initialRecallDelay   If the call to show fails because of an existing
-	 *                                       notification, how long to wait until we retry (ms)
-	 * @param  {Number} recallDelayIncrement Each time a successive call fails, the recall delay
-	 *                                       will be incremented by this (ms)
-	 * @return {[type]}                      [description]
-	 */
-	function createShowQueue() {
-	    var _this = this;
-	
-	    var initialRecallDelay = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 500;
-	    var recallDelayIncrement = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 500;
-	
-	    // Array to hold queued messages
-	    this.msgs = [];
-	
-	    // Is the showNotify function in progress - used so we can call showNotify when a
-	    // message is added to an empty queue.
-	    this.isNotifying = false;
-	
-	    this.currentRecallDelay = initialRecallDelay;
-	
-	    // Retrieve the next message from the queue and try to show it
-	    this.showNotify = function () {
-	        // If there are no messages in the queue
-	        if (_this.msgs.length === 0) {
-	            _this.isNotifying = false;
-	            return;
-	        }
-	
-	        _this.isNotifying = true;
-	
-	        var current = _this.msgs.pop();
-	
-	        // show will now return true if it is able to send the message,
-	        // or false if there is an existing message
-	        if (show(current.text, current.type, current.timeout, current.color)) {
-	            _this.currentRecallDelay = initialRecallDelay;
-	            if (current.timeout > 0) {
-	                setTimeout(function () {
-	                    return _this.showNotify();
-	                }, current.timeout + _defaults.defaults.animationDuration);
-	            }
-	        } else {
-	            // If message show failed, re-add the current message to the front of the queue
-	            _this.msgs.unshift(current);
-	            setTimeout(function () {
-	                return _this.showNotify();
-	            }, _this.currentRecallDelay);
-	            _this.currentRecallDelay += recallDelayIncrement;
-	        }
-	    };
-	
-	    return function (text) {
-	        var type = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
-	        var timeout = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : _defaults.defaults.timeout;
-	        var color = arguments[3];
-	
-	        _this.msgs.push({ text: text, type: type, timeout: timeout, color: color });
-	        if (!_this.isNotifying) {
-	            _this.showNotify();
-	        }
-	    };
-	}
-	
-	/* Export notification functions */
-	var notify = exports.notify = {
-	    show: show,
-	    hide: hide,
-	    createShowQueue: createShowQueue
-	};
-	
-	exports.default = _Container2.default;
-
-/***/ }),
-/* 878 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(328);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _propTypes = __webpack_require__(383);
-	
-	var _propTypes2 = _interopRequireDefault(_propTypes);
-	
-	var _objectAssign = __webpack_require__(331);
-	
-	var _objectAssign2 = _interopRequireDefault(_objectAssign);
-	
-	var _defaults = __webpack_require__(879);
-	
-	var _stylesheet = __webpack_require__(880);
-	
-	var _stylesheet2 = _interopRequireDefault(_stylesheet);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	/* React Notification Component */
-	var Toast = function (_React$Component) {
-	    _inherits(Toast, _React$Component);
-	
-	    function Toast() {
-	        var _ref;
-	
-	        var _temp, _this, _ret;
-	
-	        _classCallCheck(this, Toast);
-	
-	        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-	            args[_key] = arguments[_key];
-	        }
-	
-	        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Toast.__proto__ || Object.getPrototypeOf(Toast)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-	            containerStyle: _stylesheet2.default.styles.container
-	        }, _temp), _possibleConstructorReturn(_this, _ret);
-	    }
-	
-	    _createClass(Toast, [{
-	        key: 'getToastStyle',
-	        value: function getToastStyle() {
-	            var _props = this.props,
-	                type = _props.type,
-	                color = _props.color;
-	            var styles = _stylesheet2.default.styles;
-	
-	            var contentStyle = {};
-	
-	            /* If type is set, merge toast action styles with base */
-	            switch (type) {
-	                case 'success':
-	                case 'error':
-	                case 'warning':
-	                case 'info':
-	                    contentStyle = (0, _objectAssign2.default)({}, styles.content, _defaults.defaults.colors[type]);
-	                    break;
-	                case 'custom':
-	                    var customStyle = {
-	                        backgroundColor: color.background,
-	                        color: color.text
-	                    };
-	                    contentStyle = (0, _objectAssign2.default)({}, styles.content, customStyle);
-	                    break;
-	                default:
-	                    contentStyle = (0, _objectAssign2.default)({}, styles.content);
-	                    break;
-	            }
-	
-	            return contentStyle;
-	        }
-	    }, {
-	        key: 'animateState',
-	        value: function animateState() {
-	            var _this2 = this;
-	
-	            var styles = _stylesheet2.default.styles;
-	
-	            // Show
-	
-	            setTimeout(function () {
-	                _this2.updateStyle(styles.show);
-	            }, 100); // wait 100ms after the component is called to animate toast.
-	
-	            // Timeout -1 displays toast as a persistent notification
-	            if (this.props.timeout === -1) {
-	                return;
-	            }
-	
-	            // Hide after timeout
-	            setTimeout(function () {
-	                _this2.updateStyle(styles.hide);
-	            }, this.props.timeout);
-	        }
-	
-	        // Updates the style of the container with styles for a state (hide/show).
-	        // This triggers animations.
-	
-	    }, {
-	        key: 'updateStyle',
-	        value: function updateStyle(stateStyle) {
-	            var styles = _stylesheet2.default.styles;
-	
-	
-	            this.setState({ containerStyle: (0, _objectAssign2.default)({}, styles.container, stateStyle) });
-	        }
-	    }, {
-	        key: 'componentDidMount',
-	        value: function componentDidMount() {
-	            this.animateState();
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            var text = this.props.text;
-	            var containerStyle = this.state.containerStyle;
-	
-	
-	            return _react2.default.createElement(
-	                'div',
-	                { className: 'toast-notification', style: containerStyle },
-	                _react2.default.createElement(
-	                    'span',
-	                    { style: this.getToastStyle() },
-	                    text
-	                )
-	            );
-	        }
-	    }]);
-	
-	    return Toast;
-	}(_react2.default.Component);
-	
-	Toast.propTypes = {
-	    text: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.element]),
-	    timeout: _propTypes2.default.number,
-	    type: _propTypes2.default.string,
-	    color: _propTypes2.default.oneOfType([_propTypes2.default.object, _propTypes2.default.string]),
-	    style: _propTypes2.default.oneOfType([_propTypes2.default.object, _propTypes2.default.bool])
-	};
-	exports.default = Toast;
-
-/***/ }),
-/* 879 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.mergeOptions = exports.defaults = undefined;
-	
-	var _objectAssign = __webpack_require__(331);
-	
-	var _objectAssign2 = _interopRequireDefault(_objectAssign);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var defaults = {
-	    wrapperId: 'notification-wrapper',
-	    animationDuration: 300,
-	    timeout: 5000,
-	    zIndex: 1000,
-	    top: 0, // Controls the offset from top of viewport.
-	    colors: {
-	        error: {
-	            color: "#FFFFFF",
-	            backgroundColor: '#E85742'
-	        },
-	        success: {
-	            color: "#FFFFFF",
-	            backgroundColor: '#55CA92'
-	        },
-	        warning: {
-	            color: "#333333",
-	            backgroundColor: '#F5E273'
-	        },
-	        info: {
-	            color: "#FFFFFF",
-	            backgroundColor: '#4990E2'
-	        }
-	    }
-	};
-	
-	function mergeOptions(options) {
-	    exports.defaults = defaults = (0, _objectAssign2.default)(defaults, options);
-	}
-	
-	exports.defaults = defaults;
-	exports.mergeOptions = mergeOptions;
-
-/***/ }),
-/* 880 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _defaults = __webpack_require__(879);
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	/**
-	 * This was created as an ES6 class with a getter for the styles to allow for recomputing
-	 * dynamic values on each usage without calling a function.
-	 */
-	var Stylesheet = function () {
-	    function Stylesheet() {
-	        _classCallCheck(this, Stylesheet);
-	    }
-	
-	    _createClass(Stylesheet, [{
-	        key: 'styles',
-	        get: function get() {
-	            return {
-	                container: {
-	                    position: 'fixed',
-	                    width: '50%',
-	                    margin: '0 auto',
-	                    right: '0px',
-	                    top: _defaults.defaults.top,
-	                    left: '0px',
-	                    textAlign: 'center',
-	                    zIndex: _defaults.defaults.zIndex,
-	                    pointerEvents: 'none',
-	                    transition: 'all ' + _defaults.defaults.animationDuration + 'ms ease',
-	                    transform: 'translateY(-100%)',
-	
-	                    // Vendor Prefixes
-	                    msTransition: 'all ' + _defaults.defaults.animationDuration + 'ms ease',
-	                    msTransform: 'translateY(-100%)',
-	                    WebkitTransition: 'all ' + _defaults.defaults.animationDuration + 'ms ease',
-	                    WebkitTransform: 'translateY(-100%)',
-	                    OTransition: 'all ' + _defaults.defaults.animationDuration + 'ms ease',
-	                    OTransform: 'translateY(-100%)',
-	                    MozTransition: 'all ' + _defaults.defaults.animationDuration + 'ms ease',
-	                    MozTransform: 'translateY(-100%)'
-	                },
-	                content: {
-	                    cursor: 'pointer',
-	                    display: 'inline-block',
-	                    width: 'auto',
-	                    borderRadius: '0 0 4px 4px',
-	                    backgroundColor: 'white',
-	                    padding: '10px 30px',
-	                    pointerEvents: 'all'
-	                },
-	                show: {
-	                    transform: 'translateY(0)',
-	                    msTransform: 'translateY(0)',
-	                    WebkitTransform: 'translateY(0)',
-	                    OTransform: 'translateY(0)',
-	                    MozTransform: 'translateY(0)'
-	                },
-	                hide: {
-	                    transform: 'translateY(-100%)',
-	                    msTransform: 'translateY(-100%)',
-	                    WebkitTransform: 'translateY(-100%)',
-	                    OTransform: 'translateY(-100%)',
-	                    MozTransform: 'translateY(-100%)'
-	                }
-	            };
-	        }
-	    }]);
-	
-	    return Stylesheet;
-	}();
-	
-	exports.default = new Stylesheet();
-
-/***/ }),
-/* 881 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(328);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _propTypes = __webpack_require__(383);
-	
-	var _propTypes2 = _interopRequireDefault(_propTypes);
-	
-	var _defaults = __webpack_require__(879);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	/* Export notification container */
-	var _class = function (_React$Component) {
-	    _inherits(_class, _React$Component);
-	
-	    function _class() {
-	        _classCallCheck(this, _class);
-	
-	        return _possibleConstructorReturn(this, (_class.__proto__ || Object.getPrototypeOf(_class)).apply(this, arguments));
-	    }
-	
-	    _createClass(_class, [{
-	        key: 'componentWillMount',
-	        value: function componentWillMount() {
-	            (0, _defaults.mergeOptions)(this.props.options);
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement('div', { id: _defaults.defaults.wrapperId });
-	        }
-	    }]);
-	
-	    return _class;
-	}(_react2.default.Component);
-	
-	_class.propTypes = {
-	    options: _propTypes2.default.object
-	};
-	_class.defaultProps = {
-	    options: {}
-	};
-	exports.default = _class;
 
 /***/ }),
 /* 882 */
@@ -102720,17 +102744,17 @@
 	
 	var _reactConfirmAlert = __webpack_require__(862);
 	
-	var _reactCropper = __webpack_require__(873);
+	var _reactCropper = __webpack_require__(878);
 	
 	var _reactCropper2 = _interopRequireDefault(_reactCropper);
 	
-	__webpack_require__(875);
+	__webpack_require__(880);
 	
 	var _reactFileInputPreviewsBase = __webpack_require__(843);
 	
 	var _reactFileInputPreviewsBase2 = _interopRequireDefault(_reactFileInputPreviewsBase);
 	
-	var _reactNotifyToast = __webpack_require__(877);
+	var _reactNotifyToast = __webpack_require__(869);
 	
 	var _reactNotifyToast2 = _interopRequireDefault(_reactNotifyToast);
 	
