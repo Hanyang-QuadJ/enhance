@@ -102982,98 +102982,110 @@
 	
 	      var _props = this.props,
 	          me = _props.me,
-	          token = _props.token;
+	          token = _props.token,
+	          isLogin = _props.isLogin;
 	
-	      this.setState({ email: me.email, username: me.username });
-	      var params = { user_id: me.id, token: token };
-	      this.props.dispatch(SocialAction.getForumByUser(params)).then(function (forums) {
-	        _this3.props.dispatch(SocialAction.getCommentsByUser(params)).then(function (comments) {
-	          var result = forums.reverse().map(function (el) {
-	            var o = Object.assign({}, el);
-	            o.loading = false;
-	            return o;
-	          });
-	          var commentResult = comments.reverse().map(function (el) {
-	            var o = Object.assign({}, el);
-	            o.loading = false;
-	            return o;
-	          });
-	          _this3.setState({
-	            posts: result,
-	            comments: commentResult
-	          });
-	          _this3.props.dispatch(PriceAction.getCoins()).then(function (coins) {
-	            _this3.props.dispatch(PriceAction.getFavs(_this3.props.token)).then(function (favs) {
-	              if (favs.length === 0) {
-	                var _result = coins.map(function (el) {
-	                  var o = Object.assign({}, el);
-	                  o.clicked = false;
-	                  o.loading = false;
-	                  return o;
-	                });
-	                _this3.setState({
-	                  sideFavorite: _result
-	                });
-	              } else {
-	                //글 작성 코인 타입
-	                var _result2 = favs.map(function (el) {
-	                  var o = Object.assign({}, el);
-	                  o.clicked = false;
-	                  return o;
-	                });
-	
-	                //사이드 바 즐겨찾기
-	                var resultSide = coins.map(function (el) {
-	                  var o = Object.assign({}, el);
-	                  o.clicked = false;
-	                  o.selected = false;
-	                  o.loading = true;
-	                  return o;
-	                });
-	                for (var i = 0; i < resultSide.length; i++) {
-	                  for (var j = 0; j < favs.length; j++) {
-	                    if (resultSide[i].abbr === favs[j].abbr) {
-	                      resultSide[i].clicked = true;
-	                    }
-	                  }
-	                }
-	                _this3.setState({ favorite: _result2, sideFavorite: resultSide });
-	
-	                //Crypto Compare API
-	                var abbrArray = [];
-	                for (var _i4 = 0; _i4 < resultSide.length; _i4++) {
-	                  if (resultSide[_i4].clicked === true) {
-	                    abbrArray.push({
-	                      id: resultSide[_i4].id,
-	                      abbr: resultSide[_i4].abbr
+	      if (isLogin) {
+	        if (me.flag !== 1) {
+	          this.props.history.replace({ pathname: "/" });
+	        } else {
+	          this.setState({ email: me.email, username: me.username });
+	          var params = { user_id: me.id, token: token };
+	          this.props.dispatch(SocialAction.getForumByUser(params)).then(function (forums) {
+	            _this3.props.dispatch(SocialAction.getCommentsByUser(params)).then(function (comments) {
+	              var result = forums.reverse().map(function (el) {
+	                var o = Object.assign({}, el);
+	                o.loading = false;
+	                return o;
+	              });
+	              var commentResult = comments.reverse().map(function (el) {
+	                var o = Object.assign({}, el);
+	                o.loading = false;
+	                return o;
+	              });
+	              _this3.setState({
+	                posts: result,
+	                comments: commentResult
+	              });
+	              _this3.props.dispatch(PriceAction.getCoins()).then(function (coins) {
+	                _this3.props.dispatch(PriceAction.getFavs(_this3.props.token)).then(function (favs) {
+	                  if (favs.length === 0) {
+	                    var _result = coins.map(function (el) {
+	                      var o = Object.assign({}, el);
+	                      o.clicked = false;
+	                      o.loading = false;
+	                      return o;
 	                    });
-	                  }
-	                }
-	                var final = resultSide.map(function (el) {
-	                  var o = Object.assign({}, el);
-	                  o.price = 0;
-	                  o.percent = "";
-	                  return o;
-	                });
-	                _this3.props.dispatch(PriceAction.getPrice(abbrArray.map(function (a, index) {
-	                  return a.abbr;
-	                }))).then(function (value) {
-	                  for (var _i5 = 0; _i5 < final.length; _i5++) {
-	                    for (var _j = 0; _j < abbrArray.length; _j++) {
-	                      if (final[_i5].abbr === abbrArray[_j].abbr) {
-	                        final[_i5].loading = false;
-	                        final[_i5].price = value[abbrArray[_j].abbr].KRW.PRICE;
-	                        final[_i5].percent = value[abbrArray[_j].abbr].KRW.CHANGEPCT24HOUR;
+	                    _this3.setState({
+	                      sideFavorite: _result
+	                    });
+	                  } else {
+	                    //글 작성 코인 타입
+	                    var _result2 = favs.map(function (el) {
+	                      var o = Object.assign({}, el);
+	                      o.clicked = false;
+	                      return o;
+	                    });
+	
+	                    //사이드 바 즐겨찾기
+	                    var resultSide = coins.map(function (el) {
+	                      var o = Object.assign({}, el);
+	                      o.clicked = false;
+	                      o.selected = false;
+	                      o.loading = true;
+	                      return o;
+	                    });
+	                    for (var i = 0; i < resultSide.length; i++) {
+	                      for (var j = 0; j < favs.length; j++) {
+	                        if (resultSide[i].abbr === favs[j].abbr) {
+	                          resultSide[i].clicked = true;
+	                        }
 	                      }
 	                    }
+	                    _this3.setState({
+	                      favorite: _result2,
+	                      sideFavorite: resultSide
+	                    });
+	
+	                    //Crypto Compare API
+	                    var abbrArray = [];
+	                    for (var _i4 = 0; _i4 < resultSide.length; _i4++) {
+	                      if (resultSide[_i4].clicked === true) {
+	                        abbrArray.push({
+	                          id: resultSide[_i4].id,
+	                          abbr: resultSide[_i4].abbr
+	                        });
+	                      }
+	                    }
+	                    var final = resultSide.map(function (el) {
+	                      var o = Object.assign({}, el);
+	                      o.price = 0;
+	                      o.percent = "";
+	                      return o;
+	                    });
+	                    _this3.props.dispatch(PriceAction.getPrice(abbrArray.map(function (a, index) {
+	                      return a.abbr;
+	                    }))).then(function (value) {
+	                      for (var _i5 = 0; _i5 < final.length; _i5++) {
+	                        for (var _j = 0; _j < abbrArray.length; _j++) {
+	                          if (final[_i5].abbr === abbrArray[_j].abbr) {
+	                            final[_i5].loading = false;
+	                            final[_i5].price = value[abbrArray[_j].abbr].KRW.PRICE;
+	                            final[_i5].percent = value[abbrArray[_j].abbr].KRW.CHANGEPCT24HOUR;
+	                          }
+	                        }
+	                      }
+	                      _this3.setState({ sideFavorite: final });
+	                    });
 	                  }
-	                  _this3.setState({ sideFavorite: final });
 	                });
-	              }
+	              });
 	            });
 	          });
-	        });
-	      });
+	        }
+	      } else {
+	        this.props.history.replace({ pathname: "/auth" });
+	      }
 	    }
 	  }, {
 	    key: "render",
