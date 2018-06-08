@@ -34869,7 +34869,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.signOut = exports.deleteUser = exports.updateEmail = exports.postCoin = exports.updateProfile = exports.findPassword = exports.updatePassword = exports.updateUsername = exports.postSignIn = exports.postSignUp = exports.getMe = exports.SUCCEED_TO_SIGNOUT = exports.FAILED_TO_SIGNUP = exports.SUCCEED_TO_SIGNUP = exports.FAILED_TO_SIGNIN = exports.SUCCEED_TO_SIGNIN = exports.FAILED_TO_POST_COIN = exports.SUCCEED_TO_POST_COIN = exports.FAILED_TO_DELETE_USER = exports.SUCCEED_TO_DELETE_USER = exports.FAILED_TO_GET_TEMP_PASSWORD = exports.SUCCEED_TO_GET_TEMP_PASSWORD = exports.FAILED_TO_UPDATE_PASSWORD = exports.SUCCEED_TO_UPDATE_PASSWORD = exports.FAILED_TO_UPDATE_PROFILE = exports.SUCCEED_TO_UPDATE_PROFILE = exports.FAILED_TO_UPDATE_USERNAME = exports.SUCCEED_TO_UPDATE_USERNAME = exports.FAILED_TO_UPDATE_EMAIL = exports.SUCCEED_TO_UPDATE_EMAIL = exports.FAILED_TO_GET_ME = exports.SUCCEED_TO_GET_ME = undefined;
+	exports.signOut = exports.deleteCoin = exports.deleteUser = exports.updateEmail = exports.postCoin = exports.updateProfile = exports.findPassword = exports.updatePassword = exports.updateUsername = exports.postSignIn = exports.postSignUp = exports.getMe = exports.SUCCEED_TO_SIGNOUT = exports.FAILED_TO_SIGNUP = exports.SUCCEED_TO_SIGNUP = exports.FAILED_TO_SIGNIN = exports.SUCCEED_TO_SIGNIN = exports.FAILED_TO_DELETE_COIN = exports.SUCCEED_TO_DELETE_COIN = exports.FAILED_TO_POST_COIN = exports.SUCCEED_TO_POST_COIN = exports.FAILED_TO_DELETE_USER = exports.SUCCEED_TO_DELETE_USER = exports.FAILED_TO_GET_TEMP_PASSWORD = exports.SUCCEED_TO_GET_TEMP_PASSWORD = exports.FAILED_TO_UPDATE_PASSWORD = exports.SUCCEED_TO_UPDATE_PASSWORD = exports.FAILED_TO_UPDATE_PROFILE = exports.SUCCEED_TO_UPDATE_PROFILE = exports.FAILED_TO_UPDATE_USERNAME = exports.SUCCEED_TO_UPDATE_USERNAME = exports.FAILED_TO_UPDATE_EMAIL = exports.SUCCEED_TO_UPDATE_EMAIL = exports.FAILED_TO_GET_ME = exports.SUCCEED_TO_GET_ME = undefined;
 	
 	var _Server = __webpack_require__(439);
 	
@@ -34898,6 +34898,9 @@
 	
 	var SUCCEED_TO_POST_COIN = exports.SUCCEED_TO_POST_COIN = "SUCCEED_TO_POST_COIN";
 	var FAILED_TO_POST_COIN = exports.FAILED_TO_POST_COIN = "FAILED_TO_POST_COIN";
+	
+	var SUCCEED_TO_DELETE_COIN = exports.SUCCEED_TO_DELETE_COIN = "SUCCEED_TO_DELETE_COIN";
+	var FAILED_TO_DELETE_COIN = exports.FAILED_TO_DELETE_COIN = "FAILED_TO_DELETE_COIN";
 	
 	var SUCCEED_TO_SIGNIN = exports.SUCCEED_TO_SIGNIN = "SUCCEED_TO_SIGNIN";
 	var FAILED_TO_SIGNIN = exports.FAILED_TO_SIGNIN = "FAILED_TO_SIGNIN";
@@ -35665,28 +35668,110 @@
 	  }();
 	};
 	
-	var signOut = exports.signOut = function signOut() {
+	var deleteCoin = exports.deleteCoin = function deleteCoin(params) {
 	  return function () {
 	    var _ref11 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee11(dispatch) {
+	      var response, responseJson;
 	      return regeneratorRuntime.wrap(function _callee11$(_context11) {
 	        while (1) {
 	          switch (_context11.prev = _context11.next) {
 	            case 0:
-	              dispatch({
-	                type: SUCCEED_TO_SIGNOUT
+	              _context11.prev = 0;
+	              _context11.next = 3;
+	              return fetch(_Server.ServerEndPoint + "api/admin/coin", {
+	                method: "DELETE",
+	                headers: {
+	                  Accept: "application/json",
+	                  "Content-Type": "application/json",
+	                  "Access-Control-Allow-Origin": "*",
+	                  "x-access-token": params.token
+	                },
+	                body: JSON.stringify({
+	                  abbr: params.abbr
+	                })
 	              });
-	              return _context11.abrupt("return", "signOut");
 	
-	            case 2:
+	            case 3:
+	              response = _context11.sent;
+	              _context11.next = 6;
+	              return response.json();
+	
+	            case 6:
+	              responseJson = _context11.sent;
+	
+	              if (!(response.status === 404)) {
+	                _context11.next = 13;
+	                break;
+	              }
+	
+	              _context11.next = 10;
+	              return dispatch({
+	                type: FAILED_TO_DELETE_COIN,
+	                payload: "FAILED"
+	              });
+	
+	            case 10:
+	              return _context11.abrupt("return", "failed");
+	
+	            case 13:
+	              _context11.next = 15;
+	              return dispatch({
+	                type: SUCCEED_TO_DELETE_COIN,
+	                payload: responseJson
+	              });
+	
+	            case 15:
+	              return _context11.abrupt("return", "succeed");
+	
+	            case 16:
+	              _context11.next = 21;
+	              break;
+	
+	            case 18:
+	              _context11.prev = 18;
+	              _context11.t0 = _context11["catch"](0);
+	
+	              dispatch({
+	                type: FAILED_TO_DELETE_COIN,
+	                payload: { data: "NETWORK_ERROR" }
+	              });
+	
+	            case 21:
 	            case "end":
 	              return _context11.stop();
 	          }
 	        }
-	      }, _callee11, undefined);
+	      }, _callee11, undefined, [[0, 18]]);
 	    }));
 	
 	    return function (_x11) {
 	      return _ref11.apply(this, arguments);
+	    };
+	  }();
+	};
+	
+	var signOut = exports.signOut = function signOut() {
+	  return function () {
+	    var _ref12 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee12(dispatch) {
+	      return regeneratorRuntime.wrap(function _callee12$(_context12) {
+	        while (1) {
+	          switch (_context12.prev = _context12.next) {
+	            case 0:
+	              dispatch({
+	                type: SUCCEED_TO_SIGNOUT
+	              });
+	              return _context12.abrupt("return", "signOut");
+	
+	            case 2:
+	            case "end":
+	              return _context12.stop();
+	          }
+	        }
+	      }, _callee12, undefined);
+	    }));
+	
+	    return function (_x12) {
+	      return _ref12.apply(this, arguments);
 	    };
 	  }();
 	};
@@ -44531,31 +44616,31 @@
 	
 	var _ForumPage3 = _interopRequireDefault(_ForumPage2);
 	
-	var _PostPage2 = __webpack_require__(863);
+	var _PostPage2 = __webpack_require__(864);
 	
 	var _PostPage3 = _interopRequireDefault(_PostPage2);
 	
-	var _ProfilePost2 = __webpack_require__(874);
+	var _ProfilePost2 = __webpack_require__(875);
 	
 	var _ProfilePost3 = _interopRequireDefault(_ProfilePost2);
 	
-	var _UserPage2 = __webpack_require__(875);
+	var _UserPage2 = __webpack_require__(876);
 	
 	var _UserPage3 = _interopRequireDefault(_UserPage2);
 	
-	var _MyPage2 = __webpack_require__(876);
+	var _MyPage2 = __webpack_require__(877);
 	
 	var _MyPage3 = _interopRequireDefault(_MyPage2);
 	
-	var _SettingsPage2 = __webpack_require__(877);
+	var _SettingsPage2 = __webpack_require__(878);
 	
 	var _SettingsPage3 = _interopRequireDefault(_SettingsPage2);
 	
-	var _FindPage2 = __webpack_require__(882);
+	var _FindPage2 = __webpack_require__(883);
 	
 	var _FindPage3 = _interopRequireDefault(_FindPage2);
 	
-	var _AdminPage2 = __webpack_require__(883);
+	var _AdminPage2 = __webpack_require__(884);
 	
 	var _AdminPage3 = _interopRequireDefault(_AdminPage2);
 	
@@ -47217,7 +47302,7 @@
 	
 	    _this.handleFavorite = function () {
 	      var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(index, id, data) {
-	        var coin, token, params, leftOver, i, result, abbrArray, _i;
+	        var coin, token, params, leftOver, i, abbrArray, _i;
 	
 	        return regeneratorRuntime.wrap(function _callee$(_context) {
 	          while (1) {
@@ -47261,30 +47346,29 @@
 	                    _this.handleChart(0, id, data);
 	                    _this.setState({ favorite: coin });
 	
-	                    //즐겨찾기 한 코인들에게, 가격, 증감표시 key 추가
-	                    result = coin.map(function (el) {
-	                      var o = Object.assign({}, el);
-	                      o.price = 0;
-	                      o.percent = "";
-	                      return o;
-	                    });
-	
 	                    //즐겨찾기한 코인, 이름만 모으기
-	
 	                    abbrArray = [];
 	
-	                    for (_i = 0; _i < result.length; _i++) {
-	                      abbrArray[_i] = result[_i].abbr;
+	                    for (_i = 0; _i < coin.length; _i++) {
+	                      if (coin[_i].clicked === true) {
+	                        abbrArray.push({ id: coin[_i].id, abbr: coin[_i].abbr });
+	                      }
 	                    }
 	                    _this.props.dispatch(PriceAction.addFav(params)).then(function (x) {
-	                      _this.props.dispatch(PriceAction.getPrice(abbrArray)).then(function (value) {
-	                        for (var _i2 = 0; _i2 < abbrArray.length; _i2++) {
-	                          result[_i2].price = value[abbrArray[_i2]].KRW.PRICE;
-	                          result[_i2].percent = value[abbrArray[_i2]].KRW.CHANGEPCT24HOUR;
+	                      _this.props.dispatch(PriceAction.getPrice(abbrArray.map(function (a, index) {
+	                        return a.abbr;
+	                      }))).then(function (value) {
+	                        for (var _i2 = 0; _i2 < coin.length; _i2++) {
+	                          for (var j = 0; j < abbrArray.length; j++) {
+	                            if (coin[_i2].abbr === abbrArray[j].abbr) {
+	                              coin[_i2].price = value[abbrArray[j].abbr].KRW.PRICE;
+	                              coin[_i2].percent = value[abbrArray[j].abbr].KRW.CHANGEPCT24HOUR;
+	                            }
+	                          }
 	                        }
-	                        result[index].loading = false;
+	                        coin[index].loading = false;
 	                        _this.setState(function (state) {
-	                          return { favorite: result };
+	                          return { favorite: coin };
 	                        });
 	                      });
 	                    });
@@ -47382,6 +47466,7 @@
 	                o.loading = false;
 	                return o;
 	              });
+	
 	              for (var i = 0; i < result.length; i++) {
 	                for (var j = 0; j < favs.length; j++) {
 	                  if (result[i].abbr === favs[j].abbr) {
@@ -76643,8 +76728,6 @@
 	                  {
 	                    className: multiple ? (0, _classnames2.default)("sideBar__content__items__item", {
 	                      "sideBar__content__items__item-active": data.selected === true
-	                    }, {
-	                      "sideBar__content__items__item-disable": loadGraph === true
 	                    }) : (0, _classnames2.default)("sideBar__content__items__item", {
 	                      "sideBar__content__items__item-active": type === data.abbr
 	                    }, {
@@ -89289,6 +89372,8 @@
 	
 	var _classnames2 = _interopRequireDefault(_classnames);
 	
+	var _function = __webpack_require__(863);
+	
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -89507,97 +89592,75 @@
 	      _this.setState({ imagePreview: imagePreview });
 	    };
 	
-	    _this.handleFavorite = function () {
-	      var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(index, id, data) {
-	        var coin, favorite, token, params, i, leftOver, _i, result, abbrArray, _i2;
+	    _this.handleFavorite = function (index, id, data) {
+	      var coin = _this.state.sideFavorite.slice();
+	      var favorite = _this.state.favorite.slice();
+	      var token = _this.props.token;
 	
-	        return regeneratorRuntime.wrap(function _callee$(_context) {
-	          while (1) {
-	            switch (_context.prev = _context.next) {
-	              case 0:
-	                coin = _this.state.sideFavorite.slice();
-	                favorite = _this.state.favorite.slice();
-	                token = _this.props.token;
-	                params = {
-	                  token: token,
-	                  coin_id: coin[index].id
-	                };
-	                //삭제
+	      var params = {
+	        token: token,
+	        coin_id: coin[index].id
+	      };
+	      //삭제
+	      if (coin[index].clicked === true) {
+	        coin[index].clicked = false;
 	
-	                if (coin[index].clicked === true) {
-	                  coin[index].clicked = false;
+	        for (var i = 0; i < favorite.length; i++) {
+	          if (favorite[i].abbr === data) {
+	            favorite.splice(i, 1);
+	          }
+	        }
 	
-	                  for (i = 0; i < favorite.length; i++) {
-	                    if (favorite[i].abbr === data) {
-	                      favorite.splice(i, 1);
-	                    }
-	                  }
+	        var leftOver = [];
+	        for (var _i = 0; _i < coin.length; _i++) {
+	          if (coin[_i].clicked === true) {
+	            leftOver.push(coin[_i].abbr);
+	          }
+	        }
+	        //한개 남았을 때
+	        if (leftOver.length === 0) {
+	          _this.setState({ sideFavorite: coin, favorite: favorite });
+	          _this.props.dispatch(PriceAction.removeFav(params));
+	        } else {
+	          _this.setState({ sideFavorite: coin, favorite: favorite });
+	          _this.props.dispatch(PriceAction.removeFav(params));
+	        }
+	      }
+	      //추가
+	      else {
+	          coin[index].clicked = true;
+	          coin[index].loading = true;
+	          favorite.push({ coin_id: id, clicked: false, abbr: data });
+	          _this.setState({ sideFavorite: coin, favorite: favorite, loadGraph: true });
 	
-	                  leftOver = [];
-	
-	                  for (_i = 0; _i < coin.length; _i++) {
-	                    if (coin[_i].clicked === true) {
-	                      leftOver.push(coin[_i].abbr);
-	                    }
-	                  }
-	                  //한개 남았을 때
-	                  if (leftOver.length === 0) {
-	                    _this.setState({ sideFavorite: coin, favorite: favorite });
-	                    _this.props.dispatch(PriceAction.removeFav(params));
-	                  } else {
-	                    _this.setState({ sideFavorite: coin, favorite: favorite });
-	                    _this.props.dispatch(PriceAction.removeFav(params));
-	                  }
-	                }
-	                //추가
-	                else {
-	                    coin[index].clicked = true;
-	                    coin[index].loading = true;
-	                    favorite.push({ coin_id: id, clicked: false, abbr: data });
-	
-	                    _this.setState({ sideFavorite: coin, favorite: favorite });
-	
-	                    //즐겨찾기 한 코인들에게, 가격, 증감표시 key 추가
-	                    result = coin.map(function (el) {
-	                      var o = Object.assign({}, el);
-	                      o.price = 0;
-	                      o.percent = "";
-	                      return o;
-	                    });
-	
-	                    //즐겨찾기한 코인, 이름만 모으기
-	
-	                    abbrArray = [];
-	
-	                    for (_i2 = 0; _i2 < result.length; _i2++) {
-	                      abbrArray[_i2] = result[_i2].abbr;
-	                    }
-	                    _this.props.dispatch(PriceAction.addFav(params)).then(function (x) {
-	                      _this.props.dispatch(PriceAction.getPrice(abbrArray)).then(function (value) {
-	                        for (var _i3 = 0; _i3 < abbrArray.length; _i3++) {
-	                          result[_i3].price = value[abbrArray[_i3]].KRW.PRICE;
-	                          result[_i3].percent = value[abbrArray[_i3]].KRW.CHANGEPCT24HOUR;
-	                        }
-	                        result[index].loading = false;
-	                        _this.setState(function (state) {
-	                          return { sideFavorite: result };
-	                        });
-	                      });
-	                    });
-	                  }
-	
-	              case 5:
-	              case "end":
-	                return _context.stop();
+	          //즐겨찾기한 코인, 이름만 모으기
+	          var abbrArray = [];
+	          for (var _i2 = 0; _i2 < coin.length; _i2++) {
+	            if (coin[_i2].clicked === true) {
+	              abbrArray.push({ id: coin[_i2].id, abbr: coin[_i2].abbr });
 	            }
 	          }
-	        }, _callee, _this2);
-	      }));
 	
-	      return function (_x, _x2, _x3) {
-	        return _ref.apply(this, arguments);
-	      };
-	    }();
+	          _this.props.dispatch(PriceAction.addFav(params)).then(function (x) {
+	            _this.props.dispatch(PriceAction.getPrice(abbrArray.map(function (a, index) {
+	              return a.abbr;
+	            }))).then(function (value) {
+	              for (var _i3 = 0; _i3 < coin.length; _i3++) {
+	                for (var j = 0; j < abbrArray.length; j++) {
+	                  if (coin[_i3].abbr === abbrArray[j].abbr) {
+	                    coin[_i3].price = value[abbrArray[j].abbr].KRW.PRICE;
+	                    coin[_i3].percent = value[abbrArray[j].abbr].KRW.CHANGEPCT24HOUR;
+	                  }
+	                }
+	              }
+	              coin[index].loading = false;
+	              _this.setState(function (state) {
+	                return { sideFavorite: coin, loadGraph: false };
+	              });
+	            });
+	          });
+	        }
+	    };
 	
 	    _this.handleTitle = function (e) {
 	      _this.setState({ title: e.target.value });
@@ -89675,12 +89738,12 @@
 	      }
 	    };
 	
-	    _this.handlePost = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
+	    _this.handlePost = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
 	      var _this$state2, main, title, selectedCoinType, selectedAbbr, selectedPostType2, imagePreview, date, coinArray, i, params;
 	
-	      return regeneratorRuntime.wrap(function _callee3$(_context3) {
+	      return regeneratorRuntime.wrap(function _callee2$(_context2) {
 	        while (1) {
-	          switch (_context3.prev = _context3.next) {
+	          switch (_context2.prev = _context2.next) {
 	            case 0:
 	              _this$state2 = _this.state, main = _this$state2.main, title = _this$state2.title, selectedCoinType = _this$state2.selectedCoinType, selectedAbbr = _this$state2.selectedAbbr, selectedPostType2 = _this$state2.selectedPostType2, imagePreview = _this$state2.imagePreview;
 	
@@ -89735,23 +89798,23 @@
 	
 	                  _this.props.dispatch(SocialAction.getOneForum(params)).then(function (forum) {
 	                    _this.props.dispatch(SocialAction.getOneForumCoins(params)).then(function () {
-	                      var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(coins) {
+	                      var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(coins) {
 	                        var newPosts;
-	                        return regeneratorRuntime.wrap(function _callee2$(_context2) {
+	                        return regeneratorRuntime.wrap(function _callee$(_context) {
 	                          while (1) {
-	                            switch (_context2.prev = _context2.next) {
+	                            switch (_context.prev = _context.next) {
 	                              case 0:
 	                                newPosts = _this.state.posts.slice();
 	
 	                                newPosts.splice(0, 0, frontParams);
-	                                _context2.next = 4;
+	                                _context.next = 4;
 	                                return _this.props.history.push({
 	                                  pathname: "/forum/" + id,
 	                                  state: { forum: forum, coins: coins, comment: [], images: images }
 	                                });
 	
 	                              case 4:
-	                                _context2.next = 6;
+	                                _context.next = 6;
 	                                return _this.setState({
 	                                  posts: newPosts,
 	                                  postLoading: false,
@@ -89759,19 +89822,19 @@
 	                                });
 	
 	                              case 6:
-	                                _context2.next = 8;
+	                                _context.next = 8;
 	                                return _this.toggleModal();
 	
 	                              case 8:
 	                              case "end":
-	                                return _context2.stop();
+	                                return _context.stop();
 	                            }
 	                          }
-	                        }, _callee2, _this2);
+	                        }, _callee, _this2);
 	                      }));
 	
-	                      return function (_x4) {
-	                        return _ref3.apply(this, arguments);
+	                      return function (_x) {
+	                        return _ref2.apply(this, arguments);
 	                      };
 	                    }());
 	                  });
@@ -89780,10 +89843,10 @@
 	
 	            case 2:
 	            case "end":
-	              return _context3.stop();
+	              return _context2.stop();
 	          }
 	        }
-	      }, _callee3, _this2);
+	      }, _callee2, _this2);
 	    }));
 	
 	    _this.handleEditPost = function () {
@@ -89816,7 +89879,6 @@
 	          created_at: date,
 	          token: _this.props.token
 	        };
-	
 	        _this.setState({ postLoading: true });
 	        _this.props.dispatch(SocialAction.editForum(params)).then(function (value) {
 	          var params = {
@@ -89843,12 +89905,12 @@
 	
 	          _this.props.dispatch(SocialAction.getOneForum(params)).then(function (forum) {
 	            _this.props.dispatch(SocialAction.getOneForumCoins(params)).then(function () {
-	              var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(coins) {
-	                return regeneratorRuntime.wrap(function _callee4$(_context4) {
+	              var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(coins) {
+	                return regeneratorRuntime.wrap(function _callee3$(_context3) {
 	                  while (1) {
-	                    switch (_context4.prev = _context4.next) {
+	                    switch (_context3.prev = _context3.next) {
 	                      case 0:
-	                        _context4.next = 2;
+	                        _context3.next = 2;
 	                        return _this.setState({
 	                          title: title,
 	                          main: main,
@@ -89858,11 +89920,11 @@
 	                        });
 	
 	                      case 2:
-	                        _context4.next = 4;
+	                        _context3.next = 4;
 	                        return _this.toggleModal();
 	
 	                      case 4:
-	                        _context4.next = 6;
+	                        _context3.next = 6;
 	                        return _this.props.history.push({
 	                          pathname: "/forum/" + editId,
 	                          state: { forum: forum, coins: coins, comment: [], images: newImages }
@@ -89870,14 +89932,14 @@
 	
 	                      case 6:
 	                      case "end":
-	                        return _context4.stop();
+	                        return _context3.stop();
 	                    }
 	                  }
-	                }, _callee4, _this2);
+	                }, _callee3, _this2);
 	              }));
 	
-	              return function (_x5) {
-	                return _ref4.apply(this, arguments);
+	              return function (_x2) {
+	                return _ref3.apply(this, arguments);
 	              };
 	            }());
 	          });
@@ -89968,12 +90030,12 @@
 	    };
 	
 	    _this.handleEdit = function () {
-	      var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(title, main, coins, category, index, id, image) {
-	        var favorite, newFav, type, abbr, preview, i, j, _i4;
+	      var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(title, main, coins, category, index, id, image) {
+	        var favorite, newFav, type, abbr, preview, resultImgArray, i, _i4, j, _i5;
 	
-	        return regeneratorRuntime.wrap(function _callee5$(_context5) {
+	        return regeneratorRuntime.wrap(function _callee4$(_context4) {
 	          while (1) {
-	            switch (_context5.prev = _context5.next) {
+	            switch (_context4.prev = _context4.next) {
 	              case 0:
 	                favorite = _this.state.favorite;
 	                newFav = favorite.slice();
@@ -89986,21 +90048,27 @@
 	                preview = image.map(function (data, index) {
 	                  return data.img_url;
 	                });
+	                resultImgArray = [];
 	
 	
-	                for (i = 0; i < coins.length; i++) {
+	                for (i = 0; i < preview.length; i++) {
+	                  resultImgArray.push((0, _function.getBase64Image)(preview[i]));
+	                }
+	                console.log(resultImgArray);
+	
+	                for (_i4 = 0; _i4 < coins.length; _i4++) {
 	                  for (j = 0; j < newFav.length; j++) {
-	                    if (coins[i].abbr === newFav[j].abbr) {
+	                    if (coins[_i4].abbr === newFav[j].abbr) {
 	                      newFav[j].clicked = true;
 	                    }
 	                  }
 	                }
 	
-	                for (_i4 = 0; _i4 < coins.length; _i4++) {
-	                  abbr.push(coins[_i4].abbr);
-	                  type.push(coins[_i4].id);
+	                for (_i5 = 0; _i5 < coins.length; _i5++) {
+	                  abbr.push(coins[_i5].abbr);
+	                  type.push(coins[_i5].id);
 	                }
-	                _context5.next = 10;
+	                _context4.next = 13;
 	                return _this.setState({
 	                  title: title,
 	                  main: main,
@@ -90014,33 +90082,33 @@
 	                  imagePreview: preview
 	                });
 	
-	              case 10:
-	                _context5.next = 12;
+	              case 13:
+	                _context4.next = 15;
 	                return _this.toggleModal();
 	
-	              case 12:
+	              case 15:
 	              case "end":
-	                return _context5.stop();
+	                return _context4.stop();
 	            }
 	          }
-	        }, _callee5, _this2);
+	        }, _callee4, _this2);
 	      }));
 	
-	      return function (_x6, _x7, _x8, _x9, _x10, _x11, _x12) {
-	        return _ref5.apply(this, arguments);
+	      return function (_x3, _x4, _x5, _x6, _x7, _x8, _x9) {
+	        return _ref4.apply(this, arguments);
 	      };
 	    }();
 	
-	    _this.handleDelete = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee6() {
-	      return regeneratorRuntime.wrap(function _callee6$(_context6) {
+	    _this.handleDelete = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5() {
+	      return regeneratorRuntime.wrap(function _callee5$(_context5) {
 	        while (1) {
-	          switch (_context6.prev = _context6.next) {
+	          switch (_context5.prev = _context5.next) {
 	            case 0:
-	              _context6.next = 2;
+	              _context5.next = 2;
 	              return _this.toggleModal();
 	
 	            case 2:
-	              _context6.next = 4;
+	              _context5.next = 4;
 	              return (0, _reactConfirmAlert.confirmAlert)({
 	                title: "포럼 삭제 확인",
 	                message: "정말 삭제 하시겠습니까?",
@@ -90084,16 +90152,16 @@
 	
 	            case 4:
 	            case "end":
-	              return _context6.stop();
+	              return _context5.stop();
 	          }
 	        }
-	      }, _callee6, _this2);
+	      }, _callee5, _this2);
 	    }));
-	    _this.handleOpenPost = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee7() {
+	    _this.handleOpenPost = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee6() {
 	      var favorite, newFav;
-	      return regeneratorRuntime.wrap(function _callee7$(_context7) {
+	      return regeneratorRuntime.wrap(function _callee6$(_context6) {
 	        while (1) {
-	          switch (_context7.prev = _context7.next) {
+	          switch (_context6.prev = _context6.next) {
 	            case 0:
 	              favorite = _this.state.favorite;
 	              newFav = favorite.slice();
@@ -90102,7 +90170,7 @@
 	                data.clicked = false;
 	              });
 	
-	              _context7.next = 5;
+	              _context6.next = 5;
 	              return _this.setState({
 	                title: "",
 	                main: "",
@@ -90115,15 +90183,15 @@
 	              });
 	
 	            case 5:
-	              _context7.next = 7;
+	              _context6.next = 7;
 	              return _this.toggleModal();
 	
 	            case 7:
 	            case "end":
-	              return _context7.stop();
+	              return _context6.stop();
 	          }
 	        }
-	      }, _callee7, _this2);
+	      }, _callee6, _this2);
 	    }));
 	
 	    _this.handleSearchPost = function () {
@@ -90198,7 +90266,8 @@
 	      editIndex: 0,
 	      editId: 0,
 	      imagePreview: [],
-	      search: ""
+	      search: "",
+	      loadGraph: false
 	    };
 	    _this.toggle = _this.toggle.bind(_this);
 	    return _this;
@@ -90279,11 +90348,11 @@
 	
 	                //Crypto Compare API
 	                var abbrArray = [];
-	                for (var _i5 = 0; _i5 < resultSide.length; _i5++) {
-	                  if (resultSide[_i5].clicked === true) {
+	                for (var _i6 = 0; _i6 < resultSide.length; _i6++) {
+	                  if (resultSide[_i6].clicked === true) {
 	                    abbrArray.push({
-	                      id: resultSide[_i5].id,
-	                      abbr: resultSide[_i5].abbr
+	                      id: resultSide[_i6].id,
+	                      abbr: resultSide[_i6].abbr
 	                    });
 	                  }
 	                }
@@ -90296,12 +90365,12 @@
 	                _this3.props.dispatch(PriceAction.getPrice(abbrArray.map(function (a, index) {
 	                  return a.abbr;
 	                }))).then(function (value) {
-	                  for (var _i6 = 0; _i6 < final.length; _i6++) {
+	                  for (var _i7 = 0; _i7 < final.length; _i7++) {
 	                    for (var _j = 0; _j < abbrArray.length; _j++) {
-	                      if (final[_i6].abbr === abbrArray[_j].abbr) {
-	                        final[_i6].loading = false;
-	                        final[_i6].price = value[abbrArray[_j].abbr].KRW.PRICE;
-	                        final[_i6].percent = value[abbrArray[_j].abbr].KRW.CHANGEPCT24HOUR;
+	                      if (final[_i7].abbr === abbrArray[_j].abbr) {
+	                        final[_i7].loading = false;
+	                        final[_i7].price = value[abbrArray[_j].abbr].KRW.PRICE;
+	                        final[_i7].percent = value[abbrArray[_j].abbr].KRW.CHANGEPCT24HOUR;
 	                      }
 	                    }
 	                  }
@@ -90346,7 +90415,8 @@
 	          postButton = _state2.postButton,
 	          main = _state2.main,
 	          title = _state2.title,
-	          typeDropDown = _state2.typeDropDown;
+	          typeDropDown = _state2.typeDropDown,
+	          loadGraph = _state2.loadGraph;
 	      var _props = this.props,
 	          me = _props.me,
 	          isLogin = _props.isLogin;
@@ -90358,9 +90428,10 @@
 	        _react2.default.createElement(_Components.NavBar, { type: "forum" }),
 	        isLogin ? _react2.default.createElement(_Components.SideBar, {
 	          multiple: true,
-	          favorite: sideFavorite && sideFavorite,
+	          favorite: sideFavorite,
 	          onClick: this.handleFilter,
-	          handleFavorite: this.handleFavorite
+	          handleFavorite: this.handleFavorite,
+	          loadGraph: loadGraph
 	        }) : null,
 	        _react2.default.createElement(
 	          _reactstrap.Modal,
@@ -90439,7 +90510,10 @@
 	                      data.abbr
 	                    );
 	                  })
-	                )
+	                ),
+	                imagePreview.map(function (data, index) {
+	                  return _react2.default.createElement("img", { ref: "base", style: { display: "none" }, src: data });
+	                })
 	              )
 	            )
 	          )
@@ -90921,6 +90995,38 @@
 
 /***/ }),
 /* 863 */
+/***/ (function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.getBase64Image = getBase64Image;
+	function getBase64Image(imgUrl, callback) {
+	  var img = new Image();
+	
+	  // onload fires when the image is fully loadded, and has width and height
+	
+	  img.onload = function () {
+	    var canvas = document.createElement("canvas");
+	    canvas.width = img.width;
+	    canvas.height = img.height;
+	    var ctx = canvas.getContext("2d");
+	    ctx.drawImage(img, 0, 0);
+	    var dataURL = canvas.toDataURL("image/png"),
+	        dataURL = dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+	
+	    callback(dataURL); // the base64 string
+	  };
+	
+	  // set attributes and src
+	  img.setAttribute("crossOrigin", "anonymous"); //
+	  img.src = imgUrl;
+	}
+
+/***/ }),
+/* 864 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -90953,7 +91059,7 @@
 	
 	var _reactPrettyNumbers2 = _interopRequireDefault(_reactPrettyNumbers);
 	
-	var _reactImageGallery = __webpack_require__(864);
+	var _reactImageGallery = __webpack_require__(865);
 	
 	var _reactImageGallery2 = _interopRequireDefault(_reactImageGallery);
 	
@@ -90969,7 +91075,7 @@
 	
 	var base64 = _interopRequireWildcard(_base);
 	
-	var _reactNotifyToast = __webpack_require__(869);
+	var _reactNotifyToast = __webpack_require__(870);
 	
 	var _reactNotifyToast2 = _interopRequireDefault(_reactNotifyToast);
 	
@@ -92204,7 +92310,7 @@
 	exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps)(PostPage));
 
 /***/ }),
-/* 864 */
+/* 865 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -92221,15 +92327,15 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactSwipeable = __webpack_require__(865);
+	var _reactSwipeable = __webpack_require__(866);
 	
 	var _reactSwipeable2 = _interopRequireDefault(_reactSwipeable);
 	
-	var _lodash = __webpack_require__(867);
+	var _lodash = __webpack_require__(868);
 	
 	var _lodash2 = _interopRequireDefault(_lodash);
 	
-	var _lodash3 = __webpack_require__(868);
+	var _lodash3 = __webpack_require__(869);
 	
 	var _lodash4 = _interopRequireDefault(_lodash3);
 	
@@ -93492,7 +93598,7 @@
 	exports.default = ImageGallery;
 
 /***/ }),
-/* 865 */
+/* 866 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -93507,7 +93613,7 @@
 	
 	var React = __webpack_require__(328);
 	var PropTypes = __webpack_require__(383);
-	var DetectPassiveEvents = __webpack_require__(866).default;
+	var DetectPassiveEvents = __webpack_require__(867).default;
 	
 	function getInitialState() {
 	  return {
@@ -93829,7 +93935,7 @@
 	module.exports = Swipeable;
 
 /***/ }),
-/* 866 */
+/* 867 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -93863,7 +93969,7 @@
 	exports.default = detectPassiveEvents;
 
 /***/ }),
-/* 867 */
+/* 868 */
 /***/ (function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/**
@@ -94309,7 +94415,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ }),
-/* 868 */
+/* 869 */
 /***/ (function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/**
@@ -94693,7 +94799,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ }),
-/* 869 */
+/* 870 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -94711,15 +94817,15 @@
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
-	var _Toast = __webpack_require__(870);
+	var _Toast = __webpack_require__(871);
 	
 	var _Toast2 = _interopRequireDefault(_Toast);
 	
-	var _Container = __webpack_require__(873);
+	var _Container = __webpack_require__(874);
 	
 	var _Container2 = _interopRequireDefault(_Container);
 	
-	var _defaults = __webpack_require__(871);
+	var _defaults = __webpack_require__(872);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -94849,7 +94955,7 @@
 	exports.default = _Container2.default;
 
 /***/ }),
-/* 870 */
+/* 871 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -94872,9 +94978,9 @@
 	
 	var _objectAssign2 = _interopRequireDefault(_objectAssign);
 	
-	var _defaults = __webpack_require__(871);
+	var _defaults = __webpack_require__(872);
 	
-	var _stylesheet = __webpack_require__(872);
+	var _stylesheet = __webpack_require__(873);
 	
 	var _stylesheet2 = _interopRequireDefault(_stylesheet);
 	
@@ -95010,7 +95116,7 @@
 	exports.default = Toast;
 
 /***/ }),
-/* 871 */
+/* 872 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -95060,7 +95166,7 @@
 	exports.mergeOptions = mergeOptions;
 
 /***/ }),
-/* 872 */
+/* 873 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -95071,7 +95177,7 @@
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
-	var _defaults = __webpack_require__(871);
+	var _defaults = __webpack_require__(872);
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
@@ -95144,7 +95250,7 @@
 	exports.default = new Stylesheet();
 
 /***/ }),
-/* 873 */
+/* 874 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -95163,7 +95269,7 @@
 	
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 	
-	var _defaults = __webpack_require__(871);
+	var _defaults = __webpack_require__(872);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -95207,7 +95313,7 @@
 	exports.default = _class;
 
 /***/ }),
-/* 874 */
+/* 875 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -95250,7 +95356,7 @@
 	
 	var _classnames2 = _interopRequireDefault(_classnames);
 	
-	var _reactImageGallery = __webpack_require__(864);
+	var _reactImageGallery = __webpack_require__(865);
 	
 	var _reactImageGallery2 = _interopRequireDefault(_reactImageGallery);
 	
@@ -95999,7 +96105,7 @@
 	exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps)(ProfilePost));
 
 /***/ }),
-/* 875 */
+/* 876 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -96624,7 +96730,7 @@
 	exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps)(UserPage));
 
 /***/ }),
-/* 876 */
+/* 877 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -96867,7 +96973,7 @@
 	
 	    _this.handleFavorite = function () {
 	      var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(index, id, data) {
-	        var coin, favorite, token, params, i, leftOver, _i, result, abbrArray, _i2;
+	        var coin, favorite, token, params, i, leftOver, _i, abbrArray, _i2;
 	
 	        return regeneratorRuntime.wrap(function _callee2$(_context2) {
 	          while (1) {
@@ -96912,33 +97018,32 @@
 	                    coin[index].clicked = true;
 	                    coin[index].loading = true;
 	                    favorite.push({ coin_id: id, clicked: false, abbr: data });
-	
-	                    _this.setState({ sideFavorite: coin, favorite: favorite });
-	
-	                    //즐겨찾기 한 코인들에게, 가격, 증감표시 key 추가
-	                    result = coin.map(function (el) {
-	                      var o = Object.assign({}, el);
-	                      o.price = 0;
-	                      o.percent = "";
-	                      return o;
-	                    });
+	                    _this.setState({ sideFavorite: coin, favorite: favorite, loadGraph: true });
 	
 	                    //즐겨찾기한 코인, 이름만 모으기
-	
 	                    abbrArray = [];
 	
-	                    for (_i2 = 0; _i2 < result.length; _i2++) {
-	                      abbrArray[_i2] = result[_i2].abbr;
+	                    for (_i2 = 0; _i2 < coin.length; _i2++) {
+	                      if (coin[_i2].clicked === true) {
+	                        abbrArray.push({ id: coin[_i2].id, abbr: coin[_i2].abbr });
+	                      }
 	                    }
+	
 	                    _this.props.dispatch(PriceAction.addFav(params)).then(function (x) {
-	                      _this.props.dispatch(PriceAction.getPrice(abbrArray)).then(function (value) {
-	                        for (var _i3 = 0; _i3 < abbrArray.length; _i3++) {
-	                          result[_i3].price = value[abbrArray[_i3]].KRW.PRICE;
-	                          result[_i3].percent = value[abbrArray[_i3]].KRW.CHANGEPCT24HOUR;
+	                      _this.props.dispatch(PriceAction.getPrice(abbrArray.map(function (a, index) {
+	                        return a.abbr;
+	                      }))).then(function (value) {
+	                        for (var _i3 = 0; _i3 < coin.length; _i3++) {
+	                          for (var j = 0; j < abbrArray.length; j++) {
+	                            if (coin[_i3].abbr === abbrArray[j].abbr) {
+	                              coin[_i3].price = value[abbrArray[j].abbr].KRW.PRICE;
+	                              coin[_i3].percent = value[abbrArray[j].abbr].KRW.CHANGEPCT24HOUR;
+	                            }
+	                          }
 	                        }
-	                        result[index].loading = false;
+	                        coin[index].loading = false;
 	                        _this.setState(function (state) {
-	                          return { sideFavorite: result };
+	                          return { sideFavorite: coin, loadGraph: false };
 	                        });
 	                      });
 	                    });
@@ -97204,7 +97309,8 @@
 	      title: "",
 	      editIndex: 0,
 	      editId: 0,
-	      imagePreview: []
+	      imagePreview: [],
+	      loadGraph: false
 	    };
 	    _this.toggle = _this.toggle.bind(_this);
 	    return _this;
@@ -97350,7 +97456,8 @@
 	          selectedPostType2 = _state.selectedPostType2,
 	          imagePreview = _state.imagePreview,
 	          selectedCoinType = _state.selectedCoinType,
-	          selectedAbbr = _state.selectedAbbr;
+	          selectedAbbr = _state.selectedAbbr,
+	          loadGraph = _state.loadGraph;
 	      var _props2 = this.props,
 	          me = _props2.me,
 	          isLogin = _props2.isLogin;
@@ -97362,7 +97469,8 @@
 	        _react2.default.createElement(_Components.NavBar, { type: "auth" }),
 	        _react2.default.createElement(_Components.SideBar, {
 	          favorite: sideFavorite && sideFavorite,
-	          handleFavorite: this.handleFavorite
+	          handleFavorite: this.handleFavorite,
+	          loadGraph: loadGraph
 	        }),
 	        _react2.default.createElement(
 	          _reactstrap.Modal,
@@ -97679,7 +97787,7 @@
 	exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps)(MyPage));
 
 /***/ }),
-/* 877 */
+/* 878 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -97726,17 +97834,17 @@
 	
 	var _reactConfirmAlert = __webpack_require__(862);
 	
-	var _reactCropper = __webpack_require__(878);
+	var _reactCropper = __webpack_require__(879);
 	
 	var _reactCropper2 = _interopRequireDefault(_reactCropper);
 	
-	__webpack_require__(880);
+	__webpack_require__(881);
 	
 	var _reactFileInputPreviewsBase = __webpack_require__(843);
 	
 	var _reactFileInputPreviewsBase2 = _interopRequireDefault(_reactFileInputPreviewsBase);
 	
-	var _reactNotifyToast = __webpack_require__(869);
+	var _reactNotifyToast = __webpack_require__(870);
 	
 	var _reactNotifyToast2 = _interopRequireDefault(_reactNotifyToast);
 	
@@ -97854,7 +97962,7 @@
 	
 	    _this.handleFavorite = function () {
 	      var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(index, id, data) {
-	        var coin, favorite, token, params, i, leftOver, _i, result, abbrArray, _i2;
+	        var coin, favorite, token, params, i, leftOver, _i, abbrArray, _i2;
 	
 	        return regeneratorRuntime.wrap(function _callee$(_context) {
 	          while (1) {
@@ -97899,33 +98007,32 @@
 	                    coin[index].clicked = true;
 	                    coin[index].loading = true;
 	                    favorite.push({ coin_id: id, clicked: false, abbr: data });
-	
-	                    _this.setState({ sideFavorite: coin, favorite: favorite });
-	
-	                    //즐겨찾기 한 코인들에게, 가격, 증감표시 key 추가
-	                    result = coin.map(function (el) {
-	                      var o = Object.assign({}, el);
-	                      o.price = 0;
-	                      o.percent = "";
-	                      return o;
-	                    });
+	                    _this.setState({ sideFavorite: coin, favorite: favorite, loadGraph: true });
 	
 	                    //즐겨찾기한 코인, 이름만 모으기
-	
 	                    abbrArray = [];
 	
-	                    for (_i2 = 0; _i2 < result.length; _i2++) {
-	                      abbrArray[_i2] = result[_i2].abbr;
+	                    for (_i2 = 0; _i2 < coin.length; _i2++) {
+	                      if (coin[_i2].clicked === true) {
+	                        abbrArray.push({ id: coin[_i2].id, abbr: coin[_i2].abbr });
+	                      }
 	                    }
+	
 	                    _this.props.dispatch(PriceAction.addFav(params)).then(function (x) {
-	                      _this.props.dispatch(PriceAction.getPrice(abbrArray)).then(function (value) {
-	                        for (var _i3 = 0; _i3 < abbrArray.length; _i3++) {
-	                          result[_i3].price = value[abbrArray[_i3]].KRW.PRICE;
-	                          result[_i3].percent = value[abbrArray[_i3]].KRW.CHANGEPCT24HOUR;
+	                      _this.props.dispatch(PriceAction.getPrice(abbrArray.map(function (a, index) {
+	                        return a.abbr;
+	                      }))).then(function (value) {
+	                        for (var _i3 = 0; _i3 < coin.length; _i3++) {
+	                          for (var j = 0; j < abbrArray.length; j++) {
+	                            if (coin[_i3].abbr === abbrArray[j].abbr) {
+	                              coin[_i3].price = value[abbrArray[j].abbr].KRW.PRICE;
+	                              coin[_i3].percent = value[abbrArray[j].abbr].KRW.CHANGEPCT24HOUR;
+	                            }
+	                          }
 	                        }
-	                        result[index].loading = false;
+	                        coin[index].loading = false;
 	                        _this.setState(function (state) {
-	                          return { sideFavorite: result };
+	                          return { sideFavorite: coin, loadGraph: false };
 	                        });
 	                      });
 	                    });
@@ -98009,7 +98116,8 @@
 	      targetImgFile: null,
 	      passwordUpdateValid: true,
 	      emailValid: true,
-	      usernameValid: true
+	      usernameValid: true,
+	      loadGraph: false
 	    };
 	    return _this;
 	  }
@@ -98129,7 +98237,8 @@
 	          showCrop = _state.showCrop,
 	          usernameValid = _state.usernameValid,
 	          emailValid = _state.emailValid,
-	          passwordUpdateValid = _state.passwordUpdateValid;
+	          passwordUpdateValid = _state.passwordUpdateValid,
+	          loadGraph = _state.loadGraph;
 	      var me = this.props.me;
 	
 	
@@ -98140,7 +98249,8 @@
 	        _react2.default.createElement(_Components.NavBar, { type: "auth" }),
 	        _react2.default.createElement(_Components.SideBar, {
 	          favorite: sideFavorite && sideFavorite,
-	          handleFavorite: this.handleFavorite
+	          handleFavorite: this.handleFavorite,
+	          loadGraph: loadGraph
 	        }),
 	        _react2.default.createElement(
 	          _reactstrap.Modal,
@@ -98411,7 +98521,7 @@
 	exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps)(SettingsPage));
 
 /***/ }),
-/* 878 */
+/* 879 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -98432,7 +98542,7 @@
 	
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 	
-	var _cropperjs = __webpack_require__(879);
+	var _cropperjs = __webpack_require__(880);
 	
 	var _cropperjs2 = _interopRequireDefault(_cropperjs);
 	
@@ -98807,7 +98917,7 @@
 
 
 /***/ }),
-/* 879 */
+/* 880 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/*!
@@ -102396,13 +102506,13 @@
 
 
 /***/ }),
-/* 880 */
+/* 881 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(881);
+	var content = __webpack_require__(882);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(433)(content, {});
@@ -102422,14 +102532,14 @@
 	}
 
 /***/ }),
-/* 881 */
+/* 882 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(432)();
 	exports.push([module.id, "/*!\n * Cropper.js v1.0.0-rc.3\n * https://github.com/fengyuanchen/cropperjs\n *\n * Copyright (c) 2017 Fengyuan Chen\n * Released under the MIT license\n *\n * Date: 2017-07-07T12:56:42.462Z\n */\n\n.cropper-container {\n  font-size: 0;\n  line-height: 0;\n\n  position: relative;\n\n  -webkit-user-select: none;\n\n     -moz-user-select: none;\n\n      -ms-user-select: none;\n\n          user-select: none;\n\n  direction: ltr;\n  -ms-touch-action: none;\n      touch-action: none\n}\n\n.cropper-container img {\n  /* Avoid margin top issue (Occur only when margin-top <= -height) */\n  display: block;\n  min-width: 0 !important;\n  max-width: none !important;\n  min-height: 0 !important;\n  max-height: none !important;\n  width: 100%;\n  height: 100%;\n  image-orientation: 0deg\n}\n\n.cropper-wrap-box,\n.cropper-canvas,\n.cropper-drag-box,\n.cropper-crop-box,\n.cropper-modal {\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n}\n\n.cropper-wrap-box {\n  overflow: hidden;\n}\n\n.cropper-drag-box {\n  opacity: 0;\n  background-color: #fff;\n}\n\n.cropper-modal {\n  opacity: .5;\n  background-color: #000;\n}\n\n.cropper-view-box {\n  display: block;\n  overflow: hidden;\n\n  width: 100%;\n  height: 100%;\n\n  outline: 1px solid #39f;\n  outline-color: rgba(51, 153, 255, 0.75);\n}\n\n.cropper-dashed {\n  position: absolute;\n\n  display: block;\n\n  opacity: .5;\n  border: 0 dashed #eee\n}\n\n.cropper-dashed.dashed-h {\n  top: 33.33333%;\n  left: 0;\n  width: 100%;\n  height: 33.33333%;\n  border-top-width: 1px;\n  border-bottom-width: 1px\n}\n\n.cropper-dashed.dashed-v {\n  top: 0;\n  left: 33.33333%;\n  width: 33.33333%;\n  height: 100%;\n  border-right-width: 1px;\n  border-left-width: 1px\n}\n\n.cropper-center {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n\n  display: block;\n\n  width: 0;\n  height: 0;\n\n  opacity: .75\n}\n\n.cropper-center:before,\n  .cropper-center:after {\n  position: absolute;\n  display: block;\n  content: ' ';\n  background-color: #eee\n}\n\n.cropper-center:before {\n  top: 0;\n  left: -3px;\n  width: 7px;\n  height: 1px\n}\n\n.cropper-center:after {\n  top: -3px;\n  left: 0;\n  width: 1px;\n  height: 7px\n}\n\n.cropper-face,\n.cropper-line,\n.cropper-point {\n  position: absolute;\n\n  display: block;\n\n  width: 100%;\n  height: 100%;\n\n  opacity: .1;\n}\n\n.cropper-face {\n  top: 0;\n  left: 0;\n\n  background-color: #fff;\n}\n\n.cropper-line {\n  background-color: #39f\n}\n\n.cropper-line.line-e {\n  top: 0;\n  right: -3px;\n  width: 5px;\n  cursor: e-resize\n}\n\n.cropper-line.line-n {\n  top: -3px;\n  left: 0;\n  height: 5px;\n  cursor: n-resize\n}\n\n.cropper-line.line-w {\n  top: 0;\n  left: -3px;\n  width: 5px;\n  cursor: w-resize\n}\n\n.cropper-line.line-s {\n  bottom: -3px;\n  left: 0;\n  height: 5px;\n  cursor: s-resize\n}\n\n.cropper-point {\n  width: 5px;\n  height: 5px;\n\n  opacity: .75;\n  background-color: #39f\n}\n\n.cropper-point.point-e {\n  top: 50%;\n  right: -3px;\n  margin-top: -3px;\n  cursor: e-resize\n}\n\n.cropper-point.point-n {\n  top: -3px;\n  left: 50%;\n  margin-left: -3px;\n  cursor: n-resize\n}\n\n.cropper-point.point-w {\n  top: 50%;\n  left: -3px;\n  margin-top: -3px;\n  cursor: w-resize\n}\n\n.cropper-point.point-s {\n  bottom: -3px;\n  left: 50%;\n  margin-left: -3px;\n  cursor: s-resize\n}\n\n.cropper-point.point-ne {\n  top: -3px;\n  right: -3px;\n  cursor: ne-resize\n}\n\n.cropper-point.point-nw {\n  top: -3px;\n  left: -3px;\n  cursor: nw-resize\n}\n\n.cropper-point.point-sw {\n  bottom: -3px;\n  left: -3px;\n  cursor: sw-resize\n}\n\n.cropper-point.point-se {\n  right: -3px;\n  bottom: -3px;\n  width: 20px;\n  height: 20px;\n  cursor: se-resize;\n  opacity: 1\n}\n\n@media (min-width: 768px) {\n\n  .cropper-point.point-se {\n    width: 15px;\n    height: 15px\n  }\n}\n\n@media (min-width: 992px) {\n\n  .cropper-point.point-se {\n    width: 10px;\n    height: 10px\n  }\n}\n\n@media (min-width: 1200px) {\n\n  .cropper-point.point-se {\n    width: 5px;\n    height: 5px;\n    opacity: .75\n  }\n}\n\n.cropper-point.point-se:before {\n  position: absolute;\n  right: -50%;\n  bottom: -50%;\n  display: block;\n  width: 200%;\n  height: 200%;\n  content: ' ';\n  opacity: 0;\n  background-color: #39f\n}\n\n.cropper-invisible {\n  opacity: 0;\n}\n\n.cropper-bg {\n  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAQMAAAAlPW0iAAAAA3NCSVQICAjb4U/gAAAABlBMVEXMzMz////TjRV2AAAACXBIWXMAAArrAAAK6wGCiw1aAAAAHHRFWHRTb2Z0d2FyZQBBZG9iZSBGaXJld29ya3MgQ1M26LyyjAAAABFJREFUCJlj+M/AgBVhF/0PAH6/D/HkDxOGAAAAAElFTkSuQmCC');\n}\n\n.cropper-hide {\n  position: absolute;\n\n  display: block;\n\n  width: 0;\n  height: 0;\n}\n\n.cropper-hidden {\n  display: none !important;\n}\n\n.cropper-move {\n  cursor: move;\n}\n\n.cropper-crop {\n  cursor: crosshair;\n}\n\n.cropper-disabled .cropper-drag-box,\n.cropper-disabled .cropper-face,\n.cropper-disabled .cropper-line,\n.cropper-disabled .cropper-point {\n  cursor: not-allowed;\n}\n\n", ""]);
 
 /***/ }),
-/* 882 */
+/* 883 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -102697,7 +102807,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(FindPage);
 
 /***/ }),
-/* 883 */
+/* 884 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -102744,17 +102854,17 @@
 	
 	var _reactConfirmAlert = __webpack_require__(862);
 	
-	var _reactCropper = __webpack_require__(878);
+	var _reactCropper = __webpack_require__(879);
 	
 	var _reactCropper2 = _interopRequireDefault(_reactCropper);
 	
-	__webpack_require__(880);
+	__webpack_require__(881);
 	
 	var _reactFileInputPreviewsBase = __webpack_require__(843);
 	
 	var _reactFileInputPreviewsBase2 = _interopRequireDefault(_reactFileInputPreviewsBase);
 	
-	var _reactNotifyToast = __webpack_require__(869);
+	var _reactNotifyToast = __webpack_require__(870);
 	
 	var _reactNotifyToast2 = _interopRequireDefault(_reactNotifyToast);
 	
@@ -102763,8 +102873,6 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-	
-	function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
@@ -102790,8 +102898,6 @@
 	  _inherits(AdminPage, _Component);
 	
 	  function AdminPage(props) {
-	    var _this2 = this;
-	
 	    _classCallCheck(this, AdminPage);
 	
 	    var _this = _possibleConstructorReturn(this, (AdminPage.__proto__ || Object.getPrototypeOf(AdminPage)).call(this, props));
@@ -102800,6 +102906,10 @@
 	      _this.setState({
 	        showModal: !_this.state.showModal
 	      });
+	    };
+	
+	    _this.handleCoin = function (e) {
+	      _this.setState({ coin: e.target.value });
 	    };
 	
 	    _this.handleKor = function (e) {
@@ -102850,98 +102960,6 @@
 	      });
 	    };
 	
-	    _this.handleFavorite = function () {
-	      var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(index, id, data) {
-	        var coin, favorite, token, params, i, leftOver, _i, result, abbrArray, _i2;
-	
-	        return regeneratorRuntime.wrap(function _callee$(_context) {
-	          while (1) {
-	            switch (_context.prev = _context.next) {
-	              case 0:
-	                coin = _this.state.sideFavorite.slice();
-	                favorite = _this.state.favorite.slice();
-	                token = _this.props.token;
-	                params = {
-	                  token: token,
-	                  coin_id: coin[index].id
-	                };
-	                //삭제
-	
-	                if (coin[index].clicked === true) {
-	                  coin[index].clicked = false;
-	
-	                  for (i = 0; i < favorite.length; i++) {
-	                    if (favorite[i].abbr === data) {
-	                      favorite.splice(i, 1);
-	                    }
-	                  }
-	
-	                  leftOver = [];
-	
-	                  for (_i = 0; _i < coin.length; _i++) {
-	                    if (coin[_i].clicked === true) {
-	                      leftOver.push(coin[_i].abbr);
-	                    }
-	                  }
-	                  //한개 남았을 때
-	                  if (leftOver.length === 0) {
-	                    _this.setState({ sideFavorite: coin, favorite: favorite });
-	                    _this.props.dispatch(PriceAction.removeFav(params));
-	                  } else {
-	                    _this.setState({ sideFavorite: coin, favorite: favorite });
-	                    _this.props.dispatch(PriceAction.removeFav(params));
-	                  }
-	                }
-	                //추가
-	                else {
-	                    coin[index].clicked = true;
-	                    coin[index].loading = true;
-	                    favorite.push({ coin_id: id, clicked: false, abbr: data });
-	
-	                    _this.setState({ sideFavorite: coin, favorite: favorite });
-	
-	                    //즐겨찾기 한 코인들에게, 가격, 증감표시 key 추가
-	                    result = coin.map(function (el) {
-	                      var o = Object.assign({}, el);
-	                      o.price = 0;
-	                      o.percent = "";
-	                      return o;
-	                    });
-	
-	                    //즐겨찾기한 코인, 이름만 모으기
-	
-	                    abbrArray = [];
-	
-	                    for (_i2 = 0; _i2 < result.length; _i2++) {
-	                      abbrArray[_i2] = result[_i2].abbr;
-	                    }
-	                    _this.props.dispatch(PriceAction.addFav(params)).then(function (x) {
-	                      _this.props.dispatch(PriceAction.getPrice(abbrArray)).then(function (value) {
-	                        for (var _i3 = 0; _i3 < abbrArray.length; _i3++) {
-	                          result[_i3].price = value[abbrArray[_i3]].KRW.PRICE;
-	                          result[_i3].percent = value[abbrArray[_i3]].KRW.CHANGEPCT24HOUR;
-	                        }
-	                        result[index].loading = false;
-	                        _this.setState(function (state) {
-	                          return { sideFavorite: result };
-	                        });
-	                      });
-	                    });
-	                  }
-	
-	              case 5:
-	              case "end":
-	                return _context.stop();
-	            }
-	          }
-	        }, _callee, _this2);
-	      }));
-	
-	      return function (_x, _x2, _x3) {
-	        return _ref.apply(this, arguments);
-	      };
-	    }();
-	
 	    _this._crop = function () {
 	      _this.setState({
 	        croppedImg: _this.refs.cropper.getCroppedCanvas().toDataURL()
@@ -102950,6 +102968,16 @@
 	
 	    _this.handleFile = function (e) {
 	      _this.setState({ targetImg: e[0].base64, showCrop: true });
+	    };
+	
+	    _this.handleDeleteCoin = function () {
+	      var token = _this.props.token;
+	      var coin = _this.state.coin;
+	
+	      var params = { token: token, abbr: coin };
+	      _this.props.dispatch(AuthAction.deleteCoin(params)).then(function (result) {
+	        _reactNotifyToast.notify.show("코인이 삭제되었습니다");
+	      });
 	    };
 	
 	    _this.handleEditImage = function () {
@@ -103001,6 +103029,7 @@
 	      keyword: "",
 	      kor: "",
 	      full: "",
+	      coin: "",
 	      abbr: "",
 	      croppedImg: "",
 	      targetImg: "",
@@ -103014,7 +103043,7 @@
 	  _createClass(AdminPage, [{
 	    key: "componentWillMount",
 	    value: function componentWillMount() {
-	      var _this3 = this;
+	      var _this2 = this;
 	
 	      var _props = this.props,
 	          me = _props.me,
@@ -103028,7 +103057,7 @@
 	          this.setState({ email: me.email, username: me.username });
 	          var params = { user_id: me.id, token: token };
 	          this.props.dispatch(SocialAction.getForumByUser(params)).then(function (forums) {
-	            _this3.props.dispatch(SocialAction.getCommentsByUser(params)).then(function (comments) {
+	            _this2.props.dispatch(SocialAction.getCommentsByUser(params)).then(function (comments) {
 	              var result = forums.reverse().map(function (el) {
 	                var o = Object.assign({}, el);
 	                o.loading = false;
@@ -103039,12 +103068,12 @@
 	                o.loading = false;
 	                return o;
 	              });
-	              _this3.setState({
+	              _this2.setState({
 	                posts: result,
 	                comments: commentResult
 	              });
-	              _this3.props.dispatch(PriceAction.getCoins()).then(function (coins) {
-	                _this3.props.dispatch(PriceAction.getFavs(_this3.props.token)).then(function (favs) {
+	              _this2.props.dispatch(PriceAction.getCoins()).then(function (coins) {
+	                _this2.props.dispatch(PriceAction.getFavs(_this2.props.token)).then(function (favs) {
 	                  if (favs.length === 0) {
 	                    var _result = coins.map(function (el) {
 	                      var o = Object.assign({}, el);
@@ -103052,7 +103081,7 @@
 	                      o.loading = false;
 	                      return o;
 	                    });
-	                    _this3.setState({
+	                    _this2.setState({
 	                      sideFavorite: _result
 	                    });
 	                  } else {
@@ -103078,18 +103107,18 @@
 	                        }
 	                      }
 	                    }
-	                    _this3.setState({
+	                    _this2.setState({
 	                      favorite: _result2,
 	                      sideFavorite: resultSide
 	                    });
 	
 	                    //Crypto Compare API
 	                    var abbrArray = [];
-	                    for (var _i4 = 0; _i4 < resultSide.length; _i4++) {
-	                      if (resultSide[_i4].clicked === true) {
+	                    for (var _i = 0; _i < resultSide.length; _i++) {
+	                      if (resultSide[_i].clicked === true) {
 	                        abbrArray.push({
-	                          id: resultSide[_i4].id,
-	                          abbr: resultSide[_i4].abbr
+	                          id: resultSide[_i].id,
+	                          abbr: resultSide[_i].abbr
 	                        });
 	                      }
 	                    }
@@ -103099,19 +103128,19 @@
 	                      o.percent = "";
 	                      return o;
 	                    });
-	                    _this3.props.dispatch(PriceAction.getPrice(abbrArray.map(function (a, index) {
+	                    _this2.props.dispatch(PriceAction.getPrice(abbrArray.map(function (a, index) {
 	                      return a.abbr;
 	                    }))).then(function (value) {
-	                      for (var _i5 = 0; _i5 < final.length; _i5++) {
+	                      for (var _i2 = 0; _i2 < final.length; _i2++) {
 	                        for (var _j = 0; _j < abbrArray.length; _j++) {
-	                          if (final[_i5].abbr === abbrArray[_j].abbr) {
-	                            final[_i5].loading = false;
-	                            final[_i5].price = value[abbrArray[_j].abbr].KRW.PRICE;
-	                            final[_i5].percent = value[abbrArray[_j].abbr].KRW.CHANGEPCT24HOUR;
+	                          if (final[_i2].abbr === abbrArray[_j].abbr) {
+	                            final[_i2].loading = false;
+	                            final[_i2].price = value[abbrArray[_j].abbr].KRW.PRICE;
+	                            final[_i2].percent = value[abbrArray[_j].abbr].KRW.CHANGEPCT24HOUR;
 	                          }
 	                        }
 	                      }
-	                      _this3.setState({ sideFavorite: final });
+	                      _this2.setState({ sideFavorite: final });
 	                    });
 	                  }
 	                });
@@ -103146,10 +103175,6 @@
 	        { className: "settingsPage" },
 	        _react2.default.createElement(_Components.NavBar, { type: "admin" }),
 	        _react2.default.createElement(_reactNotifyToast2.default, null),
-	        _react2.default.createElement(_Components.SideBar, {
-	          favorite: sideFavorite && sideFavorite,
-	          handleFavorite: this.handleFavorite
-	        }),
 	        _react2.default.createElement(
 	          _reactstrap.Modal,
 	          {
@@ -103253,6 +103278,7 @@
 	              _react2.default.createElement(
 	                "div",
 	                { className: "settingsPage__content__news__lists__content" },
+	                _react2.default.createElement("br", null),
 	                _react2.default.createElement(_Components.RoundInput, {
 	                  placeholder: "\uC0AD\uC81C\uD558\uACE0\uC790\uD558\uB294 \uC720\uC800 \uB124\uC784\uC744 \uC785\uB825\uD558\uC138\uC694",
 	                  onChange: this.handleUsername
@@ -103263,6 +103289,22 @@
 	                  height: 30,
 	                  marginTop: 10,
 	                  onClick: this.handleDeleteUser
+	                })
+	              ),
+	              _react2.default.createElement(
+	                "div",
+	                { className: "settingsPage__content__news__lists__content" },
+	                _react2.default.createElement("br", null),
+	                _react2.default.createElement(_Components.RoundInput, {
+	                  placeholder: "\uC0AD\uC81C\uD558\uACE0\uC790\uD558\uB294 \uCF54\uC778 \uC57D\uC790\uB97C \uC785\uB825\uD558\uC138\uC694",
+	                  onChange: this.handleCoin
+	                }),
+	                _react2.default.createElement(_Components.Button, {
+	                  text: "\uC0AD\uC81C\uD558\uAE30",
+	                  width: 90,
+	                  height: 30,
+	                  marginTop: 10,
+	                  onClick: this.handleDeleteCoin
 	                })
 	              ),
 	              _react2.default.createElement("br", null),
