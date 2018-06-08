@@ -89863,6 +89863,7 @@
 	                    category: selectedPostType2,
 	                    coins: coinArray,
 	                    created_at: date,
+	                    updated_at: null,
 	                    view_cnt: 0,
 	                    like_cnt: 0,
 	                    dislike_cnt: 0,
@@ -90069,6 +90070,7 @@
 	          search = _this$state4.search,
 	          sort = _this$state4.sort,
 	          forumIndex = _this$state4.forumIndex;
+	
 	
 	      var params = {
 	        index: forumIndex,
