@@ -89646,17 +89646,29 @@
 	    };
 	
 	    _this.handlePreview = function (file_arr) {
-	      var imagePreview = _this.state.imagePreview.slice();
-	      for (var i = 0; i < file_arr.length; i++) {
-	        imagePreview.push(file_arr[i].base64);
-	      }
-	      _this.setState({ imagePreview: imagePreview });
+	      var token = _this.props.token;
+	      var editId = _this.state.editId;
+	
+	      var params = { token: token, base64: file_arr[0].base64, forum_id: editId };
+	      _this.props.dispatch(SocialAction.uploadImage(params)).then(function (result) {
+	        var imagePreview = _this.state.imagePreview.slice();
+	        for (var i = 0; i < file_arr.length; i++) {
+	          imagePreview.push(file_arr[i].base64);
+	        }
+	        _this.setState({ imagePreview: imagePreview });
+	      });
 	    };
 	
 	    _this.handleBadge = function (value) {
-	      var imagePreview = _this.state.imagePreview.slice();
-	      imagePreview.splice(imagePreview.indexOf(value), 1);
-	      _this.setState({ imagePreview: imagePreview });
+	      var token = _this.props.token;
+	
+	      var result = value.split("/");
+	      var params = { token: token, key: result[4] };
+	      _this.props.dispatch(SocialAction.deleteImage(params)).then(function (result) {
+	        var imagePreview = _this.state.imagePreview.slice();
+	        imagePreview.splice(imagePreview.indexOf(value), 1);
+	        _this.setState({ imagePreview: imagePreview });
+	      });
 	    };
 	
 	    _this.handleFavorite = function (index, id, data) {
