@@ -91760,19 +91760,19 @@
 	              { className: "postPage__content__chart__intro__post" },
 	              _react2.default.createElement(
 	                "div",
-	                { className: "postPage__content__chart__intro__post__header" },
+	                { className: "postPage__content__chart__intro__post__close" },
 	                _react2.default.createElement(
-	                  "div",
-	                  { className: "postPage__content__chart__intro__post__close" },
-	                  _react2.default.createElement(
-	                    "span",
-	                    {
-	                      className: "postPage__content__chart__intro__post__close__icon",
-	                      onClick: this.handleBack
-	                    },
-	                    _react2.default.createElement("i", { className: "xi-close" })
-	                  )
-	                ),
+	                  "span",
+	                  {
+	                    className: "postPage__content__chart__intro__post__close__icon",
+	                    onClick: this.handleBack
+	                  },
+	                  _react2.default.createElement("i", { className: "xi-close" })
+	                )
+	              ),
+	              _react2.default.createElement(
+	                "div",
+	                { className: "postPage__content__chart__intro__post__header" },
 	                _react2.default.createElement(
 	                  "div",
 	                  { className: "postPage__content__chart__intro__post__header__userInfo" },
