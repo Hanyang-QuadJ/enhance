@@ -47467,7 +47467,7 @@
 	      newsCount: 0,
 	      sourceId: 0,
 	      sourceName: "최신순",
-	      footerLoading: false,
+	      footerLoading: true,
 	      newsLoading: true,
 	      recent: 0
 	    };
@@ -90328,7 +90328,7 @@
 	      isPostsLoading: false,
 	      forumLoading: false,
 	      filterCoins: [],
-	      footerLoading: false,
+	      footerLoading: true,
 	      title: "",
 	      main: "",
 	      endScroll: false,
