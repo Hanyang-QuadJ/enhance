@@ -89761,12 +89761,13 @@
 	      var editId = _this.state.editId;
 	
 	      var params = { token: token, base64: file_arr[0].base64, forum_id: editId };
+	      _this.setState({ postLoading: true });
 	      _this.props.dispatch(SocialAction.uploadImage(params)).then(function (result) {
 	        var imagePreview = _this.state.imagePreview.slice();
 	        for (var i = 0; i < file_arr.length; i++) {
 	          imagePreview.push(file_arr[i].base64);
 	        }
-	        _this.setState({ imagePreview: imagePreview });
+	        _this.setState({ imagePreview: imagePreview, postLoading: false });
 	      });
 	    };
 	
@@ -97119,12 +97120,13 @@
 	      var editId = _this.state.editId;
 	
 	      var params = { token: token, base64: file_arr[0].base64, forum_id: editId };
+	      _this.setState({ postLoading: true });
 	      _this.props.dispatch(SocialAction.uploadImage(params)).then(function (result) {
 	        var imagePreview = _this.state.imagePreview.slice();
 	        for (var i = 0; i < file_arr.length; i++) {
 	          imagePreview.push(file_arr[i].base64);
 	        }
-	        _this.setState({ imagePreview: imagePreview });
+	        _this.setState({ imagePreview: imagePreview, postLoading: false });
 	      });
 	    };
 	
