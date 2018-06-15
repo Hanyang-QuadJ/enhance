@@ -89052,6 +89052,7 @@
 	              },
 	              news && news.map(function (data, index) {
 	                return _react2.default.createElement(_Components.List, {
+	                  isNews: true,
 	                  key: index,
 	                  title: data.title,
 	                  createdAt: data.pubDate,
@@ -89088,7 +89089,7 @@
 	                _react2.default.createElement(
 	                  "p",
 	                  null,
-	                  "\uC778\uD578\uC2A4\uB294 \uAC00\uC0C1\uD654\uD3D0\uC640 \uBE14\uB85D\uCCB4\uC778 \uAE30\uC220\uC5D0 \uB300\uD55C \uC815\uBCF4\uB97C \uC2E4\uC2DC\uAC04\uC73C\uB85C \uBAA8\uC544\uC11C \uD55C\uB208\uC5D0 \uBCF4\uAE30 \uC27D\uAC8C \uC81C\uACF5\uD574 \uB4DC\uB9AC\uACE0 \uC788\uC2B5\uB2C8\uB2E4. \uC778\uD578\uC2A4\uC640 \uD568\uAED8 \uAC00\uC0C1\uD654\uD3D0\uC758 \uC5ED\uC0AC\uB97C \uD568\uAED8 \uD558\uC138\uC694."
+	                  "\uCF54\uC778\uD5C8\uBE0C\uB294 \uAC00\uC0C1\uD654\uD3D0\uC640 \uBE14\uB85D\uCCB4\uC778 \uAE30\uC220\uC5D0 \uB300\uD55C \uC815\uBCF4\uB97C \uC2E4\uC2DC\uAC04\uC73C\uB85C \uBAA8\uC544\uC11C \uD55C\uB208\uC5D0 \uBCF4\uAE30 \uC27D\uAC8C \uC81C\uACF5\uD574 \uB4DC\uB9AC\uACE0 \uC788\uC2B5\uB2C8\uB2E4. \uCF54\uC778\uD5C8\uBE0C\uC640 \uD568\uAED8 \uAC00\uC0C1\uD654\uD3D0\uC758 \uC5ED\uC0AC\uB97C \uD568\uAED8 \uD558\uC138\uC694."
 	                )
 	              ),
 	              _react2.default.createElement(
@@ -89129,7 +89130,7 @@
 	                _react2.default.createElement(
 	                  "p",
 	                  null,
-	                  "\uC544\uC9C1 \uC778\uD578\uC2A4\uC758 \uD68C\uC6D0\uC774 \uC544\uB2C8\uC2E0\uAC00\uC694?"
+	                  "\uC544\uC9C1 \uCF54\uC778\uD5C8\uBE0C\uC758 \uD68C\uC6D0\uC774 \uC544\uB2C8\uC2E0\uAC00\uC694?"
 	                ),
 	                _react2.default.createElement(
 	                  "p",
@@ -89417,6 +89418,7 @@
 	              },
 	              news && news.map(function (data, index) {
 	                return _react2.default.createElement(_Components.List, {
+	                  isNews: true,
 	                  key: index,
 	                  title: data.title,
 	                  createdAt: data.pubDate,
