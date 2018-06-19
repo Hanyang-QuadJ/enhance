@@ -88546,7 +88546,7 @@
 	            _react2.default.createElement(
 	              "div",
 	              { className: "footer__items__item" },
-	              "2018 \xA9 CoinHub"
+	              "2018 \xA9 CoinHub.kr"
 	            )
 	          )
 	        )
