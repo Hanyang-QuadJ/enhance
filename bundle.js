@@ -89419,7 +89419,6 @@
 	                for (i = 0; i < preview.length; i++) {
 	                  resultImgArray.push((0, _function.getBase64Image)(preview[i]));
 	                }
-	                console.log(resultImgArray);
 
 	                for (_i4 = 0; _i4 < coins.length; _i4++) {
 	                  for (j = 0; j < newFav.length; j++) {
@@ -89433,7 +89432,7 @@
 	                  abbr.push(coins[_i5].abbr);
 	                  type.push(coins[_i5].id);
 	                }
-	                _context4.next = 13;
+	                _context4.next = 12;
 	                return _this.setState({
 	                  title: title,
 	                  main: main,
@@ -89447,11 +89446,11 @@
 	                  imagePreview: preview
 	                });
 
-	              case 13:
-	                _context4.next = 15;
+	              case 12:
+	                _context4.next = 14;
 	                return _this.toggleModal();
 
-	              case 15:
+	              case 14:
 	              case "end":
 	                return _context4.stop();
 	            }
@@ -89785,9 +89784,6 @@
 	          title = _state2.title,
 	          typeDropDown = _state2.typeDropDown,
 	          loadGraph = _state2.loadGraph;
-
-	      console.log(loadGraph);
-
 	      var _props = this.props,
 	          me = _props.me,
 	          isLogin = _props.isLogin;
