@@ -89113,6 +89113,8 @@
 
 	              if (selectedCoinType.length === 0) {
 	                alert("해당하는 종목을 1개 이상 선택해주세요!");
+	              } else if (title === "" || main === "") {
+	                alert("제목 또는 본문을 입력하세요!");
 	              } else {
 	                date = new Date();
 	                coinArray = [];
@@ -89784,9 +89786,6 @@
 	          title = _state2.title,
 	          typeDropDown = _state2.typeDropDown,
 	          loadGraph = _state2.loadGraph;
-
-	      console.log(posts);
-
 	      var _props = this.props,
 	          me = _props.me,
 	          isLogin = _props.isLogin;
